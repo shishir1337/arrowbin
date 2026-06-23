@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0a0a0a">How long an MVP takes by complexity</text>
+  <text x="80" y="120" font-size="24" fill="#52525b">Kickoff to launch, in weeks (2026)</text>
+
+  <!-- gridlines -->
+  <g stroke="#e4e4e7" stroke-width="1">
+    <line x1="420" y1="180" x2="420" y2="600"/>
+    <line x1="600" y1="180" x2="600" y2="600"/>
+    <line x1="780" y1="180" x2="780" y2="600"/>
+    <line x1="960" y1="180" x2="960" y2="600"/>
+    <line x1="1140" y1="180" x2="1140" y2="600"/>
+  </g>
+  <g font-size="19" fill="#a1a1aa" text-anchor="middle">
+    <text x="420" y="630">4w</text>
+    <text x="600" y="630">8w</text>
+    <text x="780" y="630">12w</text>
+    <text x="960" y="630">16w</text>
+    <text x="1140" y="630">20w</text>
+  </g>
+
+  <!-- labels -->
+  <g font-size="22" fill="#0a0a0a">
+    <text x="80" y="245">Simple tool / micro-MVP</text>
+    <text x="80" y="385">Standard MVP</text>
+    <text x="80" y="525">Complex / SaaS MVP</text>
+  </g>
+
+  <!-- bars (length = upper bound) -->
+  <g>
+    <rect x="240" y="210" width="360" height="60" rx="10" fill="#a3e635"/>
+    <rect x="240" y="350" width="630" height="60" rx="10" fill="#65a30d"/>
+    <rect x="240" y="490" width="900" height="60" rx="10" fill="#3f6212"/>
+  </g>
+
+  <!-- value labels -->
+  <g font-size="23" font-weight="700">
+    <text x="620" y="248" fill="#0a0a0a">6–8 weeks</text>
+    <text x="890" y="388" fill="#0a0a0a">10–14 weeks</text>
+    <text x="900" y="528" fill="#ffffff" text-anchor="end">14–20 weeks</text>
+  </g>
+
+  <text x="80" y="688" font-size="18" fill="#a1a1aa">Scope is the biggest lever — the fewer features in v1, the faster you launch and learn.</text>
+</svg>

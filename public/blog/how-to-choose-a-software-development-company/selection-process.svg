@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0a0a0a">A 5-step process for choosing a partner</text>
+  <text x="80" y="130" font-size="24" fill="#52525b">From defining your needs to starting the engagement</text>
+
+  <!-- connecting line -->
+  <line x1="180" y1="350" x2="1100" y2="350" stroke="#e4e4e7" stroke-width="6"/>
+
+  <!-- nodes -->
+  <g>
+    <circle cx="180" cy="350" r="48" fill="#3f6212"/>
+    <circle cx="410" cy="350" r="48" fill="#4d7c0f"/>
+    <circle cx="640" cy="350" r="48" fill="#65a30d"/>
+    <circle cx="870" cy="350" r="48" fill="#84cc16"/>
+    <circle cx="1100" cy="350" r="48" fill="#a3e635"/>
+  </g>
+  <g font-size="38" font-weight="700" text-anchor="middle">
+    <text x="180" y="364" fill="#ffffff">1</text>
+    <text x="410" y="364" fill="#ffffff">2</text>
+    <text x="640" y="364" fill="#ffffff">3</text>
+    <text x="870" y="364" fill="#0a0a0a">4</text>
+    <text x="1100" y="364" fill="#0a0a0a">5</text>
+  </g>
+
+  <!-- labels -->
+  <g font-size="22" font-weight="600" fill="#0a0a0a" text-anchor="middle">
+    <text x="180" y="450">Define</text>
+    <text x="180" y="478">your needs</text>
+    <text x="410" y="450">Shortlist</text>
+    <text x="410" y="478">3–5 firms</text>
+    <text x="640" y="450">Review</text>
+    <text x="640" y="478">live work</text>
+    <text x="870" y="450">Interview</text>
+    <text x="870" y="478">&amp; ask</text>
+    <text x="1100" y="450">Decide</text>
+    <text x="1100" y="478">&amp; start</text>
+  </g>
+</svg>

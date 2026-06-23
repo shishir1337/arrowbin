@@ -1,0 +1,61 @@
+Please create a software development company's website :
+
+Arrwobin 
+category : Software Development Company
+
+domain: https://arrowbin.com
+
+my previous works serialized from most recent :
+Muxoro https://muxoro.com/
+Madexa : https://www.madexa.com/
+North Bengal Agro Farms Ltd : https://nbafl.net/
+Maneel Club : https://maneelclub.com/
+Brandingly : https://brandingly.agency/
+গ তে গয়না : https://gtegoyna.com.bd/
+YT Shop India : https://ytshopindia.com/
+OutNet : https://outnet.it.com/
+
+and worked for many more companies like : Sikkhon, Dizishore, Rize Capital, Vellio Properties, khaza confectionery, ABC Tiles, Hatch Apps, 
+
+
+
+contact : 
+hello@arrowbin.com
+phone : +8801843596038
+Phone : +1 813-421-5874
+
+
+office 1 : Dhaka, Bangladesh
+Office 2 : Florida, USA
+
+
+social:
+
+https://www.facebook.com/arrowbinllc/
+https://www.instagram.com/arrowbinllc
+https://x.com/Arrowbinllc
+
+
+services :
+
+ Custom Software Development
+
+E-commerce Development
+
+Mobile App Development
+
+SaaS / Product Engineering
+
+UI/UX Design
+
+AI Automation
+
+Cloud, DevOps & Hosting
+
+Maintenance & Support
+
+
+
+
+
+claude --resume 4201d8ec-5dde-4123-a424-c31f6338b085

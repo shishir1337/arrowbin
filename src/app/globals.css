@@ -1,26 +1,161 @@
 @import "tailwindcss";
 
+/*
+ * Arrowbin design system (Tailwind v4 @theme).
+ * Light is the default; the .dark class on <html> activates dark mode.
+ * Palette: monochrome (near-black/white) neutrals + electric-lime accent.
+ * Fonts: Space Grotesk (display) + DM Sans (body).
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* surfaces & text — light */
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-2: #f4f4f5;
+  --color-border: #e4e4e7;
+  --color-text: #0a0a0a;
+  --color-muted: #52525b;
+
+  /* brand — readable lime on light, white text on the fill */
+  --color-primary: #0a0a0a;
+  --color-primary-fg: #ffffff;
+  --color-accent: #3f6212;
+  --color-accent-hover: #365314;
+  --color-accent-fg: #ffffff;
+  --color-ring: #4d7c0f;
+}
+
+.dark {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-surface-2: #1c1c1c;
+  --color-border: #272727;
+  --color-text: #ededed;
+  --color-muted: #a1a1aa;
+
+  /* brand — electric lime pops on near-black, black text on the fill */
+  --color-primary: #ededed;
+  --color-primary-fg: #0a0a0a;
+  --color-accent: #a3e635;
+  --color-accent-hover: #bef264;
+  --color-accent-fg: #0a0a0a;
+  --color-ring: #a3e635;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+  --color-border: var(--color-border);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-fg: var(--color-primary-fg);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-fg: var(--color-accent-fg);
+  --color-ring: var(--color-ring);
+
+  --font-display:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* z-index scale */
+  --z-base: 1;
+  --z-dropdown: 20;
+  --z-header: 40;
+  --z-overlay: 50;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Visible focus for keyboard users only */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Animation primitives: visible by default; only hidden once JS is confirmed
+ * (the inline script adds `.js` to <html>), so no-JS users always see content. */
+.js [data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Hero pieces are animated in by GSAP on mount; hide them up-front (JS only) so the
+ * final state never flashes before the timeline runs. */
+.js [data-hero="badge"],
+.js [data-hero="sub"],
+.js [data-hero="cta"] > *,
+.js [data-hero="chip"] {
+  opacity: 0;
+}
+
+/* Animated counters: hold layout but stay invisible until JS sets the start value. */
+.js [data-countup] {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    /* biome-ignore lint/complexity/noImportantStyles: must override all animation. */
+    animation-duration: 0.01ms !important;
+    /* biome-ignore lint/complexity/noImportantStyles: must override all animation. */
+    animation-iteration-count: 1 !important;
+    /* biome-ignore lint/complexity/noImportantStyles: must override all transitions. */
+    transition-duration: 0.01ms !important;
+  }
+  /* Never leave reduced-motion users with invisible content. */
+  .js [data-reveal],
+  .js [data-hero="badge"],
+  .js [data-hero="sub"],
+  .js [data-hero="cta"] > *,
+  .js [data-hero="chip"] {
+    /* biome-ignore lint/complexity/noImportantStyles: force-reveal over JS-set opacity. */
+    opacity: 1 !important;
+  }
+  .js [data-countup] {
+    /* biome-ignore lint/complexity/noImportantStyles: force-reveal over JS-set visibility. */
+    visibility: visible !important;
+  }
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-accent-fg);
 }
