@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "human-writing",
+  "owner": "factory-ai",
+  "repo": "factory-plugins",
+  "path": "plugins/droid-evolved/skills/human-writing",
+  "branch": "master",
+  "sha": "69f9b5078edcde49c3df99bda1bcf89cf5157fd2",
+  "source": "manual"
+}

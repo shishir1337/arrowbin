@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { CTASection } from "@/components/sections/CTASection";
@@ -17,6 +18,26 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { projects } from "@/lib/portfolio";
 import { faqSchema } from "@/lib/schema";
 import { services } from "@/lib/services";
+import { defaultOgImage, site } from "@/lib/site";
+
+const homeTitle = "Custom Software Development Company | Arrowbin";
+const homeDescription =
+  "Arrowbin is a software development company building custom software, web and mobile apps, SaaS, AI automation and cloud solutions worldwide.";
+
+export const metadata: Metadata = {
+  // Absolute title leads with the primary keyword (bypasses the "%s | Arrowbin" template).
+  title: { absolute: homeTitle },
+  description: homeDescription,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    title: homeTitle,
+    description: homeDescription,
+    url: "/",
+    locale: "en_US",
+    images: [defaultOgImage],
+  },
+};
 
 const homeFaqs = [
   {

@@ -4,10 +4,23 @@
  */
 
 import { author, sameAs, site, siteUrl } from "@/lib/site";
+import { averageRating, testimonials } from "@/lib/testimonials";
 
 const ORG_ID = `${siteUrl}/#organization`;
 const WEBSITE_ID = `${siteUrl}/#website`;
+const FOUNDER_ID = `${siteUrl}/#founder`;
 const LOGO_URL = `${siteUrl}/logo.png`;
+// Google's Article/Organization rich results expect logo as an ImageObject, not a
+// bare string. The /logo.png route renders a 512×512 raster.
+const LOGO_OBJECT = {
+  "@type": "ImageObject",
+  url: LOGO_URL,
+  width: 512,
+  height: 512,
+};
+
+/** E.164 phone (digits + leading +) for schema — derived from the tel: href. */
+const e164 = (href: string) => href.replace(/^tel:/, "");
 
 const AREA_SERVED = [
   { "@type": "Place", name: "Worldwide" },
@@ -34,11 +47,12 @@ export function organizationSchema() {
     name: site.name,
     legalName: site.legalName,
     url: siteUrl,
-    logo: LOGO_URL,
+    logo: LOGO_OBJECT,
     image: LOGO_URL,
     description: site.description,
     email: site.email,
-    telephone: site.phones.map((p) => p.value),
+    // Single canonical telephone (E.164) — per-number detail lives in contactPoint.
+    telephone: site.phones[0] ? e164(site.phones[0].href) : undefined,
     areaServed: "Worldwide",
     knowsAbout: KNOWS_ABOUT,
     sameAs,
@@ -50,10 +64,28 @@ export function organizationSchema() {
     })),
     contactPoint: site.phones.map((p) => ({
       "@type": "ContactPoint",
-      telephone: p.value,
+      telephone: e164(p.href),
       contactType: "sales",
       areaServed: p.label === "USA" ? "US" : "BD",
       availableLanguage: ["English", "Bengali"],
+    })),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: averageRating,
+      reviewCount: testimonials.length,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    review: testimonials.map((t) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: t.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      author: { "@type": "Person", name: t.name },
+      reviewBody: t.quote,
     })),
   };
 }
@@ -111,10 +143,6 @@ export function serviceSchema(opts: {
     provider: { "@id": ORG_ID },
     areaServed: AREA_SERVED,
     serviceType: opts.name,
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: ["h1", "#service-answer"],
-    },
   };
   if (opts.deliverables?.length) {
     node.hasOfferCatalog = {
@@ -135,23 +163,26 @@ export function serviceSchema(opts: {
   return node;
 }
 
-/** One ProfessionalService node per office, with geo + hours + areaServed for local/GEO. */
-/** HowTo node for a service's delivery process (step-by-step, AEO/answer-engine friendly). */
-export function howToSchema(opts: {
+/**
+ * ItemList of a service's delivery process (step-by-step). Replaces HowTo, whose
+ * rich result Google retired in Sept 2023; ItemList stays valid and reads cleanly
+ * as a service workflow for answer engines.
+ */
+export function processSchema(opts: {
   name: string;
   description?: string;
   steps: { title: string; description: string }[];
 }): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
-    "@type": "HowTo",
+    "@type": "ItemList",
     name: opts.name,
     ...(opts.description ? { description: opts.description } : {}),
-    step: opts.steps.map((s, i) => ({
-      "@type": "HowToStep",
+    itemListElement: opts.steps.map((s, i) => ({
+      "@type": "ListItem",
       position: i + 1,
       name: s.title,
-      text: s.description,
+      description: s.description,
     })),
   };
 }
@@ -166,8 +197,12 @@ export function serviceListSchema(
     itemListElement: items.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      name: s.name,
-      url: `${siteUrl}/services/${s.slug}`,
+      item: {
+        "@type": "Service",
+        name: s.name,
+        url: `${siteUrl}/services/${s.slug}`,
+        provider: { "@id": ORG_ID },
+      },
     })),
   };
 }
@@ -188,10 +223,12 @@ export function founderSchema(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": FOUNDER_ID,
     name: author.name,
     jobTitle: author.jobTitle,
     email: author.email,
     url: author.url,
+    sameAs: author.sameAs,
     worksFor: { "@id": ORG_ID },
   };
 }
@@ -211,14 +248,15 @@ export function workListSchema(
         name: p.name,
         url: p.url,
         description: p.blurb,
+        creator: { "@id": ORG_ID },
       },
     })),
   };
 }
 
 export function localBusinessSchema() {
-  const usaPhone = site.phones.find((p) => p.label === "USA")?.value;
-  const bdPhone = site.phones.find((p) => p.label === "Bangladesh")?.value;
+  const usaPhone = site.phones.find((p) => p.label === "USA")?.href;
+  const bdPhone = site.phones.find((p) => p.label === "Bangladesh")?.href;
 
   return site.offices.map((o) => ({
     "@context": "https://schema.org",
@@ -229,7 +267,7 @@ export function localBusinessSchema() {
     logo: LOGO_URL,
     url: siteUrl,
     email: site.email,
-    telephone: o.country === "US" ? usaPhone : bdPhone,
+    telephone: e164((o.country === "US" ? usaPhone : bdPhone) ?? ""),
     priceRange: "$$",
     sameAs,
     parentOrganization: { "@id": ORG_ID },
@@ -278,11 +316,15 @@ export function blogPostingSchema(opts: {
     dateModified: opts.dateModified ?? opts.datePublished,
     author: {
       "@type": "Person",
+      "@id": FOUNDER_ID,
       name: opts.author,
       jobTitle: author.jobTitle,
       email: author.email,
       url: author.url,
+      sameAs: author.sameAs,
     },
     publisher: { "@id": ORG_ID },
+    copyrightYear: Number(opts.datePublished.slice(0, 4)),
+    copyrightHolder: { "@id": ORG_ID },
   };
 }

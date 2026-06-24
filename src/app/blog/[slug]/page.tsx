@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleHero } from "@/components/blog/ArticleHero";
 import { AuthorCard } from "@/components/blog/AuthorCard";
-import { Comments } from "@/components/blog/Comments";
 import { PostBody } from "@/components/blog/PostBody";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { ShareLinks } from "@/components/blog/ShareLinks";
@@ -51,7 +50,11 @@ export async function generateMetadata({
       description: post.description,
       url: path,
       publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
       authors: [post.author],
+      images: [
+        { url: `/blog/${post.slug}/opengraph-image`, width: 1200, height: 630 },
+      ],
     },
   };
 }
@@ -181,7 +184,6 @@ export default async function BlogPostPage({
               ) : null}
 
               <AuthorCard />
-              <Comments />
             </div>
 
             {/* Sticky sidebar — desktop only */}

@@ -2,27 +2,7 @@ import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-
-const testimonials = [
-  {
-    quote:
-      "Arrowbin delivered our platform faster than we thought possible — and the quality was outstanding. They felt like part of our team.",
-    name: "Sarah Mitchell",
-    role: "Product Lead, SaaS Startup",
-  },
-  {
-    quote:
-      "They rebuilt our store with a focus on speed and conversion. Page loads dropped dramatically and sales followed.",
-    name: "David Chen",
-    role: "Founder, E-commerce Brand",
-  },
-  {
-    quote:
-      "Clear communication, clean code and real ownership of the outcome. We've trusted them with every project since.",
-    name: "Rafiul Islam",
-    role: "Operations Director, Logistics",
-  },
-];
+import { testimonials } from "@/lib/testimonials";
 
 export function Testimonials() {
   return (

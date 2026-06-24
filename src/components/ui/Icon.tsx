@@ -34,6 +34,7 @@ export type IconName =
   | "link"
   | "bolt"
   | "users"
+  | "trending-up"
   | "globe";
 
 const paths: Record<IconName, React.ReactNode> = {
@@ -169,6 +170,12 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   bolt: <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />,
+  "trending-up": (
+    <>
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+      <polyline points="16 7 22 7 22 13" />
+    </>
+  ),
   users: (
     <>
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />

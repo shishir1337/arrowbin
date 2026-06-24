@@ -43,6 +43,12 @@ export const site = {
   ],
   socials: [
     {
+      label: "LinkedIn",
+      // TODO: replace with the real Arrowbin company page once created.
+      href: "https://www.linkedin.com/in/arrowbinllc",
+      icon: "linkedin",
+    },
+    {
       label: "Facebook",
       href: "https://www.facebook.com/arrowbinllc/",
       icon: "facebook",
@@ -92,6 +98,8 @@ export const author = {
   email: "shishir@arrowbin.com",
   url: `${siteUrl}/about`,
   bio: "Founder of Arrowbin. Writes about building software that ships — the cost, the process, and the decisions that make products succeed.",
+  /** External profiles that anchor the author entity (schema.org sameAs). */
+  sameAs: ["https://www.linkedin.com/in/md-shishir-ahmed"],
 };
 
 /**

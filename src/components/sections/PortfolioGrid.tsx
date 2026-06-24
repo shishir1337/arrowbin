@@ -38,10 +38,14 @@ export function PortfolioGrid({ items }: { items: Project[] }) {
             <h3 className="font-display text-lg font-semibold text-text group-hover:text-accent">
               {project.name}
             </h3>
-            <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+            <p className="mt-2 text-sm leading-relaxed text-muted">
               {project.blurb}
             </p>
-            <ul className="mt-4 flex flex-wrap gap-2">
+            <p className="mt-3 flex items-center gap-1.5 text-sm font-medium text-accent">
+              <Icon name="trending-up" size={15} className="shrink-0" />
+              {project.result}
+            </p>
+            <ul className="mt-4 flex flex-1 flex-wrap content-end gap-2">
               {project.tags.map((tag) => (
                 <li
                   key={tag}

@@ -18,7 +18,7 @@ import { projects } from "@/lib/portfolio";
 import {
   breadcrumbSchema,
   faqSchema,
-  howToSchema,
+  processSchema,
   serviceSchema,
 } from "@/lib/schema";
 import { getService, getServiceExtras, services } from "@/lib/services";
@@ -88,7 +88,7 @@ export default async function ServiceDetailPage({
             deliverables: service.deliverables,
             audience: extras?.idealFor,
           }),
-          howToSchema({
+          processSchema({
             name: `How Arrowbin delivers ${service.name}`,
             steps: service.process,
           }),

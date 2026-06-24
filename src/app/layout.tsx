@@ -5,11 +5,16 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { pageAlternates, site, siteUrl } from "@/lib/site";
+import { defaultOgImage, pageAlternates, site, siteUrl } from "@/lib/site";
 import "./globals.css";
 
-// Falls back to the production GA4 id when the env var is unset/empty (|| not ??).
-const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-ZZ3NJCZVMZ";
+// Production GA4 id, with the property hard-coded as a fallback so prod analytics
+// works without extra env config. Only loaded in production builds — never in local
+// dev — so it doesn't fire during development or tests.
+const gaId =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_GA_ID || "G-ZZ3NJCZVMZ"
+    : "";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 const spaceGrotesk = Space_Grotesk({
@@ -45,7 +50,11 @@ export const metadata: Metadata = {
   authors: [{ name: site.legalName, url: siteUrl }],
   creator: site.legalName,
   publisher: site.legalName,
-  alternates: pageAlternates("/"),
+  alternates: {
+    ...pageAlternates("/"),
+    // Site-wide RSS auto-discovery so feed readers find it from any page.
+    types: { "application/rss+xml": "/blog/rss.xml" },
+  },
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -53,6 +62,7 @@ export const metadata: Metadata = {
     description: site.description,
     url: siteUrl,
     locale: "en_US",
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
@@ -60,6 +70,7 @@ export const metadata: Metadata = {
     creator: "@Arrowbinllc",
     title: `${site.name} — Software Development Company`,
     description: site.description,
+    images: [defaultOgImage],
   },
   robots: {
     index: true,

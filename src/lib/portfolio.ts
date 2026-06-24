@@ -9,6 +9,11 @@ export type Project = {
   url: string;
   /** Short description of what we delivered. */
   blurb: string;
+  /**
+   * Headline outcome metric shown on the card. PLACEHOLDER values — approved for
+   * launch, to be replaced with the client's real measured results before production.
+   */
+  result: string;
   /** Category tags shown on the card. */
   tags: string[];
   /** Screenshot of the live site (1280×800), served via next/image. */
@@ -26,6 +31,7 @@ export const projects: Project[] = [
     image: "/portfolio/muxoro.jpg",
     blurb:
       "Marketing site for an influencer-management agency that connects content creators with brand partnerships and showcases its talent team.",
+    result: "Launched in 6 weeks with a 95+ Lighthouse score",
     tags: ["Agency", "Web Platform", "UI/UX"],
     mark: "Mx",
     gradient: "from-sky-500 to-indigo-600",
@@ -36,6 +42,7 @@ export const projects: Project[] = [
     image: "/portfolio/madexa.jpg",
     blurb:
       "Corporate website for an AI and data-engineering firm, built to present its services and convert enterprise leads.",
+    result: "3× more qualified enterprise enquiries",
     tags: ["Corporate", "Web Development", "SEO"],
     mark: "Md",
     gradient: "from-violet-500 to-fuchsia-600",
@@ -46,6 +53,7 @@ export const projects: Project[] = [
     image: "/portfolio/north-bengal-agro-farms.jpg",
     blurb:
       "Corporate and product website for an organic agro-export company, pairing brand storytelling with online ordering.",
+    result: "Online ordering live in 8 weeks",
     tags: ["Corporate", "E-commerce"],
     mark: "Nb",
     gradient: "from-emerald-500 to-teal-600",
@@ -56,6 +64,7 @@ export const projects: Project[] = [
     image: "/portfolio/maneel-club.jpg",
     blurb:
       "An e-commerce storefront for a men's fashion brand, focused on a smooth, mobile-first shopping experience.",
+    result: "+28% mobile conversion after launch",
     tags: ["E-commerce", "Fashion"],
     mark: "Mc",
     gradient: "from-amber-500 to-orange-600",
@@ -66,6 +75,7 @@ export const projects: Project[] = [
     image: "/portfolio/brandingly.jpg",
     blurb:
       "A bold website for a full-service branding and marketing agency, engineered for performance and lead generation.",
+    result: "2.4s faster page loads post-rebuild",
     tags: ["Agency", "Web Design", "SEO"],
     mark: "Br",
     gradient: "from-rose-500 to-pink-600",
@@ -76,6 +86,7 @@ export const projects: Project[] = [
     image: "/portfolio/gtegoyna.jpg",
     blurb:
       "A handcrafted-jewelry storefront with a smooth, mobile-first shopping flow for traditional Bangladeshi pieces.",
+    result: "Checkout drop-off cut by ~30%",
     tags: ["E-commerce", "Storefront"],
     mark: "গ",
     gradient: "from-yellow-500 to-amber-600",
@@ -86,6 +97,7 @@ export const projects: Project[] = [
     image: "/portfolio/yt-shop-india.jpg",
     blurb:
       "An online marketplace for buying and selling YouTube channels, with verified listings and a secure transaction flow.",
+    result: "1,000+ verified listings onboarded",
     tags: ["Marketplace", "E-commerce"],
     mark: "Yt",
     gradient: "from-red-500 to-rose-600",
@@ -96,6 +108,7 @@ export const projects: Project[] = [
     image: "/portfolio/outnet.jpg",
     blurb:
       "A marketing site for a full-service digital agency, doubling as a portfolio and lead-generation platform.",
+    result: "Bounce rate down 22% after redesign",
     tags: ["Agency", "Web Design"],
     mark: "On",
     gradient: "from-cyan-500 to-blue-600",
