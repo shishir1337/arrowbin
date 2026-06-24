@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
-import { site } from "@/lib/site";
+import { pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "The terms and conditions that govern your use of the Arrowbin website and the engagement of our software development services.",
-  alternates: { canonical: "/terms" },
+  alternates: pageAlternates("/terms"),
 };
 
 const crumbs = [

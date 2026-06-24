@@ -22,7 +22,7 @@ import {
   tableOfContents,
 } from "@/lib/blog";
 import { blogPostingSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { site } from "@/lib/site";
+import { pageAlternates, site } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -44,7 +44,7 @@ export async function generateMetadata({
     title: { absolute: post.title },
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: path },
+    alternates: pageAlternates(path),
     openGraph: {
       type: "article",
       title: post.title,

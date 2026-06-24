@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
-import { site } from "@/lib/site";
+import { pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How Arrowbin collects, uses and protects your personal information when you use our website and services.",
-  alternates: { canonical: "/privacy" },
+  alternates: pageAlternates("/privacy"),
 };
 
 const crumbs = [

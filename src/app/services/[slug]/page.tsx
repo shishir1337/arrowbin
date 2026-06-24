@@ -22,7 +22,7 @@ import {
   serviceSchema,
 } from "@/lib/schema";
 import { getService, getServiceExtras, services } from "@/lib/services";
-import { site } from "@/lib/site";
+import { pageAlternates, site } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -43,7 +43,7 @@ export async function generateMetadata({
     title: service.metaTitle,
     description: service.metaDescription,
     keywords: service.keywords,
-    alternates: { canonical: path },
+    alternates: pageAlternates(path),
     openGraph: {
       title: `${service.metaTitle} | Arrowbin`,
       description: service.metaDescription,

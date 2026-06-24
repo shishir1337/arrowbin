@@ -10,14 +10,14 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { postThumbnail, sortedPosts } from "@/lib/blog";
 import { breadcrumbSchema } from "@/lib/schema";
-import { defaultOgImage } from "@/lib/site";
+import { defaultOgImage, pageAlternates } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Blog & Insights",
   description:
     "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner — from the Arrowbin team.",
   alternates: {
-    canonical: "/blog",
+    ...pageAlternates("/blog"),
     types: { "application/rss+xml": "/blog/rss.xml" },
   },
   openGraph: {

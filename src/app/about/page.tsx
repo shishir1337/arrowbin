@@ -10,13 +10,13 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { aboutPageSchema, breadcrumbSchema, founderSchema } from "@/lib/schema";
-import { author, defaultOgImage, site } from "@/lib/site";
+import { author, defaultOgImage, pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Arrowbin",
   description:
     "Arrowbin is a global software development company with offices in Dhaka, Bangladesh and Florida, USA. Learn about our mission, values and how we work.",
-  alternates: { canonical: "/about" },
+  alternates: pageAlternates("/about"),
   openGraph: {
     title: "About Arrowbin",
     description:

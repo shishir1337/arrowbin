@@ -67,6 +67,24 @@ export const mainNav = [
 /** Aggregate social URLs for schema.org `sameAs`. */
 export const sameAs = site.socials.map((s) => s.href);
 
+/**
+ * Build the `alternates` metadata for a page: the canonical URL plus a
+ * self-referencing hreflang set. The site is single-language (English) with one
+ * URL per page, so we declare `en` and `x-default` pointing at the same path —
+ * signalling to search/answer engines that this content is the global default
+ * for all English (and unmatched) audiences. Pass a root-relative path; Next.js
+ * resolves it against `metadataBase`.
+ */
+export function pageAlternates(path: string) {
+  return {
+    canonical: path,
+    languages: {
+      en: path,
+      "x-default": path,
+    },
+  };
+}
+
 /** Default content author — used for blog bylines and BlogPosting Person schema. */
 export const author = {
   name: "Md. Shishir Ahmed",

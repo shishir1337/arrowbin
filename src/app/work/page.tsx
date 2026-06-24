@@ -10,13 +10,13 @@ import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { clients, projects } from "@/lib/portfolio";
 import { breadcrumbSchema, workListSchema } from "@/lib/schema";
-import { defaultOgImage, site } from "@/lib/site";
+import { defaultOgImage, pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Our Work & Portfolio",
   description:
     "See software, websites and e-commerce stores Arrowbin has designed and built — including Muxoro, Madexa, Maneel Club, Brandingly and more.",
-  alternates: { canonical: "/work" },
+  alternates: pageAlternates("/work"),
   openGraph: {
     title: "Our Work & Portfolio | Arrowbin",
     description:

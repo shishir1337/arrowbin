@@ -14,13 +14,13 @@ import { Icon } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { breadcrumbSchema, faqSchema, serviceListSchema } from "@/lib/schema";
 import { services } from "@/lib/services";
-import { defaultOgImage, site } from "@/lib/site";
+import { defaultOgImage, pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Software Development Services",
   description:
     "Arrowbin's software development services — custom software, e-commerce, mobile & SaaS apps, UI/UX, AI automation, cloud/DevOps and support.",
-  alternates: { canonical: "/services" },
+  alternates: pageAlternates("/services"),
   openGraph: {
     title: "Software Development Services | Arrowbin",
     description:

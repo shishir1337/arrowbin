@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { site, siteUrl } from "@/lib/site";
+import { pageAlternates, site, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 // Falls back to the production GA4 id when the env var is unset/empty (|| not ??).
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   authors: [{ name: site.legalName, url: siteUrl }],
   creator: site.legalName,
   publisher: site.legalName,
-  alternates: { canonical: "/" },
+  alternates: pageAlternates("/"),
   openGraph: {
     type: "website",
     siteName: site.name,

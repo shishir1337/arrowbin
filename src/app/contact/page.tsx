@@ -6,13 +6,13 @@ import { Container } from "@/components/ui/Container";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
-import { defaultOgImage, site } from "@/lib/site";
+import { defaultOgImage, pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Arrowbin for software, web & mobile apps, SaaS or AI automation. Free consultation. Offices in Dhaka, Bangladesh and Florida, USA.",
-  alternates: { canonical: "/contact" },
+  alternates: pageAlternates("/contact"),
   openGraph: {
     title: "Contact Arrowbin",
     description: "Start your project with a free, no-obligation consultation.",
