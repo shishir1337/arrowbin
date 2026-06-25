@@ -20,11 +20,11 @@ export function SectionHeading({
   return (
     <div className={`max-w-2xl ${alignment}`}>
       {eyebrow ? (
-        <Reveal
-          as="p"
-          className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent"
-        >
-          {eyebrow}
+        <Reveal as="p" className="mb-4">
+          <span className="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_2px_rgb(var(--brand-rgb)/0.7)]" />
+            {eyebrow}
+          </span>
         </Reveal>
       ) : null}
       <Reveal

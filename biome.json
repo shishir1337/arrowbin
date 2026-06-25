@@ -14,7 +14,8 @@
       "!dist",
       "!build",
       "!.claude",
-      "!.agents"
+      "!.agents",
+      "!src/lib/blur-manifest.json"
     ]
   },
   "formatter": {

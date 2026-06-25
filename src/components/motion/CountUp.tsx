@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { gsap, prefersReducedMotion, useGSAP } from "@/components/motion/gsap";
+import { useGsapReveal } from "@/components/motion/useGsapReveal";
 
 /** Counts a number up from 0 when scrolled into view. Reduced-motion shows final value. */
 export function CountUp({
@@ -15,34 +14,30 @@ export function CountUp({
   suffix?: string;
   className?: string;
 }) {
-  const ref = useRef<HTMLSpanElement>(null);
+  const format = (n: number) =>
+    `${prefix}${Math.round(n).toLocaleString()}${suffix}`;
 
-  useGSAP(
-    () => {
-      const el = ref.current;
-      if (!el) return;
-      const format = (n: number) =>
-        `${prefix}${Math.round(n).toLocaleString()}${suffix}`;
+  const ref = useGsapReveal<HTMLSpanElement>(
+    (gsap, el) => {
       // CSS hid the element (data-countup) to avoid flashing the final value first.
       el.style.visibility = "visible";
-      if (prefersReducedMotion()) {
-        el.textContent = format(value);
-        return;
-      }
-
       el.textContent = format(0);
       const obj = { n: 0 };
-      gsap.to(obj, {
+      return gsap.to(obj, {
         n: value,
         duration: 1.6,
         ease: "power1.out",
         onUpdate: () => {
           el.textContent = format(obj.n);
         },
-        scrollTrigger: { trigger: el, start: "top 90%", once: true },
       });
     },
-    { scope: ref },
+    (el) => {
+      el.style.visibility = "visible";
+      el.textContent = format(value);
+    },
+    // ≈ old ScrollTrigger start "top 90%".
+    "0px 0px -10% 0px",
   );
 
   return (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ const sections = [
   },
   {
     h: "Intellectual property",
-    p: "All content on this website — including text, graphics, logos, and code — is owned by Arrowbin or its licensors and is protected by applicable intellectual-property laws. Ownership of work produced for clients transfers according to the terms of the relevant project agreement.",
+    p: "All content on this website, including text, graphics, logos, and code, is owned by Arrowbin or its licensors and is protected by applicable intellectual-property laws. Ownership of work produced for clients transfers according to the terms of the relevant project agreement.",
   },
   {
     h: "Quotes and communications",
@@ -38,7 +39,7 @@ const sections = [
   },
   {
     h: "Disclaimers and limitation of liability",
-    p: "This website is provided on an “as is” basis without warranties of any kind. To the fullest extent permitted by law, Arrowbin is not liable for any indirect or consequential damages arising from your use of the site. Liability for paid engagements is governed by the applicable project agreement.",
+    p: 'This website is provided on an "as is" basis without warranties of any kind. To the fullest extent permitted by law, Arrowbin is not liable for any indirect or consequential damages arising from your use of the site. Liability for paid engagements is governed by the applicable project agreement.',
   },
   {
     h: "Third-party links",
@@ -56,11 +57,18 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <section className="py-14 sm:py-20">
+    <section className="relative overflow-hidden py-14 sm:py-20">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_-8%,rgba(163,230,53,0.1),transparent_55%)]"
+      />
       <Container>
         <div className="mx-auto max-w-3xl">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-8 text-4xl font-bold sm:text-5xl">
+          <div className="mt-8">
+            <Eyebrow>Legal</Eyebrow>
+          </div>
+          <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
             Terms of Service
           </h1>
           <p className="mt-4 text-muted">

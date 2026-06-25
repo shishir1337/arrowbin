@@ -107,7 +107,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-8 text-center">
+      <div className="card-surface rounded-2xl p-8 text-center">
         <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent/15 text-accent">
           <Icon name="check" size={28} />
         </span>
@@ -132,7 +132,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="rounded-2xl border border-border bg-surface p-6 sm:p-8"
+      className="card-surface rounded-2xl p-6 shadow-[var(--shadow-glow)] sm:p-8"
       noValidate
     >
       {/* Honeypot — hidden from users, catches bots. */}

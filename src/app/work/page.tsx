@@ -7,6 +7,7 @@ import { WhyArrowbin } from "@/components/sections/WhyArrowbin";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { clients, projects } from "@/lib/portfolio";
 import { breadcrumbSchema, workListSchema } from "@/lib/schema";
@@ -15,7 +16,7 @@ import { defaultOgImage, pageAlternates, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Our Work & Portfolio",
   description:
-    "See software, websites and e-commerce stores Arrowbin has designed and built — including Muxoro, Madexa, Maneel Club, Brandingly and more.",
+    "See software, websites and e-commerce stores Arrowbin has designed and built, including Muxoro, Madexa, Maneel Club, Brandingly and more.",
   alternates: pageAlternates("/work"),
   openGraph: {
     title: "Our Work & Portfolio | Arrowbin",
@@ -40,25 +41,29 @@ export default function WorkPage() {
       <section className="relative overflow-hidden py-14 sm:py-20">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_-10%,rgba(101,163,13,0.13),transparent_55%)] dark:bg-[radial-gradient(circle_at_25%_-10%,rgba(163,230,53,0.12),transparent_55%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
-        />
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        >
+          <div className="blob left-[4%] top-[-18%] h-72 w-72" />
+          <div
+            className="blob right-[6%] top-[6%] h-80 w-80 opacity-10"
+            style={{ animationDelay: "-7s", animationDuration: "24s" }}
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_-8%,rgba(163,230,53,0.12),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
+        </div>
         <Container>
           <Breadcrumbs items={crumbs} />
           <div className="mt-8 max-w-3xl">
-            <Reveal className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium uppercase tracking-wide text-accent">
-              Portfolio
+            <Reveal>
+              <Eyebrow>Portfolio</Eyebrow>
             </Reveal>
             <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
               Work we're proud of
             </Reveal>
             <Reveal as="p" className="mt-5 text-lg leading-relaxed text-muted">
-              From fast marketing sites to e-commerce stores and platforms —
-              here's a look at what we've shipped for clients around the world.
-              Every one is a live, working product you can open and use.
+              From fast marketing sites to e-commerce stores and full platforms,
+              here's what we've shipped for clients around the world. Every one
+              is a live product you can open and use right now.
             </Reveal>
             <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact" size="lg" icon="arrow-right">
@@ -94,24 +99,25 @@ export default function WorkPage() {
           >
             And many more companies we've partnered with
           </Reveal>
-          <Reveal>
-            <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-              {clients.map((name) => (
-                <li
-                  key={name}
-                  className="font-display text-lg font-semibold text-muted"
-                >
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
         </Container>
+        <div className="marquee-mask mt-8 overflow-hidden">
+          <ul className="marquee-track items-center gap-x-12">
+            {[...clients, ...clients].map((name, i) => (
+              <li
+                // biome-ignore lint/suspicious/noArrayIndexKey: duplicated marquee row needs stable positional keys.
+                key={`${name}-${i}`}
+                className="shrink-0 font-display text-lg font-semibold text-muted/70 transition-colors hover:text-text"
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <CTASection
         title="Want to be our next success story?"
-        intro="Let's build something your customers will love. Get a free project consultation today."
+        intro="Let's build something your customers will love. Book a free project consultation today."
       />
     </>
   );

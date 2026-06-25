@@ -1,34 +1,42 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-/** Arrowbin wordmark with an arrow glyph. Scales with font size. */
+/**
+ * Arrowbin wordmark: a triangle mark followed by the full word, reading as
+ * "△Arrowbin". The triangle scales with the surrounding font size so it always
+ * matches the cap height of the text.
+ */
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
       aria-label={`${site.name} home`}
-      className={`group inline-flex items-center gap-2 ${className}`}
+      className={`group inline-flex items-baseline font-display text-xl font-bold tracking-tight text-text ${className}`}
     >
-      <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-accent-fg">
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
+      <svg
+        viewBox="0 0 24 22"
+        aria-hidden="true"
+        focusable="false"
+        className="mr-[0.16em] h-[0.78em] w-[0.78em] translate-y-[0.04em] text-accent"
+      >
+        {/* Geometric "A": a triangle outline with a crossbar. Proportions match
+            the favicon/app-icon mark (M32 13 53 51… / M21 41h22 in a 64 box):
+            crossbar low (~74% down) and wide (~52% of base), same stroke ratio. */}
+        <path
+          d="M12 2 22.5 20.5H1.5L12 2Z"
           fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 12h13M12 5l7 7-7 7"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
-      <span className="font-display text-xl font-bold tracking-tight text-text">
-        {site.name}
-      </span>
+          stroke="currentColor"
+          strokeWidth="2.8"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6.5 15.6h11"
+          stroke="currentColor"
+          strokeWidth="2.8"
+          strokeLinecap="round"
+        />
+      </svg>
+      <span>Arrowbin</span>
     </Link>
   );
 }

@@ -1,8 +1,7 @@
 "use client";
 
 import type { ElementType, ReactNode } from "react";
-import { useRef } from "react";
-import { gsap, prefersReducedMotion, useGSAP } from "@/components/motion/gsap";
+import { useGsapReveal } from "@/components/motion/useGsapReveal";
 
 type RevealProps = {
   as?: ElementType;
@@ -27,7 +26,7 @@ const offsets: Record<
 
 /**
  * Scroll-triggered reveal. Marked with `data-reveal` so it starts hidden only when
- * JS is active; animates in on enter. Honors prefers-reduced-motion via matchMedia.
+ * JS is active; animates in on enter via IntersectionObserver. Honors reduced-motion.
  */
 export function Reveal({
   as: Tag = "div",
@@ -36,33 +35,19 @@ export function Reveal({
   from = "up",
   delay = 0,
 }: RevealProps) {
-  const ref = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      const el = ref.current;
-      if (!el) return;
-
-      if (prefersReducedMotion()) {
-        gsap.set(el, { opacity: 1, x: 0, y: 0 });
-        return;
-      }
-
+  const ref = useGsapReveal<HTMLElement>(
+    (gsap, el) =>
       gsap.fromTo(
         el,
         { opacity: 0, ...offsets[from] },
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          duration: 0.7,
-          delay,
-          ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
-        },
-      );
+        { opacity: 1, x: 0, y: 0, duration: 0.7, delay, ease: "power2.out" },
+      ),
+    (el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
     },
-    { scope: ref },
+    // ≈ old ScrollTrigger start "top 88%" (fire when 12% into view from the bottom).
+    "0px 0px -12% 0px",
   );
 
   return (

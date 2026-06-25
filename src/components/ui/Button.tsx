@@ -6,12 +6,13 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg";
 
 const base =
-  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-60";
+  "group/btn inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-medium transition-[transform,box-shadow,background-color,border-color,color] duration-200 ease-out will-change-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-accent-fg hover:bg-accent-hover",
+  primary:
+    "bg-brand text-brand-fg shadow-[var(--shadow-glow)] hover:bg-brand-hover hover:-translate-y-0.5 hover:shadow-[0_16px_44px_-8px_rgb(var(--brand-rgb)_/_0.6)]",
   secondary:
-    "border border-border bg-surface text-text hover:border-accent hover:text-accent",
+    "border border-border bg-surface text-text shadow-sm hover:-translate-y-0.5 hover:border-brand hover:text-accent hover:shadow-md",
   ghost: "text-text hover:bg-surface-2",
 };
 
@@ -45,7 +46,13 @@ export function ButtonLink({
   const content = (
     <>
       {children}
-      {icon ? <Icon name={icon} size={18} /> : null}
+      {icon ? (
+        <Icon
+          name={icon}
+          size={18}
+          className="transition-transform duration-200 ease-out group-hover/btn:translate-x-0.5"
+        />
+      ) : null}
     </>
   );
   if (external) {
@@ -79,7 +86,13 @@ export function Button({
   return (
     <button className={classes(variant, size, className)} {...props}>
       {children}
-      {icon ? <Icon name={icon} size={18} /> : null}
+      {icon ? (
+        <Icon
+          name={icon}
+          size={18}
+          className="transition-transform duration-200 ease-out group-hover/btn:translate-x-0.5"
+        />
+      ) : null}
     </button>
   );
 }

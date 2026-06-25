@@ -31,11 +31,23 @@ export default function OpengraphImage() {
             height: 64,
             borderRadius: 16,
             background: "#a3e635",
-            color: "#0a0a0a",
-            fontSize: 40,
           }}
         >
-          →
+          <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true">
+            <path
+              d="M32 13 53 51H11L32 13Z"
+              fill="none"
+              stroke="#0a0a0a"
+              strokeWidth="6"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M21 41h22"
+              stroke="#0a0a0a"
+              strokeWidth="6"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
         <div style={{ fontSize: 40, fontWeight: 700 }}>{site.name}</div>
       </div>

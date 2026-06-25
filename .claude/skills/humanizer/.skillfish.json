@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "humanizer",
+  "owner": "softaworks",
+  "repo": "agent-toolkit",
+  "path": "dist/plugins/humanizer/skills/humanizer",
+  "branch": "main",
+  "sha": "004c1998fffe4d5cd4535123d65cf9fb1a107b64",
+  "source": "manual"
+}

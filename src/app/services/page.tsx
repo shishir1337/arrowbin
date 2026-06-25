@@ -10,6 +10,7 @@ import { WhyArrowbin } from "@/components/sections/WhyArrowbin";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { breadcrumbSchema, faqSchema, serviceListSchema } from "@/lib/schema";
@@ -19,12 +20,12 @@ import { defaultOgImage, pageAlternates, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Software Development Services",
   description:
-    "Arrowbin's software development services — custom software, e-commerce, mobile & SaaS apps, UI/UX, AI automation, cloud/DevOps and support.",
+    "Arrowbin's software development services: custom software, e-commerce, mobile and SaaS apps, UI/UX, AI automation, cloud/DevOps and support.",
   alternates: pageAlternates("/services"),
   openGraph: {
     title: "Software Development Services | Arrowbin",
     description:
-      "Custom software, web & mobile apps, SaaS, UI/UX, AI automation, cloud and support — end to end.",
+      "Custom software, web and mobile apps, SaaS, UI/UX, AI automation, cloud and support, end to end.",
     url: "/services",
     images: [defaultOgImage],
   },
@@ -39,12 +40,12 @@ const overviewFaqs = [
   {
     question: "What software development services does Arrowbin offer?",
     answer:
-      "We offer custom software development, e-commerce, mobile apps, SaaS product engineering, UI/UX design, AI automation, cloud/DevOps & hosting, and ongoing maintenance & support — end to end, under one roof.",
+      "We offer custom software development, e-commerce, mobile apps, SaaS product engineering, UI/UX design, AI automation, cloud/DevOps and hosting, plus ongoing maintenance and support. End to end, under one roof.",
   },
   {
     question: "How much does it cost to work with Arrowbin?",
     answer:
-      "It depends on scope, but most projects range from around $8,000 for a focused tool to $75,000+ for a full platform. We give you a fixed, transparent estimate after a free discovery call.",
+      "It depends on scope. Most projects run from around $8,000 for a focused tool to $75,000+ for a full platform. We give you a fixed, transparent estimate after a free discovery call.",
   },
   {
     question: "Where is Arrowbin based?",
@@ -54,7 +55,7 @@ const overviewFaqs = [
   {
     question: "Do I own the code and IP?",
     answer:
-      "Yes — you own 100% of the source code, accounts and infrastructure. There is no vendor lock-in.",
+      "Yes. You own 100% of the source code, accounts and infrastructure. There is no vendor lock-in.",
   },
   {
     question: "How do we get started?",
@@ -78,25 +79,29 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden py-14 sm:py-20">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_-10%,rgba(101,163,13,0.13),transparent_55%)] dark:bg-[radial-gradient(circle_at_25%_-10%,rgba(163,230,53,0.12),transparent_55%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
-        />
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        >
+          <div className="blob left-[4%] top-[-18%] h-72 w-72" />
+          <div
+            className="blob right-[6%] top-[6%] h-80 w-80 opacity-10"
+            style={{ animationDelay: "-6s", animationDuration: "22s" }}
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_-8%,rgba(163,230,53,0.12),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
+        </div>
         <Container>
           <Breadcrumbs items={crumbs} />
           <div className="mt-8 max-w-3xl">
-            <Reveal className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium uppercase tracking-wide text-accent">
-              Services
+            <Reveal>
+              <Eyebrow>Services</Eyebrow>
             </Reveal>
             <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
               Software development services that scale with you
             </Reveal>
             <Reveal as="p" className="mt-5 text-lg leading-relaxed text-muted">
-              Whatever stage you're at, we have a team to help — from a first
-              MVP to enterprise platforms and everything in between. One partner
-              for design, engineering, AI and support.
+              Wherever you are, from a first MVP to an enterprise platform, we
+              have a team to help. One partner for design, engineering, AI and
+              support.
             </Reveal>
             <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact" size="lg" icon="arrow-right">

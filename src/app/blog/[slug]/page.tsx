@@ -29,6 +29,19 @@ export function generateStaticParams(): Params[] {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
+/** Approximate article word count from the structured body, for BlogPosting schema. */
+function bodyWordCount(blocks: (typeof posts)[number]["body"]): number {
+  const text = blocks
+    .map((b) => {
+      if ("text" in b) return b.text;
+      if ("items" in b) return b.items.join(" ");
+      if (b.type === "table") return [...b.headers, ...b.rows.flat()].join(" ");
+      return "";
+    })
+    .join(" ");
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -55,6 +68,12 @@ export async function generateMetadata({
       images: [
         { url: `/blog/${post.slug}/opengraph-image`, width: 1200, height: 630 },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [`/blog/${post.slug}/opengraph-image`],
     },
   };
 }
@@ -106,6 +125,10 @@ export default async function BlogPostPage({
             datePublished: post.date,
             dateModified: post.updated ?? post.date,
             author: post.author,
+            category: post.category,
+            hasTldr: Boolean(post.tldr),
+            keywords: post.keywords,
+            wordCount: bodyWordCount(post.body),
           }),
           ...(post.faqs ? [faqSchema(post.faqs)] : []),
         ]}
@@ -122,10 +145,7 @@ export default async function BlogPostPage({
             <div className="min-w-0">
               {/* TL;DR direct-answer block (AEO/GEO) */}
               {post.tldr ? (
-                <div
-                  id="tldr"
-                  className="rounded-2xl border border-border bg-surface-2 p-5 sm:p-6"
-                >
+                <div id="tldr" className="card-surface rounded-2xl p-5 sm:p-6">
                   <p className="text-xs font-semibold uppercase tracking-wide text-accent">
                     TL;DR
                   </p>
@@ -137,7 +157,7 @@ export default async function BlogPostPage({
               {toc.length > 2 ? (
                 <nav
                   aria-label="Table of contents"
-                  className="mt-8 rounded-2xl border border-border bg-surface p-5 lg:hidden"
+                  className="mt-8 card-surface rounded-2xl p-5 lg:hidden"
                 >
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                     On this page
@@ -152,7 +172,7 @@ export default async function BlogPostPage({
 
               {/* Key takeaways */}
               {post.takeaways?.length ? (
-                <section className="mt-12 rounded-2xl border border-border bg-surface-2 p-6 sm:p-8">
+                <section className="mt-12 card-surface rounded-2xl p-6 sm:p-8">
                   <h2 className="font-display text-xl font-bold text-text">
                     Key takeaways
                   </h2>
@@ -192,7 +212,7 @@ export default async function BlogPostPage({
                 {toc.length > 2 ? (
                   <nav
                     aria-label="Table of contents"
-                    className="rounded-2xl border border-border bg-surface p-5"
+                    className="card-surface rounded-2xl p-5"
                   >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                       On this page
@@ -201,7 +221,7 @@ export default async function BlogPostPage({
                   </nav>
                 ) : null}
 
-                <div className="rounded-2xl border border-border bg-surface p-5">
+                <div className="card-surface rounded-2xl p-5">
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                     Share
                   </p>
@@ -210,7 +230,7 @@ export default async function BlogPostPage({
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-border bg-surface-2 p-5">
+                <div className="card-surface rounded-2xl p-5">
                   <p className="font-display text-base font-semibold text-text">
                     Have a project in mind?
                   </p>
@@ -243,7 +263,7 @@ export default async function BlogPostPage({
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg transition-colors hover:border-accent"
+                  className="group card-surface spotlight flex flex-col overflow-hidden rounded-2xl transition-colors hover:border-brand"
                 >
                   <Image
                     src={postThumbnail(p)}

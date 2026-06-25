@@ -30,7 +30,7 @@ export const projects: Project[] = [
     url: "https://muxoro.com/",
     image: "/portfolio/muxoro.jpg",
     blurb:
-      "Marketing site for an influencer-management agency that connects content creators with brand partnerships and showcases its talent team.",
+      "Marketing site for an influencer-management agency. It connects content creators with brand partnerships and introduces the agency's talent roster.",
     result: "Launched in 6 weeks with a 95+ Lighthouse score",
     tags: ["Agency", "Web Platform", "UI/UX"],
     mark: "Mx",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     url: "https://www.madexa.com/",
     image: "/portfolio/madexa.jpg",
     blurb:
-      "Corporate website for an AI and data-engineering firm, built to present its services and convert enterprise leads.",
+      "Corporate website for an AI and data-engineering firm. It presents the firm's services and turns enterprise visitors into leads.",
     result: "3× more qualified enterprise enquiries",
     tags: ["Corporate", "Web Development", "SEO"],
     mark: "Md",
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     url: "https://nbafl.net/",
     image: "/portfolio/north-bengal-agro-farms.jpg",
     blurb:
-      "Corporate and product website for an organic agro-export company, pairing brand storytelling with online ordering.",
+      "Corporate and product website for an organic agro-export company, combining its brand story with online ordering.",
     result: "Online ordering live in 8 weeks",
     tags: ["Corporate", "E-commerce"],
     mark: "Nb",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     url: "https://maneelclub.com/",
     image: "/portfolio/maneel-club.jpg",
     blurb:
-      "An e-commerce storefront for a men's fashion brand, focused on a smooth, mobile-first shopping experience.",
+      "An e-commerce storefront for a men's fashion brand, built mobile-first so shoppers can browse and check out quickly on a phone.",
     result: "+28% mobile conversion after launch",
     tags: ["E-commerce", "Fashion"],
     mark: "Mc",
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     url: "https://brandingly.agency/",
     image: "/portfolio/brandingly.jpg",
     blurb:
-      "A bold website for a full-service branding and marketing agency, engineered for performance and lead generation.",
+      "A website for a full-service branding and marketing agency, tuned for fast load times and steady lead generation.",
     result: "2.4s faster page loads post-rebuild",
     tags: ["Agency", "Web Design", "SEO"],
     mark: "Br",
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     url: "https://gtegoyna.com.bd/",
     image: "/portfolio/gtegoyna.jpg",
     blurb:
-      "A handcrafted-jewelry storefront with a smooth, mobile-first shopping flow for traditional Bangladeshi pieces.",
+      "A handcrafted-jewelry storefront for traditional Bangladeshi pieces, with a mobile-first checkout flow.",
     result: "Checkout drop-off cut by ~30%",
     tags: ["E-commerce", "Storefront"],
     mark: "গ",
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     url: "https://ytshopindia.com/",
     image: "/portfolio/yt-shop-india.jpg",
     blurb:
-      "An online marketplace for buying and selling YouTube channels, with verified listings and a secure transaction flow.",
+      "An online marketplace for buying and selling YouTube channels. Listings are verified and payments run through a secure transaction flow.",
     result: "1,000+ verified listings onboarded",
     tags: ["Marketplace", "E-commerce"],
     mark: "Yt",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     url: "https://outnet.it.com/",
     image: "/portfolio/outnet.jpg",
     blurb:
-      "A marketing site for a full-service digital agency, doubling as a portfolio and lead-generation platform.",
+      "A marketing site for a full-service digital agency that also works as its portfolio and main source of leads.",
     result: "Bounce rate down 22% after redesign",
     tags: ["Agency", "Web Design"],
     mark: "On",

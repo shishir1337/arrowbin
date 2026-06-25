@@ -9,7 +9,7 @@ import { Icon } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { postThumbnail, sortedPosts } from "@/lib/blog";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, collectionPageSchema } from "@/lib/schema";
 import { defaultOgImage, pageAlternates } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -36,9 +36,32 @@ const crumbs = [
 export default function BlogPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd
+        data={[
+          breadcrumbSchema(crumbs),
+          collectionPageSchema({
+            name: "Blog & Insights — Arrowbin",
+            description:
+              "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner.",
+            path: "/blog",
+            items: sortedPosts,
+          }),
+        ]}
+      />
 
-      <section className="py-14 sm:py-20">
+      <section className="relative overflow-hidden py-14 sm:py-20">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        >
+          <div className="blob left-[4%] top-[-20%] h-72 w-72" />
+          <div
+            className="blob right-[6%] top-[2%] h-80 w-80 opacity-10"
+            style={{ animationDelay: "-6s", animationDuration: "22s" }}
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_-8%,rgba(163,230,53,0.12),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:60px_60px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_65%)]" />
+        </div>
         <Container>
           <Breadcrumbs items={crumbs} />
           <div className="mt-8">
@@ -56,7 +79,7 @@ export default function BlogPage() {
               <article
                 key={post.slug}
                 data-reveal
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-accent"
+                className="group card-surface spotlight relative flex flex-col overflow-hidden rounded-2xl transition-colors hover:border-brand"
               >
                 <Image
                   src={postThumbnail(post)}

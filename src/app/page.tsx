@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SpotlightCard } from "@/components/motion/SpotlightCard";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { CTASection } from "@/components/sections/CTASection";
 import { FAQ } from "@/components/sections/FAQ";
@@ -16,13 +17,13 @@ import { Icon } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { projects } from "@/lib/portfolio";
-import { faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { services } from "@/lib/services";
 import { defaultOgImage, site } from "@/lib/site";
 
 const homeTitle = "Custom Software Development Company | Arrowbin";
 const homeDescription =
-  "Arrowbin is a software development company building custom software, web and mobile apps, SaaS, AI automation and cloud solutions worldwide.";
+  "Arrowbin is a software development company. We build custom software, web and mobile apps, SaaS products, AI automation and cloud solutions for clients worldwide.";
 
 export const metadata: Metadata = {
   // Absolute title leads with the primary keyword (bypasses the "%s | Arrowbin" template).
@@ -37,13 +38,19 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [defaultOgImage],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: homeTitle,
+    description: homeDescription,
+    images: [defaultOgImage],
+  },
 };
 
 const homeFaqs = [
   {
     question: "What does Arrowbin do?",
     answer:
-      "Arrowbin is a software development company. We design and build custom software, web applications, e-commerce stores, mobile apps, SaaS products, AI automation, and cloud infrastructure — and we maintain and support them long term.",
+      "Arrowbin is a software development company. We design and build custom software, web applications, e-commerce stores, mobile apps, SaaS products, AI automation and cloud infrastructure, then maintain and support them long term.",
   },
   {
     question: "How much does it cost to work with Arrowbin?",
@@ -53,7 +60,7 @@ const homeFaqs = [
   {
     question: "How long does a typical project take?",
     answer:
-      "Most projects launch a first usable version in 6–12 weeks, depending on scope. We work in agile sprints so you see progress every week and can launch early, then keep improving.",
+      "Most projects launch a first usable version in 6–12 weeks, depending on scope. We work in agile sprints, so you see progress every week and can launch early, then keep improving.",
   },
   {
     question: "Do you work with clients outside Bangladesh and the USA?",
@@ -71,7 +78,7 @@ const reasons = [
   {
     icon: "bolt",
     title: "Fast delivery",
-    text: "Agile sprints and a senior team get you to launch quickly without cutting corners.",
+    text: "Agile sprints and a senior team get you to launch quickly, with quality intact.",
   },
   {
     icon: "shield",
@@ -80,20 +87,25 @@ const reasons = [
   },
   {
     icon: "users",
-    title: "True partnership",
-    text: "Clear communication and real ownership — we're invested in your outcome.",
+    title: "Real partnership",
+    text: "Clear communication and real ownership. We're invested in how your product does.",
   },
   {
     icon: "globe",
-    title: "Global & flexible",
-    text: "Two offices, worldwide clients, and time-zone-friendly collaboration.",
+    title: "Global and flexible",
+    text: "Two offices, clients worldwide, and collaboration that fits your time zone.",
   },
 ] as const;
 
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={faqSchema(homeFaqs)} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: "Home", path: "/" }]),
+          faqSchema(homeFaqs),
+        ]}
+      />
 
       <Hero />
       <LogoCloud />
@@ -104,7 +116,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="What we do"
             title="End-to-end software services"
-            intro="From first idea to ongoing growth, we cover everything you need to build and scale great software."
+            intro="From the first idea to ongoing growth, we cover what you need to build and scale your software."
           />
           <StaggerGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
@@ -129,14 +141,14 @@ export default function HomePage() {
               align="left"
               eyebrow="Why Arrowbin"
               title="A development partner you can rely on"
-              intro="We combine senior engineering, thoughtful design and honest communication to ship software that actually moves your business forward."
+              intro="We pair senior engineering with thoughtful design and honest communication, and we ship software that earns its keep."
             />
             <StaggerGroup className="grid gap-6 sm:grid-cols-2">
               {reasons.map((r) => (
-                <div
+                <SpotlightCard
                   key={r.title}
                   data-reveal
-                  className="rounded-2xl border border-border bg-surface p-6"
+                  className="rounded-2xl p-6"
                 >
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-surface-2 text-accent">
                     <Icon name={r.icon} size={22} />
@@ -147,7 +159,7 @@ export default function HomePage() {
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     {r.text}
                   </p>
-                </div>
+                </SpotlightCard>
               ))}
             </StaggerGroup>
           </div>
@@ -164,7 +176,7 @@ export default function HomePage() {
               align="left"
               eyebrow="Selected work"
               title="Products we've helped build"
-              intro="A glimpse of the brands and platforms we've shipped."
+              intro="A few of the brands and platforms we've shipped."
             />
             <Link
               href="/work"
@@ -188,7 +200,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="FAQ"
             title="Questions, answered"
-            intro="Everything you need to know before getting started with Arrowbin."
+            intro="What you need to know before starting a project with Arrowbin."
           />
           <div className="mt-12">
             <FAQ items={homeFaqs} />

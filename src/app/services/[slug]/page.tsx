@@ -6,11 +6,13 @@ import { Reveal } from "@/components/motion/Reveal";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { CTASection } from "@/components/sections/CTASection";
 import { FAQ } from "@/components/sections/FAQ";
+import { HeroLeadForm } from "@/components/sections/HeroLeadForm";
 import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
 import { WhyArrowbin } from "@/components/sections/WhyArrowbin";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { getPost, postThumbnail } from "@/lib/blog";
@@ -48,6 +50,19 @@ export async function generateMetadata({
       title: `${service.metaTitle} | Arrowbin`,
       description: service.metaDescription,
       url: path,
+      images: [
+        {
+          url: `/services/${service.slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.metaTitle} | Arrowbin`,
+      description: service.metaDescription,
+      images: [`/services/${service.slug}/opengraph-image`],
     },
   };
 }
@@ -82,11 +97,12 @@ export default async function ServiceDetailPage({
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({
-            name: service.metaTitle,
+            name: service.name,
             description: service.metaDescription,
             path,
             deliverables: service.deliverables,
             audience: extras?.idealFor,
+            hasAnswer: Boolean(extras?.answer),
           }),
           processSchema({
             name: `How Arrowbin delivers ${service.name}`,
@@ -100,6 +116,16 @@ export default async function ServiceDetailPage({
       <section className="relative overflow-hidden py-14 sm:py-20">
         <div
           aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        >
+          <div className="blob left-[4%] top-[-18%] h-72 w-72" />
+          <div
+            className="blob right-[6%] top-[8%] h-80 w-80 opacity-10"
+            style={{ animationDelay: "-6s", animationDuration: "22s" }}
+          />
+        </div>
+        <div
+          aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_0%,rgba(101,163,13,0.13),transparent_55%)] dark:bg-[radial-gradient(circle_at_20%_0%,rgba(163,230,53,0.12),transparent_55%)]"
         />
         <div
@@ -108,48 +134,49 @@ export default async function ServiceDetailPage({
         />
         <Container>
           <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-3xl">
-            <Reveal className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-3 py-1.5">
-              <Icon name={service.icon} size={16} className="text-accent" />
-              <span className="text-xs font-medium uppercase tracking-wide text-muted">
-                Service
-              </span>
-            </Reveal>
-            <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
-              {service.heading}
-            </Reveal>
-            <Reveal as="p" className="mt-5 text-lg leading-relaxed text-muted">
-              {service.intro}
-            </Reveal>
-            <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink
-                href={`/contact?service=${service.slug}`}
-                size="lg"
-                icon="arrow-right"
+          <div className="mt-8 grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+            <div className="max-w-2xl">
+              <Reveal>
+                <Eyebrow icon={service.icon}>Service</Eyebrow>
+              </Reveal>
+              <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
+                {service.heading}
+              </Reveal>
+              <Reveal
+                as="p"
+                className="mt-5 text-lg leading-relaxed text-muted"
               >
-                Discuss your project
-              </ButtonLink>
-              <ButtonLink
-                href={site.bookingUrl}
-                external
-                size="lg"
-                variant="secondary"
-              >
-                Book a call
-              </ButtonLink>
-            </Reveal>
-            <Reveal className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-              {[
-                "You own your code",
-                "Senior engineers",
-                "Offices in BD & USA",
-                "Fixed-price option",
-              ].map((t) => (
-                <span key={t} className="inline-flex items-center gap-2">
-                  <Icon name="check" size={16} className="text-accent" />
-                  {t}
-                </span>
-              ))}
+                {service.intro}
+              </Reveal>
+              <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="/contact" size="lg" icon="arrow-right">
+                  Start your project
+                </ButtonLink>
+                <ButtonLink
+                  href={site.bookingUrl}
+                  external
+                  size="lg"
+                  variant="secondary"
+                >
+                  Book a call
+                </ButtonLink>
+              </Reveal>
+              <Reveal className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+                {[
+                  "You own your code",
+                  "Senior engineers",
+                  "Offices in BD & USA",
+                  "Fixed-price option",
+                ].map((t) => (
+                  <span key={t} className="inline-flex items-center gap-2">
+                    <Icon name="check" size={16} className="text-accent" />
+                    {t}
+                  </span>
+                ))}
+              </Reveal>
+            </div>
+            <Reveal className="lg:pt-2">
+              <HeroLeadForm serviceName={service.name} />
             </Reveal>
           </div>
         </Container>
@@ -206,7 +233,7 @@ export default async function ServiceDetailPage({
                 <div
                   key={item}
                   data-reveal
-                  className="flex items-start gap-3 rounded-2xl border border-border bg-bg p-5"
+                  className="card-surface flex items-start gap-3 rounded-2xl p-5"
                 >
                   <Icon
                     name="check"
@@ -232,7 +259,7 @@ export default async function ServiceDetailPage({
               <div
                 key={b.title}
                 data-reveal
-                className="rounded-2xl border border-border bg-surface p-6"
+                className="card-surface rounded-2xl p-6"
               >
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-surface-2 text-accent">
                   <Icon name="check" size={20} />
@@ -310,7 +337,7 @@ export default async function ServiceDetailPage({
               <div
                 key={step.title}
                 data-reveal
-                className="rounded-2xl border border-border bg-surface p-6"
+                className="card-surface rounded-2xl p-6"
               >
                 <span className="font-display text-4xl font-bold text-accent/25">
                   {String(i + 1).padStart(2, "0")}
@@ -365,7 +392,7 @@ export default async function ServiceDetailPage({
                 <Link
                   key={g.slug}
                   href={`/blog/${g.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg transition-colors hover:border-accent"
+                  className="group card-surface spotlight flex flex-col overflow-hidden rounded-2xl transition-colors hover:border-brand"
                 >
                   <Image
                     src={postThumbnail(g)}
@@ -413,7 +440,7 @@ export default async function ServiceDetailPage({
                 key={s.slug}
                 href={`/services/${s.slug}`}
                 data-reveal
-                className="group flex items-center gap-3 rounded-2xl border border-border bg-bg p-5 transition-colors hover:border-accent"
+                className="group card-surface spotlight flex items-center gap-3 rounded-2xl p-5 transition-colors hover:border-brand"
               >
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface-2 text-accent">
                   <Icon name={s.icon} size={20} />
@@ -428,7 +455,7 @@ export default async function ServiceDetailPage({
       </section>
 
       <CTASection
-        title={`Need ${service.name.toLowerCase()}?`}
+        title={`Need ${service.name}?`}
         intro="Let's talk about your goals and how we can help. Free consultation, no pressure."
       />
     </>

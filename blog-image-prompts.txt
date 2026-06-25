@@ -1,0 +1,201 @@
+BLOG IMAGE PROMPTS - manual generation list
+=============================================
+
+All 27 raster (.webp) blog images. The auto-generated versions were low
+quality and have been deleted, along with the generator script
+(scripts/generate-blog-images.mjs).
+
+Every prompt below is written for Google Gemini 'Nano Banana' using its
+official prompt structure, ordered most-important-first:
+  Subject -> Action/relationship -> Setting -> Style/medium ->
+  Composition/camera -> Lighting/color -> Key details -> Constraints.
+
+Brand palette (kept consistent across every image):
+  - Deep charcoal: #0a0a0a   - Lime-green highlight: #a3e635
+  - Lime-green solid: #65a30d
+Hero/cover images are 1600x900; all in-body infographics and photos are
+1280x720 (both 16:9). Generate at that aspect ratio.
+
+Generate each image, then save it at the exact "Save to" path below (keep
+the same filename). The .svg files in these folders are data charts (kept,
+NOT in this list).
+
+Every entry is currently flagged `pending` in src/lib/blog.ts, so the site
+shows a placeholder card instead of a broken image. When you hand the images
+back, dropping each file at its path is enough - the pending flag is removed
+so the real image renders.
+
+
+===================================================================
+POST 1 - How Much Does Custom Software Development Cost (9 images)
+===================================================================
+
+[1] Save to: public/blog/how-much-does-custom-software-development-cost/cover.webp
+    Size: 1600x900 (hero/cover, 16:9)
+    Alt:  Abstract illustration representing custom software development cost and budgeting
+    Prompt:
+    A premium abstract hero composition of floating translucent glass finance and UI elements - bar charts, stacked coins, code brackets and a price tag - drifting and overlapping cinematically, clustered into the left third of the frame. Set against a deep charcoal (#0a0a0a) void with a faint geometric grid. Modern fintech/SaaS digital art, sophisticated and minimal. Wide 16:9 banner (1600x900), shallow depth of field, large empty negative space on the right for a title overlay. Soft lime-green (#a3e635) gradient glow in the top-left, cool rim light and subtle glass refraction on the elements, faint particle bokeh. No text, no watermarks, no logos, not cluttered.
+
+[2] Save to: public/blog/how-much-does-custom-software-development-cost/cost-spectrum.webp
+    Size: 1280x720 (16:9)
+    Alt:  Cost spectrum infographic showing the four custom software project tiers from MVP to enterprise with 2026 price ranges
+    Prompt:
+    A horizontal bar-step infographic of four ascending tiers labelled 'MVP', 'Web/Mobile App', 'SaaS Platform' and 'Enterprise', each step taller than the last like a rising staircase. Clean modern flat-vector infographic style. Centered wide 16:9 composition (1280x720) on a pure white background with generous margins. Steps filled with a smooth lime-green to dark-green gradient (#a3e635 to #1a2e05), thin charcoal baseline, soft drop shadows. Crisp vector edges, even spacing, only the four tier labels in a clean sans-serif. No other text, no watermarks, no extra icons, not cluttered.
+
+[3] Save to: public/blog/how-much-does-custom-software-development-cost/cost-factors.webp
+    Size: 1280x720 (16:9)
+    Alt:  Infographic of the five main factors that affect custom software cost: scope, complexity, design, platforms, and team
+    Prompt:
+    A single row of five labelled flat-vector icons representing cost factors: a stack of cards (Scope), interlocking gears (Complexity), a paint palette (Design), a phone and laptop pair (Platforms), and a small group of people (Team). Clean modern SaaS infographic. Balanced single-row 16:9 layout (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) icons with charcoal (#0a0a0a) detailing and one short single-word label beneath each. Consistent line weight, even spacing, lots of white space. No paragraph text, no watermarks, no background patterns.
+
+[4] Save to: public/blog/how-much-does-custom-software-development-cost/project-types.webp
+    Size: 1280x720 (16:9)
+    Alt:  Comparison illustration of four product types: MVP dashboard, marketplace app, SaaS platform and enterprise system
+    Prompt:
+    A 2x2 grid of four minimal product-screen mockups: top-left a simple admin dashboard, top-right a mobile marketplace app, bottom-left a SaaS analytics dashboard, bottom-right a dense enterprise data table. Clean UI showcase render. Even 16:9 composition (1280x720) on a light grey (#f3f4f6) background, four evenly spaced cards with rounded corners and soft drop shadows. Invented placeholder interfaces using lime-green (#65a30d) accents on charcoal text. Sharp, modern, uncluttered. No real brand names, no readable body text, no watermarks.
+
+[5] Save to: public/blog/how-much-does-custom-software-development-cost/pricing-models.webp
+    Size: 1280x720 (16:9)
+    Alt:  Side-by-side comparison illustration of fixed-price versus time and materials software pricing models
+    Prompt:
+    A split-screen comparison: the left half labelled 'Fixed Price' with a closed padlock and a single price tag; the right half labelled 'Time & Materials' with an open clock and a sliding scale. Clean flat-vector illustration. Balanced symmetrical 16:9 layout (1280x720) on a pure white background with a thin charcoal divider down the centre. Lime-green (#65a30d) icons with charcoal (#0a0a0a) accents, only the two heading labels as text. Minimal, even spacing, generous white space. No paragraph text, no watermarks, not cluttered.
+
+[6] Save to: public/blog/how-much-does-custom-software-development-cost/hidden-costs.webp
+    Size: 1280x720 (16:9)
+    Alt:  Iceberg infographic showing the visible build cost above the waterline and hidden ongoing costs below it
+    Prompt:
+    An iceberg infographic: a small tip above the waterline labelled 'Build cost', and a much larger mass below the waterline holding small icons for hosting, maintenance, APIs, support, security and future features. Clean flat-vector style. Centered 16:9 composition (1280x720) on a white-to-pale-blue (#eff6ff) gradient background with a clear horizontal waterline. Lime-green (#65a30d) icon highlights on charcoal (#0a0a0a) line work, subtle translucent water. Single-word labels only. No paragraph text, no watermarks, not oversaturated.
+
+[7] Save to: public/blog/how-much-does-custom-software-development-cost/cost-reduction.webp
+    Size: 1280x720 (16:9)
+    Alt:  Illustration of phased MVP-first development reducing risk and spreading cost over time
+    Prompt:
+    A horizontal roadmap of four ascending milestone nodes connected by a winding path, labelled 'MVP', 'Launch', 'Scale' and 'Expand', each higher than the last. Clean flat-vector illustration. Wide 16:9 composition (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) circular nodes each holding a small icon, joined by a charcoal (#0a0a0a) dashed path. Even spacing, single-word labels only, lots of white space. No paragraph text, no watermarks, not cluttered.
+
+[8] Save to: public/blog/how-much-does-custom-software-development-cost/project-timeline.webp
+    Size: 1280x720 (16:9)
+    Alt:  Gantt-style timeline of a 14-week SaaS MVP build across discovery, design, development, QA and launch
+    Prompt:
+    A horizontal Gantt-chart timeline spanning 14 weeks, with five stacked phase bars labelled Discovery, Design, Development, QA and Launch, slightly overlapping to show agile phases. Clean professional project-management infographic. Wide 16:9 composition (1280x720) on a pure white background with a faint week grid. Bars in a lime-green gradient (#a3e635 to #65a30d) with charcoal (#0a0a0a) labels and axis. Crisp, flat, evenly spaced. Only phase and week labels as text. No paragraph text, no watermarks, not cluttered.
+
+[9] Save to: public/blog/how-much-does-custom-software-development-cost/team-collaboration.webp
+    Size: 1280x720 (16:9)
+    Alt:  A software development team collaborating around a screen, planning a project budget and scope
+    Prompt:
+    A candid photograph of a small, diverse software team of three to four people gathered around a laptop and a wall of sticky notes, discussing a project plan. Bright modern open-plan office, daytime. Realistic editorial photography, 35mm lens, medium shot, shallow depth of field. Soft natural daylight from a large window, warm neutral tones with subtle lime-green accents in the environment. Natural skin texture, authentic candid expressions, clean composition. No visible brand logos, no readable screen or sticky-note text, no watermarks.
+
+===================================================================
+POST 2 - How to Choose a Software Development Company (10 images)
+===================================================================
+
+[10] Save to: public/blog/how-to-choose-a-software-development-company/cover.webp
+    Size: 1600x900 (hero/cover, 16:9)
+    Alt:  Abstract illustration representing choosing the right software development partner
+    Prompt:
+    A premium abstract hero composition suggesting selection and partnership - connected glowing nodes, a checkmark and abstract translucent people silhouettes - drifting and overlapping cinematically in the left third of the frame. Set against a deep charcoal (#0a0a0a) void with a faint geometric grid. Modern SaaS digital art, sophisticated and minimal. Wide 16:9 banner (1600x900), shallow depth of field, large empty negative space on the right for a title overlay. Soft lime-green (#a3e635) gradient glow, cool rim light and subtle glass refraction, faint particle bokeh. No text, no watermarks, no logos, not cluttered.
+
+[11] Save to: public/blog/how-to-choose-a-software-development-company/choosing-a-partner.webp
+    Size: 1280x720 (16:9)
+    Alt:  Two business people shaking hands to begin a software development partnership
+    Prompt:
+    A candid photograph of two business professionals shaking hands across a table to begin a partnership, laptops and notebooks visible between them. Bright modern office, daytime. Realistic editorial photography, 35mm lens, medium shot, shallow depth of field focused on the handshake. Soft natural daylight, warm neutral tones with subtle lime-green accents in the environment. Natural skin texture, authentic professional mood, clean composition. No visible brand logos, no readable screen text, no watermarks, no extra people.
+
+[12] Save to: public/blog/how-to-choose-a-software-development-company/questions-checklist.webp
+    Size: 1280x720 (16:9)
+    Alt:  Checklist infographic of key questions to ask a software development company before hiring
+    Prompt:
+    A vertical checklist infographic of six to seven rows, each a ticked checkbox beside a short blank placeholder line. Clean flat-vector productivity style. Centered 16:9 composition (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) checkmarks inside charcoal (#0a0a0a) outlined boxes, neutral grey placeholder lines. Even row spacing, lots of white space, minimal. No real words or paragraph text, no watermarks, not cluttered.
+
+[13] Save to: public/blog/how-to-choose-a-software-development-company/portfolio-review.webp
+    Size: 1280x720 (16:9)
+    Alt:  A person reviewing a software company's portfolio of live products on a laptop and phone
+    Prompt:
+    A candid photograph of one person at a desk comparing a software portfolio on a laptop screen and a smartphone held in hand, evaluating apps. Modern office, daytime. Realistic editorial photography, 35mm lens, medium close-up, shallow depth of field. Soft natural daylight, warm neutral tones with subtle lime-green accents. Natural skin and material texture, focused expression, clean composition. No readable brand names or screen text, no logos, no watermarks.
+
+[14] Save to: public/blog/how-to-choose-a-software-development-company/agency-vs-freelancer.webp
+    Size: 1280x720 (16:9)
+    Alt:  Comparison illustration of freelancer, agency and in-house team options for building software
+    Prompt:
+    A three-column comparison illustration: column one a single person (Freelancer), column two a small connected team of four (Agency), column three a larger office group (In-house). Clean flat-vector style. Balanced 16:9 layout (1280x720) on a pure white background with thin charcoal dividers between columns. Lime-green (#65a30d) figures with charcoal (#0a0a0a) accents and one short label under each column. Consistent line weight, even spacing, generous white space. No paragraph text, no watermarks, not cluttered.
+
+[15] Save to: public/blog/how-to-choose-a-software-development-company/red-flags.webp
+    Size: 1280x720 (16:9)
+    Alt:  Infographic of red flags to avoid when hiring a software development company
+    Prompt:
+    An infographic of five to six small red warning-flag and alert icons arranged in a grid, each beside a short blank placeholder line. Clean flat-vector style. Centered 16:9 composition (1280x720) on a pure white background with wide margins. Red (#dc2626) flag icons with charcoal (#0a0a0a) detailing and subtle lime-green (#65a30d) section accents, neutral grey placeholder lines. Even spacing, lots of white space, minimal. No real words or paragraph text, no watermarks, not cluttered.
+
+[16] Save to: public/blog/how-to-choose-a-software-development-company/quote-comparison.webp
+    Size: 1280x720 (16:9)
+    Alt:  Illustration of comparing two software development quotes side by side beyond the headline price
+    Prompt:
+    Two proposal documents or price cards side by side being compared, with a magnifying glass hovering over the line items of one. Clean flat-vector illustration. Centered symmetrical 16:9 composition (1280x720) on a pure white background. Lime-green (#65a30d) highlights on charcoal (#0a0a0a) line work, neutral grey placeholder rows that emphasise the line items rather than the totals. Minimal, even spacing, generous white space. No real text, no watermarks, not cluttered.
+
+[17] Save to: public/blog/how-to-choose-a-software-development-company/communication-cadence.webp
+    Size: 1280x720 (16:9)
+    Alt:  Illustration of a weekly communication cadence between a client and a software development team
+    Prompt:
+    A circular weekly-cadence loop of four flat-vector icons connected by curved arrows flowing clockwise: a demo screen, a check-in call, a progress chart and a feedback bubble. Clean flat-vector illustration. Centered 16:9 composition (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) icons and arrows with charcoal (#0a0a0a) accents, one short single-word label under each icon. Even spacing, balanced ring, lots of white space. No paragraph text, no watermarks, not cluttered.
+
+[18] Save to: public/blog/how-to-choose-a-software-development-company/decision-scorecard.webp
+    Size: 1280x720 (16:9)
+    Alt:  A vendor scorecard template for scoring software development companies against weighted criteria
+    Prompt:
+    A vendor scorecard table with three vendor columns and five criteria rows (track record, communication, technical, process, price), each cell filled with a simple 1-to-5 star rating. Clean flat-vector infographic. Centered 16:9 composition (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) filled stars, charcoal (#0a0a0a) headers and thin grid lines, neutral generic vendor labels. Crisp, even, lots of white space. No real brand names, no paragraph text, no watermarks.
+
+[19] Save to: public/blog/how-to-choose-a-software-development-company/team-partnership.webp
+    Size: 1280x720 (16:9)
+    Alt:  A development team and client collaborating closely on a software project
+    Prompt:
+    A candid photograph of a software team and a client collaborating closely around a screen, engaged and smiling, sticky notes on the wall behind them. Bright modern office, daytime. Realistic editorial photography, 35mm lens, medium shot, shallow depth of field. Soft natural daylight, warm neutral tones with subtle lime-green accents. Natural skin texture, authentic friendly mood, clean composition. No visible logos, no readable screen or sticky-note text, no watermarks.
+
+===================================================================
+POST 3 - How Long Does It Take to Build an MVP (8 images)
+===================================================================
+
+[20] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/cover.webp
+    Size: 1600x900 (hero/cover, 16:9)
+    Alt:  Abstract illustration representing the timeline to build a minimum viable product
+    Prompt:
+    A premium abstract hero composition suggesting speed and progress - a glowing timeline with milestones, a rocket light trail and faint floating app screens - drifting cinematically in the left third of the frame. Set against a deep charcoal (#0a0a0a) void with a faint geometric grid. Modern SaaS digital art, sophisticated and minimal. Wide 16:9 banner (1600x900), shallow depth of field, large empty negative space on the right for a title overlay. Soft lime-green (#a3e635) gradient glow, cool rim light and subtle glass refraction, faint particle bokeh. No text, no watermarks, no logos, not cluttered.
+
+[21] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/mvp-scope.webp
+    Size: 1280x720 (16:9)
+    Alt:  Infographic showing the core MVP workflow kept in scope versus secondary features left for later
+    Prompt:
+    A focus diagram with one large highlighted central 'core feature' circle surrounded by several smaller faded grey 'later' feature circles being set aside. Clean flat-vector product illustration. Centered 16:9 composition (1280x720) on a pure white background with wide margins. The central circle solid lime-green (#65a30d) with a charcoal (#0a0a0a) icon, the outer circles muted grey, joined by thin connecting lines. Single-word labels only, generous white space, minimal. No paragraph text, no watermarks, not cluttered.
+
+[22] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/timeline-factors.webp
+    Size: 1280x720 (16:9)
+    Alt:  Infographic of factors that affect MVP timeline: scope, clarity, integrations, design, decision speed, team
+    Prompt:
+    A grid of six small flat-vector icons representing MVP timeline factors: stacked cards (Scope), a target (Clarity), a plug connector (Integrations), a paintbrush (Design), a fast-forward symbol (Decisions) and a small group of people (Team). Clean SaaS infographic. Balanced two-row 16:9 layout (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) icons with charcoal (#0a0a0a) detailing and one short label beneath each. Consistent line weight, even spacing, lots of white space. No paragraph text, no watermarks, not cluttered.
+
+[23] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/mvp-vs-prototype.webp
+    Size: 1280x720 (16:9)
+    Alt:  Comparison illustration of a prototype, an MVP and a full product on a timeline
+    Prompt:
+    Three stages along a left-to-right arrow, each more detailed than the last: a rough wireframe sketch (Prototype), a simple working app screen (MVP) and a rich full app screen (Full product). Clean flat-vector illustration. Wide 16:9 composition (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) UI accents on charcoal (#0a0a0a) line work, one short label under each stage, a thin charcoal progress arrow running beneath. Even spacing, minimal. No paragraph text, no watermarks, not cluttered.
+
+[24] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/delay-causes.webp
+    Size: 1280x720 (16:9)
+    Alt:  Infographic of common causes of MVP delays such as scope creep and slow decisions
+    Prompt:
+    An infographic of five to six small warning icons, each beside a short blank placeholder line: a growing pile (scope creep), a clock (slow decisions), a question mark (unclear requirements) and similar. Clean flat-vector style. Centered 16:9 composition (1280x720) on a pure white background with wide margins. Amber (#f59e0b) and charcoal (#0a0a0a) icons with subtle lime-green (#65a30d) accents, neutral grey placeholder lines. Even spacing, lots of white space, minimal. No real words or paragraph text, no watermarks, not cluttered.
+
+[25] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/launch-faster.webp
+    Size: 1280x720 (16:9)
+    Alt:  Illustration of strategies to launch an MVP faster through tight scope and weekly sprints
+    Prompt:
+    A weekly sprint-speed illustration combining a fast-forward rocket motif with a tight ticked checklist, conveying momentum through focus. Clean flat-vector style. Centered 16:9 composition (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) rocket and checkmarks with charcoal (#0a0a0a) accents and motion lines, single-word labels only. Dynamic but minimal, generous white space. No paragraph text, no watermarks, not cluttered.
+
+[26] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/worked-example.webp
+    Size: 1280x720 (16:9)
+    Alt:  Sprint board illustration of a 12-week SaaS MVP build broken into weekly focus areas
+    Prompt:
+    A kanban sprint board with three or four columns holding a few simple task cards, and a horizontal 12-week progress bar beneath it. Clean flat-vector project-management illustration. Wide 16:9 composition (1280x720) on a pure white background with wide margins. Lime-green (#65a30d) progress fill and accents on charcoal (#0a0a0a) line work, neutral grey placeholder cards. Even spacing, minimal, lots of white space. No readable card text, no real words, no watermarks, not cluttered.
+
+[27] Save to: public/blog/how-long-does-it-take-to-build-an-mvp/team-shipping.webp
+    Size: 1280x720 (16:9)
+    Alt:  A product team celebrating the launch of a minimum viable product
+    Prompt:
+    A candid photograph of a small diverse software team gathered around a laptop at the moment of a product launch, looking energised and celebrating. Bright modern office, daytime. Realistic editorial photography, 35mm lens, medium shot, shallow depth of field. Soft natural daylight, warm neutral tones with subtle lime-green accents. Natural skin texture, authentic upbeat mood, clean composition. No visible logos, no readable screen text, no watermarks.

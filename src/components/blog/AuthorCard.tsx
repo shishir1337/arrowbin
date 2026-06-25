@@ -1,24 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
+import { getBlurDataURL } from "@/lib/blur";
 import { author } from "@/lib/site";
 
-function initials(name: string) {
-  return name
-    .replace(/[^a-zA-Z\s]/g, "")
-    .trim()
-    .split(/\s+/)
-    .slice(-2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
-
 /** Author bio card shown at the end of an article (E-E-A-T signal). */
-export function AuthorCard() {
+export async function AuthorCard() {
+  const blurDataURL = await getBlurDataURL(author.image);
+
   return (
-    <aside className="mt-14 flex flex-col gap-4 rounded-2xl border border-border bg-surface-2 p-6 sm:flex-row sm:items-start sm:p-7">
-      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-accent font-display text-lg font-bold text-accent-fg">
-        {initials(author.name)}
-      </span>
+    <aside className="card-surface mt-14 flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-start sm:p-7">
+      <Image
+        src={author.image}
+        alt={`${author.name}, ${author.jobTitle} of Arrowbin`}
+        width={56}
+        height={56}
+        {...(blurDataURL ? { placeholder: "blur" as const, blurDataURL } : {})}
+        className="glow-ring h-14 w-14 shrink-0 rounded-full object-cover"
+      />
       <div>
         <p className="text-xs font-semibold uppercase tracking-wide text-muted">
           Written by

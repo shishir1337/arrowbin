@@ -38,7 +38,7 @@ export function ShareLinks({ url, title }: { url: string; title: string }) {
   }
 
   const btn =
-    "grid h-10 w-10 cursor-pointer place-items-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent";
+    "grid h-10 w-10 cursor-pointer place-items-center rounded-full border border-border text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand hover:text-accent hover:shadow-[0_0_18px_-2px_rgb(var(--brand-rgb)/0.5)]";
 
   return (
     <div className="flex items-center gap-2">

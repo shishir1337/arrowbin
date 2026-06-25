@@ -1,26 +1,32 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
+import { SpotlightCard } from "@/components/motion/SpotlightCard";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { CTASection } from "@/components/sections/CTASection";
 import { Stats } from "@/components/sections/Stats";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { getBlurDataURL } from "@/lib/blur";
 import { aboutPageSchema, breadcrumbSchema, founderSchema } from "@/lib/schema";
 import { author, defaultOgImage, pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Arrowbin",
+  // Absolute — avoids the duplicated "About Arrowbin | Arrowbin" the template
+  // would otherwise produce.
+  title: { absolute: "About Arrowbin — Software Development Company" },
   description:
-    "Arrowbin is a global software development company with offices in Dhaka, Bangladesh and Florida, USA. Learn about our mission, values and how we work.",
+    "Arrowbin is a software development company with offices in Dhaka, Bangladesh and Florida, USA. Learn about our mission, our values and how we work.",
   alternates: pageAlternates("/about"),
   openGraph: {
     title: "About Arrowbin",
     description:
-      "A global software development company building reliable, scalable software with senior engineering and honest communication.",
+      "A software development company building reliable, scalable software with senior engineering and honest communication.",
     url: "/about",
     images: [defaultOgImage],
   },
@@ -35,26 +41,28 @@ const values: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "shield",
     title: "Quality first",
-    text: "We write clean, tested, maintainable code — software built to last, not just to ship.",
+    text: "We write clean, tested, maintainable code. Software built to last, not just to ship.",
   },
   {
     icon: "users",
     title: "Real partnership",
-    text: "We listen, communicate clearly and take ownership of your outcome as if it were ours.",
+    text: "We listen, communicate clearly, and take ownership of your product as if it were ours.",
   },
   {
     icon: "bolt",
     title: "Move with purpose",
-    text: "We work fast, but never recklessly — every decision serves your goals and your users.",
+    text: "We work fast but never recklessly. Every decision answers to your goals and your users.",
   },
   {
     icon: "sparkles",
     title: "Always improving",
-    text: "We stay curious, adopt the best tools, and keep raising the bar on what we deliver.",
+    text: "We stay curious, adopt the tools that actually help, and keep raising our own bar.",
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const headshotBlur = await getBlurDataURL(author.image);
+
   return (
     <>
       <JsonLd
@@ -63,6 +71,16 @@ export default function AboutPage() {
 
       {/* Hero + story */}
       <section className="relative overflow-hidden py-14 sm:py-20">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        >
+          <div className="blob left-[4%] top-[-18%] h-72 w-72" />
+          <div
+            className="blob right-[8%] top-[6%] h-80 w-80 opacity-10"
+            style={{ animationDelay: "-5s", animationDuration: "24s" }}
+          />
+        </div>
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_-10%,rgba(101,163,13,0.13),transparent_55%)] dark:bg-[radial-gradient(circle_at_25%_-10%,rgba(163,230,53,0.12),transparent_55%)]"
@@ -74,15 +92,15 @@ export default function AboutPage() {
         <Container>
           <Breadcrumbs items={crumbs} />
           <div className="mt-8 max-w-3xl">
-            <Reveal className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium uppercase tracking-wide text-accent">
-              About us
+            <Reveal>
+              <Eyebrow>About us</Eyebrow>
             </Reveal>
             <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
               Software partners for ambitious teams
             </Reveal>
             <Reveal as="p" className="mt-5 text-lg leading-relaxed text-muted">
-              Arrowbin is a software development company helping startups and
-              enterprises design, build and scale the products that power their
+              Arrowbin is a software development company. We help startups and
+              enterprises design, build and scale the products that run their
               business.
             </Reveal>
             <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -98,24 +116,21 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-10 lg:grid-cols-2">
             <Reveal className="space-y-4 leading-relaxed text-muted">
               <p>
-                We started Arrowbin with a simple belief: great software should
-                be accessible to every business, not just the giants. Since then
-                we've delivered web platforms, e-commerce stores, mobile apps
-                and custom systems for clients across the globe.
+                We started Arrowbin in 2020 on a simple belief: good software
+                shouldn't be reserved for the giants. Since then we've delivered
+                web platforms, e-commerce stores, mobile apps and custom systems
+                for clients around the world.
               </p>
               <p>
-                With teams in Dhaka and Florida, we combine world-class
-                engineering talent with close, time-zone-friendly collaboration.
-                Whether you need a first MVP or a platform serving millions, we
-                bring the same care, clarity and craftsmanship to every project.
+                With teams in Dhaka and Florida, we pair strong engineering with
+                collaboration that fits your time zone. Whether you need a first
+                MVP or a platform serving millions of users, you get the same
+                care and the same attention to detail.
               </p>
             </Reveal>
             <Reveal className="grid gap-4 sm:grid-cols-2">
               {site.offices.map((office) => (
-                <div
-                  key={office.label}
-                  className="rounded-2xl border border-border bg-surface p-6"
-                >
+                <SpotlightCard key={office.label} className="rounded-2xl p-6">
                   <Icon name="map-pin" size={22} className="text-accent" />
                   <h2 className="mt-3 font-display text-lg font-semibold text-text">
                     {office.label}
@@ -123,7 +138,7 @@ export default function AboutPage() {
                   <p className="mt-1 text-sm text-muted">
                     {office.countryName}
                   </p>
-                </div>
+                </SpotlightCard>
               ))}
             </Reveal>
           </div>
@@ -138,14 +153,14 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Our values"
             title="What we stand for"
-            intro="The principles that guide how we build and how we treat the people we work with."
+            intro="The principles behind how we build, and how we treat the people we work with."
           />
           <StaggerGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
-              <div
+              <SpotlightCard
                 key={v.title}
                 data-reveal
-                className="rounded-2xl border border-border bg-surface p-6"
+                className="rounded-2xl p-6"
               >
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-surface-2 text-accent">
                   <Icon name={v.icon} size={22} />
@@ -156,7 +171,7 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {v.text}
                 </p>
-              </div>
+              </SpotlightCard>
             ))}
           </StaggerGroup>
         </Container>
@@ -166,13 +181,20 @@ export default function AboutPage() {
       <section className="border-y border-border bg-surface py-16 sm:py-20">
         <Container>
           <figure className="mx-auto max-w-3xl text-center">
-            <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent font-display text-lg font-bold text-accent-fg">
-              SA
-            </span>
+            <Image
+              src={author.image}
+              alt={`${author.name}, ${author.jobTitle} of ${site.name}`}
+              width={64}
+              height={64}
+              {...(headshotBlur
+                ? { placeholder: "blur" as const, blurDataURL: headshotBlur }
+                : {})}
+              className="glow-ring mx-auto h-16 w-16 rounded-full object-cover"
+            />
             <blockquote className="mt-6 font-display text-xl font-medium leading-snug text-text sm:text-2xl">
-              "We built Arrowbin to be the partner we always wished we had —
-              senior, honest, and as invested in your outcome as you are. We
-              treat every product as if it were our own."
+              "We built Arrowbin to be the partner we always wished we had:
+              senior, honest, and as invested in your product as you are. We
+              treat every build as if it were our own."
             </blockquote>
             <figcaption className="mt-5 text-sm text-muted">
               <span className="font-semibold text-text">{author.name}</span> ·{" "}

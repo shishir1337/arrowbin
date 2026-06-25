@@ -1,16 +1,24 @@
+"use client";
+
 import Link from "next/link";
+import { useTilt } from "@/components/motion/useTilt";
 import { Icon } from "@/components/ui/Icon";
 import type { Service } from "@/lib/services";
 
 /** Card linking to a service detail page. Used in grids on home and /services. */
 export function ServiceCard({ service }: { service: Service }) {
+  const tilt = useTilt<HTMLAnchorElement>();
+
   return (
     <Link
+      ref={tilt.ref}
+      onPointerMove={tilt.onPointerMove}
+      onPointerLeave={tilt.onPointerLeave}
       href={`/services/${service.slug}`}
       data-reveal
-      className="group flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-colors duration-200 hover:border-accent"
+      className="group card-surface tilt spotlight flex h-full flex-col rounded-2xl p-6"
     >
-      <span className="grid h-12 w-12 place-items-center rounded-xl bg-surface-2 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-fg">
+      <span className="grid h-12 w-12 place-items-center rounded-xl bg-surface-2 text-accent shadow-[0_0_0_1px_rgb(var(--brand-rgb)/0.12)] transition-colors group-hover:bg-brand group-hover:text-brand-fg">
         <Icon name={service.icon} size={24} />
       </span>
       <h3 className="mt-5 font-display text-xl font-semibold text-text">

@@ -4,7 +4,6 @@
  */
 
 import { author, sameAs, site, siteUrl } from "@/lib/site";
-import { averageRating, testimonials } from "@/lib/testimonials";
 
 const ORG_ID = `${siteUrl}/#organization`;
 const WEBSITE_ID = `${siteUrl}/#website`;
@@ -46,6 +45,7 @@ export function organizationSchema() {
     "@id": ORG_ID,
     name: site.name,
     legalName: site.legalName,
+    foundingDate: "2020",
     url: siteUrl,
     logo: LOGO_OBJECT,
     image: LOGO_URL,
@@ -58,8 +58,10 @@ export function organizationSchema() {
     sameAs,
     address: site.offices.map((o) => ({
       "@type": "PostalAddress",
+      ...(o.streetAddress ? { streetAddress: o.streetAddress } : {}),
       addressLocality: o.city,
       addressRegion: o.region,
+      postalCode: o.postalCode,
       addressCountry: o.country,
     })),
     contactPoint: site.phones.map((p) => ({
@@ -69,24 +71,9 @@ export function organizationSchema() {
       areaServed: p.label === "USA" ? "US" : "BD",
       availableLanguage: ["English", "Bengali"],
     })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: averageRating,
-      reviewCount: testimonials.length,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    review: testimonials.map((t) => ({
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: t.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      author: { "@type": "Person", name: t.name },
-      reviewBody: t.quote,
-    })),
+    // NOTE: aggregateRating/review intentionally omitted until real, named,
+    // verifiable client reviews exist. Emitting placeholder ratings as structured
+    // data is a trust/policy risk — restore these only with genuine testimonials.
   };
 }
 
@@ -133,16 +120,24 @@ export function serviceSchema(opts: {
   path: string;
   deliverables?: string[];
   audience?: string[];
+  hasAnswer?: boolean;
 }) {
   const node: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${siteUrl}${opts.path}#service`,
     name: opts.name,
     description: opts.description,
     url: `${siteUrl}${opts.path}`,
     provider: { "@id": ORG_ID },
     areaServed: AREA_SERVED,
     serviceType: opts.name,
+    // Point answer engines (Google AIO read-aloud) at the H1 + the direct
+    // "What is …" answer paragraph when the page renders one.
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: opts.hasAnswer ? ["h1", "#service-answer"] : ["h1"],
+    },
   };
   if (opts.deliverables?.length) {
     node.hasOfferCatalog = {
@@ -207,6 +202,31 @@ export function serviceListSchema(
   };
 }
 
+/**
+ * CollectionPage for the blog index — gives AI/LLM crawlers a machine-readable
+ * enumeration of the blog catalogue (improves citation completeness).
+ */
+export function collectionPageSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  items: { slug: string }[];
+}): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${siteUrl}${opts.path}#collection`,
+    name: opts.name,
+    description: opts.description,
+    url: `${siteUrl}${opts.path}`,
+    publisher: { "@id": ORG_ID },
+    hasPart: opts.items.map((p) => ({
+      "@type": "BlogPosting",
+      url: `${siteUrl}/blog/${p.slug}`,
+    })),
+  };
+}
+
 export function aboutPageSchema(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -214,7 +234,7 @@ export function aboutPageSchema(): Record<string, unknown> {
     name: `About ${site.name}`,
     url: `${siteUrl}/about`,
     about: { "@id": ORG_ID },
-    primaryImageOfPage: LOGO_URL,
+    primaryImageOfPage: LOGO_OBJECT,
   };
 }
 
@@ -227,6 +247,7 @@ export function founderSchema(): Record<string, unknown> {
     name: author.name,
     jobTitle: author.jobTitle,
     email: author.email,
+    image: `${siteUrl}${author.image}`,
     url: author.url,
     sameAs: author.sameAs,
     worksFor: { "@id": ORG_ID },
@@ -261,7 +282,7 @@ export function localBusinessSchema() {
   return site.offices.map((o) => ({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": `${siteUrl}/#localbusiness-${o.city.toLowerCase()}`,
+    "@id": `${siteUrl}/#localbusiness-${o.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
     name: `${site.name} — ${o.label}`,
     image: LOGO_URL,
     logo: LOGO_URL,
@@ -273,8 +294,10 @@ export function localBusinessSchema() {
     parentOrganization: { "@id": ORG_ID },
     address: {
       "@type": "PostalAddress",
+      ...(o.streetAddress ? { streetAddress: o.streetAddress } : {}),
       addressLocality: o.city,
       addressRegion: o.region,
+      postalCode: o.postalCode,
       addressCountry: o.country,
     },
     geo: {
@@ -299,6 +322,10 @@ export function blogPostingSchema(opts: {
   datePublished: string;
   dateModified?: string;
   author: string;
+  category?: string;
+  hasTldr?: boolean;
+  keywords?: string[];
+  wordCount?: number;
 }) {
   return {
     "@context": "https://schema.org",
@@ -307,19 +334,30 @@ export function blogPostingSchema(opts: {
     description: opts.description,
     url: `${siteUrl}/blog/${opts.slug}`,
     mainEntityOfPage: `${siteUrl}/blog/${opts.slug}`,
-    image: `${siteUrl}/blog/${opts.slug}/opengraph-image`,
+    image: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/blog/${opts.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+    },
+    inLanguage: "en",
+    ...(opts.keywords?.length ? { keywords: opts.keywords.join(", ") } : {}),
+    ...(opts.wordCount ? { wordCount: opts.wordCount } : {}),
+    ...(opts.category ? { articleSection: opts.category } : {}),
+    // Only reference #tldr when the post actually renders a TL;DR block.
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["h1", "#tldr"],
+      cssSelector: opts.hasTldr ? ["h1", "#tldr"] : ["h1"],
     },
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
+    // Author resolves to the global founder Person node via @id; full details
+    // (jobTitle/email) live there to avoid exposing the email on every post.
     author: {
       "@type": "Person",
       "@id": FOUNDER_ID,
       name: opts.author,
-      jobTitle: author.jobTitle,
-      email: author.email,
+      image: `${siteUrl}${author.image}`,
       url: author.url,
       sameAs: author.sameAs,
     },

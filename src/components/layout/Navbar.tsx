@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { Logo } from "@/components/layout/Logo";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { services } from "@/lib/services";
@@ -36,7 +35,17 @@ export function Navbar() {
   }, [open]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    // rAF-batch the scroll read so the layout query never runs synchronously
+    // mid-scroll (avoids forced reflow); state only flips at the 8px threshold.
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        setScrolled(window.scrollY > 8);
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -103,7 +112,7 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
         scrolled
-          ? "border-border bg-bg/80 backdrop-blur-lg"
+          ? "border-border bg-bg/80 backdrop-blur-md backdrop-saturate-150"
           : "border-transparent bg-bg/0"
       }`}
     >
@@ -146,7 +155,7 @@ export function Navbar() {
                   hidden={!servicesOpen}
                   className="absolute left-1/2 top-full w-72 -translate-x-1/2 pt-2"
                 >
-                  <ul className="grid gap-1 rounded-2xl border border-border bg-surface p-2 shadow-xl shadow-black/5">
+                  <ul className="grid gap-1 card-surface rounded-2xl p-2 shadow-xl shadow-black/5">
                     {services.map((s) => (
                       <li key={s.slug}>
                         <Link
@@ -179,7 +188,6 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <ButtonLink
             href={site.bookingUrl}
             external

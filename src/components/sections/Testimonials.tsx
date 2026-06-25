@@ -18,7 +18,7 @@ export function Testimonials() {
             <figure
               key={t.name + t.role}
               data-reveal
-              className="flex h-full flex-col rounded-2xl border border-border bg-bg p-6"
+              className="card-surface card-interactive flex h-full flex-col rounded-2xl p-6"
             >
               <div
                 className="flex gap-1 text-accent"

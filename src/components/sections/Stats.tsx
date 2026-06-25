@@ -3,9 +3,9 @@ import { Container } from "@/components/ui/Container";
 
 const stats = [
   { value: 50, suffix: "+", label: "Projects delivered" },
-  { value: 15, suffix: "+", label: "Happy clients worldwide" },
+  { value: 15, suffix: "+", label: "Clients worldwide" },
   { value: 8, suffix: "", label: "Core service areas" },
-  { value: 2, suffix: "", label: "Global offices" },
+  { value: 2, suffix: "", label: "Offices worldwide" },
 ];
 
 export function Stats() {
@@ -20,7 +20,7 @@ export function Stats() {
                 <CountUp
                   value={s.value}
                   suffix={s.suffix}
-                  className="font-display text-4xl font-bold text-accent sm:text-5xl"
+                  className="font-display text-4xl font-bold text-accent sm:text-5xl [text-shadow:0_0_26px_rgb(var(--brand-rgb)/0.45)]"
                 />
                 <span className="mt-2 block text-sm text-muted">{s.label}</span>
               </dd>

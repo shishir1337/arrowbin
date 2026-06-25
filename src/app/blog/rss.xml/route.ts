@@ -28,6 +28,10 @@ export function GET() {
     )
     .join("");
 
+  const lastBuildDate = (
+    sortedPosts[0] ? new Date(sortedPosts[0].date) : new Date()
+  ).toUTCString();
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -35,6 +39,12 @@ export function GET() {
     <link>${siteUrl}/blog</link>
     <description>Guides on software development, web &amp; mobile apps, SaaS and AI automation from ${escapeXml(site.name)}.</description>
     <language>en</language>
+    <lastBuildDate>${lastBuildDate}</lastBuildDate>
+    <image>
+      <url>${siteUrl}/opengraph-image</url>
+      <title>${escapeXml(site.name)} Blog</title>
+      <link>${siteUrl}/blog</link>
+    </image>
     <atom:link href="${siteUrl}/blog/rss.xml" rel="self" type="application/rss+xml" />${items}
   </channel>
 </rss>`;

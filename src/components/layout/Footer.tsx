@@ -9,7 +9,15 @@ const year = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="relative overflow-hidden border-t border-border bg-surface">
+      {/* Glowing top hairline + ambient glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
+        <div className="rule-gradient absolute inset-x-0 top-0 h-px" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(163,230,53,0.07),transparent_60%)]" />
+      </div>
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Brand + contact */}
@@ -27,7 +35,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${site.name} on ${s.label}`}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-border text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand hover:text-accent hover:shadow-[0_0_18px_-2px_rgb(var(--brand-rgb)/0.5)]"
                 >
                   <Icon name={s.icon as IconName} size={18} />
                 </a>

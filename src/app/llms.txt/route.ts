@@ -19,7 +19,7 @@ export function GET() {
 
 > ${site.description}
 
-${site.name} (${site.legalName}) is a software development company with offices in Dhaka, Bangladesh and Tampa, Florida (USA). Contact: ${site.email}.
+${site.name} (${site.legalName}) is a software development company with offices in Dhaka, Bangladesh and St. Petersburg, Florida (USA). Contact: ${site.email}.
 
 ## Services
 ${serviceLines}

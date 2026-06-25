@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ const crumbs = [
 const sections = [
   {
     h: "Information we collect",
-    p: "When you contact us through our website, we collect the details you provide — such as your name, email address, and any information in your message. We may also collect basic, anonymized analytics about how visitors use our site.",
+    p: "When you contact us through our website, we collect the details you provide, such as your name, email address, and anything you include in your message. We may also collect basic, anonymized analytics about how visitors use our site.",
   },
   {
     h: "How we use your information",
@@ -44,11 +45,18 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <section className="py-14 sm:py-20">
+    <section className="relative overflow-hidden py-14 sm:py-20">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_-8%,rgba(163,230,53,0.1),transparent_55%)]"
+      />
       <Container>
         <div className="mx-auto max-w-3xl">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-8 text-4xl font-bold sm:text-5xl">
+          <div className="mt-8">
+            <Eyebrow>Legal</Eyebrow>
+          </div>
+          <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
             Privacy Policy
           </h1>
           <p className="mt-4 text-muted">

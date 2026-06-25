@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-blur.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "blur": "node scripts/generate-blur.mjs"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.2",
     "gsap": "^3.15.0",
     "next": "16.2.9",
     "react": "19.2.4",
@@ -20,11 +21,14 @@
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
     "@tailwindcss/postcss": "^4",
+    "plaiceholder": "^3.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "sharp": "^0.35.2",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "browserslist": ["chrome 111", "edge 111", "firefox 111", "safari 16.4"]
 }

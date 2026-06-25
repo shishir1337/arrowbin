@@ -42,10 +42,10 @@ export const services: Service[] = [
     heading: "Custom Software Development",
     icon: "code",
     summary:
-      "Bespoke software built around your exact workflows — from internal tools to mission-critical platforms.",
+      "Software built around your exact workflows, from internal tools to the platforms your business runs on.",
     metaTitle: "Custom Software Development Company",
     metaDescription:
-      "Arrowbin builds custom software tailored to your business — web platforms, internal tools and enterprise systems. Scalable, secure and built to last.",
+      "Arrowbin builds custom software for your business: web platforms, internal tools and enterprise systems. You own the code, and it's built to grow with you.",
     keywords: [
       "custom software development",
       "bespoke software",
@@ -54,7 +54,7 @@ export const services: Service[] = [
       "custom web application development",
     ],
     intro:
-      "Off-the-shelf tools force your business to bend around their limits. We build custom software that fits the way you actually work — eliminating manual steps, connecting your systems, and giving you a platform that scales as you grow.",
+      "Off-the-shelf tools force your business to bend around their limits. We build custom software that fits the way you actually work. That means cutting out manual steps, connecting the systems you already use, and giving you a platform that grows as you do.",
     benefits: [
       {
         title: "Built for your workflow",
@@ -98,37 +98,39 @@ export const services: Service[] = [
       {
         title: "Discovery",
         description:
-          "We map your workflows, goals and constraints into a clear scope.",
+          "We map your workflows and constraints, then turn them into a clear scope you can sign off on.",
       },
       {
         title: "Architecture",
-        description: "We design the data model, stack and system architecture.",
+        description:
+          "We design the data model and the stack the system will run on.",
       },
       {
         title: "Agile build",
         description:
-          "We ship in iterative sprints with regular demos and feedback.",
+          "We ship in short sprints, with a working demo and a feedback loop at the end of each one.",
       },
       {
         title: "Launch & support",
-        description: "We deploy, monitor, and keep improving after go-live.",
+        description:
+          "We deploy, watch it in production, and keep improving after go-live.",
       },
     ],
     faqs: [
       {
         question: "How much does custom software development cost?",
         answer:
-          "Most custom software projects range from $8,000 for a focused tool to $75,000+ for a full platform. The price depends on scope, integrations and complexity. We provide a fixed estimate after a short discovery call so there are no surprises.",
+          "Most custom software projects run from $8,000 for a focused tool to $75,000+ for a full platform. What moves the number is scope, the integrations involved and how complex the logic gets. After a short discovery call we give you a fixed estimate, so there are no surprises later.",
       },
       {
         question: "How long does it take to build custom software?",
         answer:
-          "A minimum viable version typically takes 6–12 weeks. Larger platforms are delivered in phases so you get usable value early and we refine from real feedback.",
+          "A minimum viable version usually takes 6–12 weeks. We deliver larger platforms in phases, so you get something usable early and we refine the rest based on real feedback.",
       },
       {
         question: "Do I own the source code?",
         answer:
-          "Yes. You receive full ownership of the source code, documentation and infrastructure. There is no vendor lock-in.",
+          "Yes. You get full ownership of the source code, the documentation and the infrastructure. There's no vendor lock-in.",
       },
     ],
   },
@@ -138,10 +140,10 @@ export const services: Service[] = [
     heading: "E-commerce Development",
     icon: "cart",
     summary:
-      "High-converting online stores and headless commerce that load fast and sell more.",
+      "Online stores and headless commerce that load fast and turn more browsers into buyers.",
     metaTitle: "E-commerce Development Services",
     metaDescription:
-      "Custom and headless e-commerce development that loads fast and converts — Shopify, headless storefronts and bespoke commerce platforms that scale.",
+      "Custom and headless e-commerce development that loads fast and converts. We build Shopify stores, headless storefronts and commerce platforms that scale with your sales.",
     keywords: [
       "ecommerce development",
       "ecommerce website development",
@@ -150,7 +152,7 @@ export const services: Service[] = [
       "online store development",
     ],
     intro:
-      "Your storefront is your hardest-working salesperson. We build fast, conversion-focused e-commerce experiences — from Shopify and headless storefronts to fully custom commerce platforms — engineered to turn visitors into customers.",
+      "Your storefront is your hardest-working salesperson. We build fast, conversion-focused e-commerce, whether that's a Shopify store, a headless storefront or a fully custom commerce platform. Every decision comes back to one thing: turning visitors into customers.",
     benefits: [
       {
         title: "Built to convert",
@@ -185,36 +187,40 @@ export const services: Service[] = [
     process: [
       {
         title: "Strategy",
-        description: "We define your catalog, funnel and conversion goals.",
+        description:
+          "We map out your catalog, your funnel and the conversion goals that matter.",
       },
       {
         title: "Design",
-        description: "We craft a storefront experience built to sell.",
+        description:
+          "We design a storefront that sells, with the looks to match.",
       },
       {
         title: "Build & integrate",
-        description: "We connect payments, shipping and inventory.",
+        description:
+          "We wire up payments, shipping and inventory so the whole thing runs.",
       },
       {
         title: "Optimize",
-        description: "We measure, test and improve conversion after launch.",
+        description:
+          "After launch we measure what's working, test changes and lift conversion.",
       },
     ],
     faqs: [
       {
         question: "Which e-commerce platform is best for my business?",
         answer:
-          "For most stores Shopify offers the fastest path to launch. If you need full design control, complex catalogs or high performance, a headless storefront on Next.js is the better fit. We recommend the right platform after understanding your catalog and goals.",
+          "For most stores, Shopify is the fastest way to launch. If you need full design control, a complex catalog or top-end performance, a headless storefront on Next.js usually wins. We'll point you to the right one once we understand your catalog and goals.",
       },
       {
         question: "Can you migrate my existing store without losing SEO?",
         answer:
-          "Yes. We migrate products, content and customers with 301 redirects and URL mapping so your search rankings are preserved.",
+          "Yes. We move your products, content and customers across, with 301 redirects and careful URL mapping so your search rankings hold.",
       },
       {
         question: "Will my store be fast and mobile-friendly?",
         answer:
-          "Absolutely. We build mobile-first, performance-optimized storefronts that pass Core Web Vitals — which directly improves both conversions and Google rankings.",
+          "Yes. We build mobile-first storefronts that pass Core Web Vitals, and that speed helps both your conversions and your Google rankings.",
       },
     ],
   },
@@ -224,10 +230,10 @@ export const services: Service[] = [
     heading: "Mobile App Development",
     icon: "mobile",
     summary:
-      "Native-quality iOS and Android apps from a single codebase, built for performance.",
+      "Native-quality iOS and Android apps from a single codebase, built to feel fast.",
     metaTitle: "Mobile App Development Company",
     metaDescription:
-      "iOS and Android app development that feels native and ships fast — cross-platform and native apps with React Native, Flutter and Swift.",
+      "iOS and Android app development that feels native and ships fast. We build cross-platform and native apps with React Native, Flutter and Swift.",
     keywords: [
       "mobile app development",
       "ios app development",
@@ -236,7 +242,7 @@ export const services: Service[] = [
       "cross platform app development",
     ],
     intro:
-      "We design and build mobile apps people love to use — fast, intuitive and reliable on every device. With cross-platform technology we deliver native-quality iOS and Android apps from one codebase, cutting cost and time to market.",
+      "We design and build mobile apps people actually want to open: fast, intuitive and reliable across devices. With cross-platform tools we ship native-quality iOS and Android apps from one codebase, which keeps both your cost and your time to market down.",
     benefits: [
       {
         title: "One codebase, both stores",
@@ -271,33 +277,40 @@ export const services: Service[] = [
     process: [
       {
         title: "Define",
-        description: "We scope features, platforms and the MVP.",
+        description:
+          "We agree on the feature set, the platforms and what the MVP needs to do.",
       },
-      { title: "Design", description: "We prototype the flows and interface." },
+      {
+        title: "Design",
+        description:
+          "We prototype the flows and the interface before any code.",
+      },
       {
         title: "Develop",
-        description: "We build, integrate and test on real devices.",
+        description:
+          "We build, integrate and test on real devices, where bugs actually show up.",
       },
       {
         title: "Ship & iterate",
-        description: "We launch to the stores and improve from usage data.",
+        description:
+          "We launch to the stores, then improve the app based on how people use it.",
       },
     ],
     faqs: [
       {
         question: "Should I build a native or cross-platform app?",
         answer:
-          "For most products, cross-platform (React Native or Flutter) delivers native-quality results from a single codebase — saving 30–40% versus building separately. We recommend fully native only when an app is extremely performance- or hardware-intensive.",
+          "For most products, cross-platform (React Native or Flutter) gives you native-quality results from one codebase and saves 30–40% versus building each platform separately. We only push for fully native when an app is heavy on performance or hardware.",
       },
       {
         question: "How much does it cost to build a mobile app?",
         answer:
-          "A polished MVP usually ranges from $12,000 to $40,000 depending on features and integrations. We scope a fixed estimate after defining your core feature set.",
+          "A polished MVP usually lands between $12,000 and $40,000, depending on the features and integrations. We give you a fixed estimate once the core feature set is defined.",
       },
       {
         question: "Do you handle App Store and Google Play submission?",
         answer:
-          "Yes. We manage the full release — store listings, review compliance, builds and updates — so your app goes live smoothly.",
+          "Yes. We handle the whole release: store listings, review compliance, builds and updates, so your app goes live without the usual headaches.",
       },
     ],
   },
@@ -307,10 +320,10 @@ export const services: Service[] = [
     heading: "SaaS & Product Engineering",
     icon: "rocket",
     summary:
-      "From MVP to scale — we engineer SaaS products with multi-tenancy, billing and analytics built in.",
+      "From MVP to scale, we engineer SaaS products with multi-tenancy, billing and analytics built in.",
     metaTitle: "SaaS Development & Product Engineering",
     metaDescription:
-      "Arrowbin engineers SaaS products from MVP to scale — multi-tenant architecture, subscriptions, billing and analytics. Your product team, on demand.",
+      "Arrowbin handles SaaS product engineering from MVP to scale: multi-tenant architecture, subscriptions, billing and analytics. Think of us as your product team, on demand.",
     keywords: [
       "saas development",
       "saas product engineering",
@@ -319,7 +332,7 @@ export const services: Service[] = [
       "build a saas product",
     ],
     intro:
-      "Building a SaaS product is a marathon of engineering decisions. We act as your product engineering team — validating an MVP quickly, then scaling it with the multi-tenancy, billing, security and observability a real SaaS business needs.",
+      "Building a SaaS product is a long run of engineering decisions, most of them easy to get wrong. We act as your product engineering team: we validate an MVP quickly, then scale it with the multi-tenancy, billing, security and observability a real SaaS business depends on.",
     benefits: [
       {
         title: "Ship an MVP fast",
@@ -362,36 +375,39 @@ export const services: Service[] = [
     process: [
       {
         title: "Validate",
-        description: "We define the smallest product that proves value.",
+        description:
+          "We pin down the smallest product that proves your idea works.",
       },
       {
         title: "Build MVP",
-        description: "We ship a focused, sellable first version.",
+        description: "We ship a focused first version you can actually sell.",
       },
       {
         title: "Scale",
-        description: "We harden architecture, billing and security.",
+        description:
+          "We harden the architecture, billing and security for real traffic.",
       },
       {
         title: "Grow",
-        description: "We iterate on features driven by real usage.",
+        description:
+          "We keep adding features, guided by how customers really use the product.",
       },
     ],
     faqs: [
       {
         question: "How long does it take to build a SaaS MVP?",
         answer:
-          "A focused SaaS MVP typically takes 8–14 weeks to launch. We prioritize the core workflow that proves value, then expand once you have paying users and feedback.",
+          "A focused SaaS MVP usually takes 8–14 weeks to launch. We build the core workflow that proves value first, then expand once you have paying users and their feedback to work from.",
       },
       {
         question: "Can you take over an existing SaaS codebase?",
         answer:
-          "Yes. We regularly audit, refactor and scale existing products — improving performance, reliability and developer velocity without a full rewrite.",
+          "Yes. We regularly audit, refactor and scale products other teams started. In most cases we can improve performance and reliability without a full rewrite.",
       },
       {
         question: "Do you help with subscriptions and billing?",
         answer:
-          "Yes. We implement plans, trials, metered usage and the full Stripe billing lifecycle, including invoicing and dunning.",
+          "Yes. We set up plans, trials, metered usage and the full Stripe billing lifecycle, including invoicing and dunning.",
       },
     ],
   },
@@ -401,10 +417,10 @@ export const services: Service[] = [
     heading: "UI/UX Design",
     icon: "palette",
     summary:
-      "Research-driven product design that's beautiful, accessible and built to convert.",
+      "Research-driven product design that looks sharp, stays accessible and is built to convert.",
     metaTitle: "UI/UX Design Services",
     metaDescription:
-      "User-centered UI/UX design for web and mobile — research, wireframes, design systems and high-fidelity interfaces that are beautiful and convert.",
+      "User-centered UI/UX design for web and mobile: research, wireframes, design systems and high-fidelity interfaces that look good and convert.",
     keywords: [
       "ui ux design services",
       "product design agency",
@@ -413,7 +429,7 @@ export const services: Service[] = [
       "web app design",
     ],
     intro:
-      "Great design is invisible — it just works. We combine user research, clean visual design and proven UX patterns to create interfaces that feel effortless, build trust, and turn visitors into customers.",
+      "Great design is invisible. It just works, and users rarely notice the thought behind it. We combine user research, clean visual design and UX patterns that have earned their keep to create interfaces that feel effortless, build trust and turn visitors into customers.",
     benefits: [
       {
         title: "User-centered",
@@ -454,36 +470,40 @@ export const services: Service[] = [
     process: [
       {
         title: "Research",
-        description: "We learn your users, goals and competitors.",
+        description:
+          "We get to know your users, your goals and who you're up against.",
       },
       {
         title: "Wireframe",
-        description: "We structure flows and layouts before visuals.",
+        description:
+          "We work out the flows and layouts before anyone touches visuals.",
       },
       {
         title: "Design",
-        description: "We craft polished, on-brand interfaces.",
+        description:
+          "We turn the wireframes into polished, on-brand interfaces.",
       },
       {
         title: "Handoff",
-        description: "We deliver dev-ready files and a design system.",
+        description:
+          "We hand over dev-ready files and a design system your team can build on.",
       },
     ],
     faqs: [
       {
         question: "What's the difference between UI and UX design?",
         answer:
-          "UX (user experience) design shapes how a product works — the flows, structure and usability. UI (user interface) design shapes how it looks — the visual style, typography and components. We deliver both as one cohesive process.",
+          "UX (user experience) design is about how a product works: the flows, the structure, whether people can actually get things done. UI (user interface) design is about how it looks, from visual style to typography and components. We do both as one process rather than handing them off between teams.",
       },
       {
         question: "Do you provide developer-ready design files?",
         answer:
-          "Yes. We deliver organized Figma files with components, tokens and specs, plus a design system your developers can build from directly.",
+          "Yes. You get organized Figma files with components, tokens and specs, plus a design system your developers can build from directly.",
       },
       {
         question: "Can you redesign my existing product?",
         answer:
-          "Absolutely. We run a UX audit, identify friction and opportunities, and redesign with measurable goals like higher conversion and retention.",
+          "Yes. We start with a UX audit to find where users get stuck, then redesign against measurable goals like higher conversion and better retention.",
       },
     ],
   },
@@ -493,10 +513,10 @@ export const services: Service[] = [
     heading: "AI Automation",
     icon: "sparkles",
     summary:
-      "Put AI to work — custom assistants, agents and automations that save your team hours.",
+      "Put AI to work with custom assistants, agents and automations that save your team hours.",
     metaTitle: "AI Automation Services",
     metaDescription:
-      "Arrowbin builds AI automation, chatbots, agents and LLM integrations that cut manual work and unlock new capabilities. Practical AI that delivers ROI.",
+      "Arrowbin builds AI automation, chatbots, agents and LLM integrations that cut manual work and add new capabilities. Practical AI with a clear return.",
     keywords: [
       "ai automation",
       "ai automation services",
@@ -505,7 +525,7 @@ export const services: Service[] = [
       "custom ai chatbot development",
     ],
     intro:
-      "AI is only useful when it solves a real problem. We build practical AI automations — assistants, agents, document processing and LLM integrations — that remove repetitive work, surface insights, and give your team superpowers.",
+      "AI is only useful when it solves a real problem. We build practical AI automation: assistants, agents, document processing and LLM integrations that take repetitive work off your team's plate and surface the insights buried in your data.",
     benefits: [
       {
         title: "Automate busywork",
@@ -547,36 +567,40 @@ export const services: Service[] = [
     process: [
       {
         title: "Identify",
-        description: "We find the highest-ROI automation opportunity.",
+        description:
+          "We find the automation with the biggest payback and start there.",
       },
       {
         title: "Prototype",
-        description: "We build a proof of concept to validate value.",
+        description:
+          "We build a proof of concept to check the value is real before going further.",
       },
       {
         title: "Integrate",
-        description: "We connect AI into your tools and data securely.",
+        description:
+          "We connect the AI to your tools and data, with security handled properly.",
       },
       {
         title: "Refine",
-        description: "We monitor quality and improve accuracy over time.",
+        description:
+          "We watch the output quality and tighten accuracy as the system runs.",
       },
     ],
     faqs: [
       {
         question: "What can AI automation actually do for my business?",
         answer:
-          "Common high-value uses include customer support chatbots, automated document and data processing, content generation, lead qualification, and internal knowledge assistants. We focus on automations with a clear, measurable return.",
+          "Some of the highest-value uses we see are customer support chatbots, automated document and data processing, content generation, lead qualification and internal knowledge assistants. We focus on the ones with a clear, measurable return rather than novelty.",
       },
       {
         question: "Is my data safe when using AI?",
         answer:
-          "Yes. We use enterprise AI APIs with no-training data policies, keep sensitive data isolated, and can deploy private or on-prem models when required.",
+          "Yes. We use enterprise AI APIs that don't train on your data, keep sensitive information isolated, and can run private or on-prem models when a project calls for it.",
       },
       {
         question: "Will AI give accurate answers about my business?",
         answer:
-          "We use retrieval-augmented generation (RAG) so the AI answers from your verified content and documents — dramatically reducing incorrect or made-up responses.",
+          "We use retrieval-augmented generation (RAG), so the AI answers from your verified content and documents. That cuts down sharply on incorrect or made-up responses.",
       },
     ],
   },
@@ -586,10 +610,10 @@ export const services: Service[] = [
     heading: "Cloud, DevOps & Hosting",
     icon: "cloud",
     summary:
-      "Reliable, secure cloud infrastructure with automated deployments and 24/7 uptime.",
+      "Reliable, secure cloud infrastructure with automated deployments and uptime you can count on.",
     metaTitle: "Cloud, DevOps & Hosting Services",
     metaDescription:
-      "Arrowbin sets up scalable cloud infrastructure, CI/CD pipelines and managed hosting on AWS, GCP and Vercel — secure, automated and built for uptime.",
+      "Arrowbin sets up scalable cloud infrastructure, CI/CD pipelines and managed hosting on AWS, GCP and Vercel. Secure, automated and built to stay online.",
     keywords: [
       "devops services",
       "cloud infrastructure services",
@@ -598,7 +622,7 @@ export const services: Service[] = [
       "aws cloud consulting",
     ],
     intro:
-      "Slow deploys and fragile servers hold great products back. We build cloud infrastructure that's secure, automated and scalable — with CI/CD pipelines, monitoring and managed hosting that keep your product fast and online.",
+      "Slow deploys and fragile servers hold good products back. We build cloud infrastructure that's secure, automated and ready to scale, with CI/CD pipelines, monitoring and managed hosting that keep your product fast and online.",
     benefits: [
       {
         title: "Automated deployments",
@@ -641,36 +665,39 @@ export const services: Service[] = [
     process: [
       {
         title: "Assess",
-        description: "We review your current infrastructure and needs.",
+        description:
+          "We review your current setup and figure out what it actually needs.",
       },
       {
         title: "Design",
-        description: "We architect a secure, scalable cloud setup.",
+        description:
+          "We architect a cloud setup that's secure and ready to scale.",
       },
       {
         title: "Automate",
-        description: "We implement CI/CD, monitoring and IaC.",
+        description:
+          "We put CI/CD, monitoring and infrastructure as code in place.",
       },
       {
         title: "Manage",
-        description: "We keep it running with monitoring and support.",
+        description: "We keep it running, with monitoring and support on hand.",
       },
     ],
     faqs: [
       {
         question: "Which cloud provider should I use?",
         answer:
-          "It depends on your stack and team. AWS and Google Cloud are ideal for complex, scalable systems; Vercel is excellent for fast, modern web apps. We recommend the right mix based on your product and budget.",
+          "It depends on your stack and your team. AWS and Google Cloud suit complex systems that need to scale, while Vercel is excellent for fast, modern web apps. We'll recommend the right mix based on your product and budget.",
       },
       {
         question: "Can you reduce my cloud bill?",
         answer:
-          "Often, yes. We audit usage, right-size resources, add auto-scaling and remove waste — frequently cutting cloud costs by 20–40% while improving reliability.",
+          "Often, yes. We audit usage, right-size resources, add auto-scaling and clear out waste. That frequently cuts cloud costs by 20–40% while improving reliability at the same time.",
       },
       {
         question: "Do you offer ongoing infrastructure management?",
         answer:
-          "Yes. We offer managed DevOps with monitoring, security updates and on-call support so your team can focus on the product.",
+          "Yes. We offer managed DevOps with monitoring, security updates and on-call support, so your team can stay focused on the product.",
       },
     ],
   },
@@ -680,10 +707,10 @@ export const services: Service[] = [
     heading: "Maintenance & Support",
     icon: "shield",
     summary:
-      "Keep your software fast, secure and evolving with proactive maintenance and support.",
+      "Keep your software fast, secure and improving with proactive maintenance and support.",
     metaTitle: "Software Maintenance & Support Services",
     metaDescription:
-      "Ongoing software maintenance and support — bug fixes, security updates, performance tuning and new features. Keep your product healthy and growing.",
+      "Ongoing software maintenance and support: bug fixes, security updates, performance tuning and new features. Keep your product healthy and growing.",
     keywords: [
       "software maintenance services",
       "website maintenance",
@@ -692,7 +719,7 @@ export const services: Service[] = [
       "ongoing development support",
     ],
     intro:
-      "Software is never truly finished. We keep your applications secure, fast and reliable with proactive maintenance — applying updates, fixing issues, monitoring performance and continuously shipping improvements so your product keeps getting better.",
+      "Software is never really finished. We keep your applications secure, fast and reliable with proactive maintenance: applying updates, fixing issues, watching performance and shipping a steady stream of improvements so your product keeps getting better long after launch.",
     benefits: [
       {
         title: "Proactive, not reactive",
@@ -727,36 +754,40 @@ export const services: Service[] = [
     process: [
       {
         title: "Onboard",
-        description: "We learn your codebase, stack and priorities.",
+        description:
+          "We get to know your codebase, your stack and what matters most to you.",
       },
       {
         title: "Stabilize",
-        description: "We fix urgent issues and harden the system.",
+        description:
+          "We clear the urgent issues and harden the system against the next ones.",
       },
       {
         title: "Maintain",
-        description: "We monitor, update and support on an SLA.",
+        description:
+          "We monitor, update and support the product against an agreed SLA.",
       },
       {
         title: "Evolve",
-        description: "We ship ongoing improvements and new features.",
+        description:
+          "We keep shipping improvements and new features as you need them.",
       },
     ],
     faqs: [
       {
         question: "Do you maintain software you didn't originally build?",
         answer:
-          "Yes. We start with a code and infrastructure audit to understand your system, then take over maintenance with a clear plan to stabilize and improve it.",
+          "Yes. We start with a code and infrastructure audit to understand the system, then take over maintenance with a clear plan to stabilize it and move it forward.",
       },
       {
         question: "How does your support pricing work?",
         answer:
-          "We offer monthly retainers sized to your needs — from essential security and uptime cover to dedicated ongoing development. You get a predictable cost and a defined response SLA.",
+          "We work on monthly retainers sized to what you need, from essential security and uptime cover through to dedicated ongoing development. You get a predictable cost and a defined response SLA.",
       },
       {
         question: "What's your response time for critical issues?",
         answer:
-          "Critical, production-down issues are prioritized immediately under our SLA, with defined response and resolution targets agreed in your plan.",
+          "Critical, production-down issues get our attention immediately under the SLA, with response and resolution targets agreed in your plan.",
       },
     ],
   },
@@ -787,7 +818,7 @@ export type ServiceExtras = {
 export const serviceExtras: Record<string, ServiceExtras> = {
   "custom-software-development": {
     answer:
-      "Custom software development is the process of designing and building software tailored to your exact business — your workflows, data and users — instead of forcing your team to adapt to generic, off-the-shelf tools.",
+      "Custom software development means designing and building software around your exact business: your workflows, your data, your users. Instead of bending your team to fit a generic, off-the-shelf tool, the software fits the business.",
     outcomes: [
       { value: "100%", label: "Source code ownership" },
       { value: "6–12 wk", label: "To a usable first version" },
@@ -796,8 +827,8 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     idealFor: [
       "Teams outgrowing spreadsheets, manual steps or disconnected tools",
       "Businesses with a workflow no off-the-shelf product fits",
-      "Companies that need systems to talk to each other via integrations",
-      "Founders building a platform they need to own outright",
+      "Companies that need their systems to talk to each other",
+      "Founders building a platform they want to own outright",
     ],
     relatedWork: ["Madexa", "North Bengal Agro Farms", "Muxoro"],
     relatedPosts: [
@@ -808,7 +839,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
   },
   "ecommerce-development": {
     answer:
-      "E-commerce development is building a fast, conversion-focused online store — from storefront and checkout to payments, inventory and integrations — designed to turn visitors into paying customers.",
+      "E-commerce development is building a fast, conversion-focused online store, from storefront and checkout through to payments, inventory and the integrations behind them. The whole point is turning visitors into paying customers.",
     outcomes: [
       { value: "Fast", label: "Conversion-tuned page loads" },
       { value: "Mobile", label: "First, where buyers shop" },
@@ -828,7 +859,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
   },
   "mobile-app-development": {
     answer:
-      "Mobile app development is designing and building native or cross-platform apps for iOS and Android that are fast, intuitive and built to scale with your users.",
+      "Mobile app development is designing and building native or cross-platform apps for iOS and Android that are fast, intuitive and ready to scale as your user base grows.",
     outcomes: [
       { value: "iOS + Android", label: "From one codebase" },
       { value: "Native", label: "Feel and performance" },
@@ -837,7 +868,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     idealFor: [
       "Startups taking an idea to the app stores",
       "Businesses extending a product to mobile",
-      "Teams needing offline, push or device features",
+      "Teams that need offline, push or device features",
       "Founders validating a mobile-first MVP",
     ],
     relatedWork: ["Muxoro", "Maneel Club", "YT Shop India"],
@@ -848,7 +879,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
   },
   "saas-product-engineering": {
     answer:
-      "SaaS product engineering is building a multi-tenant software-as-a-service product end to end — accounts, subscription billing, dashboards and the reliability customers expect from something they pay for monthly.",
+      "SaaS product engineering is building a multi-tenant software-as-a-service product end to end: accounts, subscription billing, dashboards and the reliability customers expect from something they pay for every month.",
     outcomes: [
       { value: "Multi-tenant", label: "Built to scale" },
       { value: "Billing", label: "Subscriptions ready" },
@@ -857,7 +888,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     idealFor: [
       "Founders launching a SaaS MVP",
       "Teams adding multi-tenancy, roles and billing",
-      "Products scaling from first users to many",
+      "Products scaling from their first users to many",
       "Companies turning an internal tool into a product",
     ],
     relatedWork: ["Madexa", "Muxoro", "YT Shop India"],
@@ -869,7 +900,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
   },
   "ui-ux-design": {
     answer:
-      "UI/UX design is shaping how a product looks and works — research, user flows, wireframes and a polished interface — so it's intuitive, on-brand and built to convert.",
+      "UI/UX design is shaping how a product looks and works, through research, user flows, wireframes and a polished interface, so it's intuitive, on-brand and built to convert.",
     outcomes: [
       { value: "Research", label: "Grounded in real users" },
       { value: "Design system", label: "Consistent at scale" },
@@ -877,9 +908,9 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     ],
     idealFor: [
       "Products that feel clunky or confusing to use",
-      "Teams needing a design system for consistency",
+      "Teams that need a design system for consistency",
       "Founders shaping a product before building it",
-      "Brands wanting a polished, conversion-ready interface",
+      "Brands that want a polished, conversion-ready interface",
     ],
     relatedWork: ["Brandingly", "OutNet", "Maneel Club"],
     relatedPosts: [
@@ -889,7 +920,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
   },
   "ai-automation": {
     answer:
-      "AI automation is using AI and workflow automation to remove manual, repetitive work — from data entry and document processing to chat and decision support — so your team focuses on higher-value tasks.",
+      "AI automation uses AI and workflow automation to take manual, repetitive work off your team, from data entry and document processing to chat and decision support, so they can spend their time on higher-value work.",
     outcomes: [
       { value: "Less", label: "Manual, repetitive work" },
       { value: "24/7", label: "Automated workflows" },
@@ -909,7 +940,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
   },
   "cloud-devops-hosting": {
     answer:
-      "Cloud, DevOps and hosting is setting up reliable, scalable infrastructure and automated deployment pipelines — so your software ships faster, stays online, and scales without surprises.",
+      "Cloud, DevOps and hosting is setting up reliable, scalable infrastructure and automated deployment pipelines, so your software ships faster, stays online and scales without nasty surprises.",
     outcomes: [
       { value: "Reliable", label: "Uptime & monitoring" },
       { value: "Automated", label: "CI/CD pipelines" },
@@ -917,9 +948,9 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     ],
     idealFor: [
       "Teams with slow, manual or fragile deployments",
-      "Products needing to scale reliably under load",
+      "Products that need to scale reliably under load",
       "Companies migrating to the cloud",
-      "Businesses that need monitoring and peace of mind",
+      "Businesses that want monitoring and peace of mind",
     ],
     relatedWork: ["Madexa", "North Bengal Agro Farms", "Muxoro"],
     relatedPosts: [
@@ -929,7 +960,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
   },
   "maintenance-support": {
     answer:
-      "Software maintenance and support is keeping your product fast, secure and reliable after launch — bug fixes, security patches, monitoring and ongoing improvements — so it keeps delivering value.",
+      "Software maintenance and support is keeping your product fast, secure and reliable after launch, through bug fixes, security patches, monitoring and ongoing improvements, so it keeps earning its keep.",
     outcomes: [
       { value: "Secure", label: "Patched & monitored" },
       { value: "Reliable", label: "Issues fixed fast" },
@@ -939,7 +970,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Teams whose product needs ongoing upkeep",
       "Businesses that inherited software to maintain",
       "Founders without an in-house engineering team",
-      "Products needing security patches and monitoring",
+      "Products that need security patches and monitoring",
     ],
     relatedWork: ["North Bengal Agro Farms", "OutNet", "Brandingly"],
     relatedPosts: [

@@ -1,0 +1,69 @@
+Nano Banana Prompt Guide
+A practical guide to writing prompts for image generation and image editing, with reusable templates and examples.
+
+What this guide helps you do
+Think of a prompt as a structured brief: start with the core subject, add the details that matter, then use constraints to narrow the output. This approach improves consistency and reduces “close, but not quite” results.
+
+1) Image generation prompts (create from scratch)
+Break down what you want to generate into pieces, and list them from most important to least important. Earlier details have more influence on the final result.
+
+Subject: who/what it is (count, age, materials, shapes, etc.)
+Action & relationships: what it’s doing and how it interacts with others/objects
+Setting: place, time, weather, and environment (indoors/outdoors, city/nature, etc.)
+Style & medium: photo/illustration/3D/watercolor/pixel, realism level, art direction
+Composition & camera: close/medium/wide shot, angle, lens (e.g., 35mm), depth of field, subject placement
+Lighting & color: soft/hard light, backlight, neon, warm/cool contrast, film grading, etc.
+Quality & detail: sharpness, texture, clean background (keep it minimal and specific)
+Constraints (optional): what you don’t want (e.g., no text/watermarks/extra limbs/heavy blur)
+A reusable template
+Subject + Action/relationship + Setting (place/time/weather) + Style/medium + Composition/camera + Lighting/color + Key details + Constraints (what to avoid)
+Example 1: Realistic photography
+A woman in a light trench coat standing on a rainy city street, wet pavement reflections, neon signs softly blurred in the distance. Realistic photography, 35mm lens, medium shot, shallow depth of field, nighttime, cool color palette, detailed skin texture, clean frame. No text, no watermarks, no extra people.
+Example 1: Realistic photography image
+Example 2: Illustration with a clear style
+An orange cat wearing swim goggles raises a paw next to a transparent fish tank, with bubbles and small fish. Clean Japanese flat illustration, fresh color palette, consistent line weight, lots of negative space, centered composition, high contrast but not harsh. Not photorealistic. No text.
+Example 2: Illustration with a clear style image
+Example 3: Composition and visual focus
+A wooden cabin at the foot of snowy mountains. In the foreground, a cup of coffee with visible steam; in the background, blurred pine trees and morning mist. Cinematic look, wide composition with a clear focal point, golden sunrise backlight, atmospheric perspective, subtle film grain. Calm mood. Not oversaturated. Not cartoon.
+Example 3: Composition and visual focus image
+2) Image editing prompts (based on an existing image)
+For editing, be explicit about what must stay the same and what should change. The more it reads like a change request, the more stable the results.
+
+Recommended structure
+Keep (must not change) + Change (what to modify) + How (style/strength/direction) + Constraints (avoid side effects)
+Replace / add / remove elements: describe position, size, materials, and ask to match the original lighting and perspective
+Change background / scene: state what stays fixed (face, pose, clothing, composition), then describe the new environment
+Stylize: name the target style and constrain what must not break (structure, proportions, text, etc.)
+Retouch and enhance: keep it natural, avoid over-sharpening, preserve real textures
+Example 1: Change the background, keep the subject
+Keep the person’s facial features, hairstyle, pose, and outfit unchanged, and keep the original composition and light direction. Replace the background with a seaside boardwalk at dusk, warm sunset tones with slight backlight, and soft reflections on the ocean in the distance. Do not change the expression. No text or watermarks.
+Input
+Example 1: Change the background, keep the subject input
+Output
+Example 1: Change the background, keep the subject output
+Example 2: Add an object and match lighting
+Add a small desk lamp on the right side of the table: metal body, matte white lampshade, soft warm glow. Keep the original perspective and depth of field. Make the lamp shadow direction consistent with the existing light source. Do not block the main subject. Do not change the overall color grading.
+Input
+Example 2: Add an object and match lighting input
+Output
+Example 2: Add an object and match lighting output
+Example 3: Stylize while keeping structure
+Keep the layout of the person and the scene unchanged. Convert the image into a watercolor illustration: soft bleeding edges, paper texture, gentle washes. Colors should be brighter but not oversaturated. Do not add new elements. No text.
+Input
+Example 3: Stylize while keeping structure input
+Output
+Example 3: Stylize while keeping structure output
+3) Best practices (more control, more consistency)
+Start short, then iterate: use one sentence to lock direction, then add detail; change one or two things at a time.
+Be concrete, not vague: instead of “better” or “more premium,” specify “realistic photo, soft light, shallow depth of field, warm/cool contrast.”
+Put the important details first: subject, action, setting, and style should come before secondary details.
+Avoid contradictions: e.g., “minimal white background” and “dense complex background details” in the same prompt.
+Use constraints to narrow results: especially “no text,” “no watermark,” “no extra people,” “no deformed hands,” “no heavy blur.”
+For consistency, reuse a fixed description: create a simple character card (appearance, outfit, signature accessories, color palette).
+For edits: keep first, change second: especially for portraits (face, expression, hair, skin tone, age).
+If results drift, simplify the language: split long sentences into short clauses, separated by commas.
+Quick templates
+Generation
+Subject (count/traits) + Action + Setting (place/time/weather) + Style/medium + Composition/camera + Lighting/color + Key details + Constraints
+Editing
+Keep (must not change) + Change (what to modify) + Location/strength + Style + Lighting consistency + Constraints (avoid side effects)

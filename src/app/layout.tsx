@@ -3,8 +3,13 @@ import { DM_Sans, Space_Grotesk } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { CursorGlowMount } from "@/components/motion/CursorGlowMount";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
+import {
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/lib/schema";
 import { defaultOgImage, pageAlternates, site, siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -85,17 +90,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
+  themeColor: "#07070a",
 };
 
 /**
- * Runs before paint to (1) flag that JS is active and (2) apply the saved/system
- * theme, preventing a flash of the wrong color scheme.
+ * Runs before paint to flag that JS is active. The site is dark-only, so `.dark`
+ * is set statically on <html> (no theme switching / no flash to guard against).
  */
-const themeScript = `(function(){try{document.documentElement.classList.add('js');var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+const themeScript = `(function(){try{document.documentElement.classList.add('js');}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -103,7 +105,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${dmSans.variable}`}
+      className={`dark ${spaceGrotesk.variable} ${dmSans.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -111,7 +113,14 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="flex min-h-dvh flex-col bg-bg text-text">
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <CursorGlowMount />
+        <JsonLd
+          data={[
+            organizationSchema(),
+            websiteSchema(),
+            ...localBusinessSchema(),
+          ]}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-fg"

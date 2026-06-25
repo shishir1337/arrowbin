@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // Raster brand logo (512×512) for schema.org logo/image — Google rich results don't
-// accept SVG. Lime tile + black arrow on white, matching the favicon/apple-icon.
+// accept SVG. Lime tile + black triangle "A" on white, matching the favicon/apple-icon.
 export const dynamic = "force-static";
 
 export function GET() {
@@ -25,12 +25,23 @@ export function GET() {
           height: 340,
           borderRadius: 80,
           background: "#a3e635",
-          color: "#0a0a0a",
-          fontSize: 230,
-          fontWeight: 700,
         }}
       >
-        →
+        <svg width="200" height="200" viewBox="0 0 64 64" aria-hidden="true">
+          <path
+            d="M32 13 53 51H11L32 13Z"
+            fill="none"
+            stroke="#0a0a0a"
+            strokeWidth="6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M21 41h22"
+            stroke="#0a0a0a"
+            strokeWidth="6"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
     </div>,
     { width: 512, height: 512 },

@@ -1,11 +1,64 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { ReactNode } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { type ContentBlock, headingId, type PostImage } from "@/lib/blog";
+import { getBlurDataURL } from "@/lib/blur";
 
-/** Renders a single image block: the real image, or a placeholder card (with the
- * generation prompt + target path) while `pending`. */
-function BlogFigure({ image }: { image: PostImage }) {
+const INLINE_LINK = /\[([^\]]+)\]\(([^)]+)\)/g;
+const LINK_CLASS =
+  "font-medium text-accent underline underline-offset-2 transition-colors hover:text-accent/80";
+
+/**
+ * Renders lightweight `[label](href)` inline links inside body prose. Internal
+ * hrefs (starting with "/") use next/link; external ones open in a new tab.
+ * Plain text passes through untouched. Used for paragraph and list copy only —
+ * headings, the TL;DR, takeaways and FAQ answers stay plain so JSON-LD never
+ * ingests link markup.
+ */
+function renderInline(text: string): ReactNode {
+  if (!text.includes("](")) return text;
+  const parts: ReactNode[] = [];
+  let last = 0;
+  let i = 0;
+  INLINE_LINK.lastIndex = 0;
+  let match = INLINE_LINK.exec(text);
+  while (match !== null) {
+    if (match.index > last) parts.push(text.slice(last, match.index));
+    const [, label, href] = match;
+    const key = `${href}-${i}`;
+    i += 1;
+    parts.push(
+      href.startsWith("/") ? (
+        <Link key={key} href={href} className={LINK_CLASS}>
+          {label}
+        </Link>
+      ) : (
+        <a
+          key={key}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={LINK_CLASS}
+        >
+          {label}
+        </a>
+      ),
+    );
+    last = match.index + match[0].length;
+    match = INLINE_LINK.exec(text);
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
+}
+
+/** Renders a single image block: the real image, or — in development only — a
+ * placeholder card with the generation prompt + target path while `pending`.
+ * In production a pending image renders nothing, so unfinished assets (and their
+ * internal prompts) are never exposed to readers or crawlers. */
+async function BlogFigure({ image }: { image: PostImage }) {
   if (image.pending) {
+    if (process.env.NODE_ENV === "production") return null;
     return (
       <figure className="my-8 rounded-2xl border border-dashed border-border bg-surface-2 p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-accent">
@@ -30,6 +83,8 @@ function BlogFigure({ image }: { image: PostImage }) {
     );
   }
 
+  const blurDataURL = await getBlurDataURL(image.src);
+
   return (
     <figure className="my-8">
       <Image
@@ -39,6 +94,7 @@ function BlogFigure({ image }: { image: PostImage }) {
         height={image.height ?? 720}
         unoptimized={image.src.endsWith(".svg")}
         sizes="(max-width: 768px) 100vw, 768px"
+        {...(blurDataURL ? { placeholder: "blur" as const, blurDataURL } : {})}
         className="h-auto w-full rounded-2xl border border-border"
       />
       {image.caption ? (
@@ -85,7 +141,7 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
                       size={20}
                       className="mt-0.5 shrink-0 text-accent"
                     />
-                    <span className="text-muted">{item}</span>
+                    <span className="text-muted">{renderInline(item)}</span>
                   </li>
                 ))}
               </ul>
@@ -98,7 +154,7 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
               >
                 {block.items.map((item) => (
                   <li key={item} className="pl-1">
-                    {item}
+                    {renderInline(item)}
                   </li>
                 ))}
               </ol>
@@ -155,7 +211,7 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
           default:
             return (
               <p key={block.text} className="text-muted">
-                {block.text}
+                {renderInline(block.text)}
               </p>
             );
         }

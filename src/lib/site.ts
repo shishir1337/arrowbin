@@ -11,7 +11,7 @@ export const site = {
   legalName: "Arrowbin LLC",
   tagline: "Software Development Company",
   description:
-    "Arrowbin is a software development company building custom software, web & mobile apps, SaaS, AI automation and cloud solutions worldwide.",
+    "Arrowbin is a software development company. We build custom software, web & mobile apps, SaaS, AI automation and cloud solutions for clients worldwide.",
   url: siteUrl,
   bookingUrl: "https://cal.com/arrowbin/30min",
   email: "hello@arrowbin.com",
@@ -26,19 +26,25 @@ export const site = {
   offices: [
     {
       label: "Dhaka, Bangladesh",
+      // No house/road line for this office; Mohammadpur (the area) is the most
+      // specific street-level value available.
+      streetAddress: "Mohammadpur",
       city: "Dhaka",
       region: "Dhaka",
+      postalCode: "1207",
       country: "BD",
       countryName: "Bangladesh",
-      geo: { lat: 23.8103, lng: 90.4125 },
+      geo: { lat: 23.766, lng: 90.359 },
     },
     {
-      label: "Florida, USA",
-      city: "Tampa",
+      label: "St. Petersburg, Florida",
+      streetAddress: "7901 4th St N",
+      city: "St. Petersburg",
       region: "FL",
+      postalCode: "33702",
       country: "US",
       countryName: "United States",
-      geo: { lat: 27.9506, lng: -82.4572 },
+      geo: { lat: 27.8206, lng: -82.6389 },
     },
   ],
   socials: [
@@ -74,20 +80,16 @@ export const mainNav = [
 export const sameAs = site.socials.map((s) => s.href);
 
 /**
- * Build the `alternates` metadata for a page: the canonical URL plus a
- * self-referencing hreflang set. The site is single-language (English) with one
- * URL per page, so we declare `en` and `x-default` pointing at the same path —
- * signalling to search/answer engines that this content is the global default
- * for all English (and unmatched) audiences. Pass a root-relative path; Next.js
- * resolves it against `metadataBase`.
+ * Build the `alternates` metadata for a page: just the self-referencing canonical.
+ * The site is single-language (English) with one URL per page, so we intentionally
+ * omit hreflang — self-referencing `en`/`x-default` tags add no signal on a
+ * monolingual site (the canonical already handles self-reference). Add a real
+ * `languages` map here only if/when localized URLs exist. Pass a root-relative
+ * path; Next.js resolves it against `metadataBase`.
  */
 export function pageAlternates(path: string) {
   return {
     canonical: path,
-    languages: {
-      en: path,
-      "x-default": path,
-    },
   };
 }
 
@@ -97,7 +99,8 @@ export const author = {
   jobTitle: "Founder",
   email: "shishir@arrowbin.com",
   url: `${siteUrl}/about`,
-  bio: "Founder of Arrowbin. Writes about building software that ships — the cost, the process, and the decisions that make products succeed.",
+  image: "/team/shishir-ahmed.webp",
+  bio: "Founder of Arrowbin. Writes about shipping software, what it costs, and the decisions that decide whether a product works.",
   /** External profiles that anchor the author entity (schema.org sameAs). */
   sameAs: ["https://www.linkedin.com/in/md-shishir-ahmed"],
 };

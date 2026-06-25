@@ -39,6 +39,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  // Inline the (small, atomic Tailwind) CSS into the HTML as a <style> tag instead of
+  // a render-blocking <link>. Removes the CSS request from the critical path, improving
+  // FCP/LCP for first-time visitors. Production builds only — no effect in `next dev`.
+  experimental: {
+    inlineCss: true,
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
