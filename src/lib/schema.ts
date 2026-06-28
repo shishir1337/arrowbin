@@ -21,6 +21,14 @@ const LOGO_OBJECT = {
 /** E.164 phone (digits + leading +) for schema — derived from the tel: href. */
 const e164 = (href: string) => href.replace(/^tel:/, "");
 
+/**
+ * Normalize a date to a full ISO 8601 datetime with an explicit timezone. Google's
+ * Article validator flags bare `YYYY-MM-DD` values as "invalid datetime / missing
+ * timezone"; appending midnight UTC satisfies it while keeping the same calendar day.
+ */
+const toISODateTime = (d: string) =>
+  /^\d{4}-\d{2}-\d{2}$/.test(d) ? `${d}T00:00:00+00:00` : d;
+
 const AREA_SERVED = [
   { "@type": "Place", name: "Worldwide" },
   { "@type": "Country", name: "United States" },
@@ -215,7 +223,13 @@ export function collectionPageSchema(opts: {
   name: string;
   description: string;
   path: string;
-  items: { slug: string }[];
+  items: {
+    slug: string;
+    title: string;
+    author: string;
+    date: string;
+    updated?: string;
+  }[];
 }): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -225,9 +239,24 @@ export function collectionPageSchema(opts: {
     description: opts.description,
     url: `${siteUrl}${opts.path}`,
     publisher: { "@id": ORG_ID },
+    // Each hasPart BlogPosting carries headline/image/author so Google's validator
+    // sees complete nodes (no "missing field" notices). Author resolves to the
+    // global founder Person via @id; full details live on that node.
     hasPart: opts.items.map((p) => ({
       "@type": "BlogPosting",
+      headline: p.title,
       url: `${siteUrl}/blog/${p.slug}`,
+      mainEntityOfPage: `${siteUrl}/blog/${p.slug}`,
+      image: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/blog/${p.slug}/opengraph-image`,
+        width: 1200,
+        height: 630,
+      },
+      datePublished: toISODateTime(p.date),
+      dateModified: toISODateTime(p.updated ?? p.date),
+      author: { "@type": "Person", "@id": FOUNDER_ID, name: p.author },
+      publisher: { "@id": ORG_ID },
     })),
   };
 }
@@ -354,8 +383,8 @@ export function blogPostingSchema(opts: {
       "@type": "SpeakableSpecification",
       cssSelector: opts.hasTldr ? ["h1", "#tldr"] : ["h1"],
     },
-    datePublished: opts.datePublished,
-    dateModified: opts.dateModified ?? opts.datePublished,
+    datePublished: toISODateTime(opts.datePublished),
+    dateModified: toISODateTime(opts.dateModified ?? opts.datePublished),
     // Author resolves to the global founder Person node via @id; full details
     // (jobTitle/email) live there to avoid exposing the email on every post.
     author: {
