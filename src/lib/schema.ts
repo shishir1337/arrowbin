@@ -166,6 +166,7 @@ export function serviceSchema(opts: {
 export function processSchema(opts: {
   name: string;
   description?: string;
+  path: string;
   steps: { title: string; description: string }[];
 }): Record<string, unknown> {
   return {
@@ -173,11 +174,15 @@ export function processSchema(opts: {
     "@type": "ItemList",
     name: opts.name,
     ...(opts.description ? { description: opts.description } : {}),
+    // Each nested ListItem needs an `item` or `url`, or Google rejects the ItemList
+    // as an invalid carousel. Anchor every step to its card on the page (matching
+    // id="step-N" in the rendered process section).
     itemListElement: opts.steps.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: s.title,
       description: s.description,
+      url: `${siteUrl}${opts.path}#step-${i + 1}`,
     })),
   };
 }

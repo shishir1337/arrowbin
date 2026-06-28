@@ -106,6 +106,7 @@ export default async function ServiceDetailPage({
           }),
           processSchema({
             name: `How Arrowbin delivers ${service.name}`,
+            path,
             steps: service.process,
           }),
           faqSchema(service.faqs),
@@ -336,6 +337,7 @@ export default async function ServiceDetailPage({
             {service.process.map((step, i) => (
               <div
                 key={step.title}
+                id={`step-${i + 1}`}
                 data-reveal
                 className="card-surface rounded-2xl p-6"
               >

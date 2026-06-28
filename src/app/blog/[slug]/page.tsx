@@ -53,7 +53,8 @@ export async function generateMetadata({
   const path = `/blog/${post.slug}`;
   return {
     // Absolute (no "| Arrowbin" suffix) — keeps long article titles under the SERP limit.
-    title: { absolute: post.title },
+    // Prefer seoTitle so the <title> tag stays distinct from the on-page H1 (post.title).
+    title: { absolute: post.seoTitle ?? post.title },
     description: post.description,
     keywords: post.keywords,
     alternates: pageAlternates(path),

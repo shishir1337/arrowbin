@@ -32,6 +32,12 @@ export type ContentBlock =
 export type Post = {
   slug: string;
   title: string;
+  /**
+   * Optional <title> tag override. Lets the SERP/meta title differ from the on-page
+   * H1 (`title`) — avoids the "H1 and title are identical" SEO warning while keeping
+   * the visible headline natural. Falls back to `title` when unset.
+   */
+  seoTitle?: string;
   description: string;
   keywords: string[];
   /** ISO date. */
@@ -64,6 +70,7 @@ export const posts: Post[] = [
   {
     slug: "how-much-does-custom-software-development-cost",
     title: "How Much Does Custom Software Development Cost in 2026?",
+    seoTitle: "Custom Software Development Cost in 2026: Price Breakdown",
     description:
       "Custom software development costs in 2026: price ranges by project type, what drives the number, regional rates, hidden costs, and how to spend smart.",
     keywords: [
@@ -519,6 +526,7 @@ export const posts: Post[] = [
   {
     slug: "how-to-choose-a-software-development-company",
     title: "How to Choose a Software Development Company in 2026",
+    seoTitle: "Choosing a Software Development Company: 2026 Checklist",
     description:
       "A practical 2026 guide to choosing a software development company: the criteria that matter, the questions to ask, and the red flags to avoid.",
     keywords: [
@@ -942,6 +950,7 @@ export const posts: Post[] = [
   {
     slug: "how-long-does-it-take-to-build-an-mvp",
     title: "How Long Does It Take to Build an MVP in 2026?",
+    seoTitle: "MVP Development Timeline in 2026: How Long It Really Takes",
     description:
       "How long it takes to build an MVP in 2026: typical timelines by type, the week-by-week build, what affects the schedule, and how to launch faster.",
     keywords: [
