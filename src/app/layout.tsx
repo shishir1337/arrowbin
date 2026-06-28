@@ -43,6 +43,9 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
+  // Home-screen label when the site is saved to an iOS device (and the
+  // `apple-mobile-web-app-title` tag favicon checkers look for).
+  appleWebApp: { title: site.name },
   keywords: [
     "software development company",
     "custom software development",
