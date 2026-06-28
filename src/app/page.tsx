@@ -21,7 +21,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { services } from "@/lib/services";
 import { defaultOgImage, site } from "@/lib/site";
 
-const homeTitle = "Custom Software Development Company | Arrowbin";
+const homeTitle = "Software Development Company | Arrowbin";
 const homeDescription =
   "Arrowbin is a software development company. We build custom software, web and mobile apps, SaaS products, AI automation and cloud solutions for clients worldwide.";
 
