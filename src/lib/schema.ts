@@ -255,7 +255,14 @@ export function collectionPageSchema(opts: {
       },
       datePublished: toISODateTime(p.date),
       dateModified: toISODateTime(p.updated ?? p.date),
-      author: { "@type": "Person", "@id": FOUNDER_ID, name: p.author },
+      author: {
+        "@type": "Person",
+        "@id": FOUNDER_ID,
+        name: p.author,
+        image: `${siteUrl}${author.image}`,
+        url: author.url,
+        sameAs: author.sameAs,
+      },
       publisher: { "@id": ORG_ID },
     })),
   };
