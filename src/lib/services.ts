@@ -830,7 +830,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Companies that need their systems to talk to each other",
       "Founders building a platform they want to own outright",
     ],
-    relatedWork: ["Madexa", "North Bengal Agro Farms", "Muxoro"],
+    relatedWork: ["North Bengal Agro Farms", "YT Shop India", "FlexOver BD"],
     relatedPosts: [
       "how-much-does-custom-software-development-cost",
       "how-to-choose-a-software-development-company",
@@ -871,7 +871,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Teams that need offline, push or device features",
       "Founders validating a mobile-first MVP",
     ],
-    relatedWork: ["Muxoro", "Maneel Club", "YT Shop India"],
+    relatedWork: ["Silent Lifestyle BD", "Maneel Club", "YT Shop India"],
     relatedPosts: [
       "how-long-does-it-take-to-build-an-mvp",
       "how-much-does-custom-software-development-cost",
@@ -891,7 +891,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Products scaling from their first users to many",
       "Companies turning an internal tool into a product",
     ],
-    relatedWork: ["Madexa", "Muxoro", "YT Shop India"],
+    relatedWork: ["YT Shop India", "FlexOver BD", "North Bengal Agro Farms"],
     relatedPosts: [
       "how-long-does-it-take-to-build-an-mvp",
       "how-much-does-custom-software-development-cost",
@@ -932,7 +932,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Companies adding AI features to a product",
       "Operations leaders chasing efficiency gains",
     ],
-    relatedWork: ["Madexa", "Muxoro", "OutNet"],
+    relatedWork: ["OutNet", "FlexOver BD", "YT Shop India"],
     relatedPosts: [
       "how-much-does-custom-software-development-cost",
       "how-to-choose-a-software-development-company",
@@ -952,7 +952,11 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Companies migrating to the cloud",
       "Businesses that want monitoring and peace of mind",
     ],
-    relatedWork: ["Madexa", "North Bengal Agro Farms", "Muxoro"],
+    relatedWork: [
+      "North Bengal Agro Farms",
+      "Silent Lifestyle BD",
+      "YT Shop India",
+    ],
     relatedPosts: [
       "how-to-choose-a-software-development-company",
       "how-much-does-custom-software-development-cost",

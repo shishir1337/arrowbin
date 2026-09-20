@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/layout/Logo";
 import { Container } from "@/components/ui/Container";
+import { HostingerBadge } from "@/components/ui/HostingerBadge";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { services } from "@/lib/services";
 import { mainNav, site } from "@/lib/site";
@@ -40,6 +41,13 @@ export function Footer() {
                   <Icon name={s.icon as IconName} size={18} />
                 </a>
               ))}
+            </div>
+
+            {/* Verified Hostinger Partner. Kept clear of the Arrowbin logo above and
+                given its own space — Hostinger's terms forbid pairing the badge with
+                other logos or placing it on a cluttered background. */}
+            <div className="mt-8">
+              <HostingerBadge width={164} />
             </div>
           </div>
 

@@ -26,26 +26,26 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Muxoro",
-    url: "https://muxoro.com/",
-    image: "/portfolio/muxoro.jpg",
+    name: "Silent Lifestyle BD",
+    url: "https://silentlifestylebd.com/",
+    image: "/portfolio/silent-lifestyle-bd.jpg",
     blurb:
-      "Marketing site for an influencer-management agency. It connects content creators with brand partnerships and introduces the agency's talent roster.",
-    result: "Launched in 6 weeks with a 95+ Lighthouse score",
-    tags: ["Agency", "Web Platform", "UI/UX"],
-    mark: "Mx",
-    gradient: "from-sky-500 to-indigo-600",
+      "A men's and women's fashion storefront for Bangladesh, built around cash-on-delivery ordering and phone confirmation rather than card checkout.",
+    result: "Cash-on-delivery ordering live nationwide",
+    tags: ["E-commerce", "Fashion", "Storefront"],
+    mark: "Sl",
+    gradient: "from-slate-500 to-stone-700",
   },
   {
-    name: "Madexa",
-    url: "https://www.madexa.com/",
-    image: "/portfolio/madexa.jpg",
+    name: "FlexOver BD",
+    url: "https://www.flexoverbd.com/",
+    image: "/portfolio/flexover-bd.jpg",
     blurb:
-      "Corporate website for an AI and data-engineering firm. It presents the firm's services and turns enterprise visitors into leads.",
-    result: "3× more qualified enterprise enquiries",
-    tags: ["Corporate", "Web Development", "SEO"],
-    mark: "Md",
-    gradient: "from-violet-500 to-fuchsia-600",
+      "A multi-category online store covering fashion, gadgets, home and beauty, with cash on delivery and returns across all 64 districts.",
+    result: "Delivery coverage across all 64 districts",
+    tags: ["E-commerce", "Retail", "UI/UX"],
+    mark: "Fo",
+    gradient: "from-orange-500 to-red-600",
   },
   {
     name: "North Bengal Agro Farms",

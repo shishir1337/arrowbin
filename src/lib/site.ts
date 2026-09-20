@@ -68,6 +68,40 @@ export const site = {
   ],
 } as const;
 
+/**
+ * Hostinger partnership. Arrowbin is a verified Hostinger Partner; the badge is
+ * displayed under Hostinger's partner terms, which forbid altering its colours,
+ * proportions or text, so it is always rendered from the untouched asset pack in
+ * `public/hostinger-partner-badge/` at its native 8:3 ratio.
+ *
+ * `referralUrl` earns Arrowbin a commission, so every link to it must carry
+ * rel="sponsored" (Google's required attribute for affiliate links) alongside
+ * noopener/noreferrer. Use the `hostingerLinkRel` constant rather than retyping it.
+ *
+ * Deliberately excluded from the public site: the 20% agency-plan discount (that is
+ * Arrowbin's own purchase, not a client offer) and the commission rate.
+ */
+export const hostinger = {
+  name: "Hostinger",
+  /** Lands on Hostinger's page confirming the partnership. */
+  referralUrl: "https://www.hostinger.com?REFERRALCODE=arrowbin",
+  /** Clients apply this at checkout themselves. */
+  couponCode: "ARROWBIN",
+  badge: {
+    // SVG, so it needs no next/image optimisation (which would require
+    // `dangerouslyAllowSVG`) and carries no filename-encoding risk — several files
+    // in the supplied pack use a U+00D7 "×" in their names.
+    src: "/hostinger-partner-badge/svg/Badge_dark.svg",
+    /** Native aspect ratio of the supplied badge; keep 8:3 when scaling. */
+    width: 320,
+    height: 120,
+    alt: "Arrowbin is a verified Hostinger Partner",
+  },
+} as const;
+
+/** rel for any outbound link to Hostinger's referral URL. */
+export const hostingerLinkRel = "sponsored noopener noreferrer";
+
 export const mainNav = [
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },

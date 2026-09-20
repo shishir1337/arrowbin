@@ -9,12 +9,19 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { HostingerBadge } from "@/components/ui/HostingerBadge";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getBlurDataURL } from "@/lib/blur";
 import { aboutPageSchema, breadcrumbSchema, founderSchema } from "@/lib/schema";
-import { author, defaultOgImage, pageAlternates, site } from "@/lib/site";
+import {
+  author,
+  defaultOgImage,
+  hostinger,
+  pageAlternates,
+  site,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   // Absolute — avoids the duplicated "About Arrowbin | Arrowbin" the template
@@ -174,6 +181,43 @@ export default async function AboutPage() {
               </SpotlightCard>
             ))}
           </StaggerGroup>
+        </Container>
+      </section>
+
+      {/* Partnerships */}
+      <section className="border-t border-border py-16 sm:py-20">
+        <Container>
+          <div className="card-surface flex flex-col items-start gap-8 rounded-3xl p-8 sm:p-10 md:flex-row md:items-center md:gap-12">
+            {/* The badge gets its own clear space, away from the Arrowbin logo and
+                any client marks, as Hostinger's partner terms require. */}
+            <Reveal className="shrink-0">
+              <HostingerBadge width={188} />
+            </Reveal>
+            <div>
+              <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
+                Official {hostinger.name} Partner
+              </Reveal>
+              <Reveal
+                as="p"
+                className="mt-4 max-w-2xl leading-relaxed text-muted"
+              >
+                Arrowbin is a verified {hostinger.name} partner. It means the
+                hosting under the sites we build is something we can support
+                directly rather than hand off — faster escalation when a server
+                misbehaves, and a discount our clients can apply to their own
+                account.
+              </Reveal>
+              <Reveal className="mt-6">
+                <ButtonLink
+                  href="/services/cloud-devops-hosting"
+                  variant="secondary"
+                  icon="arrow-right"
+                >
+                  How we handle hosting
+                </ButtonLink>
+              </Reveal>
+            </div>
+          </div>
         </Container>
       </section>
 

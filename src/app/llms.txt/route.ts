@@ -1,6 +1,6 @@
 import { sortedPosts } from "@/lib/blog";
 import { services } from "@/lib/services";
-import { site, siteUrl } from "@/lib/site";
+import { hostinger, site, siteUrl } from "@/lib/site";
 
 // llms.txt (llmstxt.org) — a curated, plain-text map of the site for LLM/AI crawlers.
 // Generated from live content so it never drifts out of sync.
@@ -31,6 +31,9 @@ ${postLines}
 - [About ${site.name}](${siteUrl}/about): Mission, values and how we work.
 - [Our Work](${siteUrl}/work): Portfolio of products, websites and platforms we've built.
 - [Contact](${siteUrl}/contact): Start a project or request a free consultation.
+
+## Partnerships
+- ${site.name} is a verified ${hostinger.name} Partner. Clients hosting with ${hostinger.name} can use the coupon code ${hostinger.couponCode} at checkout. See [Cloud, DevOps & Hosting](${siteUrl}/services/cloud-devops-hosting).
 
 ## Policies
 - [Privacy Policy](${siteUrl}/privacy)

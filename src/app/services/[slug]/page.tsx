@@ -7,6 +7,7 @@ import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { CTASection } from "@/components/sections/CTASection";
 import { FAQ } from "@/components/sections/FAQ";
 import { HeroLeadForm } from "@/components/sections/HeroLeadForm";
+import { HostingerPartner } from "@/components/sections/HostingerPartner";
 import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
 import { WhyArrowbin } from "@/components/sections/WhyArrowbin";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -27,6 +28,19 @@ import { getService, getServiceExtras, services } from "@/lib/services";
 import { pageAlternates, site } from "@/lib/site";
 
 type Params = { slug: string };
+
+/**
+ * The one service where the Hostinger partnership is on-topic. Asserted against the
+ * real slug list below, so renaming the service fails the build instead of silently
+ * dropping the partner block.
+ */
+const HOSTING_SLUG = "cloud-devops-hosting";
+
+if (!services.some((s) => s.slug === HOSTING_SLUG)) {
+  throw new Error(
+    `HOSTING_SLUG "${HOSTING_SLUG}" no longer matches a service — update it in ${"services/[slug]/page.tsx"}.`,
+  );
+}
 
 export function generateStaticParams(): Params[] {
   return services.map((s) => ({ slug: s.slug }));
@@ -325,6 +339,9 @@ export default async function ServiceDetailPage({
           </div>
         </Container>
       </section>
+
+      {/* Hostinger partnership — only on the hosting service, where it is the topic. */}
+      {service.slug === HOSTING_SLUG ? <HostingerPartner /> : null}
 
       {/* Process */}
       <section className="py-16 sm:py-20">

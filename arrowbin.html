@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrowbin — Software that ships</title>
+<meta name="description" content="Arrowbin designs and engineers web platforms, mobile apps, AI systems and cloud infrastructure for companies that need to ship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1F7;
+  --bg-2:#E2E8F2;
+  --surface:#FFFFFF;
+  --ink:#0B1B3A;
+  --ink-2:#4A5872;
+  --ink-3:#8A95AB;
+  --cobalt:#2B5BFF;
+  --cobalt-2:#0A3BE0;
+  --signal:#FF6A2C;
+  --line:rgba(11,27,58,.12);
+  --display:'Unbounded',sans-serif;
+  --body:'Manrope',sans-serif;
+  --ease:cubic-bezier(.76,0,.24,1);
+  --gutter:clamp(20px,5vw,80px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{cursor:none}
+@media (hover:none){body{cursor:auto}}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:none}
+::selection{background:var(--cobalt);color:#fff}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:4px}
+
+/* ---------- loader ---------- */
+.loader{position:fixed;inset:0;z-index:200;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px}
+.loader__bar{width:180px;height:2px;background:rgba(255,255,255,.15);overflow:hidden;border-radius:2px}
+.loader__fill{height:100%;width:0;background:var(--cobalt)}
+.loader__word{font-family:var(--display);font-weight:300;font-size:14px;letter-spacing:.3em;color:#fff;opacity:.7}
+
+/* ---------- cursor ---------- */
+.cursor{position:fixed;top:0;left:0;z-index:150;pointer-events:none;mix-blend-mode:difference}
+.cursor__dot{position:absolute;width:8px;height:8px;border-radius:50%;background:#fff;transform:translate(-50%,-50%)}
+.cursor__ring{position:absolute;width:38px;height:38px;border-radius:50%;border:1.5px solid #fff;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),opacity .3s}
+.cursor.is-hover .cursor__ring{width:64px;height:64px}
+.cursor.is-hidden{opacity:0}
+@media (hover:none){.cursor{display:none}}
+
+/* ---------- grain ---------- */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;z-index:140;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 8s steps(10) infinite}
+@keyframes grain{0%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}30%{transform:translate(3%,-15%)}50%{transform:translate(12%,9%)}70%{transform:translate(9%,4%)}90%{transform:translate(-1%,7%)}100%{transform:translate(0,0)}}
+
+/* ---------- progress ---------- */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:120;background:transparent}
+.progress__bar{height:100%;width:100%;background:var(--cobalt);transform-origin:left;transform:scaleX(0)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:110;display:flex;align-items:center;justify-content:space-between;padding:22px var(--gutter);transition:padding .5s var(--ease)}
+.nav__brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em}
+.nav__mark{width:30px;height:30px;display:grid;place-items:center}
+.nav__links{display:flex;gap:34px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.nav__links a{position:relative;padding:4px 0}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:var(--cobalt);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav.is-scrolled{padding:14px var(--gutter)}
+.nav__pill{position:absolute;inset:0;background:rgba(237,241,247,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid transparent;opacity:0;transition:opacity .5s;z-index:-1}
+.nav.is-scrolled .nav__pill{opacity:1;border-bottom-color:var(--line)}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;border-radius:999px;font-weight:600;font-size:14.5px;background:var(--ink);color:#fff;position:relative;overflow:hidden;isolation:isolate;transition:color .4s}
+.btn span{position:relative;z-index:2}
+.btn::before{content:"";position:absolute;inset:0;background:var(--cobalt);border-radius:inherit;transform:translateY(101%);transition:transform .5s var(--ease);z-index:1}
+.btn:hover::before{transform:translateY(0)}
+.btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn--ghost:hover{color:#fff}
+.btn--light{background:#fff;color:var(--ink)}
+.btn--light:hover{color:#fff}
+.btn__arrow{width:16px;height:16px;position:relative;z-index:2}
+.nav .btn{padding:12px 20px}
+.nav__burger{display:none}
+@media (max-width:900px){
+  .nav__links,.nav .btn{display:none}
+  .nav__burger{display:block;font-size:14px;font-weight:600}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;padding:140px var(--gutter) 80px;overflow:hidden}
+.hero__glow{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(60% 55% at 78% 45%,rgba(43,91,255,.18),transparent 70%),
+  radial-gradient(40% 40% at 20% 90%,rgba(255,106,44,.10),transparent 70%)}
+.hero__grid{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%)}
+.hero__copy{position:relative;z-index:3}
+.hero__tag{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--ink-2);padding:8px 14px 8px 10px;border-radius:999px;background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px var(--line);margin-bottom:34px}
+.hero__tag i{width:8px;height:8px;border-radius:50%;background:var(--cobalt);box-shadow:0 0 0 4px rgba(43,91,255,.18)}
+.hero__title{font-family:var(--display);font-weight:700;font-size:clamp(44px,6.1vw,96px);line-height:.98;letter-spacing:-.035em;color:var(--ink)}
+.hero__title .line{display:block;overflow:hidden;padding-bottom:.08em}
+.hero__title .word{display:inline-block;will-change:transform}
+.hero__title .thin{font-weight:300;color:var(--ink-2)}
+.hero__sub{max-width:52ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;color:var(--ink-2);margin:32px 0 40px}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero__canvas{position:absolute;inset:0;z-index:1}
+.hero__canvas canvas{display:block;width:100%!important;height:100%!important}
+.hero__meta{position:absolute;bottom:34px;left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;font-size:13px;color:var(--ink-3);z-index:3}
+.hero__scroll{display:flex;align-items:center;gap:12px}
+.hero__scroll i{width:1px;height:40px;background:var(--ink-3);position:relative;overflow:hidden}
+.hero__scroll i::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--cobalt);animation:scrollline 1.8s var(--ease) infinite}
+@keyframes scrollline{to{top:100%}}
+.hero__clients{display:flex;gap:26px;font-family:var(--display);font-weight:500;font-size:12px;letter-spacing:.04em;color:var(--ink-3)}
+@media (max-width:1000px){
+  .hero{grid-template-columns:1fr;padding-top:150px}
+  .hero__canvas{opacity:.55}
+  .hero__clients{display:none}
+}
+
+/* ---------- ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);overflow:hidden;padding:20px 0;position:relative;z-index:4}
+.ticker__track{display:flex;white-space:nowrap;width:max-content}
+.ticker__item{font-family:var(--display);font-weight:500;font-size:14px;letter-spacing:.02em;padding:0 34px;display:flex;align-items:center;gap:34px;color:var(--ink)}
+.ticker__item::after{content:"";width:6px;height:6px;background:var(--signal);transform:rotate(45deg);display:inline-block}
+
+/* ---------- section basics ---------- */
+.section{padding:clamp(90px,10vw,160px) var(--gutter);position:relative}
+.section__head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(50px,6vw,90px)}
+.h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.2vw,64px);line-height:1.02;letter-spacing:-.03em}
+.h2 .thin{font-weight:300;color:var(--ink-2)}
+.lead{font-size:clamp(16px,1.15vw,18px);line-height:1.65;color:var(--ink-2);max-width:48ch}
+@media (max-width:900px){.section__head{grid-template-columns:1fr}}
+.reveal{overflow:hidden}
+.reveal .line{display:block;overflow:hidden;padding-bottom:.08em}
+.reveal .word{display:inline-block}
+
+/* ---------- capabilities (horizontal scroll) ---------- */
+.caps{background:var(--bg);overflow:hidden}
+.caps__intro{padding:clamp(90px,10vw,140px) var(--gutter) 40px}
+.caps__pin{height:100vh;display:flex;align-items:center;overflow:hidden}
+.caps__track{display:flex;gap:26px;padding:0 var(--gutter);will-change:transform}
+.cap{flex:0 0 auto;width:min(78vw,520px);height:min(70vh,560px);background:var(--surface);border-radius:28px;padding:38px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(11,27,58,.25)}
+.cap__idx{font-family:var(--display);font-weight:300;font-size:13px;letter-spacing:.06em;color:var(--ink-3)}
+.cap__title{font-family:var(--display);font-weight:700;font-size:clamp(24px,2.4vw,34px);letter-spacing:-.03em;line-height:1.05;margin-bottom:16px}
+.cap__desc{color:var(--ink-2);line-height:1.6;font-size:15.5px;max-width:38ch}
+.cap__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.cap__tags span{font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:999px;background:var(--bg);color:var(--ink-2)}
+.cap__art{position:absolute;right:-10px;top:-10px;width:230px;height:230px;opacity:.9;pointer-events:none}
+.cap--accent{background:var(--cobalt);color:#fff}
+.cap--accent .cap__desc,.cap--accent .cap__idx{color:rgba(255,255,255,.75)}
+.cap--accent .cap__tags span{background:rgba(255,255,255,.14);color:#fff}
+.cap--end{width:min(78vw,420px);background:var(--ink);color:#fff;justify-content:center;align-items:flex-start}
+.cap--end .cap__title{font-size:clamp(26px,2.6vw,38px)}
+@media (max-width:900px){
+  .caps__pin{height:auto;display:block}
+  .caps__track{flex-direction:column;padding-bottom:60px}
+  .cap{width:100%;height:auto;min-height:380px}
+}
+
+/* ---------- process ---------- */
+.process{background:var(--surface);border-top:1px solid var(--line)}
+.process__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,120px)}
+.process__sticky{position:sticky;top:120px;align-self:start}
+.process__steps{position:relative;padding-left:44px}
+.process__rail{position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.process__rail i{position:absolute;inset:0;background:var(--cobalt);transform-origin:top;transform:scaleY(0)}
+.step{padding:34px 0;border-bottom:1px solid var(--line);position:relative}
+.step:last-child{border-bottom:0}
+.step::before{content:"";position:absolute;left:-40px;top:44px;width:9px;height:9px;border-radius:50%;background:var(--bg-2);box-shadow:0 0 0 4px var(--surface);transition:background .4s}
+.step.is-active::before{background:var(--cobalt)}
+.step__n{font-family:var(--display);font-weight:300;font-size:13px;color:var(--ink-3);margin-bottom:10px}
+.step__t{font-family:var(--display);font-weight:700;font-size:clamp(22px,2vw,28px);letter-spacing:-.02em;margin-bottom:12px;transition:color .4s}
+.step__d{color:var(--ink-2);line-height:1.6;font-size:15.5px;max-width:44ch}
+.step__w{font-size:13px;color:var(--ink-3);margin-top:14px}
+@media (max-width:900px){.process__grid{grid-template-columns:1fr}.process__sticky{position:static}}
+
+/* ---------- work ---------- */
+.work{background:var(--bg)}
+.work__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.case{border-radius:26px;overflow:hidden;position:relative;background:var(--surface);box-shadow:0 1px 0 var(--line);transform-style:preserve-3d;will-change:transform;min-height:420px;display:flex;flex-direction:column;justify-content:space-between}
+.case--a{grid-column:span 7}
+.case--b{grid-column:span 5}
+.case--c{grid-column:span 5}
+.case--d{grid-column:span 7}
+.case__visual{position:absolute;inset:0;overflow:hidden}
+.case__visual svg{width:100%;height:100%}
+.case__body{position:relative;z-index:2;padding:32px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-top:auto;background:linear-gradient(to top,rgba(255,255,255,.96),rgba(255,255,255,.75) 70%,transparent)}
+.case__t{font-family:var(--display);font-weight:700;font-size:clamp(20px,1.8vw,26px);letter-spacing:-.02em;margin-bottom:6px}
+.case__s{color:var(--ink-2);font-size:14.5px;max-width:36ch}
+.case__stat{text-align:right;flex:0 0 auto}
+.case__stat b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.03em;color:var(--cobalt);line-height:1}
+.case__stat small{font-size:12.5px;color:var(--ink-3)}
+.case__top{position:relative;z-index:2;padding:28px 32px 0;display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);font-weight:600}
+.case--dark{background:var(--ink);color:#fff}
+.case--dark .case__body{background:linear-gradient(to top,rgba(11,27,58,.96),rgba(11,27,58,.7) 70%,transparent)}
+.case--dark .case__s,.case--dark .case__top{color:rgba(255,255,255,.7)}
+.case--dark .case__stat b{color:#8FA8FF}
+@media (max-width:900px){.case--a,.case--b,.case--c,.case--d{grid-column:span 12}}
+
+/* ---------- principles (dark band) ---------- */
+.band{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 85% 20%,rgba(43,91,255,.45),transparent 70%),radial-gradient(35% 45% at 10% 100%,rgba(255,106,44,.22),transparent 70%)}
+.band .h2 .thin{color:rgba(255,255,255,.6)}
+.band .lead{color:rgba(255,255,255,.7)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.14);margin-top:60px;position:relative}
+.stat{padding:38px 28px 38px 0;border-right:1px solid rgba(255,255,255,.14)}
+.stat:not(:first-child){padding-left:28px}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(40px,4.6vw,72px);letter-spacing:-.04em;line-height:1}
+.stat b sup{font-size:.45em;color:var(--signal);vertical-align:top;margin-left:2px}
+.stat span{display:block;color:rgba(255,255,255,.65);margin-top:12px;font-size:14.5px}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:70px;position:relative}
+.principle{padding:28px;border-radius:20px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(6px)}
+.principle h3{font-family:var(--display);font-weight:500;font-size:17px;margin:18px 0 10px}
+.principle p{color:rgba(255,255,255,.66);font-size:14.5px;line-height:1.6}
+.principle svg{width:34px;height:34px}
+@media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.stat{border-right:0;padding-left:0!important;border-bottom:1px solid rgba(255,255,255,.14)}.principles{grid-template-columns:1fr}}
+
+/* ---------- cta ---------- */
+.cta{background:var(--bg);text-align:left;overflow:hidden}
+.cta__big{font-family:var(--display);font-weight:900;font-size:clamp(46px,9.5vw,160px);line-height:.9;letter-spacing:-.05em;color:var(--ink)}
+.cta__big .outline{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.cta__row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:50px;flex-wrap:wrap}
+.cta__row p{max-width:44ch;color:var(--ink-2);line-height:1.6}
+.cta__mail{font-family:var(--display);font-weight:500;font-size:clamp(16px,1.5vw,22px);letter-spacing:-.01em;border-bottom:1.5px solid var(--ink);padding-bottom:4px}
+
+/* ---------- footer ---------- */
+.footer{background:var(--surface);border-top:1px solid var(--line);padding:60px var(--gutter) 30px}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+.footer h4{font-family:var(--display);font-weight:500;font-size:13px;margin-bottom:16px}
+.footer ul{list-style:none}
+.footer li{margin-bottom:10px;font-size:14.5px;color:var(--ink-2)}
+.footer li a:hover{color:var(--cobalt)}
+.footer__brand{font-family:var(--display);font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px}
+.footer__brand+p{color:var(--ink-2);font-size:14.5px;max-width:30ch;margin-top:14px;line-height:1.6}
+.footer__bottom{display:flex;justify-content:space-between;margin-top:50px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);flex-wrap:wrap;gap:10px}
+@media (max-width:900px){.footer__grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- magnetic ---------- */
+[data-magnet]{display:inline-block;will-change:transform}
+
+@media (prefers-reduced-motion:reduce){
+  .grain,.hero__scroll i::after{animation:none}
+  *{scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <svg width="54" height="54" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+    <path d="M27 6 L46 42 L34 42 L27 28 L20 42 L8 42 Z" fill="#2B5BFF"/>
+    <path d="M27 6 L46 42 L40 42 L27 17 Z" fill="#FF6A2C"/>
+  </svg>
+  <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
+  <div class="loader__word">ARROWBIN</div>
+</div>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__dot" id="cDot"></div>
+  <div class="cursor__ring" id="cRing"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav__pill"></div>
+  <a class="nav__brand" href="#top" aria-label="Arrowbin home">
+    <span class="nav__mark">
+      <svg width="28" height="28" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <path d="M27 6 L46 42 L34 42 L27 28 L20 42 L8 42 Z" fill="#0B1B3A"/>
+        <path d="M27 6 L46 42 L40 42 L27 17 Z" fill="#FF6A2C"/>
+      </svg>
+    </span>
+    arrowbin
+  </a>
+  <div class="nav__links">
+    <a href="#capabilities" data-hover>Capabilities</a>
+    <a href="#process" data-hover>Process</a>
+    <a href="#work" data-hover>Work</a>
+    <a href="#principles" data-hover>Principles</a>
+  </div>
+  <a class="btn" href="#contact" data-magnet data-hover><span>Start a project</span>
+    <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <button class="nav__burger" data-hover aria-label="Menu">Menu</button>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__canvas" id="heroCanvas" aria-hidden="true"></div>
+
+  <div class="hero__copy">
+    <div class="hero__tag" id="heroTag"><i></i>Now taking projects for Q4 2026</div>
+    <h1 class="hero__title" id="heroTitle">
+      <span class="line"><span class="word">Software</span> <span class="word">built</span></span>
+      <span class="line"><span class="word">with</span> <span class="word">a</span> <span class="word">point.</span></span>
+      <span class="line thin"><span class="word">Shipped</span> <span class="word">on</span> <span class="word">time.</span></span>
+    </h1>
+    <p class="hero__sub" id="heroSub">Arrowbin is a software development company. We design and engineer web platforms, mobile apps, AI systems and the cloud infrastructure underneath them, for teams that need to launch rather than talk about launching.</p>
+    <div class="hero__cta" id="heroCta">
+      <a class="btn" href="#contact" data-magnet data-hover><span>Start a project</span>
+        <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="#work" data-magnet data-hover><span>See our work</span></a>
+    </div>
+  </div>
+
+  <div class="hero__meta" id="heroMeta">
+    <div class="hero__scroll"><i></i>Scroll to explore</div>
+    <div class="hero__clients">
+      <span>NORTHWIND</span><span>KELVIN&nbsp;HEALTH</span><span>ORBITAL&nbsp;PAY</span><span>LUMEN&nbsp;GRID</span>
+    </div>
+  </div>
+</header>
+
+<!-- Ticker -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="ticker">
+    <div class="ticker__item">Web platforms</div>
+    <div class="ticker__item">Mobile apps</div>
+    <div class="ticker__item">AI &amp; machine learning</div>
+    <div class="ticker__item">Cloud &amp; DevOps</div>
+    <div class="ticker__item">Product design</div>
+    <div class="ticker__item">Data engineering</div>
+    <div class="ticker__item">Web platforms</div>
+    <div class="ticker__item">Mobile apps</div>
+    <div class="ticker__item">AI &amp; machine learning</div>
+    <div class="ticker__item">Cloud &amp; DevOps</div>
+    <div class="ticker__item">Product design</div>
+    <div class="ticker__item">Data engineering</div>
+  </div>
+</div>
+
+<!-- Capabilities -->
+<section class="caps" id="capabilities">
+  <div class="caps__intro">
+    <div class="section__head" style="margin-bottom:0">
+      <h2 class="h2 reveal">
+        <span class="line"><span class="word">What</span> <span class="word">we</span> <span class="word">build</span></span>
+        <span class="line thin"><span class="word">end</span> <span class="word">to</span> <span class="word">end.</span></span>
+      </h2>
+      <p class="lead" data-fade>One team takes a product from first sketch to production traffic. No hand-offs between agencies, no gap between the design file and the deployed thing.</p>
+    </div>
+  </div>
+  <div class="caps__pin" id="capsPin">
+    <div class="caps__track" id="capsTrack">
+
+      <article class="cap">
+        <svg class="cap__art" viewBox="0 0 230 230" fill="none" aria-hidden="true">
+          <rect x="40" y="40" width="150" height="100" rx="12" stroke="#2B5BFF" stroke-opacity=".35"/>
+          <rect x="56" y="58" width="60" height="8" rx="4" fill="#2B5BFF" fill-opacity=".25"/>
+          <rect x="56" y="76" width="118" height="8" rx="4" fill="#2B5BFF" fill-opacity=".15"/>
+          <rect x="56" y="94" width="90" height="8" rx="4" fill="#2B5BFF" fill-opacity=".15"/>
+          <rect x="56" y="116" width="40" height="12" rx="6" fill="#2B5BFF"/>
+          <circle cx="170" cy="150" r="22" stroke="#FF6A2C" stroke-opacity=".6"/>
+        </svg>
+        <div class="cap__idx">Web platforms</div>
+        <div>
+          <h3 class="cap__title">Products people use every day, at scale.</h3>
+          <p class="cap__desc">Customer portals, marketplaces, internal tools and SaaS products, built on modern frameworks with performance budgets from day one.</p>
+          <div class="cap__tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Postgres</span></div>
+        </div>
+      </article>
+
+      <article class="cap">
+        <svg class="cap__art" viewBox="0 0 230 230" fill="none" aria-hidden="true">
+          <rect x="80" y="30" width="80" height="150" rx="16" stroke="#0B1B3A" stroke-opacity=".3"/>
+          <rect x="92" y="50" width="56" height="70" rx="6" fill="#2B5BFF" fill-opacity=".15"/>
+          <rect x="92" y="128" width="56" height="10" rx="5" fill="#2B5BFF" fill-opacity=".3"/>
+          <circle cx="120" cy="164" r="6" fill="#FF6A2C"/>
+        </svg>
+        <div class="cap__idx">Mobile apps</div>
+        <div>
+          <h3 class="cap__title">Native feel, one codebase.</h3>
+          <p class="cap__desc">iOS and Android apps with offline modes, push, payments and the 60fps interactions that make an app feel finished.</p>
+          <div class="cap__tags"><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Expo</span></div>
+        </div>
+      </article>
+
+      <article class="cap cap--accent">
+        <svg class="cap__art" viewBox="0 0 230 230" fill="none" aria-hidden="true">
+          <g stroke="#fff" stroke-opacity=".5">
+            <circle cx="60" cy="70" r="6"/><circle cx="60" cy="115" r="6"/><circle cx="60" cy="160" r="6"/>
+            <circle cx="120" cy="90" r="6"/><circle cx="120" cy="140" r="6"/>
+            <circle cx="180" cy="115" r="8" fill="#FF6A2C" stroke="none"/>
+            <path d="M66 70l48 20M66 115l48-25M66 115l48 25M66 160l48-20M126 90l48 25M126 140l48-25"/>
+          </g>
+        </svg>
+        <div class="cap__idx">AI &amp; machine learning</div>
+        <div>
+          <h3 class="cap__title">AI features that survive contact with real users.</h3>
+          <p class="cap__desc">Retrieval pipelines, agent workflows, fine-tuned models and evaluation harnesses, wired into the product instead of bolted on.</p>
+          <div class="cap__tags"><span>LLM apps</span><span>RAG</span><span>Evals</span><span>PyTorch</span></div>
+        </div>
+      </article>
+
+      <article class="cap">
+        <svg class="cap__art" viewBox="0 0 230 230" fill="none" aria-hidden="true">
+          <path d="M60 130a30 30 0 0 1 8-58 40 40 0 0 1 76-8 34 34 0 0 1 20 66z" stroke="#2B5BFF" stroke-opacity=".4"/>
+          <path d="M84 165h60M84 180h40" stroke="#0B1B3A" stroke-opacity=".3" stroke-linecap="round"/>
+          <rect x="104" y="98" width="24" height="24" rx="5" fill="#2B5BFF" fill-opacity=".3"/>
+        </svg>
+        <div class="cap__idx">Cloud &amp; DevOps</div>
+        <div>
+          <h3 class="cap__title">Infrastructure that scales without waking anyone up.</h3>
+          <p class="cap__desc">Kubernetes, serverless, CI/CD, observability and cost control on AWS, GCP and Azure, with infrastructure written as code.</p>
+          <div class="cap__tags"><span>AWS</span><span>Kubernetes</span><span>Terraform</span><span>Grafana</span></div>
+        </div>
+      </article>
+
+      <article class="cap">
+        <svg class="cap__art" viewBox="0 0 230 230" fill="none" aria-hidden="true">
+          <rect x="44" y="60" width="140" height="110" rx="10" stroke="#0B1B3A" stroke-opacity=".25"/>
+          <rect x="44" y="60" width="140" height="22" rx="10" fill="#0B1B3A" fill-opacity=".08"/>
+          <rect x="60" y="98" width="52" height="52" rx="8" fill="#2B5BFF" fill-opacity=".25"/>
+          <rect x="124" y="98" width="44" height="10" rx="5" fill="#2B5BFF" fill-opacity=".35"/>
+          <rect x="124" y="116" width="30" height="10" rx="5" fill="#FF6A2C" fill-opacity=".6"/>
+        </svg>
+        <div class="cap__idx">Product design</div>
+        <div>
+          <h3 class="cap__title">Interfaces designed by people who also ship them.</h3>
+          <p class="cap__desc">Research, prototyping, design systems and motion, done in the same room as engineering so nothing gets lost in translation.</p>
+          <div class="cap__tags"><span>Figma</span><span>Design systems</span><span>Prototyping</span><span>Motion</span></div>
+        </div>
+      </article>
+
+      <article class="cap cap--end">
+        <h3 class="cap__title">Not sure which one you need?</h3>
+        <p class="cap__desc" style="color:rgba(255,255,255,.7);margin:14px 0 26px">Send us the problem. We'll tell you what to build and what to skip.</p>
+        <a class="btn btn--light" href="#contact" data-magnet data-hover><span>Talk to an engineer</span></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section process" id="process">
+  <div class="process__grid">
+    <div class="process__sticky">
+      <h2 class="h2 reveal">
+        <span class="line"><span class="word">How</span> <span class="word">a</span> <span class="word">project</span></span>
+        <span class="line"><span class="word">moves</span> <span class="word">through</span></span>
+        <span class="line thin"><span class="word">Arrowbin.</span></span>
+      </h2>
+      <p class="lead" style="margin-top:28px" data-fade>Four stages, each with a clear output. You always know what's done, what's next, and what it costs.</p>
+    </div>
+    <div class="process__steps" id="steps">
+      <div class="process__rail"><i id="rail"></i></div>
+      <div class="step">
+        <div class="step__n">Stage 1</div>
+        <h3 class="step__t">Discovery</h3>
+        <p class="step__d">We map the problem, the users and the constraints, then write a scope small enough to be true. Output: a build plan with a fixed price.</p>
+        <div class="step__w">1–2 weeks</div>
+      </div>
+      <div class="step">
+        <div class="step__n">Stage 2</div>
+        <h3 class="step__t">Design</h3>
+        <p class="step__d">Flows, prototypes and a design system built alongside the architecture, so every screen is buildable before it's approved. Output: a clickable prototype.</p>
+        <div class="step__w">2–4 weeks</div>
+      </div>
+      <div class="step">
+        <div class="step__n">Stage 3</div>
+        <h3 class="step__t">Build</h3>
+        <p class="step__d">Two-week sprints with a working release at the end of each one. You test on real devices, not slides. Output: production software.</p>
+        <div class="step__w">6–16 weeks</div>
+      </div>
+      <div class="step">
+        <div class="step__n">Stage 4</div>
+        <h3 class="step__t">Launch and run</h3>
+        <p class="step__d">Monitoring, on-call and a roadmap for what comes next. We stay as long as you need a team that already knows the codebase. Output: uptime.</p>
+        <div class="step__w">Ongoing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Work -->
+<section class="section work" id="work">
+  <div class="section__head">
+    <h2 class="h2 reveal">
+      <span class="line"><span class="word">Selected</span> <span class="word">work.</span></span>
+    </h2>
+    <p class="lead" data-fade>A few recent projects and the number that mattered most to each client.</p>
+  </div>
+  <div class="work__grid">
+
+    <article class="case case--a" data-tilt>
+      <div class="case__visual" aria-hidden="true">
+        <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="ga" x1="0" x2="1"><stop offset="0" stop-color="#EDF1F7"/><stop offset="1" stop-color="#DCE5FF"/></linearGradient></defs>
+          <rect width="800" height="420" fill="url(#ga)"/>
+          <g stroke="#2B5BFF" stroke-opacity=".35" fill="none">
+            <path d="M40 300 C160 260 240 120 360 180 S560 320 760 120" stroke-width="2"/>
+            <path d="M40 340 C160 300 240 200 360 240 S560 360 760 200" stroke-opacity=".15"/>
+          </g>
+          <g fill="#2B5BFF"><circle cx="360" cy="180" r="6"/><circle cx="760" cy="120" r="6"/></g>
+          <g class="parallax-el" data-speed="-30">
+            <rect x="520" y="40" width="220" height="120" rx="14" fill="#fff" stroke="#0B1B3A" stroke-opacity=".1"/>
+            <rect x="540" y="60" width="80" height="10" rx="5" fill="#0B1B3A" fill-opacity=".15"/>
+            <rect x="540" y="82" width="160" height="10" rx="5" fill="#2B5BFF" fill-opacity=".2"/>
+            <rect x="540" y="104" width="120" height="10" rx="5" fill="#2B5BFF" fill-opacity=".2"/>
+            <rect x="540" y="130" width="60" height="14" rx="7" fill="#FF6A2C"/>
+          </g>
+        </svg>
+      </div>
+      <div class="case__top"><span>Orbital Pay</span><span>Fintech · Web platform</span></div>
+      <div class="case__body">
+        <div><h3 class="case__t">Merchant dashboard rebuilt for 40k businesses</h3><p class="case__s">Replaced a legacy PHP admin with a real-time React platform and a new ledger service.</p></div>
+        <div class="case__stat"><b data-count="63" data-suffix="%">0%</b><small>faster settlement</small></div>
+      </div>
+    </article>
+
+    <article class="case case--b case--dark" data-tilt>
+      <div class="case__visual" aria-hidden="true">
+        <svg viewBox="0 0 500 420" preserveAspectRatio="xMidYMid slice">
+          <rect width="500" height="420" fill="#0B1B3A"/>
+          <g stroke="#2B5BFF" stroke-opacity=".5" fill="none" class="parallax-el" data-speed="20">
+            <circle cx="250" cy="180" r="60"/><circle cx="250" cy="180" r="100" stroke-opacity=".25"/><circle cx="250" cy="180" r="140" stroke-opacity=".12"/>
+          </g>
+          <g fill="#8FA8FF"><circle cx="250" cy="120" r="5"/><circle cx="310" cy="180" r="5"/><circle cx="190" cy="180" r="5"/><circle cx="250" cy="240" r="5"/></g>
+          <circle cx="250" cy="180" r="10" fill="#FF6A2C"/>
+        </svg>
+      </div>
+      <div class="case__top"><span>Kelvin Health</span><span>AI · Mobile</span></div>
+      <div class="case__body">
+        <div><h3 class="case__t">Triage assistant for nurses</h3><p class="case__s">On-device model plus retrieval over clinical guidelines, shipped to iOS and Android.</p></div>
+        <div class="case__stat"><b data-count="4.9">0</b><small>App Store rating</small></div>
+      </div>
+    </article>
+
+    <article class="case case--c" data-tilt>
+      <div class="case__visual" aria-hidden="true">
+        <svg viewBox="0 0 500 420" preserveAspectRatio="xMidYMid slice">
+          <rect width="500" height="420" fill="#E6ECF7"/>
+          <g class="parallax-el" data-speed="-18">
+            <rect x="80" y="70" width="340" height="60" rx="10" fill="#fff"/>
+            <rect x="80" y="150" width="340" height="60" rx="10" fill="#fff"/>
+            <rect x="80" y="230" width="340" height="60" rx="10" fill="#fff"/>
+            <rect x="100" y="92" width="120" height="14" rx="7" fill="#0B1B3A" fill-opacity=".2"/>
+            <rect x="100" y="172" width="180" height="14" rx="7" fill="#2B5BFF" fill-opacity=".3"/>
+            <rect x="100" y="252" width="90" height="14" rx="7" fill="#0B1B3A" fill-opacity=".2"/>
+            <circle cx="390" cy="100" r="8" fill="#2B5BFF"/><circle cx="390" cy="180" r="8" fill="#2B5BFF"/><circle cx="390" cy="260" r="8" fill="#FF6A2C"/>
+          </g>
+        </svg>
+      </div>
+      <div class="case__top"><span>Northwind Logistics</span><span>Cloud · Data</span></div>
+      <div class="case__body">
+        <div><h3 class="case__t">Fleet telemetry on Kubernetes</h3><p class="case__s">Event pipeline handling 2B messages a day, moved from a single VM to autoscaling clusters.</p></div>
+        <div class="case__stat"><b data-count="99.99" data-suffix="%">0%</b><small>uptime, 12 months</small></div>
+      </div>
+    </article>
+
+    <article class="case case--d" data-tilt>
+      <div class="case__visual" aria-hidden="true">
+        <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2B5BFF"/><stop offset="1" stop-color="#0A3BE0"/></linearGradient></defs>
+          <rect width="800" height="420" fill="url(#gd)"/>
+          <g class="parallax-el" data-speed="25" fill="#fff" fill-opacity=".9">
+            <rect x="120" y="90" width="40" height="240" rx="6" fill-opacity=".25"/>
+            <rect x="200" y="150" width="40" height="180" rx="6" fill-opacity=".4"/>
+            <rect x="280" y="120" width="40" height="210" rx="6" fill-opacity=".55"/>
+            <rect x="360" y="60" width="40" height="270" rx="6" fill-opacity=".75"/>
+            <rect x="440" y="100" width="40" height="230" rx="6" fill-opacity=".6"/>
+            <rect x="520" y="40" width="40" height="290" rx="6"/>
+            <rect x="600" y="80" width="40" height="250" rx="6" fill="#FF6A2C"/>
+          </g>
+        </svg>
+      </div>
+      <div class="case__top" style="color:#fff"><span>Lumen Grid</span><span>Energy · SaaS</span></div>
+      <div class="case__body">
+        <div><h3 class="case__t">Self-serve analytics for utilities</h3><p class="case__s">Design system, marketing site and product, launched in one release across 14 regional operators.</p></div>
+        <div class="case__stat"><b data-count="11" data-prefix="" data-suffix=" wks">0</b><small>idea to launch</small></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Principles / dark band -->
+<section class="section band" id="principles">
+  <div class="section__head">
+    <h2 class="h2 reveal">
+      <span class="line"><span class="word">The</span> <span class="word">rules</span> <span class="word">we</span></span>
+      <span class="line thin"><span class="word">don't</span> <span class="word">break.</span></span>
+    </h2>
+    <p class="lead" data-fade>Most software projects fail on process, not talent. These are the constraints that keep ours on the rails.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b><span data-count="120">0</span><sup>+</sup></b><span>products shipped since 2017</span></div>
+    <div class="stat"><b><span data-count="98">0</span><sup>%</sup></b><span>projects delivered on the agreed date</span></div>
+    <div class="stat"><b><span data-count="42">0</span></b><span>engineers and designers, all in-house</span></div>
+    <div class="stat"><b><span data-count="14">0</span><sup>d</sup></b><span>from kickoff to first working release</span></div>
+  </div>
+  <div class="principles">
+    <div class="principle" data-fade>
+      <svg viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M17 4l12 22H5z" stroke="#8FA8FF" stroke-width="1.5"/><path d="M17 4l12 22h-6z" fill="#FF6A2C"/></svg>
+      <h3>Fixed scope, fixed price</h3>
+      <p>Discovery ends with a number. If we blow the estimate, that's on us, not on your budget.</p>
+    </div>
+    <div class="principle" data-fade>
+      <svg viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="5" y="5" width="24" height="24" rx="6" stroke="#8FA8FF" stroke-width="1.5"/><path d="M11 17l4 4 8-8" stroke="#FF6A2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>A release every two weeks</h3>
+      <p>Working software on a real URL or device, every sprint. Progress you can click, not read about.</p>
+    </div>
+    <div class="principle" data-fade>
+      <svg viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="12" stroke="#8FA8FF" stroke-width="1.5"/><path d="M17 9v8l5 3" stroke="#FF6A2C" stroke-width="2" stroke-linecap="round"/></svg>
+      <h3>Your code, your cloud</h3>
+      <p>Everything lives in your repositories and your accounts from day one. Leaving us should be painless, so you never have to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta" id="contact">
+  <h2 class="cta__big" id="ctaBig">
+    <span class="line"><span class="word">Let's</span> <span class="word">build</span></span>
+    <span class="line"><span class="word outline">the</span> <span class="word outline">thing.</span></span>
+  </h2>
+  <div class="cta__row">
+    <p data-fade>Tell us what you're trying to ship and when. We reply within one business day with a first take and a time to talk.</p>
+    <div style="display:flex;gap:26px;align-items:center;flex-wrap:wrap">
+      <a class="cta__mail" href="mailto:hello@arrowbin.com" data-hover>hello@arrowbin.com</a>
+      <a class="btn" href="mailto:hello@arrowbin.com" data-magnet data-hover><span>Start a project</span>
+        <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <div class="footer__brand">
+        <svg width="24" height="24" viewBox="0 0 54 54" fill="none" aria-hidden="true"><path d="M27 6 L46 42 L34 42 L27 28 L20 42 L8 42 Z" fill="#0B1B3A"/><path d="M27 6 L46 42 L40 42 L27 17 Z" fill="#FF6A2C"/></svg>
+        arrowbin
+      </div>
+      <p>Software development company. Web, mobile, AI and cloud, built by one in-house team.</p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="#capabilities" data-hover>Capabilities</a></li><li><a href="#process" data-hover>Process</a></li><li><a href="#work" data-hover>Work</a></li><li><a href="#" data-hover>Careers</a></li></ul>
+    </div>
+    <div>
+      <h4>Offices</h4>
+      <ul><li>Amsterdam</li><li>Lisbon</li><li>Remote, UTC−5 to UTC+3</li></ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul><li><a href="mailto:hello@arrowbin.com" data-hover>hello@arrowbin.com</a></li><li><a href="#" data-hover>LinkedIn</a></li><li><a href="#" data-hover>GitHub</a></li></ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Arrowbin B.V.</span>
+    <span>Privacy · Terms</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  gsap.registerPlugin(ScrollTrigger);
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* =====================================================
+     3D HERO — cobalt arrowhead built from a stream of bits
+     ===================================================== */
+  const holder = document.getElementById('heroCanvas');
+  let three = null;
+  try {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(38, holder.clientWidth/holder.clientHeight, .1, 100);
+    camera.position.set(0, 0, 9);
+    const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(holder.clientWidth, holder.clientHeight);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    holder.appendChild(renderer.domElement);
+
+    // lights
+    scene.add(new THREE.AmbientLight(0xffffff, .55));
+    const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(4, 6, 6); scene.add(key);
+    const rim = new THREE.DirectionalLight(0x8fa8ff, 1.4); rim.position.set(-6, -2, 3); scene.add(rim);
+    const warm = new THREE.PointLight(0xff6a2c, 1.2, 12); warm.position.set(2, 3, 2); scene.add(warm);
+
+    // arrowhead shape
+    const shape = new THREE.Shape();
+    shape.moveTo(0, 1.55);
+    shape.lineTo(1.25, -.85);
+    shape.lineTo(.5, -.85);
+    shape.lineTo(0, .05);
+    shape.lineTo(-.5, -.85);
+    shape.lineTo(-1.25, -.85);
+    shape.closePath();
+    const geo = new THREE.ExtrudeGeometry(shape, {depth:.55, bevelEnabled:true, bevelThickness:.09, bevelSize:.08, bevelSegments:6, curveSegments:4});
+    geo.center();
+    const mat = new THREE.MeshStandardMaterial({color:0x2b5bff, metalness:.75, roughness:.22, envMapIntensity:1});
+    const arrow = new THREE.Mesh(geo, mat);
+    const group = new THREE.Group();
+    group.add(arrow);
+
+    // tip accent: small orange facet
+    const tipShape = new THREE.Shape();
+    tipShape.moveTo(0, 1.55); tipShape.lineTo(1.25, -.85); tipShape.lineTo(.95, -.85); tipShape.lineTo(0, .95); tipShape.closePath();
+    const tipGeo = new THREE.ExtrudeGeometry(tipShape, {depth:.8, bevelEnabled:false});
+    tipGeo.scale(1.05, 1.05, 1);
+    tipGeo.translate(0, -.35, -.4); // same centering offset as the arrowhead so the facet sits on its leading edge
+    const tip = new THREE.Mesh(tipGeo, new THREE.MeshStandardMaterial({color:0xff6a2c, metalness:.5, roughness:.3}));
+    group.add(tip);
+
+    // wireframe ghost
+    const ghost = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({color:0x0b1b3a, wireframe:true, transparent:true, opacity:.08}));
+    ghost.scale.setScalar(1.6);
+    group.add(ghost);
+
+    // rings
+    const ringMat = new THREE.MeshBasicMaterial({color:0x2b5bff, transparent:true, opacity:.18});
+    const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.6, .012, 8, 140), ringMat); ring1.rotation.x = Math.PI/2.2; group.add(ring1);
+    const ring2 = new THREE.Mesh(new THREE.TorusGeometry(3.3, .01, 8, 160), new THREE.MeshBasicMaterial({color:0x0b1b3a, transparent:true, opacity:.1})); ring2.rotation.x = Math.PI/1.8; ring2.rotation.y = .4; group.add(ring2);
+
+    // bit stream particles
+    const N = 1400;
+    const pos = new Float32Array(N*3), spd = new Float32Array(N), sz = new Float32Array(N);
+    for(let i=0;i<N;i++){
+      const r = Math.pow(Math.random(), .6) * 2.8, a = Math.random()*Math.PI*2;
+      pos[i*3] = Math.cos(a)*r; pos[i*3+1] = (Math.random()-.5)*10; pos[i*3+2] = Math.sin(a)*r*.6;
+      spd[i] = .004 + Math.random()*.012; sz[i] = Math.random();
+    }
+    const pGeo = new THREE.BufferGeometry();
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const pMat = new THREE.PointsMaterial({color:0x0b1b3a, size:.035, transparent:true, opacity:.55, depthWrite:false});
+    const points = new THREE.Points(pGeo, pMat);
+    group.add(points);
+
+    const bright = new THREE.Points(pGeo.clone(), new THREE.PointsMaterial({color:0x2b5bff, size:.05, transparent:true, opacity:.45, depthWrite:false}));
+    bright.rotation.y = 1.2; group.add(bright);
+
+    scene.add(group);
+
+    // hero placement: shift right on wide screens
+    const place = () => {
+      const w = holder.clientWidth, h = holder.clientHeight;
+      camera.aspect = w/h; camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+      group.position.x = w > 1000 ? 2.3 : 0;
+      group.position.y = w > 1000 ? 0 : -1.4;
+      group.scale.setScalar(w > 1000 ? 1 : .8);
+    };
+    place();
+    window.addEventListener('resize', place);
+
+    const mouse = {x:0, y:0}, target = {x:0, y:0};
+    if(fine) window.addEventListener('mousemove', e => {
+      target.x = (e.clientX/window.innerWidth - .5);
+      target.y = (e.clientY/window.innerHeight - .5);
+    });
+
+    const state = {scroll:0, intro:0};
+    three = {state};
+    const clock = new THREE.Clock();
+    let visible = true;
+    new IntersectionObserver(([e]) => visible = e.isIntersecting, {threshold:0}).observe(holder);
+
+    function tick(){
+      requestAnimationFrame(tick);
+      if(!visible) return;
+      const t = clock.getElapsedTime();
+      mouse.x += (target.x - mouse.x)*.05; mouse.y += (target.y - mouse.y)*.05;
+      const s = state.scroll;
+      arrow.rotation.y = mouse.x*.9 + t*.25 + s*3.2;
+      arrow.rotation.x = -mouse.y*.6 + Math.sin(t*.7)*.08 + s*1.4;
+      arrow.rotation.z = Math.sin(t*.5)*.05 - s*.6;
+      tip.rotation.copy(arrow.rotation);
+      ghost.rotation.set(arrow.rotation.x*.7, -arrow.rotation.y*.5, arrow.rotation.z);
+      group.position.y += ((( holder.clientWidth>1000?0:-1.4) + Math.sin(t*.9)*.12 - s*4) - group.position.y)*.08;
+      ring1.rotation.z = t*.15; ring2.rotation.z = -t*.1;
+      const p = pGeo.attributes.position.array;
+      for(let i=0;i<N;i++){ p[i*3+1] += spd[i]*(1+s*6); if(p[i*3+1] > 5) p[i*3+1] = -5; }
+      pGeo.attributes.position.needsUpdate = true;
+      bright.geometry.attributes.position.array.set(p);
+      bright.geometry.attributes.position.needsUpdate = true;
+      renderer.render(scene, camera);
+    }
+    if(!reduce) tick(); else renderer.render(scene, camera);
+  } catch(err){ console.warn('3D disabled:', err); }
+
+  /* =====================================================
+     LOADER + INTRO
+     ===================================================== */
+  const loader = document.getElementById('loader');
+  const intro = gsap.timeline({defaults:{ease:'power4.out'}});
+  intro.to('#loaderFill', {width:'100%', duration:1.1, ease:'power2.inOut'})
+       .to(loader, {yPercent:-100, duration:.9, ease:'expo.inOut'}, '-=.2')
+       .from('.nav', {y:-30, opacity:0, duration:1}, '-=.5')
+       .from('#heroTag', {y:20, opacity:0, duration:.8}, '-=.8')
+       .from('#heroTitle .word', {yPercent:110, duration:1.2, stagger:.06}, '-=.7')
+       .from('#heroSub', {y:26, opacity:0, duration:1}, '-=.8')
+       .from('#heroCta .btn', {y:20, opacity:0, duration:.8, stagger:.1}, '-=.8')
+       .from('#heroMeta', {opacity:0, duration:1}, '-=.6')
+       .from('#heroCanvas', {opacity:0, scale:1.15, duration:1.6, ease:'expo.out'}, '-=1.6');
+  if(reduce){ intro.progress(1); }
+
+  /* =====================================================
+     CURSOR + MAGNETIC
+     ===================================================== */
+  if(fine){
+    const cursor = document.getElementById('cursor');
+    const dot = document.getElementById('cDot'), ring = document.getElementById('cRing');
+    const qx = gsap.quickTo(ring, 'x', {duration:.35, ease:'power3'}), qy = gsap.quickTo(ring, 'y', {duration:.35, ease:'power3'});
+    window.addEventListener('mousemove', e => {
+      gsap.set(dot, {x:e.clientX, y:e.clientY}); qx(e.clientX); qy(e.clientY);
+      cursor.classList.remove('is-hidden');
+    });
+    document.addEventListener('mouseleave', () => cursor.classList.add('is-hidden'));
+    document.querySelectorAll('[data-hover]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+    });
+    document.querySelectorAll('[data-magnet]').forEach(el => {
+      const mx = gsap.quickTo(el, 'x', {duration:.5, ease:'power3'}), my = gsap.quickTo(el, 'y', {duration:.5, ease:'power3'});
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        mx((e.clientX - r.left - r.width/2)*.35); my((e.clientY - r.top - r.height/2)*.35);
+      });
+      el.addEventListener('mouseleave', () => { mx(0); my(0); });
+    });
+  }
+
+  /* =====================================================
+     NAV + PROGRESS
+     ===================================================== */
+  const nav = document.getElementById('nav');
+  ScrollTrigger.create({start:'top -60', onUpdate:s => nav.classList.toggle('is-scrolled', s.scroll() > 60)});
+  gsap.to('#progressBar', {scaleX:1, ease:'none', scrollTrigger:{start:0, end:'max', scrub:.3}});
+
+  // smooth-ish anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const id = a.getAttribute('href'); if(id.length < 2) return;
+    const el = document.querySelector(id); if(!el) return;
+    e.preventDefault();
+    const y = el.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({top:y, behavior: reduce ? 'auto' : 'smooth'});
+  }));
+
+  /* =====================================================
+     HERO SCROLL — feeds the 3D scene and parallaxes copy
+     ===================================================== */
+  ScrollTrigger.create({
+    trigger:'.hero', start:'top top', end:'bottom top', scrub:true,
+    onUpdate: s => { if(three) three.state.scroll = s.progress; }
+  });
+  gsap.to('.hero__copy', {y:-120, opacity:0, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+  gsap.to('.hero__meta', {opacity:0, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'40% top', scrub:true}});
+
+  /* =====================================================
+     TICKER
+     ===================================================== */
+  const ticker = document.getElementById('ticker');
+  const half = ticker.scrollWidth/2;
+  const tk = gsap.to(ticker, {x:-half, duration:26, ease:'none', repeat:-1, paused:reduce});
+  ScrollTrigger.create({trigger:'.ticker', start:'top bottom', end:'bottom top', onUpdate:s => { if(!reduce) tk.timeScale(1 + Math.min(Math.abs(s.getVelocity())/600, 3)); }});
+
+  /* =====================================================
+     TEXT REVEALS
+     ===================================================== */
+  document.querySelectorAll('.reveal, #ctaBig').forEach(el => {
+    gsap.from(el.querySelectorAll('.word'), {
+      yPercent:110, duration:1.1, ease:'power4.out', stagger:.05,
+      scrollTrigger:{trigger:el, start:'top 85%', once:true}
+    });
+  });
+  document.querySelectorAll('[data-fade]').forEach(el => {
+    gsap.from(el, {y:30, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%', once:true}});
+  });
+
+  /* =====================================================
+     CAPABILITIES — pinned horizontal scroll (desktop)
+     ===================================================== */
+  ScrollTrigger.matchMedia({
+    '(min-width: 901px)': function(){
+      const track = document.getElementById('capsTrack');
+      const getX = () => -(track.scrollWidth - window.innerWidth);
+      gsap.to(track, {
+        x: getX, ease:'none',
+        scrollTrigger:{
+          trigger:'#capsPin', start:'top top', end:() => '+=' + (track.scrollWidth - window.innerWidth + 200),
+          pin:true, scrub:.6, invalidateOnRefresh:true, anticipatePin:1
+        }
+      });
+      gsap.from('.cap', {y:60, opacity:0, stagger:.08, duration:1, ease:'power3.out', scrollTrigger:{trigger:'#capsPin', start:'top 70%', once:true}});
+    },
+    '(max-width: 900px)': function(){
+      document.querySelectorAll('.cap').forEach(c => {
+        gsap.from(c, {y:40, opacity:0, duration:.9, ease:'power3.out', scrollTrigger:{trigger:c, start:'top 90%', once:true}});
+      });
+    }
+  });
+
+  /* =====================================================
+     PROCESS — rail draws, steps activate
+     ===================================================== */
+  gsap.to('#rail', {scaleY:1, ease:'none', scrollTrigger:{trigger:'#steps', start:'top 60%', end:'bottom 60%', scrub:true}});
+  document.querySelectorAll('.step').forEach(s => {
+    ScrollTrigger.create({trigger:s, start:'top 62%', end:'bottom 62%', toggleClass:'is-active'});
+    gsap.from(s, {x:30, opacity:0, duration:.9, ease:'power3.out', scrollTrigger:{trigger:s, start:'top 88%', once:true}});
+  });
+
+  /* =====================================================
+     WORK — tilt cards, inner parallax, counters
+     ===================================================== */
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    gsap.from(card, {y:60, opacity:0, duration:1.1, ease:'power3.out', scrollTrigger:{trigger:card, start:'top 88%', once:true}});
+    if(!fine) return;
+    const rx = gsap.quickTo(card, 'rotationX', {duration:.6, ease:'power3'}),
+          ry = gsap.quickTo(card, 'rotationY', {duration:.6, ease:'power3'});
+    gsap.set(card, {transformPerspective:1200});
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left)/r.width - .5, py = (e.clientY - r.top)/r.height - .5;
+      rx(-py*7); ry(px*9);
+    });
+    card.addEventListener('mouseleave', () => { rx(0); ry(0); });
+  });
+  document.querySelectorAll('.parallax-el').forEach(el => {
+    gsap.to(el, {y: +el.dataset.speed, ease:'none', scrollTrigger:{trigger:el.closest('.case, .band'), start:'top bottom', end:'bottom top', scrub:true}});
+  });
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const end = parseFloat(el.dataset.count), dec = (el.dataset.count.split('.')[1]||'').length;
+    const pre = el.dataset.prefix||'', suf = el.dataset.suffix||'';
+    const o = {v:0};
+    gsap.to(o, {v:end, duration:1.8, ease:'power3.out',
+      onUpdate(){ el.textContent = pre + o.v.toFixed(dec) + suf; },
+      scrollTrigger:{trigger:el, start:'top 90%', once:true}});
+  });
+
+  /* =====================================================
+     DARK BAND — stats slide in
+     ===================================================== */
+  gsap.from('.stat', {y:40, opacity:0, stagger:.1, duration:1, ease:'power3.out', scrollTrigger:{trigger:'.stats', start:'top 85%', once:true}});
+
+  /* =====================================================
+     CTA — outline fills on scroll
+     ===================================================== */
+  gsap.to('#ctaBig .outline', {color:'#2B5BFF', webkitTextStroke:'1.5px #2B5BFF', ease:'none',
+    scrollTrigger:{trigger:'#ctaBig', start:'top 70%', end:'bottom 40%', scrub:true}});
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+  document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>

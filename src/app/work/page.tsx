@@ -16,7 +16,7 @@ import { defaultOgImage, pageAlternates, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Our Work & Portfolio",
   description:
-    "See software, websites and e-commerce stores Arrowbin has designed and built, including Muxoro, Madexa, Maneel Club, Brandingly and more.",
+    "See software, websites and e-commerce stores Arrowbin has designed and built, including Silent Lifestyle BD, FlexOver BD, Maneel Club, Brandingly and more.",
   alternates: pageAlternates("/work"),
   openGraph: {
     title: "Our Work & Portfolio | Arrowbin",
