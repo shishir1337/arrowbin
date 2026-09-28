@@ -78,7 +78,19 @@ export function SmoothScroll() {
       first.current = false;
       return;
     }
-    window.__lenis?.scrollTo(0, { immediate: true });
+    // A link like /blog/post#faq should land on #faq, not the top.
+    const hash = decodeURIComponent(window.location.hash.slice(1));
+    const target = hash ? document.getElementById(hash) : null;
+    if (target) {
+      const lenis = window.__lenis;
+      if (lenis) {
+        // Lenis still holds the previous page's height: re-measure first.
+        lenis.resize();
+        lenis.scrollTo(target, { immediate: true, force: true, offset: -80 });
+      } else target.scrollIntoView();
+    } else {
+      window.__lenis?.scrollTo(0, { immediate: true });
+    }
     const id = window.setTimeout(
       () => loadGsap().then(({ ScrollTrigger }) => ScrollTrigger.refresh()),
       120,

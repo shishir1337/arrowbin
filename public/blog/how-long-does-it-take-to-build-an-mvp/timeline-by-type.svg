@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
   <rect width="1280" height="720" rx="24" fill="#ffffff"/>
-  <text x="80" y="80" font-size="40" font-weight="700" fill="#0a0a0a">How long an MVP takes by complexity</text>
-  <text x="80" y="120" font-size="24" fill="#52525b">Kickoff to launch, in weeks (2026)</text>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">How long an MVP takes by complexity</text>
+  <text x="80" y="120" font-size="24" fill="#4a4766">Kickoff to launch, in weeks (2026)</text>
 
   <!-- gridlines -->
   <g stroke="#e4e4e7" stroke-width="1">
@@ -20,7 +20,7 @@
   </g>
 
   <!-- labels -->
-  <g font-size="22" fill="#0a0a0a">
+  <g font-size="22" fill="#0e0b24">
     <text x="80" y="245">Simple tool / micro-MVP</text>
     <text x="80" y="385">Standard MVP</text>
     <text x="80" y="525">Complex / SaaS MVP</text>
@@ -28,15 +28,15 @@
 
   <!-- bars (length = upper bound) -->
   <g>
-    <rect x="240" y="210" width="360" height="60" rx="10" fill="#a3e635"/>
-    <rect x="240" y="350" width="630" height="60" rx="10" fill="#65a30d"/>
-    <rect x="240" y="490" width="900" height="60" rx="10" fill="#3f6212"/>
+    <rect x="240" y="210" width="360" height="60" rx="10" fill="#ffd23f"/>
+    <rect x="240" y="350" width="630" height="60" rx="10" fill="#ff4da6"/>
+    <rect x="240" y="490" width="900" height="60" rx="10" fill="#3b2bff"/>
   </g>
 
   <!-- value labels -->
   <g font-size="23" font-weight="700">
-    <text x="620" y="248" fill="#0a0a0a">6–8 weeks</text>
-    <text x="890" y="388" fill="#0a0a0a">10–14 weeks</text>
+    <text x="620" y="248" fill="#0e0b24">6–8 weeks</text>
+    <text x="890" y="388" fill="#0e0b24">10–14 weeks</text>
     <text x="900" y="528" fill="#ffffff" text-anchor="end">14–20 weeks</text>
   </g>
 

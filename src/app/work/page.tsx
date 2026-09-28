@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { Reveal } from "@/components/motion/Reveal";
-import { CTASection } from "@/components/sections/CTASection";
-import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
-import { Stats } from "@/components/sections/Stats";
-import { WhyArrowbin } from "@/components/sections/WhyArrowbin";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { ButtonLink } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import { Suspense } from "react";
+import { Cta } from "@/components/home/Cta";
+import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { WorkExplorer } from "@/components/work/WorkExplorer";
+import { WorkHero } from "@/components/work/WorkHero";
+import { WorkPartners } from "@/components/work/WorkPartners";
+import { getBlurDataURL } from "@/lib/blur";
 import { clients, projects } from "@/lib/portfolio";
 import { breadcrumbSchema, workListSchema } from "@/lib/schema";
-import { defaultOgImage, pageAlternates, site } from "@/lib/site";
+import { defaultOgImage, pageAlternates } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Our Work & Portfolio",
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Work & Portfolio | Arrowbin",
     description:
-      "A selection of products, websites and platforms built by Arrowbin.",
+      "A selection of products, websites and platforms built by Arrowbin. Every one is live.",
     url: "/work",
     images: [defaultOgImage],
   },
@@ -32,93 +30,33 @@ const crumbs = [
   { name: "Work", path: "/work" },
 ];
 
-export default function WorkPage() {
+export default async function WorkPage() {
+  const items = await Promise.all(
+    projects.map(async (p) => ({
+      name: p.name,
+      url: p.url,
+      blurb: p.blurb,
+      result: p.result,
+      tags: p.tags,
+      image: p.image,
+      blur: await getBlurDataURL(p.image),
+    })),
+  );
+
   return (
     <>
       <JsonLd data={[breadcrumbSchema(crumbs), workListSchema(projects)]} />
-
-      {/* Hero + portfolio */}
-      <section className="relative overflow-hidden py-14 sm:py-20">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        >
-          <div className="blob left-[4%] top-[-18%] h-72 w-72" />
-          <div
-            className="blob right-[6%] top-[6%] h-80 w-80 opacity-10"
-            style={{ animationDelay: "-7s", animationDuration: "24s" }}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_-8%,rgba(59,43,255,0.12),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        </div>
-        <Container>
-          <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-3xl">
-            <Reveal>
-              <Eyebrow>Portfolio</Eyebrow>
-            </Reveal>
-            <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
-              Work we're proud of
-            </Reveal>
-            <Reveal as="p" className="mt-5 text-lg leading-relaxed text-muted">
-              From fast marketing sites to e-commerce stores and full platforms,
-              here's what we've shipped for clients around the world. Every one
-              is a live product you can open and use right now.
-            </Reveal>
-            <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/contact" size="lg" icon="arrow-right">
-                Start your project
-              </ButtonLink>
-              <ButtonLink
-                href={site.bookingUrl}
-                external
-                size="lg"
-                variant="secondary"
-              >
-                Book a call
-              </ButtonLink>
-            </Reveal>
-          </div>
-
-          <div className="mt-14">
-            <PortfolioGrid items={projects} />
-          </div>
-        </Container>
-      </section>
-
-      <Stats />
-
-      <WhyArrowbin />
-
-      {/* Clients */}
-      <section className="border-t border-border bg-surface py-16">
-        <Container>
-          <Reveal
-            as="p"
-            className="text-center text-sm font-medium uppercase tracking-widest text-muted"
-          >
-            And many more companies we've partnered with
-          </Reveal>
-        </Container>
-        <div className="marquee-mask mt-8 overflow-hidden">
-          <ul className="marquee-track items-center gap-x-12">
-            {[...clients, ...clients].map((name, i) => (
-              <li
-                // biome-ignore lint/suspicious/noArrayIndexKey: duplicated marquee row needs stable positional keys.
-                key={`${name}-${i}`}
-                className="shrink-0 font-display text-lg font-semibold text-muted/70 transition-colors hover:text-text"
-              >
-                {name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <CTASection
-        title="Want to be our next success story?"
-        intro="Let's build something your customers will love. Book a free project consultation today."
+      <InnerMotion />
+      <WorkHero
+        crumbs={crumbs}
+        count={items.length}
+        shots={items.slice(0, 5)}
       />
+      <WorkExplorer items={items} label="01" />
+      <WorkPartners label="02" names={clients} />
+      <Suspense fallback={null}>
+        <Cta index="03" />
+      </Suspense>
     </>
   );
 }

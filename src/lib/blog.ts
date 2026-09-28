@@ -47,7 +47,7 @@ export type Post = {
   excerpt: string;
   /** Optional custom card/social thumbnail; defaults to the generated OG image. */
   thumbnail?: string;
-  /** Featured/hero cover image. The hero shows the brand gradient until this is set. */
+  /** Feature image: shown on blog cards and as the article banner. */
   image?: PostImage;
   /** Direct-answer TL;DR shown up top (AEO/GEO). */
   tldr?: string;
@@ -83,10 +83,10 @@ export const posts: Post[] = [
     excerpt:
       "Custom software can cost anywhere from $5,000 to $250,000+. Here's what drives the number, broken down by project type, region and pricing model, plus how to spend smart.",
     image: {
-      src: `${COST_DIR}/cover.webp`,
-      alt: "Abstract illustration representing custom software development cost and budgeting",
-      prompt:
-        "A premium, dark, abstract hero image for an article about software development cost. Deep charcoal (#0a0a0a) background with subtle lime-green (#a3e635) gradient glow in the top-left, faint geometric grid lines, and floating translucent UI/financial elements (charts, coins, code brackets) arranged cinematically. Minimal, sophisticated, lots of negative space on the right for a title overlay. 1600x900, modern fintech/SaaS aesthetic, no text.",
+      src: `${COST_DIR}/team-collaboration.webp`,
+      alt: "A software development team collaborating around a screen, planning a project budget and scope",
+      width: 1280,
+      height: 720,
     },
     tldr: "Custom software development usually costs $5,000 to $250,000+ in 2026, and most business products land between $30,000 and $120,000. The number tracks your scope, the technical complexity, the depth of design, the platforms you ship on, and how senior your team is and where they sit. To keep it under control, start with a tightly scoped MVP and lock in a fixed estimate after discovery.",
     body: [
@@ -538,10 +538,10 @@ export const posts: Post[] = [
     excerpt:
       "Picking the wrong development partner is expensive. Use this framework of criteria, questions, red flags and a decision scorecard to choose a team that delivers.",
     image: {
-      src: "/blog/how-to-choose-a-software-development-company/cover.webp",
-      alt: "Abstract illustration representing choosing the right software development partner",
-      prompt:
-        "A premium, dark, abstract hero image for an article about choosing a software development company. Deep charcoal (#0a0a0a) background with a subtle lime-green (#a3e635) gradient glow, faint geometric grid, and cinematic floating elements suggesting selection and partnership (connected nodes, a checkmark, abstract people silhouettes). Minimal, sophisticated, negative space on the right for a title overlay. 1600x900, modern SaaS aesthetic, no text.",
+      src: "/blog/how-to-choose-a-software-development-company/choosing-a-partner.webp",
+      alt: "Two business people shaking hands to begin a software development partnership",
+      width: 1280,
+      height: 720,
     },
     tldr: "To choose the right software development company, weight proven track record, communication and process far above price. Shortlist three to five firms, review live work, ask who builds your project and who owns the code, and watch for red flags such as suspiciously low quotes and vague timelines.",
     body: [
@@ -961,10 +961,10 @@ export const posts: Post[] = [
     excerpt:
       "Most MVPs take 6–14 weeks. Here's the week-by-week timeline, what shapes it, the common delays, and how to launch faster without sacrificing quality.",
     image: {
-      src: "/blog/how-long-does-it-take-to-build-an-mvp/cover.webp",
-      alt: "Abstract illustration representing the timeline to build a minimum viable product",
-      prompt:
-        "A premium, dark, abstract hero image for an article about MVP development timelines. Deep charcoal (#0a0a0a) background with a subtle lime-green (#a3e635) gradient glow, faint geometric grid, and cinematic floating elements suggesting speed and progress (a timeline, milestones, a rocket trail, app screens). Minimal, sophisticated, negative space on the right for a title overlay. 1600x900, modern SaaS aesthetic, no text.",
+      src: "/blog/how-long-does-it-take-to-build-an-mvp/team-shipping.webp",
+      alt: "A product team celebrating the launch of a minimum viable product",
+      width: 1280,
+      height: 720,
     },
     tldr: "Most well-scoped MVPs take 6–14 weeks from kickoff to launch in 2026: a simple tool in 6–8 weeks, a standard MVP in 10–14, and a complex SaaS MVP in 14–20. The timeline tracks scope, clarity, integrations and how fast you make decisions. The fastest path is ruthless prioritization.",
     body: [

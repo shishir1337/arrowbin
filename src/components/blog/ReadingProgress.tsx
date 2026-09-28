@@ -66,12 +66,12 @@ export function ReadingProgress({ targetId }: { targetId: string }) {
 
   return (
     <div
-      className="fixed inset-x-0 top-16 z-30 h-0.5 bg-transparent"
+      className="fixed inset-x-0 top-[77px] z-30 h-1 bg-transparent"
       aria-hidden="true"
     >
       <div
         ref={barRef}
-        className="h-full origin-left bg-accent [will-change:transform]"
+        className="h-full origin-left bg-ultra [will-change:transform]"
         style={{ transform: "scaleX(0)" }}
       />
     </div>

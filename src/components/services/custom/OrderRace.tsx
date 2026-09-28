@@ -242,10 +242,10 @@ export function OrderRace() {
                 return (
                   <li
                     key={a.t}
-                    className={`flex items-center gap-2.5 text-[13px] transition-[opacity,translate] duration-300 ${
+                    className={`flex items-center gap-2.5 text-[13px] transition-[color,translate] duration-300 ${
                       on
-                        ? "translate-x-0 opacity-100"
-                        : "-translate-x-1 opacity-35"
+                        ? "translate-x-0 text-ink"
+                        : "-translate-x-1 text-ink-2"
                     }`}
                   >
                     <span

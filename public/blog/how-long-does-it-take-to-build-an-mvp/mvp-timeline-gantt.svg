@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
   <rect width="1280" height="720" rx="24" fill="#ffffff"/>
-  <text x="80" y="70" font-size="38" font-weight="700" fill="#0a0a0a">A typical MVP build, week by week</text>
-  <text x="80" y="108" font-size="23" fill="#52525b">Agile phases overlap — design starts before discovery ends, QA before development finishes</text>
+  <text x="80" y="70" font-size="38" font-weight="700" fill="#0e0b24">A typical MVP build, week by week</text>
+  <text x="80" y="108" font-size="23" fill="#4a4766">Agile phases overlap — design starts before discovery ends, QA before development finishes</text>
 
   <!-- vertical week gridlines -->
   <g stroke="#e4e4e7" stroke-width="1">
@@ -16,7 +16,7 @@
   </g>
 
   <!-- phase labels -->
-  <g font-size="22" fill="#0a0a0a">
+  <g font-size="22" fill="#0e0b24">
     <text x="80" y="197">Discovery</text>
     <text x="80" y="287">Design</text>
     <text x="80" y="377">Development</text>
@@ -26,11 +26,11 @@
 
   <!-- bars -->
   <g>
-    <rect x="300" y="164" width="126" height="52" rx="10" fill="#3f6212"/>
-    <rect x="363" y="254" width="189" height="52" rx="10" fill="#4d7c0f"/>
-    <rect x="426" y="344" width="566" height="52" rx="10" fill="#65a30d"/>
-    <rect x="803" y="434" width="314" height="52" rx="10" fill="#84cc16"/>
-    <rect x="1054" y="524" width="126" height="52" rx="10" fill="#a3e635"/>
+    <rect x="300" y="164" width="126" height="52" rx="10" fill="#3b2bff"/>
+    <rect x="363" y="254" width="189" height="52" rx="10" fill="#ff6b3d"/>
+    <rect x="426" y="344" width="566" height="52" rx="10" fill="#ff4da6"/>
+    <rect x="803" y="434" width="314" height="52" rx="10" fill="#cfc4ff"/>
+    <rect x="1054" y="524" width="126" height="52" rx="10" fill="#ffd23f"/>
   </g>
 
   <!-- week axis -->
@@ -44,5 +44,5 @@
     <text x="1054" y="618">W13</text>
   </g>
 
-  <text x="80" y="678" font-size="18" fill="#52525b">Example: a focused SaaS MVP delivered in ~14 weeks. Simpler tools finish in 6–8.</text>
+  <text x="80" y="678" font-size="18" fill="#4a4766">Example: a focused SaaS MVP delivered in ~14 weeks. Simpler tools finish in 6–8.</text>
 </svg>
