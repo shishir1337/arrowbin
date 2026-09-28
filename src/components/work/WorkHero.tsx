@@ -5,16 +5,14 @@ import { site } from "@/lib/site";
 import { WorkDeck } from "./WorkDeck";
 
 /**
- * /work hero: three-word kinetic headline with a live-project sticker, and a
- * self-shuffling deck of real screenshots.
+ * /work hero: three-word kinetic headline and a self-shuffling deck of real
+ * screenshots.
  */
 export function WorkHero({
   crumbs,
-  count,
   shots,
 }: {
   crumbs: { name: string; path: string }[];
-  count: number;
   shots: { name: string; image: string; blur?: string }[];
 }) {
   return (
@@ -35,14 +33,7 @@ export function WorkHero({
                     style={{ animationDelay: `${120 + i * 110}ms` }}
                   >
                     {i === 2 ? (
-                      <>
-                        <span className="text-ultra">{line}</span>{" "}
-                        <span
-                          aria-hidden="true"
-                          className="svh-sticker"
-                          data-label={`${count} live projects`}
-                        />
-                      </>
+                      <span className="text-ultra">{line}</span>
                     ) : (
                       line
                     )}

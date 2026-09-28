@@ -559,58 +559,6 @@ body::after {
   }
 }
 
-/* ── Preloader (homepage, once per session) ─────────────────────────── */
-.preloader {
-  display: none;
-}
-.js .preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 95;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--ultra);
-  /* failsafe: if JS never takes over, get out of the way */
-  animation: preloader-failsafe 0.6s 4.5s forwards;
-}
-.no-preload .preloader {
-  display: none;
-}
-/* Exit: the panel (and its curved edge) wipes up; the mark dips first. */
-.js .preloader {
-  transition: transform 1.05s cubic-bezier(0.87, 0, 0.13, 1);
-}
-.js .preloader.pl-exit {
-  transform: translateY(-100%);
-}
-.pl-mark {
-  transition: transform 0.35s cubic-bezier(0.55, 0, 1, 0.45);
-}
-.pl-exit .pl-mark {
-  transform: scale(0.9);
-}
-.pl-exit .pl-edge {
-  transform: scaleY(0);
-  transition: transform 1.05s cubic-bezier(0.87, 0, 0.13, 1);
-}
-.pl-edge {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  height: 22vh;
-  background: var(--ultra);
-  border-radius: 0 0 50% 50% / 0 0 100% 100%;
-  transform-origin: top;
-}
-@keyframes preloader-failsafe {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
 /* ── Hero ───────────────────────────────────────────────────────────── */
 .js .hero-char {
   transform: translateY(115%);
@@ -627,7 +575,7 @@ body::after {
     transform: none;
   }
 }
-/* Intro (class added by HeroMotion once the preloader lifts): letters rise
+/* Intro (class added by HeroMotion on load): letters rise
  * in a stagger, the intro copy glides up. Pure CSS, no animation library. */
 .js .hero-in .hero-char {
   transform: none;
@@ -832,29 +780,6 @@ body::after {
     opacity: 0;
     transform: translateY(18px) scale(0.985);
   }
-}
-/* "8 services" sticker next to the /services h1 (pseudo-content, so the h1
- * text stays exactly "Software development services"). */
-.svh-sticker {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.25em;
-  translate: 0 -0.12em;
-  rotate: -6deg;
-}
-.svh-sticker::after {
-  content: attr(data-label);
-  display: block;
-  border-radius: 9999px;
-  background: var(--sun);
-  padding: 0.55em 1em;
-  color: var(--ink);
-  font-size: max(0.2em, 11px);
-  font-variation-settings: "wdth" 120;
-  letter-spacing: 0;
-  line-height: 1;
-  white-space: nowrap;
-  box-shadow: 0 10px 24px -12px rgba(14, 11, 36, 0.5);
 }
 
 /* ── Service signatures ─────────────────────────────────────────────── */

@@ -47,11 +47,7 @@ export default async function WorkPage() {
     <>
       <JsonLd data={[breadcrumbSchema(crumbs), workListSchema(projects)]} />
       <InnerMotion />
-      <WorkHero
-        crumbs={crumbs}
-        count={items.length}
-        shots={items.slice(0, 5)}
-      />
+      <WorkHero crumbs={crumbs} shots={items.slice(0, 5)} />
       <WorkExplorer items={items} label="01" />
       <WorkPartners label="02" names={clients} />
       <Suspense fallback={null}>

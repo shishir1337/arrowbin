@@ -5,13 +5,6 @@ import { serviceTheme } from "@/lib/serviceThemes";
 import { site } from "@/lib/site";
 import { ServiceQuoteForm } from "./ServiceQuoteForm";
 
-const TRUST = [
-  "You own your code",
-  "Senior engineers only",
-  "Fixed, itemised estimates",
-  "Clients worldwide",
-];
-
 /**
  * Service detail hero, themed in the service's own colour. Left: number,
  * giant name, intro and actions. Right: the quote form as a white card lying
@@ -98,17 +91,6 @@ export function ServiceHero({
                 See what you get
               </a>
             </div>
-            <ul className="svh-fade mt-8 flex flex-wrap gap-2">
-              {TRUST.map((item) => (
-                <li
-                  key={item}
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-sm font-medium text-ink ring-1 ring-ink/10"
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-plasma" />
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="svh-fade relative lg:col-span-5 lg:mt-4">

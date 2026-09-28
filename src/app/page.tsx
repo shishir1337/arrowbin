@@ -6,7 +6,6 @@ import { Faq } from "@/components/home/Faq";
 import { Hero } from "@/components/home/Hero";
 import { Manifesto } from "@/components/home/Manifesto";
 import { Numbers } from "@/components/home/Numbers";
-import { Preloader } from "@/components/home/Preloader";
 import { Process } from "@/components/home/Process";
 import { Services } from "@/components/home/Services";
 import { Tapes } from "@/components/home/Tapes";
@@ -78,7 +77,6 @@ export default function HomePage() {
           faqSchema(homeFaqs),
         ]}
       />
-      <Preloader />
       <Hero />
       {/* Each boundary hydrates as its own unit, so React yields to the
           browser between sections instead of one long hydration task. */}

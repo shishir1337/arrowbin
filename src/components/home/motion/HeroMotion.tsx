@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { finePointer, loadGsap, reducedMotion } from "@/lib/gsap";
-import { onReady } from "../ready";
 
 /**
  * Hero motion (the hero itself is server-rendered): intro reveal and the
@@ -145,18 +144,16 @@ export function HeroMotion() {
       el.addEventListener("touchstart", onTouch, { passive: true });
     }
 
-    const off = onReady(() => {
-      el.classList.add("hero-in");
-      // Touch screens: the wave plays on the visitor's first touch (which on a
-      // phone is the start of their first scroll), so its per-frame text
-      // re-layout never competes with page start-up.
-      if (!fine) {
-        window.addEventListener("touchstart", firstTouch, {
-          passive: true,
-          once: true,
-        });
-      }
-    });
+    el.classList.add("hero-in");
+    // Touch screens: the wave plays on the visitor's first touch (which on a
+    // phone is the start of their first scroll), so its per-frame text
+    // re-layout never competes with page start-up.
+    if (!fine) {
+      window.addEventListener("touchstart", firstTouch, {
+        passive: true,
+        once: true,
+      });
+    }
 
     // Scroll: headline drifts, blob zooms out as the tapes arrive. GSAP is
     // fetched in idle time for this, well after the intro has started.
@@ -202,7 +199,6 @@ export function HeroMotion() {
     );
 
     return () => {
-      off();
       dead = true;
       st?.revert();
       io.disconnect();

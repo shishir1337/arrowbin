@@ -54,13 +54,6 @@ const SPOTS = [
   },
 ];
 
-const TRUST = [
-  "You own your code",
-  "Senior engineers only",
-  "Fixed, itemised estimates",
-  "Clients worldwide",
-];
-
 /**
  * /services hero: giant three-line headline, and all eight service artworks
  * floating as colour tiles that drift with the pointer (desktop). On phones
@@ -118,18 +111,7 @@ export function ServicesHero({
                 className="svh-line block"
                 style={{ animationDelay: `${120 + i * 110}ms` }}
               >
-                {i === 2 ? (
-                  <>
-                    <span className="text-ultra">{line}</span>{" "}
-                    <span
-                      aria-hidden="true"
-                      className="svh-sticker"
-                      data-label={`${services.length} services`}
-                    />
-                  </>
-                ) : (
-                  line
-                )}
+                {i === 2 ? <span className="text-ultra">{line}</span> : line}
               </span>
             </span>
           ))}
@@ -205,17 +187,6 @@ export function ServicesHero({
             </a>
           </div>
         </div>
-        <ul className="svh-fade mt-8 flex flex-wrap gap-2">
-          {TRUST.map((t) => (
-            <li
-              key={t}
-              className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-sm font-medium text-ink ring-1 ring-ink/10"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-plasma" />
-              {t}
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

@@ -125,10 +125,10 @@ export const viewport: Viewport = {
 };
 
 /**
- * Runs before paint: flags that JS is active, and skips the homepage preloader for
- * the rest of the session once it has played (so it never flashes on return visits).
+ * Runs before paint: flags that JS is active, so CSS can pre-position
+ * elements that JS will animate in.
  */
-const themeScript = `(function(){try{var d=document.documentElement;d.classList.add('js');if(sessionStorage.getItem('ab-preloaded')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('no-preload');}catch(e){}})();`;
+const themeScript = `document.documentElement.classList.add('js');`;
 
 export default function RootLayout({
   children,
