@@ -11,7 +11,7 @@ import { defaultOgImage, pageAlternates } from "@/lib/site";
 export const metadata: Metadata = {
   // Absolute (skips the "| Arrowbin" template): keyword-rich and avoids a
   // bare, one-word SERP title.
-  title: { absolute: "Contact Arrowbin — Free Software Consultation" },
+  title: { absolute: "Contact Arrowbin | Free Software Consultation" },
   description:
     "Tell Arrowbin about your custom software, web or mobile app, SaaS or AI automation project. Free consultation and a reply within one business day.",
   alternates: pageAlternates("/contact"),

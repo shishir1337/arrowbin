@@ -11,7 +11,7 @@ export function Testimonials() {
         <SectionHeading
           eyebrow="Client stories"
           title="Teams trust Arrowbin to deliver"
-          intro="We measure success by the results our clients ship — and the relationships we keep."
+          intro="We measure success by the results our clients ship, and the relationships we keep."
         />
         <StaggerGroup className="mt-14 grid gap-6 lg:grid-cols-3">
           {testimonials.map((t) => (

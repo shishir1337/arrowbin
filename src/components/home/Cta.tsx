@@ -11,7 +11,11 @@ export function Cta({ index = "09" }: { index?: string } = {}) {
     <section className="relative isolate overflow-hidden bg-ultra text-white">
       <ArrowField className="absolute inset-0 -z-10 h-full w-full" />
       <div className="pointer-events-none mx-auto flex min-h-[92svh] w-full max-w-[1600px] flex-col items-center justify-center px-[var(--gutter)] py-28 text-center">
-        <p className="label text-sun">({index}) — Your move</p>
+        <p className="label flex items-center gap-3 text-sun">
+          ({index})
+          <span aria-hidden="true" className="h-px w-8 bg-current" />
+          Your move
+        </p>
         <h2
           className="display mt-6 text-[clamp(3.2rem,11vw,12rem)]"
           style={{ ["--wdth" as string]: 112 }}

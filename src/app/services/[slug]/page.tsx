@@ -54,7 +54,7 @@ const HOSTING_SLUG = "cloud-devops-hosting";
 
 if (!services.some((s) => s.slug === HOSTING_SLUG)) {
   throw new Error(
-    `HOSTING_SLUG "${HOSTING_SLUG}" no longer matches a service — update it in ${"services/[slug]/page.tsx"}.`,
+    `HOSTING_SLUG "${HOSTING_SLUG}" no longer matches a service. Update it in ${"services/[slug]/page.tsx"}.`,
   );
 }
 

@@ -15,7 +15,7 @@ import { author, defaultOgImage, pageAlternates } from "@/lib/site";
 export const metadata: Metadata = {
   // Absolute: avoids the duplicated "About Arrowbin | Arrowbin" the template
   // would otherwise produce.
-  title: { absolute: "About Arrowbin — Software Development Company" },
+  title: { absolute: "About Arrowbin | Software Development Company" },
   description:
     "Arrowbin is a founder-led software development company building for clients around the world since 2020. Learn how we work and what we stand for.",
   alternates: pageAlternates("/about"),

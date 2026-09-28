@@ -535,7 +535,7 @@ export function ContactBrief({ label }: { label: string }) {
                             key={v ?? "none"}
                             className={`cb-pop mt-1 font-semibold ${v ? "text-ink" : "text-ink-2"}`}
                           >
-                            {v ?? "—"}
+                            {v ?? "Not picked yet"}
                           </p>
                         </div>
                       ))}

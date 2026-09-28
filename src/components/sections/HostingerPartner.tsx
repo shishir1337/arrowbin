@@ -19,7 +19,7 @@ const benefits = [
   },
   {
     title: "A discount you apply yourself",
-    text: "The coupon goes on your own Hostinger account at checkout. You keep ownership and billing — we just keep the keys we need.",
+    text: "The coupon goes on your own Hostinger account at checkout. You keep ownership and billing; we just keep the keys we need.",
   },
 ] as const;
 

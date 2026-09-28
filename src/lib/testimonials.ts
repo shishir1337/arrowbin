@@ -16,7 +16,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Arrowbin delivered our platform faster than we thought possible — and the quality was outstanding. They felt like part of our team.",
+      "Arrowbin delivered our platform faster than we thought possible, and the quality was outstanding. They felt like part of our team.",
     name: "Sarah Mitchell",
     role: "Product Lead, SaaS Startup",
     rating: 5,

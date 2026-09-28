@@ -30,7 +30,7 @@ export default function GlobalError({
           Something went wrong
         </h1>
         <p className="mx-auto mt-4 max-w-md text-lg text-muted">
-          An unexpected error occurred on our end. Please try again — and if it
+          An unexpected error occurred on our end. Please try again, and if it
           keeps happening, get in touch and we'll sort it out.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

@@ -106,7 +106,7 @@ export function HeroLeadForm({ serviceName }: { serviceName: string }) {
           <Icon name="check" size={28} />
         </span>
         <h2 className="mt-5 font-display text-xl font-semibold text-text">
-          Thanks — we'll be in touch!
+          Thanks, we'll be in touch!
         </h2>
         <p className="mt-2 text-sm text-muted">
           We've received your enquiry and will reply within one business day.
@@ -146,7 +146,7 @@ export function HeroLeadForm({ serviceName }: { serviceName: string }) {
         Get a free quote
       </h2>
       <p className="mt-1 text-sm text-muted">
-        Tell us about your project — no obligation.
+        Tell us about your project. No obligation.
       </p>
 
       <div className="mt-5 grid gap-4">

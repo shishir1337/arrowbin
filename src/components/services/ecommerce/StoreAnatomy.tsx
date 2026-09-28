@@ -216,7 +216,7 @@ export function StoreAnatomy({ label }: { label: string }) {
               className="cap-in rounded-[1.4rem] bg-ultra p-6 text-white"
             >
               <p className="label text-sun">
-                {String(active + 1).padStart(2, "0")} — {cur.title}
+                {String(active + 1).padStart(2, "0")} · {cur.title}
               </p>
               <p className="mt-3 text-lg leading-relaxed">{cur.text}</p>
             </div>

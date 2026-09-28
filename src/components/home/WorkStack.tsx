@@ -80,7 +80,7 @@ export function WorkStack({ items }: { items: Item[] }) {
                 <div>
                   <p className="label flex items-center gap-2 opacity-80">
                     <span className={`h-2 w-2 rounded-full ${t.dot}`} />(
-                    {String(i + 1).padStart(2, "0")}) — {p.tags[0]}
+                    {String(i + 1).padStart(2, "0")}) · {p.tags[0]}
                   </p>
                   <h3
                     className="mt-4 font-display text-[clamp(2.2rem,4.6vw,4.8rem)] font-black uppercase leading-[0.88] tracking-[-0.04em]"

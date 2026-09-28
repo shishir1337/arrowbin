@@ -28,7 +28,7 @@ export function HostingerBadge({
       href={hostinger.referralUrl}
       target="_blank"
       rel={hostingerLinkRel}
-      title={`${hostinger.name} Partner — Arrowbin`}
+      title={`${hostinger.name} Partner | Arrowbin`}
       // `width` on the anchor (not `w-full` on the image, which would have no
       // containing width to resolve against inside an inline-block); `max-w-full`
       // keeps it from overflowing a narrow column.

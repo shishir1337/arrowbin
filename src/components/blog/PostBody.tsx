@@ -236,7 +236,7 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
                 "{block.text}"
                 {block.cite ? (
                   <cite className="mt-3 block font-sans text-sm font-semibold not-italic">
-                    — {block.cite}
+                    {block.cite}
                   </cite>
                 ) : null}
               </blockquote>

@@ -445,7 +445,7 @@ export const posts: Post[] = [
           alt: "Gantt-style timeline of a 14-week SaaS MVP build across discovery, design, development, QA and launch",
           caption: "A typical 14-week MVP timeline, phase by phase.",
           prompt:
-            "A clean horizontal Gantt-chart timeline on a white background spanning 14 weeks, with five stacked bars in a lime-green gradient labelled Discovery, Design, Development, QA, Launch — overlapping slightly to show agile phases. Minimal, flat, professional project-management aesthetic, charcoal text, no extra clutter. 1280x720.",
+            "A clean horizontal Gantt-chart timeline on a white background spanning 14 weeks, with five stacked bars in a lime-green gradient labelled Discovery, Design, Development, QA, Launch, overlapping slightly to show agile phases. Minimal, flat, professional project-management aesthetic, charcoal text, no extra clutter. 1280x720.",
         },
       },
 

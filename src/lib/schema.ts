@@ -283,7 +283,7 @@ export function localBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${siteUrl}/#localbusiness-${o.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
-    name: `${site.name} — ${o.label}`,
+    name: `${site.name} (${o.label})`,
     image: LOGO_URL,
     logo: LOGO_URL,
     url: siteUrl,

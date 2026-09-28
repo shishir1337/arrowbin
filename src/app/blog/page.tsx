@@ -11,7 +11,7 @@ import { defaultOgImage, pageAlternates } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Blog & Insights",
   description:
-    "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner — from the Arrowbin team.",
+    "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner, from the Arrowbin team.",
   alternates: {
     ...pageAlternates("/blog"),
     types: { "application/rss+xml": "/blog/rss.xml" },
@@ -36,7 +36,7 @@ export default function BlogPage() {
         data={[
           breadcrumbSchema(crumbs),
           collectionPageSchema({
-            name: "Blog & Insights — Arrowbin",
+            name: "Blog & Insights | Arrowbin",
             description:
               "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner.",
             path: "/blog",

@@ -1,6 +1,6 @@
 import { brandOg, ogSize } from "@/lib/og";
 
-export const alt = "Arrowbin — Software Development Company";
+export const alt = "Arrowbin, a software development company";
 export const size = ogSize;
 export const contentType = "image/png";
 

@@ -118,7 +118,7 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const subject = `New lead from ${name} — ${service}`;
+  const subject = `New lead from ${name}: ${service}`;
   const html = `
     <h2>New website enquiry</h2>
     <p><strong>Name:</strong> ${escapeHtml(name)}</p>
@@ -131,7 +131,7 @@ export async function POST(request: Request) {
   if (!apiKey) {
     // Dev / not-yet-configured fallback: log instead of failing.
     console.info(
-      "[contact] RESEND_API_KEY not set — lead logged but not emailed:",
+      "[contact] RESEND_API_KEY not set, so the lead was logged but not emailed:",
       {
         name,
         email,

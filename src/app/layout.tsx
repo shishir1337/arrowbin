@@ -69,7 +69,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} — Software Development Company`,
+    default: `${site.name} | Software Development Company`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} — Software Development Company`,
+    title: `${site.name} | Software Development Company`,
     description: site.description,
     url: siteUrl,
     locale: "en_US",
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Arrowbinllc",
     creator: "@Arrowbinllc",
-    title: `${site.name} — Software Development Company`,
+    title: `${site.name} | Software Development Company`,
     description: site.description,
     images: [defaultOgImage],
   },
