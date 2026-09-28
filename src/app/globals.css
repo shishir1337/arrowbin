@@ -1,59 +1,71 @@
 @import "tailwindcss";
 
 /*
- * Arrowbin design system (Tailwind v4 @theme).
- * Dark-only, cinematic: deep near-black canvas + electric-lime brand, layered
- * depth, glassmorphism and ambient glow.
- * Fonts: Space Grotesk (display) + DM Sans (body).
+ * Arrowbin "Hyperchrome" design system (Tailwind v4 @theme).
+ * Light-first, saturated maximalism: a cool frost canvas, ink type, and three loud
+ * brand colours (ultra / plasma / sun) used as full-bleed bands instead of dark
+ * sections. No dark theme, no warm/cream neutrals, no green.
+ * Fonts: Anybody (variable width display) + Geist (body) + Geist Mono (labels).
+ * Spec: docs/superpowers/specs/2026-09-27-arrowbin-hyperchrome-design.md
  */
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*
- * Dark-only cinematic palette. Both :root and .dark carry the same values so the
- * site is always dark; the .dark class stays on <html> purely so existing `dark:`
- * utilities keep resolving. Deep near-black canvas + electric-lime brand.
- */
-:root,
-.dark {
-  color-scheme: dark;
+:root {
+  color-scheme: light;
 
-  /* surfaces & text — cinematic near-black */
-  --color-bg: #07070a;
-  --color-surface: #101015;
-  --color-surface-2: #18181f;
-  --color-border: #26262e;
-  --color-border-strong: #34343d;
-  --color-text: #f4f4f6;
-  --color-muted: #9b9ba8;
+  /* brand palette */
+  --frost: #f1f2f7;
+  --paper: #ffffff;
+  --ink: #0e0b24;
+  --ink-2: #4a4766;
+  --ink-3: #8e8ba8;
+  --ultra: #3b2bff;
+  --ultra-deep: #2a1dd6;
+  --plasma: #ff4da6;
+  --sun: #ffd23f;
+  --flare: #ff6b3d;
+  --lilac: #cfc4ff;
+  --line: rgba(14, 11, 36, 0.12);
 
-  /* brand — electric lime, near-black text on the fill */
-  --color-primary: #f4f4f6;
-  --color-primary-fg: #07070a;
-  --color-accent: #a3e635;
-  --color-accent-hover: #bef264;
-  --color-accent-fg: #07070a;
-  --color-ring: #a3e635;
+  /* legacy semantic tokens (still used by pages not yet migrated) */
+  --color-bg: var(--frost);
+  --color-surface: var(--paper);
+  --color-surface-2: #e8e9f3;
+  --color-border: var(--line);
+  --color-border-strong: rgba(14, 11, 36, 0.22);
+  --color-text: var(--ink);
+  --color-muted: var(--ink-2);
 
-  --color-brand: #a3e635;
-  --color-brand-hover: #bef264;
-  --color-brand-fg: #07070a;
-  --brand-rgb: 163 230 53;
+  --color-primary: var(--ink);
+  --color-primary-fg: #ffffff;
+  --color-accent: var(--ultra);
+  --color-accent-hover: var(--ultra-deep);
+  --color-accent-fg: #ffffff;
+  --color-ring: var(--ultra);
 
-  /* gradient stops for headline / emphasis text */
-  --grad-from: #d9f99d;
-  --grad-via: #a3e635;
-  --grad-to: #4ade80;
+  --color-brand: var(--ultra);
+  --color-brand-hover: var(--ultra-deep);
+  --color-brand-fg: #ffffff;
+  --brand-rgb: 59 43 255;
 
-  /* depth — layered elevation + accent glow */
-  --sheen: rgba(255, 255, 255, 0.06);
+  --grad-from: var(--ultra);
+  --grad-via: #8a3bff;
+  --grad-to: var(--plasma);
+
+  --sheen: rgba(255, 255, 255, 0.7);
   --shadow-card:
-    0 1px 2px rgba(0, 0, 0, 0.5), 0 22px 50px -18px rgba(0, 0, 0, 0.85);
+    0 1px 2px rgba(14, 11, 36, 0.06), 0 18px 40px -22px rgba(14, 11, 36, 0.25);
   --shadow-card-hover:
-    0 1px 2px rgba(0, 0, 0, 0.55), 0 34px 70px -20px rgba(0, 0, 0, 0.92), 0 0 0
-    1px rgb(var(--brand-rgb) / 0.18);
-  --shadow-glow: 0 14px 48px -8px rgb(var(--brand-rgb) / 0.5);
-  --glass-bg: rgba(16, 16, 21, 0.6);
+    0 1px 2px rgba(14, 11, 36, 0.08), 0 30px 60px -24px rgba(59, 43, 255, 0.35);
+  --shadow-glow: 0 14px 40px -12px rgb(var(--brand-rgb) / 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Symmetric ease for hover in/out (menu flips, colour swaps). */
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --gutter: clamp(1rem, 4vw, 3.5rem);
 }
 
 @theme inline {
@@ -74,23 +86,44 @@
   --color-brand-hover: var(--color-brand-hover);
   --color-brand-fg: var(--color-brand-fg);
 
-  --font-display:
-    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-frost: var(--frost);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ultra: var(--ultra);
+  --color-ultra-deep: var(--ultra-deep);
+  --color-plasma: var(--plasma);
+  --color-sun: var(--sun);
+  --color-flare: var(--flare);
+  --color-lilac: var(--lilac);
+  --color-line: var(--line);
 
-  /* z-index scale */
+  --font-display:
+    var(--font-anybody), var(--font-bangla), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Any bare `transition-*` utility gets a calm default instead of 150ms. */
+  --default-transition-duration: 350ms;
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
   --z-base: 1;
   --z-dropdown: 20;
   --z-header: 40;
   --z-overlay: 50;
 }
 
-* {
-  border-color: var(--color-border);
+/* In the base layer so Tailwind border-colour utilities can override it. */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+  }
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -101,6 +134,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 h1,
@@ -110,41 +144,70 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-  letter-spacing: -0.025em;
-  line-height: 1.08;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
   text-wrap: balance;
 }
 
-/* ── Modern surface system ───────────────────────────────────────────────
- * Reusable visual primitives for the 2026 look: layered elevation, frosted
- * glass, accent glow and gradient text. Used across cards, panels and CTAs.
- * Kept in @layer components so Tailwind utilities (e.g. hover:border-accent,
- * shadow-xl) on the same element still take precedence where intended. */
+/* ── Lenis smooth scroll ─────────────────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ── Hyperchrome primitives ──────────────────────────────────────────── */
 @layer components {
-  /* Elevated card: subtle top sheen + soft layered shadow + lift on hover. */
-  .card-surface {
-    border: 1px solid var(--color-border);
-    background:
-      linear-gradient(180deg, var(--sheen), transparent 42%),
-      var(--color-surface);
-    box-shadow: var(--shadow-card);
-    transition:
-      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-      border-color 0.35s ease;
+  /* Display type with the variable width axis exposed as a custom property. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-variation-settings: "wdth" var(--wdth, 100);
+    letter-spacing: -0.035em;
+    line-height: 0.86;
+    text-transform: uppercase;
   }
 
+  /* Mono meta label: "[01] — SERVICES". */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Hollow text for oversized numerals / wordmarks. */
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px currentColor;
+  }
+
+  /* Legacy elevated card, restyled for the light system. */
+  .card-surface {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 0.35s var(--ease-out-expo),
+      box-shadow 0.35s var(--ease-out-expo),
+      border-color 0.35s ease;
+  }
   .card-interactive:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
-    border-color: color-mix(
-      in oklab,
-      var(--color-brand) 45%,
-      var(--color-border)
-    );
+    border-color: color-mix(in oklab, var(--ultra) 40%, var(--color-border));
   }
 
-  /* Frosted glass — for floating UI (nav, dropdowns, sticky panels). */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(16px) saturate(160%);
@@ -152,17 +215,18 @@ h6 {
     border: 1px solid var(--color-border);
   }
 
-  /* Accent glow halo for primary CTAs / focal elements. */
   .glow-brand {
     box-shadow: var(--shadow-glow);
   }
 
-  /* Gradient emphasis text (headlines, key phrases). The solid accent fallback
-     keeps the phrase visible if background-clip:text isn't supported or the
-     gradient fails to paint; only clip-capable browsers go transparent. */
   .text-gradient {
-    color: var(--color-accent);
-    background: linear-gradient(120deg, var(--grad-from), var(--grad-to));
+    color: var(--ultra);
+    background: linear-gradient(
+      100deg,
+      var(--grad-from),
+      var(--grad-via) 50%,
+      var(--grad-to)
+    );
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -172,17 +236,15 @@ h6 {
     }
   }
 
-  /* Thin accent gradient hairline (section dividers / underlines). */
   .rule-gradient {
     background: linear-gradient(
       90deg,
       transparent,
-      color-mix(in oklab, var(--color-brand) 60%, transparent),
+      color-mix(in oklab, var(--ultra) 60%, transparent),
       transparent
     );
   }
 
-  /* Ambient blurred light blobs for hero backgrounds. */
   @keyframes blob-drift {
     0%,
     100% {
@@ -195,82 +257,40 @@ h6 {
   .blob {
     position: absolute;
     border-radius: 9999px;
-    /* 48px reads identically to 64px but the smaller blur kernel is ~25% cheaper
-       to rasterize per frame on mobile GPUs. */
     filter: blur(48px);
     background: rgb(var(--brand-rgb));
-    opacity: 0.18;
+    opacity: 0.14;
     animation: blob-drift 16s ease-in-out infinite;
     will-change: transform;
   }
-  .dark .blob {
-    opacity: 0.22;
-  }
 }
 
-/* ── Cinematic atmosphere ────────────────────────────────────────────────
- * Global film grain, custom scrollbar, cursor spotlight and interactive
- * card effects (3D tilt + spotlight). All decorative layers are
- * pointer-events:none and disabled under prefers-reduced-motion. */
-
-/* Fixed film-grain overlay for subtle texture over the whole page. */
+/* Fine film grain over everything — keeps the flat colour fields tactile. */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 90;
   pointer-events: none;
-  opacity: 0.04;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Lime-tinted custom scrollbar. */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-border-strong) transparent;
+  scrollbar-color: var(--ultra) transparent;
 }
 *::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 *::-webkit-scrollbar-thumb {
-  background: var(--color-border-strong);
+  background: var(--ultra);
   border-radius: 9999px;
-  border: 2px solid var(--color-bg);
-}
-*::-webkit-scrollbar-thumb:hover {
-  background: color-mix(
-    in oklab,
-    var(--color-brand) 50%,
-    var(--color-border-strong)
-  );
+  border: 3px solid var(--color-bg);
 }
 
-/* Cursor spotlight — a soft lime bloom that trails the pointer (JS-positioned). */
-.cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 34rem;
-  width: 34rem;
-  margin: -17rem 0 0 -17rem;
-  border-radius: 9999px;
-  pointer-events: none;
-  z-index: 30;
-  opacity: 0;
-  background: radial-gradient(
-    circle,
-    rgb(var(--brand-rgb) / 0.1),
-    transparent 60%
-  );
-  mix-blend-mode: screen;
-  transition: opacity 0.5s ease;
-  will-change: transform;
-}
-
-/* Interactive spotlight surface — a radial highlight follows the pointer
- * (via --mx/--my set in JS) and the border lights up. Pair with .card-surface. */
+/* Spotlight surface (legacy pages): radial highlight follows --mx/--my. */
 .spotlight {
   position: relative;
   isolation: isolate;
@@ -283,7 +303,7 @@ body::after {
   padding: 1px;
   background: radial-gradient(
     18rem 18rem at var(--mx, 50%) var(--my, 0%),
-    rgb(var(--brand-rgb) / 0.55),
+    rgb(var(--brand-rgb) / 0.6),
     transparent 60%
   );
   -webkit-mask:
@@ -303,7 +323,7 @@ body::after {
   border-radius: inherit;
   background: radial-gradient(
     20rem 20rem at var(--mx, 50%) var(--my, 0%),
-    rgb(var(--brand-rgb) / 0.08),
+    rgb(var(--brand-rgb) / 0.07),
     transparent 55%
   );
   opacity: 0;
@@ -316,14 +336,12 @@ body::after {
   opacity: 1;
 }
 
-/* 3D tilt — JS sets the transform; this just smooths it. */
 .tilt {
   transform-style: preserve-3d;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s var(--ease-out-expo);
   will-change: transform;
 }
 
-/* Marquee track for logo/keyword strips. */
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -348,11 +366,13 @@ body::after {
   mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* Animated conic glow ring (badges, avatars). */
 @keyframes spin-slow {
   to {
     transform: rotate(1turn);
   }
+}
+.spin-slow {
+  animation: spin-slow 18s linear infinite;
 }
 .glow-ring {
   position: relative;
@@ -372,37 +392,88 @@ body::after {
   z-index: -1;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body::after,
-  .cursor-glow {
-    display: none;
-  }
-  .marquee-track,
-  .glow-ring::before,
-  .blob,
-  .animate-ping {
-    animation: none;
+/* ── Custom cursor (fine pointers only; mounted by <Cursor/>) ───────── */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 100;
+  border-radius: 9999px;
+  will-change: transform;
+}
+/* Hidden (not faded) while a label shows, so GSAP's opacity tweens on
+ * enter/leave can't bring it back on top of the label. */
+.cursor-dot[data-hidden="1"] {
+  visibility: hidden;
+}
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--ultra);
+}
+.cursor-ring {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border: 1.5px solid var(--ultra);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition:
+    width 0.4s var(--ease-out-expo),
+    height 0.4s var(--ease-out-expo),
+    margin 0.4s var(--ease-out-expo),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+.cursor-ring[data-state="hover"] {
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  background: rgb(var(--brand-rgb) / 0.12);
+}
+.cursor-ring[data-state="label"] {
+  width: 78px;
+  height: 78px;
+  margin: -39px 0 0 -39px;
+  background: var(--plasma);
+  border-color: var(--plasma);
+}
+.cursor-ring > span {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.cursor-ring[data-state="label"] > span {
+  opacity: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor,
+  html.has-cursor a,
+  html.has-cursor button {
+    cursor: none;
   }
 }
 
 /* Visible focus for keyboard users only */
 :focus-visible {
   outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
+  outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Animation primitives: visible by default; only hidden once JS is confirmed
- * (the inline script adds `.js` to <html>), so no-JS users always see content. */
+/* Animation primitives: visible by default; only hidden once JS is confirmed. */
 .js [data-reveal] {
   opacity: 0;
   will-change: transform, opacity;
 }
 
-/* Hero pieces animate in with a pure-CSS staggered entrance (no JS/GSAP needed), so
- * the above-the-fold hero paints and animates without any client bundle. The H1 is
- * deliberately excluded — it's the LCP element and stays painted from first paint.
- * No-JS users see everything static; reduced-motion is handled in the block below. */
 @keyframes hero-in {
   from {
     opacity: 0;
@@ -418,7 +489,7 @@ body::after {
 .js [data-hero="cta"] > *,
 .js [data-hero="chip"] {
   opacity: 0;
-  animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: hero-in 0.8s var(--ease-out-expo) both;
 }
 .js [data-hero="badge"] {
   animation-delay: 0.05s;
@@ -432,28 +503,18 @@ body::after {
 .js [data-hero="cta"] > *:nth-child(2) {
   animation-delay: 0.33s;
 }
-.js [data-hero="chip"]:nth-child(1) {
-  animation-delay: 0.42s;
-}
-.js [data-hero="chip"]:nth-child(2) {
-  animation-delay: 0.48s;
-}
-.js [data-hero="chip"]:nth-child(3) {
-  animation-delay: 0.54s;
-}
-.js [data-hero="chip"]:nth-child(4) {
-  animation-delay: 0.6s;
-}
 
-/* Animated counters: hold layout but stay invisible until JS sets the start value. */
 .js [data-countup] {
   visibility: hidden;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+@media (max-width: 767px) {
+  body::after {
+    display: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -464,7 +525,6 @@ body::after {
     /* biome-ignore lint/complexity/noImportantStyles: must override all transitions. */
     transition-duration: 0.01ms !important;
   }
-  /* Never leave reduced-motion users with invisible content. */
   .js [data-reveal],
   .js [data-hero="badge"],
   .js [data-hero="sub"],
@@ -477,9 +537,795 @@ body::after {
     /* biome-ignore lint/complexity/noImportantStyles: force-reveal over JS-set visibility. */
     visibility: visible !important;
   }
+  body::after {
+    display: none;
+  }
 }
 
 ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-accent-fg);
+  background-color: var(--plasma);
+  color: var(--ink);
 }
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Preloader (homepage, once per session) ─────────────────────────── */
+.preloader {
+  display: none;
+}
+.js .preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ultra);
+  /* failsafe: if JS never takes over, get out of the way */
+  animation: preloader-failsafe 0.6s 4.5s forwards;
+}
+.no-preload .preloader {
+  display: none;
+}
+/* Exit: the panel (and its curved edge) wipes up; the mark dips first. */
+.js .preloader {
+  transition: transform 1.05s cubic-bezier(0.87, 0, 0.13, 1);
+}
+.js .preloader.pl-exit {
+  transform: translateY(-100%);
+}
+.pl-mark {
+  transition: transform 0.35s cubic-bezier(0.55, 0, 1, 0.45);
+}
+.pl-exit .pl-mark {
+  transform: scale(0.9);
+}
+.pl-exit .pl-edge {
+  transform: scaleY(0);
+  transition: transform 1.05s cubic-bezier(0.87, 0, 0.13, 1);
+}
+.pl-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 22vh;
+  background: var(--ultra);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  transform-origin: top;
+}
+@keyframes preloader-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────── */
+.js .hero-char {
+  transform: translateY(115%);
+  animation: hero-failsafe 0s 3.5s forwards;
+}
+/* Pre-positioned until the intro runs (JS cancels the failsafe and animates
+ * them). The intro copy stays opaque: it is the mobile LCP element. */
+.js [data-hero-fade] {
+  transform: translateY(24px);
+  animation: hero-failsafe 0s 3.5s forwards;
+}
+@keyframes hero-failsafe {
+  to {
+    transform: none;
+  }
+}
+/* Intro (class added by HeroMotion once the preloader lifts): letters rise
+ * in a stagger, the intro copy glides up. Pure CSS, no animation library. */
+.js .hero-in .hero-char {
+  transform: none;
+  transition: transform 1.3s var(--ease-out-expo);
+  transition-delay: calc(150ms + var(--i, 0) * 35ms);
+}
+.js .hero-in [data-hero-fade] {
+  transform: none;
+  transition: transform 1.1s var(--ease-out-expo);
+  transition-delay: calc(300ms + var(--i, 0) * 80ms);
+}
+/* Transform-only (compositor) loop: the arrow slides in, rests, slides out. */
+@keyframes arrow-run {
+  0% {
+    translate: -1.3em 0;
+  }
+  9%,
+  91% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 1.3em 0;
+  }
+}
+.hero-arrow {
+  left: 50%;
+  margin-left: -0.25em;
+  animation: arrow-run 4.2s var(--ease-in-out-quart) infinite;
+  will-change: translate;
+}
+
+/* ── Service art micro-motion ───────────────────────────────────────── */
+/* Paused by default; runs for the panel in focus (.is-live) or on hover. */
+.svc-art * {
+  animation-play-state: paused;
+}
+.svc-panel.is-live .svc-art *,
+.svc-panel:hover .svc-art * {
+  animation-play-state: running;
+}
+.sa-blink {
+  animation: sa-blink 1s steps(1) infinite;
+}
+@keyframes sa-blink {
+  50% {
+    opacity: 0;
+  }
+}
+.sa-spin {
+  animation: spin-slow 9s linear infinite;
+}
+.sa-float {
+  animation: sa-float 3s ease-in-out infinite;
+}
+@keyframes sa-float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.sa-slide {
+  animation: sa-slide 2.4s var(--ease-in-out-quart) infinite alternate;
+}
+@keyframes sa-slide {
+  from {
+    transform: scaleX(0.4);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.sa-slide,
+.sa-pulse,
+.sa-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.sa-slide {
+  transform-origin: left center;
+}
+.sa-cursor {
+  animation: sa-cursor 4s var(--ease-in-out-quart) infinite;
+}
+@keyframes sa-cursor {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-46px, -46px);
+  }
+  66% {
+    transform: translate(10px, -70px);
+  }
+}
+.sa-pulse {
+  animation: sa-pulse 1.6s ease-in-out infinite;
+}
+@keyframes sa-pulse {
+  50% {
+    transform: scale(1.35);
+  }
+}
+.sa-ring {
+  animation: sa-ring 2s ease-out infinite;
+}
+@keyframes sa-ring {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+.sa-rise {
+  animation: sa-rise 2s var(--ease-in-out-quart) infinite;
+}
+@keyframes sa-rise {
+  0% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  30%,
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-14px);
+    opacity: 0;
+  }
+}
+.sa-dash {
+  stroke-dasharray: 260;
+  animation: sa-dash 2.6s linear infinite;
+}
+@keyframes sa-dash {
+  from {
+    stroke-dashoffset: 520;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Manifesto words: hollow ink outlines that fill solid on scroll. The outline
+ * alone is fully legible; the solid copy (.mf-word) fades in above it. */
+.mf-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--ink);
+}
+@media (max-width: 767px) {
+  .mf-outline {
+    -webkit-text-stroke-width: 1px;
+  }
+}
+/* Before JS (and for reduced motion) the words are simply solid. */
+.js .mf-word {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .mf-word {
+    /* biome-ignore lint/complexity/noImportantStyles: reduced motion shows the final state. */
+    opacity: 1 !important;
+  }
+}
+
+/* ── /services ──────────────────────────────────────────────────────── */
+/* Hero headline lines rise in (pure CSS; content is visible without JS). */
+.svh-line {
+  animation: svh-rise 1.1s var(--ease-out-expo) both;
+}
+@keyframes svh-rise {
+  from {
+    transform: translateY(105%);
+  }
+}
+.svh-fade {
+  animation: svh-fade 1s 0.45s var(--ease-out-expo) both;
+}
+@keyframes svh-fade {
+  from {
+    transform: translateY(18px);
+  }
+}
+/* Floating service tiles gently bob (transform-only, compositor). */
+.svh-bob {
+  animation: svh-bob 6s ease-in-out infinite;
+}
+@keyframes svh-bob {
+  50% {
+    translate: 0 -10px;
+  }
+}
+/* Capabilities panel re-enters on each tab switch. */
+.cap-in {
+  animation: cap-in 0.7s var(--ease-out-expo) both;
+}
+@keyframes cap-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+}
+/* "8 services" sticker next to the /services h1 (pseudo-content, so the h1
+ * text stays exactly "Software development services"). */
+.svh-sticker {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.25em;
+  translate: 0 -0.12em;
+  rotate: -6deg;
+}
+.svh-sticker::after {
+  content: attr(data-label);
+  display: block;
+  border-radius: 9999px;
+  background: var(--sun);
+  padding: 0.55em 1em;
+  color: var(--ink);
+  font-size: max(0.2em, 11px);
+  font-variation-settings: "wdth" 120;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -12px rgba(14, 11, 36, 0.5);
+}
+
+/* ── Service signatures ─────────────────────────────────────────────── */
+/* Dashes flowing along a stroke (used by the "What we build" mockups). */
+@keyframes wf-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+/* Custom Software "What we build" mockups: calm at rest, alive on hover. */
+.bg-bar {
+  scale: 1 0.55;
+  transition: scale 0.7s var(--ease-out-expo);
+}
+.bg-card:hover .bg-bar {
+  scale: 1 1;
+}
+.bg-row {
+  transition: translate 0.6s var(--ease-out-expo);
+}
+.bg-card:hover .bg-row:nth-child(odd) {
+  translate: 6px 0;
+}
+.bg-dash {
+  stroke-dashoffset: 0;
+}
+.bg-card:hover .bg-dash {
+  animation: wf-flow 0.9s linear infinite;
+}
+.bg-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.bg-card:hover .bg-ping {
+  animation: sa-pulse 1s ease-in-out infinite;
+}
+.bg-old {
+  transition:
+    opacity 0.6s ease,
+    scale 0.6s var(--ease-out-expo);
+}
+.bg-card:hover .bg-old {
+  opacity: 0.45;
+  scale: 0.92;
+}
+.bg-new {
+  transition: scale 0.6s var(--ease-out-expo);
+}
+.bg-card:hover .bg-new {
+  scale: 1.06;
+}
+.bg-avatar {
+  transition: translate 0.5s var(--ease-out-expo);
+}
+.bg-card:hover .bg-avatar {
+  translate: 0 -5px;
+}
+@media (hover: none) {
+  .bg-bar {
+    scale: 1 1;
+  }
+}
+
+/* Mobile: push notification drops into the checkout screen. */
+.ph-push {
+  animation: ph-push 3.2s var(--ease-out-expo) infinite;
+}
+@keyframes ph-push {
+  0%,
+  8% {
+    translate: 0 -140%;
+    opacity: 0;
+  }
+  22%,
+  82% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  100% {
+    translate: 0 -140%;
+    opacity: 0;
+  }
+}
+/* Mobile device-feature icons: subtle life on tile hover. */
+.df-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.df-tile:hover .df-ping {
+  animation: sa-pulse 1s ease-in-out infinite;
+}
+.df-draw {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.6s var(--ease-out-expo);
+}
+.df-tile:hover .df-draw {
+  animation: df-draw 1.2s var(--ease-out-expo) infinite;
+}
+@keyframes df-draw {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.df-scan {
+  transition: translate 0.4s ease;
+}
+.df-tile:hover .df-scan {
+  animation: df-scan 1.2s ease-in-out infinite alternate;
+}
+@keyframes df-scan {
+  from {
+    translate: 0 -3px;
+  }
+  to {
+    translate: 0 3px;
+  }
+}
+.df-tile:hover .df-dot {
+  animation: df-dot 0.9s ease-in-out infinite;
+}
+@keyframes df-dot {
+  50% {
+    translate: 0 -1.5px;
+  }
+}
+
+/* ── Inner-page motion (driven by <InnerMotion/>; see its docblock) ──── */
+/* Ticks / checks pop in one after another. */
+.im [data-inview] .iv-pop {
+  scale: 0;
+  transition: scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.im [data-inview].is-in .iv-pop {
+  scale: 1;
+}
+.im [data-inview] > :nth-child(2) .iv-pop { transition-delay: 0.12s; }
+.im [data-inview] > :nth-child(3) .iv-pop { transition-delay: 0.24s; }
+.im [data-inview] > :nth-child(4) .iv-pop { transition-delay: 0.36s; }
+.im [data-inview] > :nth-child(5) .iv-pop { transition-delay: 0.48s; }
+.im [data-inview] > :nth-child(6) .iv-pop { transition-delay: 0.6s; }
+.im [data-inview] > .iv-pop:nth-child(2) { transition-delay: 0.08s; }
+.im [data-inview] > .iv-pop:nth-child(3) { transition-delay: 0.16s; }
+.im [data-inview] > .iv-pop:nth-child(4) { transition-delay: 0.24s; }
+.im [data-inview] > .iv-pop:nth-child(5) { transition-delay: 0.32s; }
+.im [data-inview] > .iv-pop:nth-child(6) { transition-delay: 0.4s; }
+
+/* Children slide in from the side, staggered. (Scoped to :not(.iv-done) so
+ * that once played, the element's own hover transitions take over.) */
+.im [data-inview="slide"]:not(.is-in) > * {
+  opacity: 0;
+  translate: 60px 0;
+}
+.im [data-inview="slide"]:not(.iv-done) > * {
+  transition:
+    opacity 0.8s ease,
+    translate 0.9s var(--ease-out-expo);
+}
+.im [data-inview="slide"]:not(.iv-done) > :nth-child(2) { transition-delay: 0.12s; }
+.im [data-inview="slide"]:not(.iv-done) > :nth-child(3) { transition-delay: 0.24s; }
+.im [data-inview="slide"]:not(.iv-done) > :nth-child(4) { transition-delay: 0.36s; }
+
+/* Cards dealt onto the table. */
+.im [data-inview="deal"]:not(.is-in) > * {
+  opacity: 0;
+  translate: 0 110px;
+}
+.im [data-inview="deal"]:not(.iv-done) > * {
+  transition:
+    opacity 0.7s ease,
+    translate 1s var(--ease-out-expo);
+}
+.im [data-inview="deal"]:not(.iv-done) > :nth-child(2) { transition-delay: 0.14s; }
+.im [data-inview="deal"]:not(.iv-done) > :nth-child(3) { transition-delay: 0.28s; }
+
+/* Meter bars fill left to right. */
+.im [data-inview] .iv-bar {
+  transform-origin: left;
+  scale: 0 1;
+  transition: scale 0.9s var(--ease-out-expo);
+}
+.im [data-inview].is-in .iv-bar {
+  scale: 1 1;
+}
+
+/* Vertical grow (e.g. architecture security bar). */
+.im [data-inview] .iv-grow {
+  transform-origin: top;
+  scale: 1 0;
+  transition: scale 1.4s var(--ease-out-expo) 0.3s;
+}
+.im [data-inview].is-in .iv-grow {
+  scale: 1 1;
+}
+
+/* Scroll-scrubbed rail fill (--p set by InnerMotion). */
+[data-rail] {
+  transform-origin: left;
+  scale: var(--p, 1) 1;
+}
+@media (max-width: 767px) {
+  [data-rail] {
+    transform-origin: top;
+    scale: 1 var(--p, 1);
+  }
+}
+.im [data-rail] {
+  --p: 0;
+}
+
+/* Mockups / icons play once when seen (touch screens have no hover). */
+.im .bg-card[data-inview].is-in .bg-bar {
+  scale: 1 1;
+}
+.im .bg-card[data-inview].is-in .bg-dash {
+  animation: wf-flow 0.9s linear 3;
+}
+.im .df-tile[data-inview].is-in .df-ping {
+  animation: sa-pulse 1s ease-in-out 2;
+}
+.im .df-tile[data-inview].is-in .df-draw {
+  animation: df-draw 1.2s var(--ease-out-expo) 1;
+}
+/* Process steps light up as they're reached. */
+.iv-step {
+  transition:
+    background-color 0.6s ease 0.3s,
+    scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+.im [data-inview].is-in .iv-step {
+  background-color: var(--ultra);
+  scale: 1.12;
+}
+/* Capabilities auto-advance progress (matches the 4.5s timer). */
+.cap-progress {
+  animation: cap-progress 4.5s linear both;
+}
+@keyframes cap-progress {
+  from {
+    scale: 0 1;
+  }
+}
+
+/* ── SaaS page ─────────────────────────────────────────────────────────── */
+/* Range slider with a filled track (--p set inline). */
+.sx-range {
+  appearance: none;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ultra) var(--p, 0%), color-mix(in oklab, var(--ink) 10%, transparent) var(--p, 0%));
+  cursor: pointer;
+}
+.sx-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--sun);
+  border: 4px solid #fff;
+  box-shadow: 0 6px 18px -6px rgba(14, 11, 36, 0.55);
+  transition: scale 0.3s var(--ease-out-expo);
+}
+.sx-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--sun);
+  border: 4px solid #fff;
+  box-shadow: 0 6px 18px -6px rgba(14, 11, 36, 0.55);
+}
+.sx-range:hover::-webkit-slider-thumb,
+.sx-range:active::-webkit-slider-thumb { scale: 1.15; }
+.sx-range:focus-visible { outline: 3px solid var(--ultra); outline-offset: 6px; }
+
+/* Text that re-mounts on change rises in. */
+.sx-swap { animation: sx-swap 0.55s var(--ease-out-expo) both; }
+@keyframes sx-swap {
+  from { opacity: 0; translate: 0 0.5em; }
+}
+
+/* Plumbing bento. */
+.sp-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-variation-settings: "wdth" 104;
+}
+.sp-card {
+  transition: translate 0.7s var(--ease-out-expo), box-shadow 0.7s var(--ease-out-expo);
+}
+@media (hover: hover) {
+  .sp-card:hover {
+    translate: 0 -6px;
+    box-shadow: 0 34px 60px -36px rgba(14, 11, 36, 0.55);
+  }
+}
+.sp-lock {
+  width: 12px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--sun);
+  position: relative;
+  margin-top: 4px;
+}
+.sp-lock::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: 8px;
+  width: 8px;
+  height: 7px;
+  border: 2px solid var(--sun);
+  border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+}
+.sp-log-mask {
+  mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+}
+.sp-log { animation: sp-log 14s linear infinite; }
+@keyframes sp-log {
+  to { translate: 0 -50%; }
+}
+.sp-bar {
+  transform-origin: bottom;
+  transition: scale 0.9s var(--ease-out-expo);
+}
+.im [data-inview]:not(.is-in) .sp-bar { scale: 1 0.1; }
+@media (prefers-reduced-motion: reduce) {
+  .sp-log, .sx-swap { animation: none; }
+}
+
+/* ── UI/UX page: token playground (vars --b --on --r --s set inline) ───── */
+.tp * {
+  transition-property: background-color, color, border-radius, padding, height, width, box-shadow, gap, left;
+  transition-duration: 0.6s;
+  transition-timing-function: var(--ease-out-expo);
+}
+.tp-card {
+  background: #fff;
+  border-radius: calc(var(--r) * 1.25);
+  padding: calc(var(--s) * 1.4rem);
+  transition: border-radius 0.6s var(--ease-out-expo), padding 0.6s var(--ease-out-expo);
+}
+.tp-img { background: var(--b); border-radius: var(--r); }
+.tp-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--b);
+  color: var(--on);
+  border-radius: min(var(--r), 999px);
+  padding: calc(var(--s) * 0.2rem) calc(var(--s) * 0.6rem);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.tp-btn {
+  display: inline-flex;
+  align-items: center;
+  height: calc(var(--s) * 2.75rem);
+  padding: 0 calc(var(--s) * 1.2rem);
+  border-radius: var(--r);
+  background: var(--b);
+  color: var(--on);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.tp-btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--b); }
+.tp-input {
+  display: flex;
+  align-items: center;
+  height: calc(var(--s) * 2.75rem);
+  padding: 0 calc(var(--s) * 1rem);
+  border-radius: var(--r);
+  background: var(--frost);
+  box-shadow: inset 0 0 0 2px var(--b);
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.tp-switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 1.75rem;
+  border-radius: min(var(--r), 999px);
+  background: color-mix(in oklab, var(--ink) 18%, transparent);
+  transition: background-color 0.5s ease, border-radius 0.6s var(--ease-out-expo);
+}
+.tp-switch::after {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: calc(min(var(--r), 999px) * 0.8);
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(14, 11, 36, 0.3);
+  transition: left 0.5s var(--ease-out-expo), border-radius 0.6s var(--ease-out-expo);
+}
+.tp-switch[aria-checked="true"] { background: var(--b); }
+.tp-switch[aria-checked="true"]::after { left: 1.5rem; }
+.tp-switch:focus-visible { outline: 3px solid var(--ultra); outline-offset: 3px; }
+.tp-chip {
+  display: inline-flex;
+  align-items: center;
+  height: calc(var(--s) * 2.2rem);
+  padding: 0 calc(var(--s) * 0.85rem);
+  border-radius: var(--r);
+  background: var(--frost);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.tp-chip-on { background: var(--b); color: var(--on); }
+.tp-track {
+  display: block;
+  height: calc(var(--s) * 0.6rem);
+  border-radius: var(--r);
+  background: var(--frost);
+  overflow: hidden;
+}
+.tp-fill { display: block; height: 100%; background: var(--b); border-radius: var(--r); }
+
+/* ── UI/UX page: fidelity slider range has no visible thumb ────────────── */
+.fs-range::-webkit-slider-thumb { appearance: none; width: 48px; height: 100%; }
+.ux-t::after { content: attr(data-t); }
+
+/* ── AI page ───────────────────────────────────────────────────────────── */
+.ai-pop { animation: ai-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes ai-pop { from { scale: 0.4; opacity: 0; } }
+.ai-scan {
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--ultra) 18%, transparent), transparent);
+  animation: ai-scan 1.1s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes ai-scan { from { translate: -100% 0; } to { translate: 300% 0; } }
+.ai-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  animation: ai-dot 0.9s ease-in-out infinite;
+}
+@keyframes ai-dot { 50% { opacity: 0.25; scale: 0.6; } }
+.ai-read {
+  background: linear-gradient(180deg, transparent 0 40%, color-mix(in oklab, var(--sun) 55%, transparent) 40% 100%);
+  background-size: 100% 1.625em;
+  mix-blend-mode: multiply;
+  clip-path: inset(0 100% 0 0);
+  animation: ai-read 0.9s linear forwards;
+}
+@keyframes ai-read { to { clip-path: inset(0 0 0 0); } }
+.ai-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: -0.2em;
+  background: var(--ultra);
+  animation: ai-dot 0.8s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-pop, .ai-scan, .ai-dot, .ai-read, .ai-caret { animation: none; }
+}
+
+/* ── Maintenance page ──────────────────────────────────────────────────── */
+.ip-step { animation: ip-step 0.6s var(--ease-out-expo) both; }
+@keyframes ip-step { from { opacity: 0; translate: 0 10px; } }
+@media (prefers-reduced-motion: reduce) { .ip-step { animation: none; } }

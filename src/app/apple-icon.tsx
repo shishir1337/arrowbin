@@ -1,9 +1,12 @@
 import { ImageResponse } from "next/og";
+import { markSvg } from "@/components/brand/mark";
 
-// iOS home-screen icon. Solid lime tile with the black Arrowbin triangle "A"
-// mark (iOS rounds the corners itself, so we fill the full square).
+// iOS home-screen icon: ultraviolet tile, white arrowhead "A", plasma bit.
+// iOS rounds the corners itself, so the tile fills the full square.
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
+
+const glyph = `data:image/svg+xml;base64,${Buffer.from(markSvg({ fill: "#FFFFFF" })).toString("base64")}`;
 
 export default function AppleIcon() {
   return new ImageResponse(
@@ -14,24 +17,11 @@ export default function AppleIcon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#a3e635",
+        background: "#3B2BFF",
       }}
     >
-      <svg width="104" height="104" viewBox="0 0 64 64" aria-hidden="true">
-        <path
-          d="M32 13 53 51H11L32 13Z"
-          fill="none"
-          stroke="#0a0a0a"
-          strokeWidth="6"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21 41h22"
-          stroke="#0a0a0a"
-          strokeWidth="6"
-          strokeLinecap="round"
-        />
-      </svg>
+      {/* biome-ignore lint/performance/noImgElement: rendered by Satori, not the browser. */}
+      <img src={glyph} width={116} height={116} alt="" />
     </div>,
     { ...size },
   );

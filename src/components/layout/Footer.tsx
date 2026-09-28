@@ -1,34 +1,30 @@
 import Link from "next/link";
-import { Logo } from "@/components/layout/Logo";
-import { Container } from "@/components/ui/Container";
+import { LogoMark } from "@/components/brand/LogoMark";
 import { HostingerBadge } from "@/components/ui/HostingerBadge";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { services } from "@/lib/services";
 import { mainNav, site } from "@/lib/site";
+import { FooterWordmark } from "./FooterWordmark";
 
 const year = new Date().getFullYear();
 
+const linkCls =
+  "group inline-flex items-center gap-1.5 text-[0.95rem] text-ink-2 transition-colors hover:text-ultra";
+
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-surface">
-      {/* Glowing top hairline + ambient glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-      >
-        <div className="rule-gradient absolute inset-x-0 top-0 h-px" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(163,230,53,0.07),transparent_60%)]" />
-      </div>
-      <Container className="py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-          {/* Brand + contact */}
-          <div>
-            <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              {site.tagline} building custom software, web & mobile apps, SaaS
-              and AI automation for teams worldwide.
+    <footer className="relative overflow-hidden bg-frost pt-20 text-ink">
+      <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
+        <div className="grid gap-12 border-b-2 border-ink/10 pb-14 md:grid-cols-2 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <LogoMark className="h-12 w-12 text-ultra" />
+            <p
+              className="mt-6 max-w-xs font-display text-2xl font-extrabold uppercase leading-[0.95] tracking-[-0.03em]"
+              style={{ fontVariationSettings: '"wdth" 110' }}
+            >
+              Software that moves. Built for companies worldwide.
             </p>
-            <div className="mt-5 flex gap-2">
+            <div className="mt-6 flex gap-2">
               {site.socials.map((s) => (
                 <a
                   key={s.label}
@@ -36,31 +32,21 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${site.name} on ${s.label}`}
-                  className="grid h-11 w-11 place-items-center rounded-full border border-border text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand hover:text-accent hover:shadow-[0_0_18px_-2px_rgb(var(--brand-rgb)/0.5)]"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ultra hover:bg-ultra hover:text-white"
                 >
                   <Icon name={s.icon as IconName} size={18} />
                 </a>
               ))}
             </div>
-
-            {/* Verified Hostinger Partner. Kept clear of the Arrowbin logo above and
-                given its own space — Hostinger's terms forbid pairing the badge with
-                other logos or placing it on a cluttered background. */}
-            <div className="mt-8">
-              <HostingerBadge width={164} />
-            </div>
           </div>
 
-          {/* Services */}
-          <nav aria-label="Services">
-            <h2 className="text-sm font-semibold text-text">Services</h2>
-            <ul className="mt-4 space-y-2.5">
+          <nav aria-label="Services" className="lg:col-span-3">
+            <h2 className="label text-ink-2">Services</h2>
+            <ul className="mt-5 space-y-2.5">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link
-                    href={`/services/${s.slug}`}
-                    className="text-sm text-muted transition-colors hover:text-accent"
-                  >
+                  <Link href={`/services/${s.slug}`} className={linkCls}>
+                    <span className="h-1.5 w-1.5 scale-0 rounded-full bg-plasma transition-transform group-hover:scale-100" />
                     {s.name}
                   </Link>
                 </li>
@@ -68,80 +54,63 @@ export function Footer() {
             </ul>
           </nav>
 
-          {/* Company */}
-          <nav aria-label="Company">
-            <h2 className="text-sm font-semibold text-text">Company</h2>
-            <ul className="mt-4 space-y-2.5">
+          <nav aria-label="Company" className="lg:col-span-2">
+            <h2 className="label text-ink-2">Company</h2>
+            <ul className="mt-5 space-y-2.5">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-muted transition-colors hover:text-accent"
-                  >
+                  <Link href={item.href} className={linkCls}>
+                    <span className="h-1.5 w-1.5 scale-0 rounded-full bg-plasma transition-transform group-hover:scale-100" />
                     {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link
-                  href="/privacy"
-                  className="text-sm text-muted transition-colors hover:text-accent"
-                >
-                  Privacy Policy
+                <Link href="/privacy" className={linkCls}>
+                  <span className="h-1.5 w-1.5 scale-0 rounded-full bg-plasma transition-transform group-hover:scale-100" />
+                  Privacy
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/terms"
-                  className="text-sm text-muted transition-colors hover:text-accent"
-                >
-                  Terms of Service
+                <Link href="/terms" className={linkCls}>
+                  <span className="h-1.5 w-1.5 scale-0 rounded-full bg-plasma transition-transform group-hover:scale-100" />
+                  Terms
                 </Link>
               </li>
             </ul>
           </nav>
 
-          {/* Contact */}
-          <div>
-            <h2 className="text-sm font-semibold text-text">Get in touch</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-                >
-                  <Icon name="mail" size={16} />
-                  {site.email}
-                </a>
-              </li>
+          <div className="lg:col-span-3">
+            <h2 className="label text-ink-2">Say hello</h2>
+            <a
+              href={`mailto:${site.email}`}
+              className="mt-5 block font-display text-2xl font-bold text-ink underline decoration-ultra decoration-2 underline-offset-8 hover:text-ultra"
+            >
+              {site.email}
+            </a>
+            <ul className="mt-5 space-y-2">
               {site.phones.map((p) => (
                 <li key={p.value}>
-                  <a
-                    href={p.href}
-                    className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-                  >
-                    <Icon name="phone" size={16} />
+                  <a href={p.href} className={linkCls}>
                     {p.value}
                   </a>
                 </li>
               ))}
-              {site.offices.map((o) => (
-                <li key={o.label} className="inline-flex items-center gap-2">
-                  <Icon name="map-pin" size={16} />
-                  {o.label}
-                </li>
-              ))}
             </ul>
+            <div className="mt-8">
+              <HostingerBadge width={164} />
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-sm text-muted sm:flex-row">
+        <div className="flex flex-col gap-3 py-6 text-sm text-ink-2 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <p>Built for performance, accessibility & growth.</p>
+          <p className="label">Designed &amp; engineered in-house</p>
         </div>
-      </Container>
+      </div>
+      <FooterWordmark />
     </footer>
   );
 }

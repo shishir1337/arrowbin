@@ -31,7 +31,7 @@ export async function ArticleHero({ post }: { post: Post }) {
       {/* Lime glow */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-[1] bg-[radial-gradient(circle_at_28%_-10%,rgba(163,230,53,0.22),transparent_58%)]"
+        className="absolute inset-0 -z-[1] bg-[radial-gradient(circle_at_28%_-10%,rgba(59,43,255,0.22),transparent_58%)]"
       />
       {/* Grid texture */}
       <div

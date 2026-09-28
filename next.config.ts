@@ -39,12 +39,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  // Inline the (small, atomic Tailwind) CSS into the HTML as a <style> tag instead of
-  // a render-blocking <link>. Removes the CSS request from the critical path, improving
-  // FCP/LCP for first-time visitors. Production builds only — no effect in `next dev`.
-  experimental: {
-    inlineCss: true,
-  },
+  // Note: `experimental.inlineCss` was removed. With the site's full stylesheet it
+  // embedded the CSS three times per page (a <style> tag plus twice in the RSC
+  // payload), ~300 KB raw on the homepage. A normal cached CSS file is far lighter.
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

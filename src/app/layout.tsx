@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Space_Grotesk } from "next/font/google";
+import { Anybody, Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { CursorGlowMount } from "@/components/motion/CursorGlowMount";
+import { Cursor } from "@/components/motion/Cursor";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { JsonLd } from "@/components/ui/JsonLd";
 import {
   localBusinessSchema,
@@ -22,17 +24,46 @@ const gaId =
     : "";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// Display: Anybody's variable width axis (50–150) powers the kinetic type.
+const anybody = Anybody({
+  variable: "--font-anybody",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  axes: ["wdth"],
+  // Not preloaded: the headline is hidden behind its intro reveal while this
+  // loads, so preloading only competed with the main text for bandwidth.
+  preload: false,
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+// Bengali fallback for the display face, for the "গ তে গয়না" project name.
+// A 3 KB file subset to exactly that name's glyphs (Anek Bangla 800, 112% wide)
+// instead of the 400+ KB full script; the unicode-range means it is only ever
+// fetched when Bengali characters appear, and anything else falls back to the
+// system Bengali font.
+const anekBangla = localFont({
+  src: "../assets/fonts/anek-bangla-goyna.woff2",
+  variable: "--font-bangla",
+  weight: "800",
+  display: "swap",
+  preload: false,
+  declarations: [
+    { prop: "unicode-range", value: "U+0980-09FF" },
+    { prop: "font-stretch", value: "112%" },
+  ],
+});
+
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
   display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+  // Small labels only; not worth a high-priority preload.
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -90,14 +121,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#07070a",
+  themeColor: "#F1F2F7",
 };
 
 /**
- * Runs before paint to flag that JS is active. The site is dark-only, so `.dark`
- * is set statically on <html> (no theme switching / no flash to guard against).
+ * Runs before paint: flags that JS is active, and skips the homepage preloader for
+ * the rest of the session once it has played (so it never flashes on return visits).
  */
-const themeScript = `(function(){try{document.documentElement.classList.add('js');}catch(e){}})();`;
+const themeScript = `(function(){try{var d=document.documentElement;d.classList.add('js');if(sessionStorage.getItem('ab-preloaded')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('no-preload');}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -105,7 +136,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${spaceGrotesk.variable} ${dmSans.variable}`}
+      className={`${anybody.variable} ${anekBangla.variable} ${geist.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -113,7 +144,8 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="flex min-h-dvh flex-col bg-bg text-text">
-        <CursorGlowMount />
+        <SmoothScroll />
+        <Cursor />
         <JsonLd
           data={[
             organizationSchema(),
@@ -123,12 +155,12 @@ export default function RootLayout({
         />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-fg"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-ultra focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>
         <Navbar />
-        <main id="main" className="flex-1">
+        <main id="main" className="relative flex-1">
           {children}
         </main>
         <Footer />

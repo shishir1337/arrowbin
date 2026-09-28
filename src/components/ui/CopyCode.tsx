@@ -32,19 +32,17 @@ export function CopyCode({
 
   return (
     <div className="inline-flex flex-col gap-1.5">
-      <span className="text-xs font-medium uppercase tracking-widest text-muted">
-        {label}
-      </span>
+      <span className="label text-ink/80">{label}</span>
       <button
         type="button"
         onClick={copy}
         aria-label={`Copy coupon code ${code}`}
-        className="group/code inline-flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-border-strong bg-bg px-4 py-3 transition-colors duration-200 hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        className="group/code inline-flex cursor-pointer items-center gap-4 rounded-2xl border-2 border-dashed border-ink/40 bg-white px-5 py-3.5 transition-colors duration-500 hover:border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
-        <span className="font-display text-lg font-bold tracking-[0.2em] text-text">
+        <span className="font-display text-xl font-black tracking-[0.2em] text-ink">
           {code}
         </span>
-        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors group-hover/code:text-accent">
+        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-2 transition-colors group-hover/code:text-ultra">
           <Icon name={copied ? "check" : "link"} size={16} />
           {copied ? "Copied" : "Copy"}
         </span>

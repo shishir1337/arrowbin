@@ -1,8 +1,11 @@
 import { ImageResponse } from "next/og";
+import { markSvg } from "@/components/brand/mark";
 
 // Raster brand logo (512×512) for schema.org logo/image — Google rich results don't
-// accept SVG. Lime tile + black triangle "A" on white, matching the favicon/apple-icon.
+// accept SVG. Ultraviolet tile + white arrowhead "A" + plasma bit on white.
 export const dynamic = "force-static";
+
+const glyph = `data:image/svg+xml;base64,${Buffer.from(markSvg({ fill: "#FFFFFF" })).toString("base64")}`;
 
 export function GET() {
   return new ImageResponse(
@@ -21,27 +24,14 @@ export function GET() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          width: 340,
-          height: 340,
-          borderRadius: 80,
-          background: "#a3e635",
+          width: 360,
+          height: 360,
+          borderRadius: 86,
+          background: "#3B2BFF",
         }}
       >
-        <svg width="200" height="200" viewBox="0 0 64 64" aria-hidden="true">
-          <path
-            d="M32 13 53 51H11L32 13Z"
-            fill="none"
-            stroke="#0a0a0a"
-            strokeWidth="6"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M21 41h22"
-            stroke="#0a0a0a"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-        </svg>
+        {/* biome-ignore lint/performance/noImgElement: rendered by Satori, not the browser. */}
+        <img src={glyph} width={236} height={236} alt="" />
       </div>
     </div>,
     { width: 512, height: 512 },

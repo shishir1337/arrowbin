@@ -42,7 +42,7 @@ async function PortfolioCard({ project }: { project: Project }) {
           {...(blurDataURL
             ? { placeholder: "blur" as const, blurDataURL }
             : {})}
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+          className="object-cover object-top"
         />
         <span className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-transform duration-200 group-hover:scale-110">
           <Icon name="arrow-up-right" size={18} />

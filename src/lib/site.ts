@@ -91,7 +91,7 @@ export const hostinger = {
     // SVG, so it needs no next/image optimisation (which would require
     // `dangerouslyAllowSVG`) and carries no filename-encoding risk — several files
     // in the supplied pack use a U+00D7 "×" in their names.
-    src: "/hostinger-partner-badge/svg/Badge_dark.svg",
+    src: "/hostinger-partner-badge/svg/Badge_brand_light.svg",
     /** Native aspect ratio of the supplied badge; keep 8:3 when scaling. */
     width: 320,
     height: 120,

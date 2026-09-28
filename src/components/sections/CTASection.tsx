@@ -25,7 +25,7 @@ export function CTASection({
             className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
           >
             <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_55%_at_50%_-5%,rgba(163,230,53,0.12),transparent_70%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_55%_at_50%_-5%,rgba(59,43,255,0.12),transparent_70%)]" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:52px_52px] opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
           </div>
 

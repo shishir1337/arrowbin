@@ -56,7 +56,7 @@ export const projects: Project[] = [
     result: "Online ordering live in 8 weeks",
     tags: ["Corporate", "E-commerce"],
     mark: "Nb",
-    gradient: "from-emerald-500 to-teal-600",
+    gradient: "from-indigo-500 to-fuchsia-500",
   },
   {
     name: "Maneel Club",

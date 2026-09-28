@@ -59,7 +59,7 @@ export const services: Service[] = [
       {
         title: "Built for your workflow",
         description:
-          "Software designed around your processes, not a generic template — so adoption is fast and friction is low.",
+          "Software designed around your processes, not a generic template, so adoption is fast and friction is low.",
       },
       {
         title: "Scalable architecture",
@@ -131,6 +131,22 @@ export const services: Service[] = [
         question: "Do I own the source code?",
         answer:
           "Yes. You get full ownership of the source code, the documentation and the infrastructure. There's no vendor lock-in.",
+      },
+      {
+        question: "Can you work with the systems we already use?",
+        answer:
+          "Usually, yes. We integrate with CRMs, ERPs, accounting, payment and shipping tools through their APIs, and we can import data from spreadsheets and older databases. If a system has no API, we'll find the safest workaround during discovery.",
+      },
+      {
+        question:
+          "Should we build custom software or buy an off-the-shelf tool?",
+        answer:
+          "Buy when an existing product fits your workflow well and per-seat costs stay reasonable. Build when your process is a competitive advantage, when you're stitching several tools together, or when licence fees keep growing. We'll give you an honest recommendation on the discovery call, even if it's to buy.",
+      },
+      {
+        question: "What happens after launch?",
+        answer:
+          "We monitor the system, fix issues fast and keep improving it through a monthly care plan. You can also take it in-house at any time: everything is documented and you own all of it.",
       },
     ],
   },
@@ -222,6 +238,21 @@ export const services: Service[] = [
         answer:
           "Yes. We build mobile-first storefronts that pass Core Web Vitals, and that speed helps both your conversions and your Google rankings.",
       },
+      {
+        question: "Can you add bKash, Nagad or cash on delivery?",
+        answer:
+          "Yes. We integrate local gateways like bKash, Nagad, Rocket and SSLCommerz, plus cash on delivery with order confirmation, alongside Stripe, PayPal and card payments for international buyers.",
+      },
+      {
+        question: "How long does it take to build an online store?",
+        answer:
+          "A Shopify store typically launches in 3–6 weeks. A headless storefront takes around 8–12 weeks, and a fully custom platform 12 weeks or more. We can launch a focused first version sooner and add features after.",
+      },
+      {
+        question: "Will I be able to manage products and orders myself?",
+        answer:
+          "Yes. Your team gets an easy admin for products, prices, stock, orders and content, and we train you on it before launch. No developer needed for day-to-day changes.",
+      },
     ],
   },
   {
@@ -247,7 +278,7 @@ export const services: Service[] = [
       {
         title: "One codebase, both stores",
         description:
-          "Ship to iOS and Android together with React Native or Flutter — without compromising on quality.",
+          "Ship to iOS and Android together with React Native or Flutter, without compromising on quality.",
       },
       {
         title: "Native performance",
@@ -311,6 +342,21 @@ export const services: Service[] = [
         question: "Do you handle App Store and Google Play submission?",
         answer:
           "Yes. We handle the whole release: store listings, review compliance, builds and updates, so your app goes live without the usual headaches.",
+      },
+      {
+        question: "How long does it take to build a mobile app?",
+        answer:
+          "A focused MVP usually takes 10–16 weeks from kickoff to the stores: about 1–2 weeks defining scope, 2–3 weeks of design and 6–10 weeks of development and testing. Store review then takes anywhere from a day to a week.",
+      },
+      {
+        question: "Can the app work offline?",
+        answer:
+          "Yes. We cache the data people need most, queue their actions while they're offline, and sync everything when the connection returns, so the app stays usable on a poor network.",
+      },
+      {
+        question: "Who owns the app and the store accounts?",
+        answer:
+          "You do. The source code, the App Store and Google Play developer accounts and all app data belong to you. We work inside your accounts, never ours.",
       },
     ],
   },
@@ -409,6 +455,26 @@ export const services: Service[] = [
         answer:
           "Yes. We set up plans, trials, metered usage and the full Stripe billing lifecycle, including invoicing and dunning.",
       },
+      {
+        question: "What goes into a SaaS MVP, and what should wait?",
+        answer:
+          "Your core workflow, sign-up and login, and billing go in from day one, usually with a simple onboarding flow and an admin view. Teams and roles, public APIs, SSO, white-labelling and native apps can usually wait until paying customers ask for them.",
+      },
+      {
+        question: "Which tech stack do you use for SaaS products?",
+        answer:
+          "Usually Next.js and Node.js with PostgreSQL, Redis for caching and queues, Stripe for billing, and AWS or Vercel for hosting. It's a proven, well-supported stack that's easy to hire for later. If you already have a stack, we work with it.",
+      },
+      {
+        question: "Is the product secure and ready for bigger customers?",
+        answer:
+          "Yes. We build in tenant isolation, role-based access, encryption, 2FA and audit logs, and add SSO when enterprise buyers need it. We also set up monitoring, alerts and daily backups so issues are caught early.",
+      },
+      {
+        question: "Do we own the code and the product?",
+        answer:
+          "Yes. You own 100% of the source code, accounts and infrastructure from day one. There's no lock-in, and we document everything so your own team can take over at any point.",
+      },
     ],
   },
   {
@@ -504,6 +570,26 @@ export const services: Service[] = [
         question: "Can you redesign my existing product?",
         answer:
           "Yes. We start with a UX audit to find where users get stuck, then redesign against measurable goals like higher conversion and better retention.",
+      },
+      {
+        question: "How long does a UI/UX design project take?",
+        answer:
+          "A focused product or website usually takes 4–8 weeks from research to dev-ready designs. A UX audit of an existing product takes 1–2 weeks. Larger platforms with a full design system take longer, and we agree the timeline up front.",
+      },
+      {
+        question: "Do you design for accessibility?",
+        answer:
+          "Yes, always. We design to WCAG 2.2 AA: readable contrast, clear focus states, large enough tap targets, proper labels and error messages. It makes the product better for everyone, not only people using assistive tech.",
+      },
+      {
+        question: "Can your team also build what you design?",
+        answer:
+          "Yes. Designers and engineers work on the same team, so designs are made to be built and nothing gets lost in handoff. You can also take the Figma files and design system to your own developers.",
+      },
+      {
+        question: "What will we actually receive?",
+        answer:
+          "User flows, wireframes, a clickable prototype, final screens for every state and breakpoint, and a design system with components and tokens in Figma. You own all of it.",
       },
     ],
   },
@@ -602,6 +688,26 @@ export const services: Service[] = [
         answer:
           "We use retrieval-augmented generation (RAG), so the AI answers from your verified content and documents. That cuts down sharply on incorrect or made-up responses.",
       },
+      {
+        question: "How much does an AI automation project cost?",
+        answer:
+          "A focused first automation, such as invoice processing or support triage, typically starts around $10,000–$15,000 including a year of running costs. Larger agent systems cost more. We size it against the time it saves, so you can see the payback before you commit.",
+      },
+      {
+        question: "How long does it take to build?",
+        answer:
+          "A working prototype on your real data usually takes 2–3 weeks. Taking it into production with integrations, security and monitoring adds another 3–6 weeks.",
+      },
+      {
+        question: "Which AI models do you use?",
+        answer:
+          "We pick the model for the job: Anthropic Claude and OpenAI for most language tasks, and open-source or private models when data must stay in-house. We design it so you can switch models later without a rebuild.",
+      },
+      {
+        question: "Will AI replace my team?",
+        answer:
+          "That isn't how we design it. AI takes the repetitive part of the work, and anything uncertain or high-stakes goes to a person with a summary ready. Teams usually spend the time they get back on customers and harder problems.",
+      },
     ],
   },
   {
@@ -699,6 +805,26 @@ export const services: Service[] = [
         answer:
           "Yes. We offer managed DevOps with monitoring, security updates and on-call support, so your team can stay focused on the product.",
       },
+      {
+        question: "Can you migrate us without downtime?",
+        answer:
+          "In almost all cases, yes. We run the new setup alongside the old one, sync the data, test it with real traffic and switch over in a planned window, with a rollback plan ready. Most migrations finish with no visible downtime.",
+      },
+      {
+        question: "What is CI/CD, and do we need it?",
+        answer:
+          "CI/CD automatically builds, tests and deploys every change. If you ship updates more than occasionally, yes: releases become routine instead of risky, bugs are caught before customers see them, and a bad release can be rolled back in seconds.",
+      },
+      {
+        question: "Do you work with our existing hosting provider?",
+        answer:
+          "Yes. We work with AWS, Google Cloud, Vercel, Hostinger, DigitalOcean and others. We only suggest moving if it clearly saves money or solves a real problem.",
+      },
+      {
+        question: "Will we own the infrastructure and accounts?",
+        answer:
+          "Yes. Everything runs in accounts you own, and it's defined as code (Terraform), so it's documented and reproducible. There's no lock-in to us.",
+      },
     ],
   },
   {
@@ -789,6 +915,26 @@ export const services: Service[] = [
         answer:
           "Critical, production-down issues get our attention immediately under the SLA, with response and resolution targets agreed in your plan.",
       },
+      {
+        question: "What's included in a maintenance plan?",
+        answer:
+          "Every plan covers monitoring, security and dependency updates, backups, bug fixes and a monthly health report. Higher plans add faster response targets, 24/7 cover for critical issues and more development hours for improvements and new features.",
+      },
+      {
+        question: "Can we use the hours for new features?",
+        answer:
+          "Yes. Hours not needed for upkeep go into improvements and new features from a shared list we agree with you, so maintenance also moves the product forward.",
+      },
+      {
+        question: "Is there a minimum contract length?",
+        answer:
+          "Plans run month to month after a short onboarding period. You can change plan as your needs change, and if you ever leave, we hand over documentation and access cleanly.",
+      },
+      {
+        question: "What if our software is old or in bad shape?",
+        answer:
+          "That's common, and it's where we help most. We start with an audit, fix the urgent risks first, then modernise step by step, so there's no need for a risky big-bang rewrite.",
+      },
     ],
   },
 ];
@@ -821,7 +967,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Custom software development means designing and building software around your exact business: your workflows, your data, your users. Instead of bending your team to fit a generic, off-the-shelf tool, the software fits the business.",
     outcomes: [
       { value: "100%", label: "Source code ownership" },
-      { value: "6–12 wk", label: "To a usable first version" },
+      { value: "6–12", label: "Weeks to a usable first version" },
       { value: "0", label: "Per-seat license fees" },
     ],
     idealFor: [

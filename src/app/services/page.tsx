@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Reveal } from "@/components/motion/Reveal";
-import { StaggerGroup } from "@/components/motion/StaggerGroup";
-import { CTASection } from "@/components/sections/CTASection";
-import { FAQ } from "@/components/sections/FAQ";
-import { Process } from "@/components/sections/Process";
-import { ServiceCard } from "@/components/sections/ServiceCard";
-import { Stats } from "@/components/sections/Stats";
-import { WhyArrowbin } from "@/components/sections/WhyArrowbin";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { ButtonLink } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
-import { Icon } from "@/components/ui/Icon";
+import { Suspense } from "react";
+import { Cta } from "@/components/home/Cta";
+import { Faq } from "@/components/home/Faq";
+import { InnerMotion } from "@/components/motion/InnerMotion";
+import { Capabilities } from "@/components/services/Capabilities";
+import { Engagement } from "@/components/services/Engagement";
+import { ServiceIndex } from "@/components/services/ServiceIndex";
+import { ServicesHero } from "@/components/services/ServicesHero";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { breadcrumbSchema, faqSchema, serviceListSchema } from "@/lib/schema";
 import { services } from "@/lib/services";
-import { defaultOgImage, pageAlternates, site } from "@/lib/site";
+import { defaultOgImage, pageAlternates } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Software Development Services",
@@ -48,9 +43,9 @@ const overviewFaqs = [
       "It depends on scope. Most projects run from around $8,000 for a focused tool to $75,000+ for a full platform. We give you a fixed, transparent estimate after a free discovery call.",
   },
   {
-    question: "Where is Arrowbin based?",
+    question: "Do you work with clients outside your region?",
     answer:
-      "We have offices in Dhaka, Bangladesh and Florida, USA, and we work with clients worldwide across time zones.",
+      "Yes. We work with clients around the world, across time zones, with overlapping hours, weekly demos and async updates.",
   },
   {
     question: "Do I own the code and IP?",
@@ -65,6 +60,13 @@ const overviewFaqs = [
 ];
 
 export default function ServicesPage() {
+  const caps = services.map(({ slug, name, summary, deliverables, tech }) => ({
+    slug,
+    name,
+    summary,
+    deliverables,
+    tech,
+  }));
   return (
     <>
       <JsonLd
@@ -74,88 +76,23 @@ export default function ServicesPage() {
           faqSchema(overviewFaqs),
         ]}
       />
-
-      {/* Hero */}
-      <section className="relative overflow-hidden py-14 sm:py-20">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        >
-          <div className="blob left-[4%] top-[-18%] h-72 w-72" />
-          <div
-            className="blob right-[6%] top-[6%] h-80 w-80 opacity-10"
-            style={{ animationDelay: "-6s", animationDuration: "22s" }}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_-8%,rgba(163,230,53,0.12),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        </div>
-        <Container>
-          <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-3xl">
-            <Reveal>
-              <Eyebrow>Services</Eyebrow>
-            </Reveal>
-            <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
-              Software development services that scale with you
-            </Reveal>
-            <Reveal as="p" className="mt-5 text-lg leading-relaxed text-muted">
-              Wherever you are, from a first MVP to an enterprise platform, we
-              have a team to help. One partner for design, engineering, AI and
-              support.
-            </Reveal>
-            <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/contact" size="lg" icon="arrow-right">
-                Start your project
-              </ButtonLink>
-              <ButtonLink
-                href={site.bookingUrl}
-                external
-                size="lg"
-                variant="secondary"
-              >
-                Book a call
-              </ButtonLink>
-            </Reveal>
-            <Reveal className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-              {[
-                "You own your code",
-                "Senior engineers",
-                "Offices in BD & USA",
-                "Fixed-price option",
-              ].map((t) => (
-                <span key={t} className="inline-flex items-center gap-2">
-                  <Icon name="check" size={16} className="text-accent" />
-                  {t}
-                </span>
-              ))}
-            </Reveal>
-          </div>
-
-          <StaggerGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
-            ))}
-          </StaggerGroup>
-        </Container>
-      </section>
-
-      <Stats />
-      <Process />
-      <WhyArrowbin className="border-y border-border bg-surface py-16 sm:py-20" />
-
-      {/* FAQ */}
-      <section className="py-16 sm:py-20">
-        <Container>
-          <h2 className="text-center text-3xl font-bold">
-            Frequently asked questions
-          </h2>
-          <div className="mt-10">
-            <FAQ items={overviewFaqs} />
-          </div>
-        </Container>
-      </section>
-
-      <CTASection />
+      <InnerMotion />
+      <ServicesHero crumbs={crumbs} />
+      <Suspense fallback={null}>
+        <ServiceIndex />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Capabilities items={caps} />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Engagement />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Faq items={overviewFaqs} index="04" />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Cta index="05" />
+      </Suspense>
     </>
   );
 }

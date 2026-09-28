@@ -90,7 +90,7 @@ export default async function AboutPage() {
         </div>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_-10%,rgba(101,163,13,0.13),transparent_55%)] dark:bg-[radial-gradient(circle_at_25%_-10%,rgba(163,230,53,0.12),transparent_55%)]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_-10%,rgba(101,163,13,0.13),transparent_55%)] dark:bg-[radial-gradient(circle_at_25%_-10%,rgba(59,43,255,0.12),transparent_55%)]"
         />
         <div
           aria-hidden="true"

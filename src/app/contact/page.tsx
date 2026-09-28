@@ -43,7 +43,7 @@ export default function ContactPage() {
             className="blob right-[8%] top-[6%] h-80 w-80 opacity-10"
             style={{ animationDelay: "-5s", animationDuration: "24s" }}
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_-8%,rgba(163,230,53,0.12),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_-8%,rgba(59,43,255,0.12),transparent_55%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:60px_60px] opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_65%)]" />
         </div>
         <Container>

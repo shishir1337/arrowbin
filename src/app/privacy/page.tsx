@@ -48,7 +48,7 @@ export default function PrivacyPage() {
     <section className="relative overflow-hidden py-14 sm:py-20">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_-8%,rgba(163,230,53,0.1),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_-8%,rgba(59,43,255,0.1),transparent_55%)]"
       />
       <Container>
         <div className="mx-auto max-w-3xl">

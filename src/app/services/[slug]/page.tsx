@@ -1,22 +1,38 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Reveal } from "@/components/motion/Reveal";
-import { StaggerGroup } from "@/components/motion/StaggerGroup";
-import { CTASection } from "@/components/sections/CTASection";
-import { FAQ } from "@/components/sections/FAQ";
-import { HeroLeadForm } from "@/components/sections/HeroLeadForm";
-import { HostingerPartner } from "@/components/sections/HostingerPartner";
-import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
-import { WhyArrowbin } from "@/components/sections/WhyArrowbin";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { ButtonLink } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
-import { Icon } from "@/components/ui/Icon";
+import { Suspense } from "react";
+import { Cta } from "@/components/home/Cta";
+import { Faq } from "@/components/home/Faq";
+import { InnerMotion } from "@/components/motion/InnerMotion";
+import { GroundedChat } from "@/components/services/ai/GroundedChat";
+import { RoiCalculator } from "@/components/services/ai/RoiCalculator";
+import { AutoscaleLive } from "@/components/services/cloud/AutoscaleLive";
+import { ArchitectureStack } from "@/components/services/custom/ArchitectureStack";
+import { BuildGallery } from "@/components/services/custom/BuildGallery";
+import { BuildVsBuy } from "@/components/services/custom/BuildVsBuy";
+import { Engagement } from "@/components/services/Engagement";
+import { PaymentsDelivery } from "@/components/services/ecommerce/PaymentsDelivery";
+import { PlatformPicker } from "@/components/services/ecommerce/PlatformPicker";
+import { StoreAnatomy } from "@/components/services/ecommerce/StoreAnatomy";
+import { HealthReport } from "@/components/services/maintenance/HealthReport";
+import { IncidentPlans } from "@/components/services/maintenance/IncidentPlans";
+import { DeviceFeatures } from "@/components/services/mobile/DeviceFeatures";
+import { LaunchKit } from "@/components/services/mobile/LaunchKit";
+import { ServiceDeliver } from "@/components/services/ServiceDeliver";
+import { ServiceHero } from "@/components/services/ServiceHero";
+import { ServiceHosting } from "@/components/services/ServiceHosting";
+import { ServiceProcess } from "@/components/services/ServiceProcess";
+import { ServiceGuides, ServiceWork } from "@/components/services/ServiceProof";
+import { ServiceRelated } from "@/components/services/ServiceRelated";
+import { ServiceValue } from "@/components/services/ServiceValue";
+import { MvpScoper } from "@/components/services/saas/MvpScoper";
+import { SaasPlumbing } from "@/components/services/saas/SaasPlumbing";
+import { ServiceSignature } from "@/components/services/signature/ServiceSignature";
+import { TokenPlayground } from "@/components/services/uiux/TokenPlayground";
+import { UxAudit } from "@/components/services/uiux/UxAudit";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { getPost, postThumbnail } from "@/lib/blog";
+import { getPost } from "@/lib/blog";
+import { getBlurDataURL } from "@/lib/blur";
 import { projects } from "@/lib/portfolio";
 import {
   breadcrumbSchema,
@@ -25,7 +41,7 @@ import {
   serviceSchema,
 } from "@/lib/schema";
 import { getService, getServiceExtras, services } from "@/lib/services";
-import { pageAlternates, site } from "@/lib/site";
+import { pageAlternates } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -91,16 +107,21 @@ export default async function ServiceDetailPage({
   if (!service) notFound();
 
   const path = `/services/${service.slug}`;
+  const index = services.findIndex((s) => s.slug === service.slug);
   const extras = getServiceExtras(service.slug);
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: service.name, path },
   ];
-  const related = services.filter((s) => s.slug !== service.slug).slice(0, 3);
-  const work = (extras?.relatedWork ?? [])
-    .map((name) => projects.find((p) => p.name === name))
-    .filter((p): p is (typeof projects)[number] => Boolean(p));
+  const work = await Promise.all(
+    (extras?.relatedWork ?? [])
+      .map((name) => projects.find((p) => p.name === name))
+      .filter((p): p is (typeof projects)[number] => Boolean(p))
+      .map(async (p) => ({ ...p, blur: await getBlurDataURL(p.image) })),
+  );
+  // Section numbers run in page order; the signature is section 02.
+  const n = (k: number) => String(k).padStart(2, "0");
   const guides = (extras?.relatedPosts ?? [])
     .map((s) => getPost(s))
     .filter((p): p is NonNullable<ReturnType<typeof getPost>> => Boolean(p));
@@ -126,355 +147,265 @@ export default async function ServiceDetailPage({
         ]}
       />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden py-14 sm:py-20">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        >
-          <div className="blob left-[4%] top-[-18%] h-72 w-72" />
-          <div
-            className="blob right-[6%] top-[8%] h-80 w-80 opacity-10"
-            style={{ animationDelay: "-6s", animationDuration: "22s" }}
-          />
-        </div>
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_0%,rgba(101,163,13,0.13),transparent_55%)] dark:bg-[radial-gradient(circle_at_20%_0%,rgba(163,230,53,0.12),transparent_55%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)]"
-        />
-        <Container>
-          <Breadcrumbs items={crumbs} />
-          <div className="mt-8 grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-            <div className="max-w-2xl">
-              <Reveal>
-                <Eyebrow icon={service.icon}>Service</Eyebrow>
-              </Reveal>
-              <Reveal as="h1" className="mt-5 text-4xl font-bold sm:text-5xl">
-                {service.heading}
-              </Reveal>
-              <Reveal
-                as="p"
-                className="mt-5 text-lg leading-relaxed text-muted"
-              >
-                {service.intro}
-              </Reveal>
-              <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href="/contact" size="lg" icon="arrow-right">
-                  Start your project
-                </ButtonLink>
-                <ButtonLink
-                  href={site.bookingUrl}
-                  external
-                  size="lg"
-                  variant="secondary"
-                >
-                  Book a call
-                </ButtonLink>
-              </Reveal>
-              <Reveal className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-                {[
-                  "You own your code",
-                  "Senior engineers",
-                  "Offices in BD & USA",
-                  "Fixed-price option",
-                ].map((t) => (
-                  <span key={t} className="inline-flex items-center gap-2">
-                    <Icon name="check" size={16} className="text-accent" />
-                    {t}
-                  </span>
-                ))}
-              </Reveal>
-            </div>
-            <Reveal className="lg:pt-2">
-              <HeroLeadForm serviceName={service.name} />
-            </Reveal>
-          </div>
-        </Container>
-      </section>
-
-      {/* Outcomes band */}
-      {extras?.outcomes.length ? (
-        <section className="border-y border-border bg-surface py-12">
-          <Container>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-              {extras.outcomes.map((o) => (
-                <div key={o.label} className="text-center sm:text-left">
-                  <p className="font-display text-3xl font-bold text-accent sm:text-4xl">
-                    {o.value}
-                  </p>
-                  <p className="mt-1 text-sm text-muted">{o.label}</p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
-
-      {/* Overview — answer-first (AEO/GEO) */}
-      {extras?.answer ? (
-        <section className="py-16 sm:py-20">
-          <Container>
-            <div className="max-w-3xl">
-              <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-                What is {service.name}?
-              </Reveal>
-              <Reveal>
-                <p
-                  id="service-answer"
-                  className="mt-5 text-lg leading-relaxed text-muted"
-                >
-                  {extras.answer}
-                </p>
-              </Reveal>
-            </div>
-          </Container>
-        </section>
-      ) : null}
-
-      {/* Who it's for */}
-      {extras?.idealFor.length ? (
-        <section className="border-t border-border bg-surface py-16 sm:py-20">
-          <Container>
-            <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-              Is this for you?
-            </Reveal>
-            <StaggerGroup className="mt-10 grid gap-4 sm:grid-cols-2">
-              {extras.idealFor.map((item) => (
-                <div
-                  key={item}
-                  data-reveal
-                  className="card-surface flex items-start gap-3 rounded-2xl p-5"
-                >
-                  <Icon
-                    name="check"
-                    size={20}
-                    className="mt-0.5 shrink-0 text-accent"
-                  />
-                  <span className="text-text">{item}</span>
-                </div>
-              ))}
-            </StaggerGroup>
-          </Container>
-        </section>
-      ) : null}
-
-      {/* Benefits */}
-      <section className="py-16 sm:py-20">
-        <Container>
-          <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-            What you get
-          </Reveal>
-          <StaggerGroup className="mt-10 grid gap-6 sm:grid-cols-2">
-            {service.benefits.map((b) => (
-              <div
-                key={b.title}
-                data-reveal
-                className="card-surface rounded-2xl p-6"
-              >
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-surface-2 text-accent">
-                  <Icon name="check" size={20} />
-                </span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-text">
-                  {b.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {b.description}
-                </p>
-              </div>
-            ))}
-          </StaggerGroup>
-        </Container>
-      </section>
-
-      {/* Deliverables + tech */}
-      <section className="border-y border-border bg-surface py-16 sm:py-20">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-                What we deliver
-              </Reveal>
-              <StaggerGroup
-                as="ul"
-                className="mt-8 grid gap-3 sm:grid-cols-2"
-                stagger={0.06}
-              >
-                {service.deliverables.map((d) => (
-                  <li
-                    key={d}
-                    data-reveal
-                    className="flex items-center gap-3 text-text"
-                  >
-                    <Icon
-                      name="check"
-                      size={18}
-                      className="shrink-0 text-accent"
-                    />
-                    {d}
-                  </li>
-                ))}
-              </StaggerGroup>
-            </div>
-            <div>
-              <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-                Technologies we use
-              </Reveal>
-              <Reveal>
-                <ul className="mt-8 flex flex-wrap gap-2.5">
-                  {service.tech.map((t) => (
-                    <li
-                      key={t}
-                      className="rounded-full border border-border bg-bg px-4 py-2 text-sm font-medium text-text"
-                    >
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Hostinger partnership — only on the hosting service, where it is the topic. */}
-      {service.slug === HOSTING_SLUG ? <HostingerPartner /> : null}
-
-      {/* Process */}
-      <section className="py-16 sm:py-20">
-        <Container>
-          <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-            How we deliver
-          </Reveal>
-          <StaggerGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {service.process.map((step, i) => (
-              <div
-                key={step.title}
-                data-reveal
-                className="card-surface rounded-2xl p-6"
-              >
-                <span className="font-display text-4xl font-bold text-accent/25">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 font-display text-lg font-semibold text-text">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </StaggerGroup>
-        </Container>
-      </section>
-
-      {/* Selected work */}
-      {work.length ? (
-        <section className="border-t border-border bg-surface py-16 sm:py-20">
-          <Container>
-            <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-              Selected work
-            </Reveal>
-            <Reveal as="p" className="mt-3 max-w-2xl text-muted">
-              A few of the products we've designed and built. See the live
-              sites.
-            </Reveal>
-            <div className="mt-10">
-              <PortfolioGrid items={work} />
-            </div>
-            <div className="mt-8">
-              <ButtonLink href="/work" variant="secondary" icon="arrow-right">
-                See all work
-              </ButtonLink>
-            </div>
-          </Container>
-        </section>
-      ) : null}
-
-      {/* Why Arrowbin */}
-      <WhyArrowbin />
-
-      {/* Related guides (content cluster) */}
-      {guides.length ? (
-        <section className="border-t border-border bg-surface py-16 sm:py-20">
-          <Container>
-            <Reveal as="h2" className="text-2xl font-bold sm:text-3xl">
-              Related guides
-            </Reveal>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {guides.map((g) => (
-                <Link
-                  key={g.slug}
-                  href={`/blog/${g.slug}`}
-                  className="group card-surface spotlight flex flex-col overflow-hidden rounded-2xl transition-colors hover:border-brand"
-                >
-                  <Image
-                    src={postThumbnail(g)}
-                    alt={`${g.title} — article thumbnail`}
-                    width={1200}
-                    height={630}
-                    unoptimized
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="aspect-[1200/630] w-full border-b border-border object-cover"
-                  />
-                  <div className="p-5">
-                    <span className="text-xs font-medium text-accent">
-                      {g.category}
-                    </span>
-                    <h3 className="mt-2 font-display text-base font-semibold text-text group-hover:text-accent">
-                      {g.title}
-                    </h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
-
-      {/* FAQ */}
-      <section className="border-t border-border py-16 sm:py-20">
-        <Container>
-          <h2 className="text-center text-3xl font-bold">
-            Frequently asked questions
-          </h2>
-          <div className="mt-10">
-            <FAQ items={service.faqs} />
-          </div>
-        </Container>
-      </section>
-
-      {/* Related services */}
-      <section className="border-t border-border bg-surface py-16 sm:py-20">
-        <Container>
-          <h2 className="text-2xl font-bold sm:text-3xl">Related services</h2>
-          <StaggerGroup className="mt-8 grid gap-6 sm:grid-cols-3">
-            {related.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                data-reveal
-                className="group card-surface spotlight flex items-center gap-3 rounded-2xl p-5 transition-colors hover:border-brand"
-              >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface-2 text-accent">
-                  <Icon name={s.icon} size={20} />
-                </span>
-                <span className="font-medium text-text group-hover:text-accent">
-                  {s.name}
-                </span>
-              </Link>
-            ))}
-          </StaggerGroup>
-        </Container>
-      </section>
-
-      <CTASection
-        title={`Need ${service.name}?`}
-        intro="Let's talk about your goals and how we can help. Free consultation, no pressure."
+      <InnerMotion />
+      <ServiceHero
+        service={service}
+        index={index}
+        total={services.length}
+        crumbs={crumbs}
       />
+
+      <ServiceValue service={service} extras={extras} index={index} />
+      {service.slug === "custom-software-development" ? (
+        /* Bespoke page body for Custom Software */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <BuildGallery label={n(3)} />
+          <ArchitectureStack label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(5)}
+            durations={["1–2 weeks", "1–2 weeks", "2-week sprints", "Ongoing"]}
+          />
+          <BuildVsBuy label={n(6)} />
+          <ServiceWork work={work} label={n(7)} />
+          <Engagement label={n(8)} />
+          <ServiceGuides guides={guides} label={n(9)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(10)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(11)} />
+          <Suspense fallback={null}>
+            <Cta index={n(12)} />
+          </Suspense>
+        </>
+      ) : service.slug === "ecommerce-development" ? (
+        /* Bespoke page body for E-commerce */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <Suspense fallback={null}>
+            <StoreAnatomy label={n(3)} />
+          </Suspense>
+          <PlatformPicker label={n(4)} />
+          <PaymentsDelivery label={n(5)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(6)}
+            durations={["1 week", "2–3 weeks", "3–6 weeks", "Ongoing"]}
+          />
+          <ServiceWork work={work} label={n(7)} />
+          <Engagement label={n(8)} />
+          <ServiceGuides guides={guides} label={n(9)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(10)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(11)} />
+          <Suspense fallback={null}>
+            <Cta index={n(12)} />
+          </Suspense>
+        </>
+      ) : service.slug === "mobile-app-development" ? (
+        /* Bespoke page body for Mobile Apps */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <DeviceFeatures label={n(3)} />
+          <LaunchKit label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(5)}
+            durations={["1–2 weeks", "2–3 weeks", "6–10 weeks", "Ongoing"]}
+          />
+          <ServiceWork
+            work={work}
+            label={n(6)}
+            title="Mobile-first products we've built"
+          />
+          <Engagement label={n(7)} />
+          <ServiceGuides guides={guides} label={n(8)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(9)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(10)} />
+          <Suspense fallback={null}>
+            <Cta index={n(11)} />
+          </Suspense>
+        </>
+      ) : service.slug === "saas-product-engineering" ? (
+        /* Bespoke page body for SaaS */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <SaasPlumbing label={n(3)} />
+          <MvpScoper label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(5)}
+            durations={["1–2 weeks", "8–14 weeks", "4–8 weeks", "Ongoing"]}
+          />
+          <ServiceWork
+            work={work}
+            label={n(6)}
+            title="Products we've taken to market"
+          />
+          <Engagement label={n(7)} />
+          <ServiceGuides guides={guides} label={n(8)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(9)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(10)} />
+          <Suspense fallback={null}>
+            <Cta index={n(11)} />
+          </Suspense>
+        </>
+      ) : service.slug === "ui-ux-design" ? (
+        /* Bespoke page body for UI/UX Design */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <UxAudit label={n(3)} />
+          <TokenPlayground label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(5)}
+            durations={["1–2 weeks", "1–2 weeks", "2–4 weeks", "1 week"]}
+          />
+          <ServiceWork
+            work={work}
+            label={n(6)}
+            title="Interfaces we've designed"
+          />
+          <Engagement label={n(7)} />
+          <ServiceGuides guides={guides} label={n(8)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(9)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(10)} />
+          <Suspense fallback={null}>
+            <Cta index={n(11)} />
+          </Suspense>
+        </>
+      ) : service.slug === "ai-automation" ? (
+        /* Bespoke page body for AI Automation */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <GroundedChat label={n(3)} />
+          <RoiCalculator label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(5)}
+            durations={["1 week", "2–3 weeks", "3–6 weeks", "Ongoing"]}
+          />
+          <ServiceWork
+            work={work}
+            label={n(6)}
+            title="Products we've built and automated"
+          />
+          <Engagement label={n(7)} />
+          <ServiceGuides guides={guides} label={n(8)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(9)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(10)} />
+          <Suspense fallback={null}>
+            <Cta index={n(11)} />
+          </Suspense>
+        </>
+      ) : service.slug === HOSTING_SLUG ? (
+        /* Bespoke page body for Cloud, DevOps & Hosting */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <AutoscaleLive label={n(3)} />
+          {/* Hostinger partnership: only here, where hosting is the topic. */}
+          <ServiceHosting label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(5)}
+            durations={["1 week", "1–2 weeks", "2–4 weeks", "Ongoing"]}
+          />
+          <ServiceWork
+            work={work}
+            label={n(6)}
+            title="Products we keep online"
+          />
+          <Engagement label={n(7)} />
+          <ServiceGuides guides={guides} label={n(8)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(9)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(10)} />
+          <Suspense fallback={null}>
+            <Cta index={n(11)} />
+          </Suspense>
+        </>
+      ) : service.slug === "maintenance-support" ? (
+        /* Bespoke page body for Maintenance & Support */
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <IncidentPlans label={n(3)} />
+          <HealthReport label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(5)}
+            durations={["1 week", "2–4 weeks", "Monthly", "Ongoing"]}
+          />
+          <ServiceWork
+            work={work}
+            label={n(6)}
+            title="Products we look after"
+          />
+          <Engagement label={n(7)} />
+          <ServiceGuides guides={guides} label={n(8)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(9)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(10)} />
+          <Suspense fallback={null}>
+            <Cta index={n(11)} />
+          </Suspense>
+        </>
+      ) : (
+        <>
+          <Suspense fallback={null}>
+            <ServiceSignature slug={service.slug} label={n(2)} />
+          </Suspense>
+          <ServiceDeliver service={service} index={index} label={n(3)} />
+          {/* Hostinger partnership: only on the hosting service, where it is the topic. */}
+          {service.slug === HOSTING_SLUG ? <ServiceHosting /> : null}
+          <ServiceProcess service={service} index={index} label={n(4)} />
+          <ServiceWork work={work} label={n(5)} />
+          <Engagement label={n(6)} />
+          <ServiceGuides guides={guides} label={n(7)} />
+          <Suspense fallback={null}>
+            <Faq items={service.faqs} index={n(8)} />
+          </Suspense>
+          <ServiceRelated slug={service.slug} label={n(9)} />
+          <Suspense fallback={null}>
+            <Cta index={n(10)} />
+          </Suspense>
+        </>
+      )}
     </>
   );
 }

@@ -33,7 +33,7 @@ export function Hero() {
           className="blob bottom-[-10%] left-[38%] h-72 w-72 opacity-10"
           style={{ animationDelay: "-3s", animationDuration: "26s" }}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(163,230,53,0.16),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(59,43,255,0.16),transparent_55%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:60px_60px] opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
         {/* Bottom fade into the page */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-bg" />
@@ -61,7 +61,7 @@ export function Hero() {
             {/* Glow halo behind the gradient phrase */}
             <span
               aria-hidden="true"
-              className="absolute inset-0 -z-10 block bg-[radial-gradient(ellipse_at_center,rgba(163,230,53,0.25),transparent_70%)] blur-2xl"
+              className="absolute inset-0 -z-10 block bg-[radial-gradient(ellipse_at_center,rgba(59,43,255,0.25),transparent_70%)] blur-2xl"
             />
           </span>
         </h1>
