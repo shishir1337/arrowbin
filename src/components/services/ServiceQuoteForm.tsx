@@ -69,7 +69,7 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, page: window.location.pathname }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));

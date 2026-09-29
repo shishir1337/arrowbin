@@ -15,6 +15,8 @@ export const site = {
   url: siteUrl,
   bookingUrl: "https://cal.com/arrowbin/30min",
   email: "hello@arrowbin.com",
+  /** CC'd on every website lead (internal only; the sender never sees these). */
+  leadCc: ["mdshishirahmed811@gmail.com", "shishir@arrowbin.com"],
   phones: [
     {
       label: "Bangladesh",

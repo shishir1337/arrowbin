@@ -153,14 +153,6 @@ export function ContactBrief({ label }: { label: string }) {
         ? needs[0]
         : `${needs[0]} +${needs.length - 1} more`
       : "Not specified";
-    const full = [
-      needs.length ? `Needs: ${needs.join(", ")}` : "",
-      budget[0] ? `Budget: ${budget[0]}` : "",
-      timeline[0] ? `Timeline: ${timeline[0]}` : "",
-      company.trim() ? `Company: ${company.trim()}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
 
     setStatus("submitting");
     setError("");
@@ -172,7 +164,12 @@ export function ContactBrief({ label }: { label: string }) {
           name: name.trim(),
           email: email.trim(),
           service: service.slice(0, 100),
-          message: `${full ? `${full}\n\n` : ""}${message.trim()}`,
+          message: message.trim(),
+          needs,
+          budget: budget[0] ?? "",
+          timeline: timeline[0] ?? "",
+          company: company.trim(),
+          page: window.location.pathname,
           company_website: trap.current?.value ?? "",
         }),
       });

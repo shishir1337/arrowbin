@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
+import {
+  type Lead,
+  leadConfirmation,
+  leadNotification,
+} from "@/lib/email/templates";
 import { site } from "@/lib/site";
 
 /**
- * Lead-capture endpoint. Validates input, rejects bots via honeypot, and emails the
- * lead to hello@arrowbin.com via Resend. When RESEND_API_KEY is unset (e.g. local
- * dev), it logs the lead and returns success so the form is fully testable.
+ * Lead-capture endpoint. Validates input, rejects bots via honeypot, then sends
+ * two branded emails via Resend: the lead to hello@arrowbin.com (with internal
+ * CCs), and a separate confirmation to the visitor. When RESEND_API_KEY is
+ * unset (e.g. local dev), it logs the lead and returns success so the form is
+ * fully testable.
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,14 +38,6 @@ function isRateLimited(ip: string): boolean {
 function clientIp(request: Request): string {
   const fwd = request.headers.get("x-forwarded-for");
   return fwd?.split(",")[0]?.trim() || "unknown";
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
 
 export async function POST(request: Request) {
@@ -87,10 +86,22 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  const name = String(body.name ?? "").trim();
-  const email = String(body.email ?? "").trim();
-  const message = String(body.message ?? "").trim();
-  const service = String(body.service ?? "Not specified").trim();
+  const str = (v: unknown, max: number) =>
+    String(v ?? "")
+      .trim()
+      .slice(0, max + 1);
+  const name = str(body.name, 100);
+  const email = str(body.email, 254);
+  const message = str(body.message, 5000);
+  const service = str(body.service, 100) || "Not specified";
+  const company = str(body.company, 120);
+  const budget = str(body.budget, 40);
+  const timeline = str(body.timeline, 40);
+  const page = str(body.page, 200);
+  const needs = (Array.isArray(body.needs) ? body.needs : [])
+    .map((n) => str(n, 60))
+    .filter(Boolean)
+    .slice(0, 12);
 
   if (!name || !email || !message) {
     return NextResponse.json(
@@ -109,7 +120,11 @@ export async function POST(request: Request) {
     name.length > 100 ||
     email.length > 254 ||
     service.length > 100 ||
-    message.length > 5000
+    message.length > 5000 ||
+    company.length > 120 ||
+    budget.length > 40 ||
+    timeline.length > 40 ||
+    page.length > 200
   ) {
     return NextResponse.json(
       { error: "One of your fields is too long. Please shorten it." },
@@ -117,53 +132,75 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const subject = `New lead from ${name}: ${service}`;
-  const html = `
-    <h2>New website enquiry</h2>
-    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-    <p><strong>Service:</strong> ${escapeHtml(service)}</p>
-    <p><strong>Message:</strong></p>
-    <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
-  `;
+  const lead: Lead = {
+    name,
+    email,
+    message,
+    service,
+    company: company || undefined,
+    needs: needs.length ? needs : undefined,
+    budget: budget || undefined,
+    timeline: timeline || undefined,
+    // Only same-site paths, never an arbitrary URL.
+    page: page.startsWith("/") && !page.startsWith("//") ? page : undefined,
+  };
 
+  const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     // Dev / not-yet-configured fallback: log instead of failing.
     console.info(
       "[contact] RESEND_API_KEY not set, so the lead was logged but not emailed:",
-      {
-        name,
-        email,
-        service,
-        message,
-      },
+      lead,
     );
     return NextResponse.json({ ok: true, stubbed: true });
   }
 
+  const notification = leadNotification(lead, new Date());
+  const confirmation = leadConfirmation(lead);
+  const configured = process.env.CONTACT_FROM_EMAIL?.trim();
+  const from = configured
+    ? configured.includes("<")
+      ? configured
+      : `Arrowbin <${configured}>`
+    : "Arrowbin Website <onboarding@resend.dev>";
+
   try {
     const { Resend } = await import("resend");
     const resend = new Resend(apiKey);
-    const from =
-      process.env.CONTACT_FROM_EMAIL ??
-      "Arrowbin Website <onboarding@resend.dev>";
 
-    const { error } = await resend.emails.send({
+    // 1) To us (with internal CCs). Reply-To is the visitor, so hitting
+    //    "reply" answers them directly. This one must succeed.
+    const internal = await resend.emails.send({
       from,
       to: site.email,
+      cc: [...site.leadCc],
       replyTo: email,
-      subject,
-      html,
+      subject: notification.subject,
+      html: notification.html,
+      text: notification.text,
     });
-
-    if (error) {
-      console.error("[contact] Resend error:", error);
+    if (internal.error) {
+      console.error("[contact] Resend error (notification):", internal.error);
       return NextResponse.json(
         { error: "Could not send right now. Please email us directly." },
         { status: 502 },
       );
     }
+
+    // 2) A separate confirmation to the visitor: only their address is on
+    //    it, so our internal CCs are never exposed. If this one fails the
+    //    lead is still safely with us, so we don't fail the request.
+    const receipt = await resend.emails.send({
+      from,
+      to: email,
+      replyTo: site.email,
+      subject: confirmation.subject,
+      html: confirmation.html,
+      text: confirmation.text,
+    });
+    if (receipt.error)
+      console.error("[contact] Resend error (confirmation):", receipt.error);
+
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[contact] Unexpected error:", err);

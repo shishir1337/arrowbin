@@ -7,9 +7,11 @@ import {
   secondaryAction,
 } from "@/components/errors/ErrorScreen";
 
-// Next adds a noindex robots tag to 404 responses itself.
+// Overrides the site-wide "index, follow" so both robots tags on a 404 agree
+// with the "noindex" Next adds itself.
 export const metadata: Metadata = {
   title: "Page not found",
+  robots: { index: false, follow: true },
 };
 
 export default function NotFound() {
