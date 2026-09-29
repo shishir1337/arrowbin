@@ -1,35 +1,39 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
+import Link from "next/link";
+import {
+  ActionArrow,
+  ErrorScreen,
+  primaryAction,
+  secondaryAction,
+} from "@/components/errors/ErrorScreen";
 
+// Next adds a noindex robots tag to 404 responses itself.
 export const metadata: Metadata = {
   title: "Page not found",
-  robots: { index: false, follow: true },
 };
 
 export default function NotFound() {
   return (
-    <section className="py-28 sm:py-36">
-      <Container className="text-center">
-        <p className="font-display text-7xl font-bold text-accent sm:text-8xl">
-          404
-        </p>
-        <h1 className="mt-6 text-3xl font-bold sm:text-4xl">
-          This page wandered off
-        </h1>
-        <p className="mx-auto mt-4 max-w-md text-lg text-muted">
-          The page you're looking for doesn't exist or may have moved. Let's get
-          you back on track.
-        </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <ButtonLink href="/" size="lg" icon="arrow-right">
+    <ErrorScreen
+      code="404"
+      label="Page not found"
+      title={["This page", "wandered off."]}
+      actions={
+        <>
+          <Link href="/" className={primaryAction}>
             Back to home
-          </ButtonLink>
-          <ButtonLink href="/contact" size="lg" variant="secondary">
+            <ActionArrow />
+          </Link>
+          <Link href="/contact" className={secondaryAction}>
             Contact us
-          </ButtonLink>
-        </div>
-      </Container>
-    </section>
+          </Link>
+        </>
+      }
+    >
+      <p>
+        The page you&apos;re looking for doesn&apos;t exist or has moved. If a
+        link on our site brought you here, let us know and we&apos;ll fix it.
+      </p>
+    </ErrorScreen>
   );
 }

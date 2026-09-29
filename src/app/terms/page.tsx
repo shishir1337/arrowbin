@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import Link from "next/link";
+import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
+import { InnerMotion } from "@/components/motion/InnerMotion";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import { pageAlternates, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms and conditions that govern your use of the Arrowbin website and the engagement of our software development services.",
+    "The terms that govern your use of the Arrowbin website and how engagements for our software development services work.",
   alternates: pageAlternates("/terms"),
 };
 
@@ -16,78 +18,155 @@ const crumbs = [
   { name: "Terms of Service", path: "/terms" },
 ];
 
-const sections = [
+const UPDATED = "29 September 2026";
+const UPDATED_ISO = "2026-09-29";
+
+const link =
+  "font-semibold text-ultra underline decoration-2 underline-offset-4";
+
+const sections: LegalSection[] = [
   {
-    h: "Acceptance of terms",
-    p: "By accessing this website or engaging Arrowbin for services, you agree to be bound by these Terms of Service. If you do not agree, please do not use the site or our services.",
+    id: "about-these-terms",
+    title: "About these terms",
+    blocks: [
+      {
+        type: "p",
+        text: `These terms apply to your use of arrowbin.com, run by ${site.legalName} ("Arrowbin", "we", "us"). By using the website or engaging us for services, you agree to them. If you don't agree, please don't use the website or our services.`,
+      },
+    ],
   },
   {
-    h: "Use of our website",
-    p: "You may use this website for lawful purposes only. You agree not to misuse the site, attempt to disrupt its operation, access it through automated means without permission, or use it to transmit harmful or unlawful content.",
+    id: "using-the-website",
+    title: "Using the website",
+    blocks: [
+      {
+        type: "p",
+        text: "You may use this website for lawful purposes only. You agree not to:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Misuse the site or try to disrupt how it works.",
+          "Access it through automated means, such as scrapers or bots, without our permission.",
+          "Use it to send harmful, misleading or unlawful content, including through our forms.",
+        ],
+      },
+    ],
   },
   {
-    h: "Services and engagements",
-    p: "Any software development, design, or consulting work is governed by a separate written agreement or statement of work between you and Arrowbin. That agreement defines the scope, deliverables, timelines, fees, and payment terms for your project. Nothing on this website constitutes a binding offer to provide services.",
+    id: "our-services",
+    title: "Our services",
+    blocks: [
+      {
+        type: "p",
+        text: "Any software development, design or consulting work we do is governed by a separate written agreement or statement of work between you and Arrowbin. That agreement sets the scope, deliverables, timeline, fees and payment terms for your project, and it takes priority over these terms if the two ever conflict.",
+      },
+      {
+        type: "p",
+        text: "Nothing on this website is a binding offer to provide services.",
+      },
+    ],
   },
   {
-    h: "Intellectual property",
-    p: "All content on this website, including text, graphics, logos, and code, is owned by Arrowbin or its licensors and is protected by applicable intellectual-property laws. Ownership of work produced for clients transfers according to the terms of the relevant project agreement.",
+    id: "quotes-and-estimates",
+    title: "Quotes and estimates",
+    blocks: [
+      {
+        type: "p",
+        text: "Estimates, quotes and timelines we give you are indicative until they are confirmed in a signed agreement. Figures shown on this website, including in our guides and interactive examples, are illustrations to help you plan, not quotes for your project.",
+      },
+    ],
   },
   {
-    h: "Quotes and communications",
-    p: "Information you submit through our contact form is used to respond to your enquiry and prepare proposals. Estimates or quotes provided are indicative until confirmed in a signed agreement.",
+    id: "your-information",
+    title: "Information you send us",
+    blocks: [
+      {
+        type: "p",
+        text: (
+          <>
+            We use what you send through our forms to reply to your enquiry and
+            prepare proposals. How we collect, use and protect it is explained
+            in our{" "}
+            <Link href="/privacy" className={link}>
+              Privacy Policy
+            </Link>
+            .
+          </>
+        ),
+      },
+    ],
   },
   {
-    h: "Disclaimers and limitation of liability",
-    p: 'This website is provided on an "as is" basis without warranties of any kind. To the fullest extent permitted by law, Arrowbin is not liable for any indirect or consequential damages arising from your use of the site. Liability for paid engagements is governed by the applicable project agreement.',
+    id: "intellectual-property",
+    title: "Intellectual property",
+    blocks: [
+      {
+        type: "p",
+        text: "The content of this website, including its text, graphics, logos and code, belongs to Arrowbin or its licensors and is protected by intellectual property law. You may not copy or reuse it without our permission, apart from sharing links or short quotes with credit.",
+      },
+      {
+        type: "p",
+        text: "Ownership of work we create for clients passes as set out in the agreement for that project.",
+      },
+    ],
   },
   {
-    h: "Third-party links",
-    p: "Our website and portfolio may link to third-party sites we do not control. We are not responsible for the content, policies, or practices of those sites.",
+    id: "third-party-links",
+    title: "Other websites",
+    blocks: [
+      {
+        type: "p",
+        text: "This website links to sites we don't control, including the live client projects in our portfolio and our booking page. We aren't responsible for their content, policies or practices.",
+      },
+    ],
   },
   {
-    h: "Changes to these terms",
-    p: "We may update these Terms of Service from time to time. Continued use of the website after changes are posted constitutes acceptance of the revised terms.",
+    id: "liability",
+    title: "Disclaimers and liability",
+    blocks: [
+      {
+        type: "p",
+        text: 'This website is provided "as is", without warranties of any kind. We work to keep it accurate and available, but we can\'t promise it will always be error-free or uninterrupted.',
+      },
+      {
+        type: "p",
+        text: "To the fullest extent the law allows, Arrowbin isn't liable for any indirect or consequential loss arising from your use of the website. Liability for paid work is governed by the agreement for that project. Nothing in these terms limits liability that can't be limited by law.",
+      },
+    ],
   },
   {
-    h: "Contact us",
-    p: `If you have any questions about these Terms of Service, email us at ${site.email}.`,
+    id: "changes",
+    title: "Changes to these terms",
+    blocks: [
+      {
+        type: "p",
+        text: `We may update these terms from time to time and will show the new date at the top of this page. Using the website after an update means you accept the revised terms. This version was last updated on ${UPDATED}.`,
+      },
+    ],
   },
 ];
 
 export default function TermsPage() {
   return (
-    <section className="relative overflow-hidden py-14 sm:py-20">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_-8%,rgba(59,43,255,0.1),transparent_55%)]"
+    <>
+      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <InnerMotion />
+      <LegalPage
+        crumbs={crumbs}
+        title={["Terms of", "service."]}
+        intro="The ground rules for using arrowbin.com, and how working with us is agreed. Short, and in plain English."
+        updated={UPDATED}
+        updatedIso={UPDATED_ISO}
+        summary={[
+          "Use the website lawfully and don't try to break it.",
+          "Project work is set out in its own signed agreement.",
+          "Quotes are indicative until that agreement is signed.",
+          "Your code's ownership follows your project agreement.",
+        ]}
+        sections={sections}
+        related={{ href: "/privacy", label: "Privacy Policy" }}
       />
-      <Container>
-        <div className="mx-auto max-w-3xl">
-          <Breadcrumbs items={crumbs} />
-          <div className="mt-8">
-            <Eyebrow>Legal</Eyebrow>
-          </div>
-          <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-            Terms of Service
-          </h1>
-          <p className="mt-4 text-muted">
-            These terms govern your use of the {site.legalName} website and
-            services.
-          </p>
-
-          <div className="mt-10 space-y-8">
-            {sections.map((s) => (
-              <div key={s.h}>
-                <h2 className="font-display text-xl font-semibold text-text">
-                  {s.h}
-                </h2>
-                <p className="mt-2 leading-relaxed text-muted">{s.p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Container>
-    </section>
+    </>
   );
 }

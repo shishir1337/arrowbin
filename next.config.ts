@@ -5,16 +5,18 @@ const isDev = process.env.NODE_ENV === "development";
 /**
  * Content-Security-Policy. Inline scripts (the pre-paint theme script, JSON-LD, and
  * GA bootstrap) require 'unsafe-inline'; the GA/GTM hosts are allowlisted so analytics
- * works when NEXT_PUBLIC_GA_ID is set. 'unsafe-eval' is added in development only —
- * React's dev tooling needs it; production never does. Everything else is same-origin.
+ * works when NEXT_PUBLIC_GA_ID is set. Cloudflare Web Analytics is allowlisted too:
+ * Cloudflare injects its beacon into every page at the edge, and it reports back to
+ * cloudflareinsights.com. 'unsafe-eval' is added in development only (React's dev
+ * tooling needs it; production never does). Everything else is same-origin.
  */
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com`,
+  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com https://static.cloudflareinsights.com`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
   "font-src 'self' data:",
-  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://cloudflareinsights.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

@@ -1468,3 +1468,19 @@ body::after {
     animation: none;
   }
 }
+
+/* ── Error pages ───────────────────────────────────────────────────────── */
+/* The mark's disc in the giant status code turns slowly. */
+.er-spin {
+  animation: er-spin 14s linear infinite;
+}
+@keyframes er-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .er-spin {
+    animation: none;
+  }
+}

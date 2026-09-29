@@ -1,19 +1,26 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
-import { Button, ButtonLink } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
+import {
+  ActionArrow,
+  ErrorScreen,
+  primaryAction,
+  secondaryAction,
+} from "@/components/errors/ErrorScreen";
+import { site } from "@/lib/site";
 
 /**
- * Global error boundary. Catches uncaught render errors in any route segment and
- * shows a branded fallback instead of a blank page. `reset` re-renders the segment.
+ * Error boundary for every route segment: a branded fallback instead of a
+ * blank page. `unstable_retry` re-fetches and re-renders the segment, so it
+ * also recovers from Server Component errors (unlike `reset`).
  */
-export default function GlobalError({
+export default function ErrorPage({
   error,
-  reset,
+  unstable_retry,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
+  unstable_retry: () => void;
 }) {
   useEffect(() => {
     // Surface the error in dev/monitoring; the digest links to server logs in prod.
@@ -21,27 +28,48 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <section className="py-28 sm:py-36">
-      <Container className="text-center">
-        <p className="font-display text-7xl font-bold text-accent sm:text-8xl">
-          500
-        </p>
-        <h1 className="mt-6 text-3xl font-bold sm:text-4xl">
-          Something went wrong
-        </h1>
-        <p className="mx-auto mt-4 max-w-md text-lg text-muted">
-          An unexpected error occurred on our end. Please try again, and if it
-          keeps happening, get in touch and we'll sort it out.
-        </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button size="lg" icon="arrow-right" onClick={reset}>
+    <ErrorScreen
+      code="500"
+      label="Something went wrong"
+      title={["Something", "broke."]}
+      actions={
+        <>
+          <button
+            type="button"
+            onClick={() => unstable_retry()}
+            className={primaryAction}
+          >
             Try again
-          </Button>
-          <ButtonLink href="/contact" size="lg" variant="secondary">
-            Contact us
-          </ButtonLink>
-        </div>
-      </Container>
-    </section>
+            <ActionArrow />
+          </button>
+          <Link href="/" className={secondaryAction}>
+            Back to home
+          </Link>
+        </>
+      }
+      note={
+        error.digest ? (
+          <>
+            If it keeps happening, email{" "}
+            <a
+              href={`mailto:${site.email}?subject=${encodeURIComponent(`Website error ${error.digest}`)}`}
+              className="font-semibold text-ultra underline decoration-2 underline-offset-4"
+            >
+              {site.email}
+            </a>{" "}
+            and quote reference{" "}
+            <code className="rounded-md bg-white px-1.5 py-0.5 font-mono text-ink ring-1 ring-ink/10">
+              {error.digest}
+            </code>
+            .
+          </>
+        ) : null
+      }
+    >
+      <p>
+        An unexpected error happened on our end. Please try again, and if it
+        keeps happening, get in touch and we&apos;ll sort it out.
+      </p>
+    </ErrorScreen>
   );
 }
