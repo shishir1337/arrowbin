@@ -67,6 +67,7 @@ const nextConfig: NextConfig = {
   // Source: docs/seo/01-audit/redirect-map.csv.
   async redirects() {
     return [
+      ["/home", "/"],
       ["/contact-us", "/contact"],
       ["/help", "/contact"],
       ["/refund", "/terms"],
