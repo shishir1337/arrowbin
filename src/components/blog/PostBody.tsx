@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
-import { type ContentBlock, headingId, type PostImage } from "@/lib/blog";
+import {
+  type ContentBlock,
+  headingId,
+  type PostImage,
+  postSlugs,
+} from "@/lib/blog";
 import { getBlurDataURL } from "@/lib/blur";
 
 const INLINE_LINK = /\[([^\]]+)\]\(([^)]+)\)/g;
@@ -11,10 +16,20 @@ const LINK_CLASS =
 /**
  * Renders lightweight `[label](href)` inline links inside body prose. Internal
  * hrefs (starting with "/") use next/link; external ones open in a new tab.
- * Plain text passes through untouched. Used for paragraph and list copy only —
+ * Plain text passes through untouched. Used for paragraph and list copy only:
  * headings, the TL;DR, takeaways and FAQ answers stay plain so JSON-LD never
  * ingests link markup.
  */
+/** Published post slugs. A link to a post that is scheduled but not yet
+ * published (see `posts` in lib/blog.ts) renders as plain text until its date,
+ * so a published post never points readers at a 404. */
+const PUBLISHED = new Set(postSlugs);
+
+function isUnpublishedPostLink(href: string): boolean {
+  const m = /^\/blog\/([a-z0-9-]+)\/?(?:[#?].*)?$/.exec(href);
+  return m !== null && !PUBLISHED.has(m[1]);
+}
+
 function renderInline(text: string): ReactNode {
   if (!text.includes("](")) return text;
   const parts: ReactNode[] = [];
@@ -28,7 +43,9 @@ function renderInline(text: string): ReactNode {
     const key = `${href}-${i}`;
     i += 1;
     parts.push(
-      href.startsWith("/") ? (
+      isUnpublishedPostLink(href) ? (
+        <Fragment key={key}>{label}</Fragment>
+      ) : href.startsWith("/") ? (
         <Link key={key} href={href} className={LINK_CLASS}>
           {label}
         </Link>
@@ -51,7 +68,7 @@ function renderInline(text: string): ReactNode {
   return parts;
 }
 
-/** Renders a single image block: the real image, or — in development only — a
+/** Renders a single image block: the real image, or (in development only) a
  * placeholder card with the generation prompt + target path while `pending`.
  * In production a pending image renders nothing, so unfinished assets (and their
  * internal prompts) are never exposed to readers or crawlers. */
@@ -83,25 +100,105 @@ async function BlogFigure({ image }: { image: PostImage }) {
   }
 
   const blurDataURL = await getBlurDataURL(image.src);
+  // Charts are drawn at 1280 wide, so their labels get small on a phone. Each
+  // one links to the full-size vector, which phones open in a new tab where it
+  // can be zoomed (or read in landscape) without losing sharpness.
+  const isChart = image.src.endsWith(".svg");
+
+  const img = (
+    <Image
+      src={image.src}
+      alt={image.alt}
+      width={image.width ?? 1280}
+      height={image.height ?? 720}
+      unoptimized={isChart}
+      sizes="(max-width: 768px) 100vw, 768px"
+      {...(blurDataURL ? { placeholder: "blur" as const, blurDataURL } : {})}
+      className="h-auto w-full rounded-[1.5rem] bg-white ring-1 ring-ink/10"
+    />
+  );
 
   return (
     <figure className="my-8">
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={image.width ?? 1280}
-        height={image.height ?? 720}
-        unoptimized={image.src.endsWith(".svg")}
-        sizes="(max-width: 768px) 100vw, 768px"
-        {...(blurDataURL ? { placeholder: "blur" as const, blurDataURL } : {})}
-        className="h-auto w-full rounded-[1.5rem] bg-white ring-1 ring-ink/10"
-      />
-      {image.caption ? (
+      {isChart ? (
+        <a
+          href={image.src}
+          target="_blank"
+          rel="noopener"
+          className="block cursor-zoom-in rounded-[1.5rem] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ultra"
+        >
+          {img}
+          <span className="sr-only">
+            (opens the full-size chart in a new tab)
+          </span>
+        </a>
+      ) : (
+        img
+      )}
+      {image.caption || isChart ? (
         <figcaption className="mt-3 text-center text-sm text-ink-2">
           {image.caption}
+          {isChart ? (
+            <span className="mt-1 block text-xs text-ink-2 sm:hidden">
+              Tap the chart to open it full size.
+            </span>
+          ) : null}
         </figcaption>
       ) : null}
     </figure>
+  );
+}
+
+/**
+ * In-article call to action, in the same card language as the author card (lilac,
+ * 1.75rem radius) with the site's primary pill button. Internal links use
+ * next/link; the booking page opens in a new tab.
+ */
+function PostCta({ block }: { block: Extract<ContentBlock, { type: "cta" }> }) {
+  const external = !block.href.startsWith("/");
+  const content = (
+    <>
+      {block.label}
+      {external ? <span className="sr-only"> (opens in a new tab)</span> : null}
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-sun text-ink transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:rotate-45">
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+          <path
+            d="M3 11 11 3M5 3h6v6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+          />
+        </svg>
+      </span>
+    </>
+  );
+  const buttonClass =
+    "group mt-6 inline-flex min-h-13 items-center gap-3 rounded-full bg-ultra py-1.5 pl-6 pr-1.5 text-[0.95rem] font-semibold leading-snug text-white transition-colors duration-500 hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ultra";
+  return (
+    <aside
+      aria-label={block.title}
+      className="my-10 rounded-[1.75rem] bg-lilac p-6 sm:p-8"
+    >
+      <p className="label text-ink-2">Next step</p>
+      <p className="mt-2 font-display text-xl font-black uppercase leading-none tracking-[-0.02em] text-ink sm:text-2xl">
+        {block.title}
+      </p>
+      <p className="mt-3 leading-relaxed text-ink">{block.text}</p>
+      {external ? (
+        <a
+          href={block.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonClass}
+        >
+          {content}
+        </a>
+      ) : (
+        <Link href={block.href} className={buttonClass}>
+          {content}
+        </Link>
+      )}
+    </aside>
   );
 }
 
@@ -202,7 +299,7 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
                           <th
                             key={h || "row"}
                             scope="col"
-                            className="whitespace-nowrap px-4 py-3.5 font-semibold"
+                            className="min-w-[6.5rem] px-4 py-3.5 align-bottom font-semibold"
                           >
                             {h || <span className="sr-only">Item</span>}
                           </th>
@@ -243,6 +340,10 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "image":
             return <BlogFigure key={block.image.src} image={block.image} />;
+          case "cta":
+            return (
+              <PostCta key={`${block.href}-${block.title}`} block={block} />
+            );
           default:
             return (
               <p key={block.text} className="text-ink-2">

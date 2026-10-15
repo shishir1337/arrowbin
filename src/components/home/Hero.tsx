@@ -94,16 +94,16 @@ export function Hero() {
         <div className="hero-title mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
           <h1 className="display text-[clamp(1.9rem,10.6vw,11.5rem)] text-ink [contain:layout_paint] sm:text-[clamp(2.9rem,11.4vw,11.5rem)]">
             <span className="sr-only">
-              Arrowbin, a custom software development company: software that
-              moves.
-            </span>
+              Arrowbin, a software development company for startups and growing
+              businesses: software that moves.
+            </span>{" "}
             <span
               aria-hidden="true"
               data-line="1"
               className="block overflow-x-visible overflow-y-clip whitespace-nowrap pb-[0.04em]"
             >
               <Chars text={LINE_1} />
-            </span>
+            </span>{" "}
             <span
               aria-hidden="true"
               data-line="2"
@@ -111,10 +111,10 @@ export function Hero() {
             >
               <span>
                 <Chars text={LINE_2A} />
-              </span>
+              </span>{" "}
               <span className="hero-char hero-pill relative inline-flex h-[0.7em] w-[1.35em] shrink-0 items-center overflow-hidden rounded-full bg-sun">
                 <LogoMark className="hero-arrow absolute h-[0.5em] w-[0.5em] rotate-90 text-ultra" />
-              </span>
+              </span>{" "}
               <span className="text-ultra">
                 <Chars text={LINE_2B} />
               </span>

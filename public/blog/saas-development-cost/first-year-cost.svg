@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#ffffff"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#ff4da6" stroke-width="5"/>
+    </pattern>
+    <clipPath id="bar">
+      <rect x="100" y="180" width="1002" height="80" rx="10"/>
+    </clipPath>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">A first year for the $60,000 SaaS MVP</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Build, then 12 months live with 200 customers paying $50 a month (generous for year one)</text>
+
+  <!-- bar: x=100, 13px per $1,000 -->
+  <g clip-path="url(#bar)">
+    <rect x="100" y="180" width="780" height="80" fill="#3b2bff"/>
+    <rect x="880" y="180" width="117" height="80" fill="#ff4da6"/>
+    <rect x="997" y="180" width="39" height="80" fill="url(#hatch)"/>
+    <rect x="1036" y="180" width="66" height="80" fill="#ff6b3d"/>
+  </g>
+  <text x="490" y="230" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">Build $60,000</text>
+
+  <text x="100" y="318" font-size="30" font-weight="700" fill="#0e0b24">Total: about $74,000–$77,000</text>
+
+  <!-- key -->
+  <g font-size="22">
+    <rect x="100" y="362" width="24" height="24" rx="5" fill="#3b2bff"/>
+    <text x="140" y="381" font-weight="700" fill="#0e0b24">Build: $60,000</text>
+    <text x="140" y="410" font-size="19" fill="#4a4766">Illustrative SaaS MVP, roughly 14 weeks (Arrowbin estimate)</text>
+
+    <rect x="100" y="444" width="24" height="24" rx="5" fill="#ff4da6"/>
+    <rect x="128" y="444" width="24" height="24" rx="5" fill="url(#hatch)" stroke="#ff4da6" stroke-width="2"/>
+    <text x="168" y="463" font-weight="700" fill="#0e0b24">Maintenance, hosting and tools: $9,000–$12,000</text>
+    <text x="168" y="492" font-size="19" fill="#4a4766">15–20% of the build cost a year, including about $1,332 of hosting and tool plans (Arrowbin estimate)</text>
+
+    <rect x="100" y="526" width="24" height="24" rx="5" fill="#ff6b3d"/>
+    <text x="140" y="545" font-weight="700" fill="#0e0b24">Stripe fees: $5,040</text>
+    <text x="140" y="574" font-size="19" fill="#4a4766">12 months × $420 on $10,000 of monthly revenue; grows with sales, so it sits outside the band</text>
+  </g>
+
+  <line x1="100" y1="606" x2="1180" y2="606" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="100" y="644" font-size="20" fill="#0e0b24">The Stripe line only exists because $120,000 of revenue came in. New features are budgeted separately.</text>
+  <text x="100" y="684" font-size="18" fill="#4a4766">Vendor prices as listed on 15 October 2026 (Stripe, Vercel, Supabase, Resend, Sentry). Usage-based charges excluded.</text>
+</svg>

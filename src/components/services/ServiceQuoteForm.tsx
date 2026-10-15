@@ -1,6 +1,7 @@
 "use client";
 
-import { type FormEvent, useRef, useState } from "react";
+import { type FormEvent, useEffect, useId, useRef, useState } from "react";
+import { track } from "@/components/analytics/track";
 
 /**
  * Hyperchrome quote form for service-page heroes. Posts to the same
@@ -33,13 +34,32 @@ function validate(data: Record<string, string>): FieldErrors {
   return errs;
 }
 
-export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
+export function ServiceQuoteForm({
+  serviceName,
+  intro = "Tell us about your project. No obligation.",
+  placeholder = "What are you looking to build?",
+}: {
+  serviceName: string;
+  /** Line under the heading; per service from `serviceExtras[slug].copy.form`. */
+  intro?: string;
+  /** Hint in the project details box. */
+  placeholder?: string;
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const doneRef = useRef<HTMLOutputElement>(null);
+  const doneId = useId();
+
+  // Announce success (the card is an <output>, i.e. role="status") and move
+  // focus to it, so screen readers and agents are not left on <body>.
+  // preventScroll keeps the page exactly where it is.
+  useEffect(() => {
+    if (status === "success") doneRef.current?.focus({ preventScroll: true });
+  }, [status]);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -81,7 +101,7 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
       setFieldErrors({});
       form.reset();
       // GA4 conversion event so hero leads are measurable (no-op if GA isn't set up).
-      window.gtag?.("event", "generate_lead", {
+      track("generate_lead", {
         event_category: "contact",
         event_label: "service_hero_form",
       });
@@ -102,11 +122,19 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
 
   if (status === "success") {
     return (
-      <div className="rounded-[1.75rem] bg-white p-8 text-center shadow-[0_30px_60px_-30px_rgba(14,11,36,0.45)] ring-1 ring-ink/5">
+      // The important flags beat the global :focus-visible rule (outline and a
+      // 4px radius), so the programmatic focus never changes how the card looks.
+      <output
+        ref={doneRef}
+        tabIndex={-1}
+        aria-labelledby={doneId}
+        className="block rounded-[1.75rem] bg-white p-8 text-center shadow-[0_30px_60px_-30px_rgba(14,11,36,0.45)] ring-1 ring-ink/5 focus-visible:rounded-[1.75rem]! focus-visible:outline-none!"
+      >
         <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-sun text-2xl text-ink">
           ✓
         </span>
         <h2
+          id={doneId}
           className="mt-5 font-display text-2xl font-black uppercase tracking-[-0.03em] text-ink"
           style={{ fontVariationSettings: '"wdth" 110' }}
         >
@@ -123,7 +151,7 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
         >
           Send another
         </button>
-      </div>
+      </output>
     );
   }
 
@@ -133,17 +161,22 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
       className="relative rounded-[1.75rem] bg-white p-6 shadow-[0_30px_60px_-30px_rgba(14,11,36,0.45)] ring-1 ring-ink/5 sm:p-8"
       noValidate
     >
-      {/* Service this enquiry is about — pre-filled from the page. */}
+      {/* Service this enquiry is about, pre-filled from the page. */}
       <input type="hidden" name="service" value={serviceName} />
 
-      {/* Honeypot — hidden from users, catches bots. */}
+      {/* Honeypot: hidden from users, catches bots. The name and label must not
+          look like a real field, or an AI agent or autofill may fill it and the
+          lead is silently dropped. */}
       <div className="absolute left-[-9999px]" aria-hidden="true">
-        <label htmlFor="hero_company_website">Leave this field empty</label>
+        <label htmlFor="hero-hp">Leave this field empty</label>
         <input
-          id="hero_company_website"
-          name="company_website"
+          id="hero-hp"
+          name="hp_trap"
+          type="text"
           tabIndex={-1}
           autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
         />
       </div>
 
@@ -153,14 +186,15 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
       >
         Get a free quote
       </h2>
-      <p className="mt-2 text-ink-2">
-        Tell us about your project. No obligation.
-      </p>
+      <p className="mt-2 text-ink-2">{intro}</p>
 
       <div className="mt-5 grid gap-4">
         <div>
           <label htmlFor="hero-name" className={labelClass}>
-            Name <span className="text-plasma">*</span>
+            Name{" "}
+            <span aria-hidden="true" className="text-plasma">
+              *
+            </span>
           </label>
           <input
             ref={nameRef}
@@ -183,7 +217,10 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
         </div>
         <div>
           <label htmlFor="hero-email" className={labelClass}>
-            Email <span className="text-plasma">*</span>
+            Email{" "}
+            <span aria-hidden="true" className="text-plasma">
+              *
+            </span>
           </label>
           <input
             ref={emailRef}
@@ -208,7 +245,10 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
         </div>
         <div>
           <label htmlFor="hero-message" className={labelClass}>
-            Project details <span className="text-plasma">*</span>
+            Project details{" "}
+            <span aria-hidden="true" className="text-plasma">
+              *
+            </span>
           </label>
           <textarea
             ref={messageRef}
@@ -216,7 +256,7 @@ export function ServiceQuoteForm({ serviceName }: { serviceName: string }) {
             name="message"
             required
             rows={3}
-            placeholder="What are you looking to build?"
+            placeholder={placeholder}
             className={`${inputClass} resize-y`}
             aria-invalid={!!fieldErrors.message}
             aria-describedby={

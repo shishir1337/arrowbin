@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="70" font-size="38" font-weight="700" fill="#0e0b24">The $60,000 SaaS MVP, phase by phase</text>
+  <text x="80" y="108" font-size="23" fill="#4a4766">A representative 14-week plan, with each phase's share of the budget</text>
+
+  <!-- week gridlines (one column per week, 63px wide) -->
+  <g stroke="#e4e4e7" stroke-width="1">
+    <line x1="300" y1="150" x2="300" y2="590"/>
+    <line x1="426" y1="150" x2="426" y2="590"/>
+    <line x1="552" y1="150" x2="552" y2="590"/>
+    <line x1="678" y1="150" x2="678" y2="590"/>
+    <line x1="804" y1="150" x2="804" y2="590"/>
+    <line x1="930" y1="150" x2="930" y2="590"/>
+    <line x1="1056" y1="150" x2="1056" y2="590"/>
+    <line x1="1182" y1="150" x2="1182" y2="590"/>
+  </g>
+
+  <!-- phase labels and budget share -->
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="80" y="186">Discovery</text>
+    <text x="80" y="276">Design</text>
+    <text x="80" y="366">Development</text>
+    <text x="80" y="456">QA and testing</text>
+    <text x="80" y="546">Launch</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="80" y="210">10%, $6,000</text>
+    <text x="80" y="300">15%, $9,000</text>
+    <text x="80" y="390">50%, $30,000</text>
+    <text x="80" y="480">15%, $9,000</text>
+    <text x="80" y="570">Go live</text>
+  </g>
+
+  <!-- bars: discovery wk 1-2, design 2-4, development 3-11, QA 9-13, launch 13-14 -->
+  <g>
+    <rect x="300" y="166" width="126" height="52" rx="10" fill="#3b2bff"/>
+    <rect x="363" y="256" width="189" height="52" rx="10" fill="#ff6b3d"/>
+    <rect x="426" y="346" width="567" height="52" rx="10" fill="#ff4da6"/>
+    <rect x="804" y="436" width="315" height="52" rx="10" fill="#cfc4ff"/>
+    <rect x="1056" y="526" width="126" height="52" rx="10" fill="#ffd23f"/>
+  </g>
+
+  <!-- week axis -->
+  <g font-size="20" fill="#4a4766" text-anchor="middle">
+    <text x="300" y="618">W1</text>
+    <text x="426" y="618">W3</text>
+    <text x="552" y="618">W5</text>
+    <text x="678" y="618">W7</text>
+    <text x="804" y="618">W9</text>
+    <text x="930" y="618">W11</text>
+    <text x="1056" y="618">W13</text>
+    <text x="1182" y="618">End</text>
+  </g>
+
+  <text x="80" y="672" font-size="18" fill="#4a4766">Representative example, not a client project. Project management (10%, $6,000) runs across every phase.</text>
+</svg>

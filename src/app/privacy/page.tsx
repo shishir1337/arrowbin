@@ -2,14 +2,22 @@ import type { Metadata } from "next";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { pageShare } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
-import { pageAlternates, site } from "@/lib/site";
+import { site } from "@/lib/site";
+
+const description =
+  "How Arrowbin collects, uses and protects your personal information: what we collect, who we share it with, how long we keep it, and your rights.";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "How Arrowbin collects, uses and protects your personal information when you use our website and services: what we collect, who we share it with, and your rights.",
-  alternates: pageAlternates("/privacy"),
+  // Absolute: the name is already in the title, so skip the " | Arrowbin" template.
+  title: { absolute: "Privacy Policy: How Arrowbin Handles Your Data" },
+  description,
+  ...pageShare({
+    path: "/privacy",
+    title: "Privacy Policy: How Arrowbin Handles Your Data",
+    description,
+  }),
 };
 
 const crumbs = [

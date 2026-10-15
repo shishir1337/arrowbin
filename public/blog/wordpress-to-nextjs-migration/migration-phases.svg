@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">The order of a WordPress to Next.js migration</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Phases overlap. The redirect map is drafted before anything is built.</text>
+
+  <!-- row guides -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="470" y1="170" x2="1200" y2="170"/>
+    <line x1="470" y1="620" x2="1200" y2="620"/>
+  </g>
+
+  <!-- launch marker -->
+  <line x1="1054" y1="160" x2="1054" y2="620" stroke="#ff4da6" stroke-width="3" stroke-dasharray="8 8"/>
+
+  <!-- phase labels -->
+  <g font-size="22" font-weight="600" fill="#0e0b24">
+    <text x="80" y="213">Inventory URLs and plugins</text>
+    <text x="80" y="278">Content model and redirect map</text>
+    <text x="80" y="343">Rebuild templates as components</text>
+    <text x="80" y="408">Port SEO, content and media</text>
+    <text x="80" y="473">QA on a no-index staging URL</text>
+    <text x="80" y="538">Cutover: DNS and new sitemap</text>
+    <text x="80" y="603">30-day watch in Search Console</text>
+  </g>
+
+  <!-- bars (illustrative lengths) -->
+  <g>
+    <rect x="470" y="186" width="146" height="40" rx="10" fill="#3b2bff"/>
+    <rect x="543" y="251" width="183" height="40" rx="10" fill="#ff6b3d"/>
+    <rect x="652" y="316" width="292" height="40" rx="10" fill="#ff4da6"/>
+    <rect x="798" y="381" width="219" height="40" rx="10" fill="#cfc4ff"/>
+    <rect x="908" y="446" width="146" height="40" rx="10" fill="#ffd23f"/>
+    <rect x="1054" y="576" width="146" height="40" rx="10" fill="#ffffff" stroke="#3b2bff" stroke-width="3" stroke-dasharray="8 6"/>
+  </g>
+  <!-- cutover milestone -->
+  <rect x="1038" y="515" width="32" height="32" rx="4" fill="#3b2bff" transform="rotate(45 1054 531)"/>
+
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="470" y="650">Start</text>
+    <text x="1054" y="650">Launch</text>
+    <text x="1180" y="650">+30 days</text>
+  </g>
+
+  <text x="80" y="696" font-size="18" fill="#4a4766">Illustrative: bars show order and overlap, not week counts. Arrowbin process.</text>
+</svg>

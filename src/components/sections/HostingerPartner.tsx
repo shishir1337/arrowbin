@@ -7,7 +7,7 @@ import { HostingerBadge } from "@/components/ui/HostingerBadge";
 import { Icon } from "@/components/ui/Icon";
 import { hostinger, hostingerLinkRel } from "@/lib/site";
 
-/** What the partnership actually buys the client — not what it buys Arrowbin. */
+/** What the partnership actually buys the client: not what it buys Arrowbin. */
 const benefits = [
   {
     title: "A direct line when hosting breaks",
@@ -26,7 +26,7 @@ const benefits = [
 /**
  * The Hostinger partnership block, used on the Cloud/DevOps/Hosting service page.
  *
- * The badge sits alone on a plain surface with clear space around it — Hostinger's
+ * The badge sits alone on a plain surface with clear space around it: Hostinger's
  * terms rule out cluttered backgrounds and pairing it with other logos, so it is
  * deliberately kept out of the client logo marquee and away from the Arrowbin mark.
  */

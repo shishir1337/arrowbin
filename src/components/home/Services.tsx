@@ -19,7 +19,7 @@ export function Services() {
         id="services"
         className="relative flex min-h-[100svh] flex-col justify-center gap-8 overflow-clip py-20 sm:gap-10"
       >
-        <ServicesMotion />
+        <ServicesMotion count={services.length} />
         <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-6 px-[var(--gutter)] md:flex-row md:items-end md:justify-between">
           <div>
             <SectionLabel index="02" title="Services" />

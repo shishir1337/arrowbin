@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  *
  * Performance: the article's geometry (top offset + height) is measured ONCE and
  * again only when layout can actually change (resize / content reflow via
- * ResizeObserver) — never inside the scroll handler. The scroll path therefore does
+ * ResizeObserver), never inside the scroll handler. The scroll path therefore does
  * no layout-reading work; it only reads the cheap `window.scrollY` inside a single
  * rAF and writes a compositor-only `transform: scaleX`. This avoids the forced
  * reflow caused by reading `offsetHeight`/`offsetTop` on every scroll event, and it
@@ -20,7 +20,7 @@ export function ReadingProgress({ targetId }: { targetId: string }) {
     const el = document.getElementById(targetId);
     if (!el) return;
 
-    // Cached geometry — refreshed only when layout changes, not while scrolling.
+    // Cached geometry, refreshed only when layout changes, not while scrolling.
     let articleTop = 0;
     let scrollable = 0;
     const measure = () => {
@@ -54,7 +54,7 @@ export function ReadingProgress({ targetId }: { targetId: string }) {
     render();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
-    // Article height shifts as images/fonts finish loading — keep geometry fresh.
+    // Article height shifts as images/fonts finish loading, so keep geometry fresh.
     const ro = new ResizeObserver(onResize);
     ro.observe(el);
     return () => {

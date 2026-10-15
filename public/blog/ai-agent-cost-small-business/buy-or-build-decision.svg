@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Buy a tool or build an agent?</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">A quick decision path for one job you want to automate</text>
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4a4766"/></marker></defs>
+  <rect x="80" y="172" width="560" height="88" rx="16" fill="#F1F2F7"/>
+  <text x="108" y="209" font-size="22" font-weight="600" fill="#0e0b24">Does a tool you already pay for cover</text>
+  <text x="108" y="239" font-size="22" font-weight="600" fill="#0e0b24">this job? (helpdesk chat, booking app)</text>
+  <line x1="644" y1="216" x2="772" y2="216" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="706" y="204" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Yes</text>
+  <rect x="780" y="172" width="420" height="88" rx="16" fill="#ffd23f"/>
+  <text x="808" y="209" font-size="22" font-weight="700" fill="#0e0b24">Buy: switch on its AI agent</text>
+  <text x="808" y="239" font-size="20" fill="#0e0b24">Measure it for a month first</text>
+  <line x1="360" y1="264" x2="360" y2="304" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="376" y="292" font-size="20" font-weight="700" fill="#0e0b24">No</text>
+  <rect x="80" y="312" width="560" height="88" rx="16" fill="#F1F2F7"/>
+  <text x="108" y="349" font-size="22" font-weight="600" fill="#0e0b24">Is it a few steps between apps that</text>
+  <text x="108" y="379" font-size="22" font-weight="600" fill="#0e0b24">already have ready-made connectors?</text>
+  <line x1="644" y1="356" x2="772" y2="356" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="706" y="344" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Yes</text>
+  <rect x="780" y="312" width="420" height="88" rx="16" fill="#cfc4ff"/>
+  <text x="808" y="349" font-size="22" font-weight="700" fill="#0e0b24">No-code: n8n or Zapier</text>
+  <text x="808" y="379" font-size="20" fill="#0e0b24">Plus an LLM step, model fees extra</text>
+  <line x1="360" y1="404" x2="360" y2="444" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="376" y="432" font-size="20" font-weight="700" fill="#0e0b24">No</text>
+  <rect x="80" y="452" width="560" height="88" rx="16" fill="#F1F2F7"/>
+  <text x="108" y="489" font-size="22" font-weight="600" fill="#0e0b24">Must it work inside your own systems,</text>
+  <text x="108" y="519" font-size="22" font-weight="600" fill="#0e0b24">or handle sensitive customer data?</text>
+  <line x1="644" y1="496" x2="772" y2="496" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="706" y="484" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Yes</text>
+  <rect x="780" y="452" width="420" height="88" rx="16" fill="#3b2bff"/>
+  <text x="808" y="489" font-size="22" font-weight="700" fill="#ffffff">Commission a custom agent</text>
+  <text x="808" y="519" font-size="20" fill="#ffffff">Start read-only, a person approves</text>
+  <line x1="360" y1="544" x2="360" y2="584" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="376" y="572" font-size="20" font-weight="700" fill="#0e0b24">No</text>
+  <rect x="80" y="592" width="560" height="88" rx="16" fill="#ffffff" stroke="#4a4766" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="108" y="629" font-size="22" font-weight="700" fill="#0e0b24">Not an agent job yet</text>
+  <text x="108" y="659" font-size="20" fill="#4a4766">Fix the process or the data first</text>
+  <text x="780" y="629" font-size="18" fill="#4a4766">Custom does not have to mean big:</text>
+  <text x="780" y="655" font-size="18" fill="#4a4766">one read-only workflow is a fine start.</text>
+</svg>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
+import { FirstFrame } from "@/components/layout/FirstFrame";
 import { Logo } from "@/components/layout/Logo";
 import { mainNav, site } from "@/lib/site";
 
@@ -87,6 +88,7 @@ export function Navbar() {
 
   return (
     <>
+      <FirstFrame />
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-300 ${
           scrolled && !open

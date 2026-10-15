@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { Cta } from "@/components/home/Cta";
 import { Faq } from "@/components/home/Faq";
 import { InnerMotion } from "@/components/motion/InnerMotion";
-import { GroundedChat } from "@/components/services/ai/GroundedChat";
-import { RoiCalculator } from "@/components/services/ai/RoiCalculator";
-import { AutoscaleLive } from "@/components/services/cloud/AutoscaleLive";
 import { ArchitectureStack } from "@/components/services/custom/ArchitectureStack";
 import { BuildGallery } from "@/components/services/custom/BuildGallery";
 import { BuildVsBuy } from "@/components/services/custom/BuildVsBuy";
 import { Engagement } from "@/components/services/Engagement";
 import { PaymentsDelivery } from "@/components/services/ecommerce/PaymentsDelivery";
 import { PlatformPicker } from "@/components/services/ecommerce/PlatformPicker";
-import { StoreAnatomy } from "@/components/services/ecommerce/StoreAnatomy";
 import { HealthReport } from "@/components/services/maintenance/HealthReport";
-import { IncidentPlans } from "@/components/services/maintenance/IncidentPlans";
 import { DeviceFeatures } from "@/components/services/mobile/DeviceFeatures";
 import { LaunchKit } from "@/components/services/mobile/LaunchKit";
 import { ServiceDeliver } from "@/components/services/ServiceDeliver";
@@ -25,14 +19,23 @@ import { ServiceProcess } from "@/components/services/ServiceProcess";
 import { ServiceGuides, ServiceWork } from "@/components/services/ServiceProof";
 import { ServiceRelated } from "@/components/services/ServiceRelated";
 import { ServiceValue } from "@/components/services/ServiceValue";
-import { MvpScoper } from "@/components/services/saas/MvpScoper";
 import { SaasPlumbing } from "@/components/services/saas/SaasPlumbing";
+// Per-slug client demos (next/dynamic): each page ships only the ones it renders.
+import {
+  AutoscaleLive,
+  GroundedChat,
+  IncidentPlans,
+  MvpScoper,
+  RoiCalculator,
+  StoreAnatomy,
+  TokenPlayground,
+  UxAudit,
+} from "@/components/services/signature/demos";
 import { ServiceSignature } from "@/components/services/signature/ServiceSignature";
-import { TokenPlayground } from "@/components/services/uiux/TokenPlayground";
-import { UxAudit } from "@/components/services/uiux/UxAudit";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { getPost } from "@/lib/blog";
 import { getBlurDataURL } from "@/lib/blur";
+import { pageShare } from "@/lib/metadata";
 import { projects } from "@/lib/portfolio";
 import {
   breadcrumbSchema,
@@ -41,7 +44,6 @@ import {
   serviceSchema,
 } from "@/lib/schema";
 import { getService, getServiceExtras, services } from "@/lib/services";
-import { pageAlternates } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -62,6 +64,10 @@ export function generateStaticParams(): Params[] {
   return services.map((s) => ({ slug: s.slug }));
 }
 
+// Only the slugs above exist: any other /services/<slug> is a real 404 that
+// renders the root not-found page (with <html lang="en">).
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {
@@ -75,25 +81,18 @@ export async function generateMetadata({
     title: service.metaTitle,
     description: service.metaDescription,
     keywords: service.keywords,
-    alternates: pageAlternates(path),
-    openGraph: {
+    ...pageShare({
+      path,
       title: `${service.metaTitle} | Arrowbin`,
       description: service.metaDescription,
-      url: path,
-      images: [
-        {
-          url: `/services/${service.slug}/opengraph-image`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${service.metaTitle} | Arrowbin`,
-      description: service.metaDescription,
-      images: [`/services/${service.slug}/opengraph-image`],
-    },
+      // The card drawn by ./opengraph-image.tsx (wordmark, "Service", heading).
+      image: {
+        url: `/services/${service.slug}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: `Arrowbin service: ${service.heading}`,
+      },
+    }),
   };
 }
 
@@ -114,6 +113,9 @@ export default async function ServiceDetailPage({
     { name: "Services", path: "/services" },
     { name: service.name, path },
   ];
+  // Every portfolio project is a website or store. Where that is not the
+  // service's own kind of work, the ServiceWork title below says so (audit
+  // H-5): no heading may promise app, SaaS, AI or hosting proof we can't show.
   const work = await Promise.all(
     (extras?.relatedWork ?? [])
       .map((name) => projects.find((p) => p.name === name))
@@ -131,16 +133,18 @@ export default async function ServiceDetailPage({
       <JsonLd
         data={[
           breadcrumbSchema(crumbs),
+          // Named after the H1 (`heading`), so markup and page use one label.
+          // No `deliverables`: the bespoke page bodies no longer print that
+          // list, and an OfferCatalog must match what the page shows.
           serviceSchema({
-            name: service.name,
+            name: service.heading,
             description: service.metaDescription,
             path,
-            deliverables: service.deliverables,
             audience: extras?.idealFor,
             hasAnswer: Boolean(extras?.answer),
           }),
           processSchema({
-            name: `How Arrowbin delivers ${service.name}`,
+            name: `How Arrowbin delivers ${service.heading}`,
             steps: service.process,
           }),
           faqSchema(service.faqs),
@@ -153,15 +157,16 @@ export default async function ServiceDetailPage({
         index={index}
         total={services.length}
         crumbs={crumbs}
+        form={extras?.copy.form}
       />
 
       <ServiceValue service={service} extras={extras} index={index} />
+      {/* No <Suspense> wrappers below: they only split hydration, and made the
+          prerender stream sections as hidden blocks after </main>. */}
       {service.slug === "custom-software-development" ? (
         /* Bespoke page body for Custom Software */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <BuildGallery label={n(3)} />
           <ArchitectureStack label={n(4)} />
           <ServiceProcess
@@ -169,28 +174,21 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(5)}
             durations={["1–2 weeks", "1–2 weeks", "2-week sprints", "Ongoing"]}
+            note={extras?.copy.process}
           />
           <BuildVsBuy label={n(6)} />
           <ServiceWork work={work} label={n(7)} />
-          <Engagement label={n(8)} />
+          <Engagement label={n(8)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(9)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(10)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(10)} />
           <ServiceRelated slug={service.slug} label={n(11)} />
-          <Suspense fallback={null}>
-            <Cta index={n(12)} />
-          </Suspense>
+          <Cta index={n(12)} text={extras?.copy.cta} />
         </>
       ) : service.slug === "ecommerce-development" ? (
         /* Bespoke page body for E-commerce */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
-          <Suspense fallback={null}>
-            <StoreAnatomy label={n(3)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
+          <StoreAnatomy label={n(3)} />
           <PlatformPicker label={n(4)} />
           <PaymentsDelivery label={n(5)} />
           <ServiceProcess
@@ -198,24 +196,19 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(6)}
             durations={["1 week", "2–3 weeks", "3–6 weeks", "Ongoing"]}
+            note={extras?.copy.process}
           />
           <ServiceWork work={work} label={n(7)} />
-          <Engagement label={n(8)} />
+          <Engagement label={n(8)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(9)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(10)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(10)} />
           <ServiceRelated slug={service.slug} label={n(11)} />
-          <Suspense fallback={null}>
-            <Cta index={n(12)} />
-          </Suspense>
+          <Cta index={n(12)} text={extras?.copy.cta} />
         </>
       ) : service.slug === "mobile-app-development" ? (
         /* Bespoke page body for Mobile Apps */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <DeviceFeatures label={n(3)} />
           <LaunchKit label={n(4)} />
           <ServiceProcess
@@ -223,28 +216,23 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(5)}
             durations={["1–2 weeks", "2–3 weeks", "6–10 weeks", "Ongoing"]}
+            note={extras?.copy.process}
           />
           <ServiceWork
             work={work}
             label={n(6)}
-            title="Mobile-first products we've built"
+            title="Related web builds, live today"
           />
-          <Engagement label={n(7)} />
+          <Engagement label={n(7)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(8)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(9)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(9)} />
           <ServiceRelated slug={service.slug} label={n(10)} />
-          <Suspense fallback={null}>
-            <Cta index={n(11)} />
-          </Suspense>
+          <Cta index={n(11)} text={extras?.copy.cta} />
         </>
       ) : service.slug === "saas-product-engineering" ? (
         /* Bespoke page body for SaaS */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <SaasPlumbing label={n(3)} />
           <MvpScoper label={n(4)} />
           <ServiceProcess
@@ -252,28 +240,23 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(5)}
             durations={["1–2 weeks", "8–14 weeks", "4–8 weeks", "Ongoing"]}
+            note={extras?.copy.process}
           />
           <ServiceWork
             work={work}
             label={n(6)}
-            title="Products we've taken to market"
+            title="Web platforms we've shipped"
           />
-          <Engagement label={n(7)} />
+          <Engagement label={n(7)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(8)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(9)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(9)} />
           <ServiceRelated slug={service.slug} label={n(10)} />
-          <Suspense fallback={null}>
-            <Cta index={n(11)} />
-          </Suspense>
+          <Cta index={n(11)} text={extras?.copy.cta} />
         </>
       ) : service.slug === "ui-ux-design" ? (
         /* Bespoke page body for UI/UX Design */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <UxAudit label={n(3)} />
           <TokenPlayground label={n(4)} />
           <ServiceProcess
@@ -281,28 +264,23 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(5)}
             durations={["1–2 weeks", "1–2 weeks", "2–4 weeks", "1 week"]}
+            note={extras?.copy.process}
           />
           <ServiceWork
             work={work}
             label={n(6)}
-            title="Interfaces we've designed"
+            title="Web interfaces we've built"
           />
-          <Engagement label={n(7)} />
+          <Engagement label={n(7)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(8)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(9)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(9)} />
           <ServiceRelated slug={service.slug} label={n(10)} />
-          <Suspense fallback={null}>
-            <Cta index={n(11)} />
-          </Suspense>
+          <Cta index={n(11)} text={extras?.copy.cta} />
         </>
       ) : service.slug === "ai-automation" ? (
         /* Bespoke page body for AI Automation */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <GroundedChat label={n(3)} />
           <RoiCalculator label={n(4)} />
           <ServiceProcess
@@ -310,28 +288,23 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(5)}
             durations={["1 week", "2–3 weeks", "3–6 weeks", "Ongoing"]}
+            note={extras?.copy.process}
           />
           <ServiceWork
             work={work}
             label={n(6)}
-            title="Products we've built and automated"
+            title="Websites and stores by the same team"
           />
-          <Engagement label={n(7)} />
+          <Engagement label={n(7)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(8)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(9)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(9)} />
           <ServiceRelated slug={service.slug} label={n(10)} />
-          <Suspense fallback={null}>
-            <Cta index={n(11)} />
-          </Suspense>
+          <Cta index={n(11)} text={extras?.copy.cta} />
         </>
       ) : service.slug === HOSTING_SLUG ? (
         /* Bespoke page body for Cloud, DevOps & Hosting */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <AutoscaleLive label={n(3)} />
           {/* Hostinger partnership: only here, where hosting is the topic. */}
           <ServiceHosting label={n(4)} />
@@ -340,28 +313,23 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(5)}
             durations={["1 week", "1–2 weeks", "2–4 weeks", "Ongoing"]}
+            note={extras?.copy.process}
           />
           <ServiceWork
             work={work}
             label={n(6)}
-            title="Products we keep online"
+            title="Web builds we've shipped"
           />
-          <Engagement label={n(7)} />
+          <Engagement label={n(7)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(8)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(9)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(9)} />
           <ServiceRelated slug={service.slug} label={n(10)} />
-          <Suspense fallback={null}>
-            <Cta index={n(11)} />
-          </Suspense>
+          <Cta index={n(11)} text={extras?.copy.cta} />
         </>
       ) : service.slug === "maintenance-support" ? (
         /* Bespoke page body for Maintenance & Support */
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <IncidentPlans label={n(3)} />
           <HealthReport label={n(4)} />
           <ServiceProcess
@@ -369,41 +337,33 @@ export default async function ServiceDetailPage({
             index={index}
             label={n(5)}
             durations={["1 week", "2–4 weeks", "Monthly", "Ongoing"]}
+            note={extras?.copy.process}
           />
-          <ServiceWork
-            work={work}
-            label={n(6)}
-            title="Products we look after"
-          />
-          <Engagement label={n(7)} />
+          <ServiceWork work={work} label={n(6)} title="Websites we've built" />
+          <Engagement label={n(7)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(8)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(9)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(9)} />
           <ServiceRelated slug={service.slug} label={n(10)} />
-          <Suspense fallback={null}>
-            <Cta index={n(11)} />
-          </Suspense>
+          <Cta index={n(11)} text={extras?.copy.cta} />
         </>
       ) : (
         <>
-          <Suspense fallback={null}>
-            <ServiceSignature slug={service.slug} label={n(2)} />
-          </Suspense>
+          <ServiceSignature slug={service.slug} label={n(2)} />
           <ServiceDeliver service={service} index={index} label={n(3)} />
           {/* Hostinger partnership: only on the hosting service, where it is the topic. */}
           {service.slug === HOSTING_SLUG ? <ServiceHosting /> : null}
-          <ServiceProcess service={service} index={index} label={n(4)} />
+          <ServiceProcess
+            service={service}
+            index={index}
+            label={n(4)}
+            note={extras?.copy.process}
+          />
           <ServiceWork work={work} label={n(5)} />
-          <Engagement label={n(6)} />
+          <Engagement label={n(6)} copy={extras?.copy.engagement} />
           <ServiceGuides guides={guides} label={n(7)} />
-          <Suspense fallback={null}>
-            <Faq items={service.faqs} index={n(8)} />
-          </Suspense>
+          <Faq items={service.faqs} index={n(8)} />
           <ServiceRelated slug={service.slug} label={n(9)} />
-          <Suspense fallback={null}>
-            <Cta index={n(10)} />
-          </Suspense>
+          <Cta index={n(10)} text={extras?.copy.cta} />
         </>
       )}
     </>

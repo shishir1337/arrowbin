@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="glowA" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#cfc4ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#cfc4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff4da6" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ff4da6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd23f" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffd23f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="avatar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b2bff"/>
+      <stop offset="1" stop-color="#ff4da6"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14"/>
+      <feOffset dy="12" result="b"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.12"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#ff4da6"/>
+    </marker>
+    <symbol id="shirt" viewBox="0 0 120 120">
+      <path d="M38 22 L50 14 Q60 22 70 14 L82 22 L104 40 L94 56 L84 48 L84 106 L36 106 L36 48 L26 56 L16 40 Z" fill="#ffffff"/>
+      <path d="M50 14 Q60 26 70 14" fill="none" stroke="#e4e4e7" stroke-width="3"/>
+    </symbol>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="720" fill="#F1F2F7"/>
+  <circle cx="1120" cy="90" r="320" fill="url(#glowA)"/>
+  <circle cx="140" cy="660" r="300" fill="url(#glowB)"/>
+  <circle cx="660" cy="720" r="260" fill="url(#glowC)"/>
+
+  <!-- chat window -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="80" width="560" height="580" rx="26" fill="#ffffff"/>
+  </g>
+  <circle cx="104" cy="124" r="20" fill="url(#avatar)"/>
+  <path d="M104 112 l3.5 8.5 8.5 3.5 -8.5 3.5 -3.5 8.5 -3.5 -8.5 -8.5 -3.5 8.5 -3.5 Z" fill="#ffffff"/>
+  <text x="136" y="131" font-size="20" font-weight="700" fill="#0e0b24">Shopping assistant</text>
+  <circle cx="568" cy="124" r="4" fill="#4a4766"/>
+  <circle cx="584" cy="124" r="4" fill="#4a4766"/>
+  <circle cx="552" cy="124" r="4" fill="#4a4766"/>
+  <line x1="60" y1="166" x2="620" y2="166" stroke="#e4e4e7" stroke-width="2"/>
+
+  <!-- user message -->
+  <rect x="236" y="186" width="360" height="48" rx="24" fill="#3b2bff"/>
+  <text x="416" y="217" text-anchor="middle" font-size="18" fill="#ffffff">Linen shirt under $60, ships this week</text>
+
+  <!-- assistant reply -->
+  <circle cx="98" cy="268" r="14" fill="url(#avatar)"/>
+  <rect x="124" y="256" width="300" height="12" rx="6" fill="#e4e4e7"/>
+  <rect x="124" y="278" width="220" height="12" rx="6" fill="#e4e4e7"/>
+
+  <!-- product cards -->
+  <g>
+    <rect x="84" y="310" width="164" height="252" rx="16" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <rect x="94" y="320" width="144" height="104" rx="10" fill="#ff4da6" fill-opacity="0.35"/>
+    <use href="#shirt" x="124" y="330" width="84" height="84"/>
+    <text x="96" y="450" font-size="18" font-weight="600" fill="#0e0b24">Linen tee</text>
+    <text x="96" y="478" font-size="22" font-weight="700" fill="#0e0b24">$32</text>
+    <rect x="154" y="461" width="82" height="24" rx="12" fill="#F1F2F7"/>
+    <text x="195" y="478" text-anchor="middle" font-size="14" font-weight="600" fill="#4a4766">2 left</text>
+    <rect x="96" y="504" width="140" height="40" rx="20" fill="#F1F2F7"/>
+    <text x="166" y="530" text-anchor="middle" font-size="16" font-weight="700" fill="#0e0b24">Visit store</text>
+  </g>
+  <g>
+    <rect x="258" y="310" width="164" height="252" rx="16" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <rect x="268" y="320" width="144" height="104" rx="10" fill="#ffd23f"/>
+    <use href="#shirt" x="298" y="330" width="84" height="84"/>
+    <text x="270" y="450" font-size="18" font-weight="600" fill="#0e0b24">Camp collar</text>
+    <text x="270" y="478" font-size="22" font-weight="700" fill="#0e0b24">$54</text>
+    <rect x="328" y="461" width="82" height="24" rx="12" fill="#ffd23f"/>
+    <text x="369" y="478" text-anchor="middle" font-size="14" font-weight="600" fill="#0e0b24">In stock</text>
+    <rect x="270" y="504" width="140" height="40" rx="20" fill="#F1F2F7"/>
+    <text x="340" y="530" text-anchor="middle" font-size="16" font-weight="700" fill="#0e0b24">Visit store</text>
+  </g>
+  <g>
+    <rect x="432" y="310" width="164" height="252" rx="16" fill="#ffffff" stroke="#3b2bff" stroke-width="2.5"/>
+    <rect x="442" y="320" width="144" height="104" rx="10" fill="#cfc4ff"/>
+    <use href="#shirt" x="472" y="330" width="84" height="84"/>
+    <text x="444" y="450" font-size="18" font-weight="600" fill="#0e0b24">Linen overshirt</text>
+    <text x="444" y="478" font-size="22" font-weight="700" fill="#0e0b24">$48</text>
+    <rect x="502" y="461" width="82" height="24" rx="12" fill="#ffd23f"/>
+    <text x="543" y="478" text-anchor="middle" font-size="14" font-weight="600" fill="#0e0b24">In stock</text>
+    <rect x="444" y="504" width="140" height="40" rx="20" fill="#3b2bff"/>
+    <text x="514" y="530" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Visit store</text>
+  </g>
+
+  <!-- input -->
+  <rect x="84" y="588" width="512" height="48" rx="24" fill="#F1F2F7"/>
+  <rect x="108" y="606" width="180" height="12" rx="6" fill="#e4e4e7"/>
+  <circle cx="572" cy="612" r="18" fill="#3b2bff"/>
+  <path d="M572 621 L572 603 M564 610 L572 602 L580 610" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- browser window -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="120" width="560" height="500" rx="22" fill="#ffffff"/>
+  </g>
+  <path d="M660 142 a22 22 0 0 1 22 -22 h516 a22 22 0 0 1 22 22 v32 h-560 Z" fill="#F1F2F7"/>
+  <circle cx="688" cy="147" r="7" fill="#ff6b3d"/>
+  <circle cx="710" cy="147" r="7" fill="#ffd23f"/>
+  <circle cx="732" cy="147" r="7" fill="#cfc4ff"/>
+  <rect x="756" y="132" width="440" height="30" rx="15" fill="#ffffff"/>
+  <rect x="772" y="141" width="10" height="9" rx="2" fill="#4a4766"/>
+  <path d="M774 141 v-3 a3 3 0 0 1 6 0 v3" fill="none" stroke="#4a4766" stroke-width="2"/>
+  <text x="792" y="153" font-size="16" fill="#4a4766">yourstore.com/products/linen-overshirt</text>
+
+  <!-- store nav -->
+  <rect x="684" y="196" width="88" height="14" rx="7" fill="#0e0b24"/>
+  <rect x="980" y="198" width="52" height="10" rx="5" fill="#e4e4e7"/>
+  <rect x="1046" y="198" width="52" height="10" rx="5" fill="#e4e4e7"/>
+  <path d="M1170 194 h6 l4 16 h16 l3 -11 h-21" fill="none" stroke="#0e0b24" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="1183" cy="215" r="2.5" fill="#0e0b24"/>
+  <circle cx="1194" cy="215" r="2.5" fill="#0e0b24"/>
+
+  <!-- product image -->
+  <rect x="684" y="232" width="240" height="300" rx="16" fill="#cfc4ff"/>
+  <use href="#shirt" x="724" y="292" width="160" height="160"/>
+  <rect x="684" y="544" width="54" height="54" rx="10" fill="#cfc4ff"/>
+  <rect x="746" y="544" width="54" height="54" rx="10" fill="#F1F2F7"/>
+  <rect x="808" y="544" width="54" height="54" rx="10" fill="#F1F2F7"/>
+
+  <!-- product info -->
+  <rect x="948" y="240" width="90" height="10" rx="5" fill="#e4e4e7"/>
+  <text x="948" y="284" font-size="24" font-weight="700" fill="#0e0b24">Linen overshirt</text>
+  <text x="948" y="324" font-size="28" font-weight="700" fill="#0e0b24">$48.00</text>
+  <rect x="1060" y="303" width="88" height="28" rx="14" fill="#ffd23f"/>
+  <text x="1104" y="323" text-anchor="middle" font-size="15" font-weight="600" fill="#0e0b24">In stock</text>
+  <g font-size="16" font-weight="600" text-anchor="middle">
+    <rect x="948" y="348" width="44" height="36" rx="8" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="970" y="372" fill="#0e0b24">S</text>
+    <rect x="1000" y="348" width="44" height="36" rx="8" fill="#ffffff" stroke="#3b2bff" stroke-width="2.5"/>
+    <text x="1022" y="372" fill="#3b2bff">M</text>
+    <rect x="1052" y="348" width="44" height="36" rx="8" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="1074" y="372" fill="#0e0b24">L</text>
+    <rect x="1104" y="348" width="44" height="36" rx="8" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="1126" y="372" fill="#0e0b24">XL</text>
+  </g>
+  <rect x="948" y="402" width="248" height="50" rx="25" fill="#3b2bff"/>
+  <text x="1072" y="433" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">Add to cart</text>
+  <rect x="948" y="472" width="248" height="10" rx="5" fill="#e4e4e7"/>
+  <rect x="948" y="492" width="210" height="10" rx="5" fill="#e4e4e7"/>
+  <rect x="948" y="512" width="230" height="10" rx="5" fill="#e4e4e7"/>
+  <rect x="948" y="544" width="248" height="44" rx="12" fill="#F1F2F7"/>
+  <rect x="964" y="560" width="14" height="12" rx="3" fill="#ff6b3d"/>
+  <rect x="988" y="561" width="150" height="10" rx="5" fill="#cfc4ff"/>
+
+  <!-- structured data chip -->
+  <g filter="url(#shadow)">
+    <rect x="740" y="590" width="300" height="56" rx="16" fill="#ffffff" stroke="#3b2bff" stroke-width="2"/>
+  </g>
+  <text x="762" y="625" font-family="Consolas, Menlo, monospace" font-size="18" fill="#0e0b24">{ "@type": <tspan fill="#ff4da6" font-weight="700">"Product"</tspan> }</text>
+
+  <!-- click path -->
+  <path d="M586 524 C 640 524, 630 452, 672 452" fill="none" stroke="#ff4da6" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#ah)"/>
+</svg>

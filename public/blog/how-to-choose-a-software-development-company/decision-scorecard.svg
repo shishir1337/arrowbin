@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Score every firm the same way</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">An example vendor scorecard, rated 1 to 5 on each criterion</text>
+
+  <!-- header -->
+  <path d="M96 150 h1088 a16 16 0 0 1 16 16 v42 h-1120 v-42 a16 16 0 0 1 16 -16 z" fill="#0e0b24"/>
+  <g font-size="22" font-weight="700" fill="#ffffff">
+    <text x="112" y="187">Criterion</text>
+    <text x="633" y="187" text-anchor="middle">Vendor A</text>
+    <text x="859" y="187" text-anchor="middle">Vendor B</text>
+    <text x="1085" y="187" text-anchor="middle">Vendor C</text>
+  </g>
+
+  <!-- rows -->
+  <rect x="80" y="208" width="1120" height="80" fill="#f1f2f7"/>
+  <text x="112" y="256" font-size="23" font-weight="700" fill="#0e0b24">Track record</text>
+  <circle cx="573" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="603" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="633" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="663" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="693" cy="248" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="799" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="829" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="859" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="889" cy="248" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="919" cy="248" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="1025" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="1055" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="1085" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="1115" cy="248" r="10" fill="#3b2bff"/>
+  <circle cx="1145" cy="248" r="10" fill="#3b2bff"/>
+  <rect x="80" y="288" width="1120" height="80" fill="#ffffff"/>
+  <text x="112" y="336" font-size="23" font-weight="700" fill="#0e0b24">Communication</text>
+  <circle cx="573" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="603" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="633" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="663" cy="328" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="693" cy="328" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="799" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="829" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="859" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="889" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="919" cy="328" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="1025" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="1055" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="1085" cy="328" r="10" fill="#3b2bff"/>
+  <circle cx="1115" cy="328" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="1145" cy="328" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <rect x="80" y="368" width="1120" height="80" fill="#f1f2f7"/>
+  <text x="112" y="416" font-size="23" font-weight="700" fill="#0e0b24">Technical ability</text>
+  <circle cx="573" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="603" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="633" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="663" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="693" cy="408" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="799" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="829" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="859" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="889" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="919" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="1025" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="1055" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="1085" cy="408" r="10" fill="#3b2bff"/>
+  <circle cx="1115" cy="408" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="1145" cy="408" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <rect x="80" y="448" width="1120" height="80" fill="#ffffff"/>
+  <text x="112" y="496" font-size="23" font-weight="700" fill="#0e0b24">Process maturity</text>
+  <circle cx="573" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="603" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="633" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="663" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="693" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="799" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="829" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="859" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="889" cy="488" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="919" cy="488" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="1025" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="1055" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="1085" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="1115" cy="488" r="10" fill="#3b2bff"/>
+  <circle cx="1145" cy="488" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <path d="M80 528 h1120 v64 a16 16 0 0 1 -16 16 h-1088 a16 16 0 0 1 -16 -16 z" fill="#f1f2f7"/>
+  <text x="112" y="576" font-size="23" font-weight="700" fill="#0e0b24">Price</text>
+  <circle cx="573" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="603" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="633" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="663" cy="568" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="693" cy="568" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="799" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="829" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="859" cy="568" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="889" cy="568" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="919" cy="568" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <circle cx="1025" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="1055" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="1085" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="1115" cy="568" r="10" fill="#3b2bff"/>
+  <circle cx="1145" cy="568" r="9" fill="#ffffff" stroke="#cfc4ff" stroke-width="3"/>
+  <rect x="80" y="150" width="1120" height="458" rx="16" fill="none" stroke="#e4e4e7" stroke-width="2"/>
+
+  <text x="80" y="660" font-size="18" fill="#4a4766">Example scores, not real companies. Weight the criteria before you score: track record and communication first, price last.</text>
+</svg>

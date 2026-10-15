@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Who does the running work?</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Day-to-day jobs on each platform, simplified (Arrowbin view)</text>
+
+  <!-- column headers -->
+  <g font-size="24" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="620" y="190">Shopify</text>
+    <text x="860" y="190">WooCommerce</text>
+    <text x="1100" y="190">Custom store</text>
+  </g>
+
+  <!-- row separators -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="80" y1="210" x2="1220" y2="210"/>
+    <line x1="80" y1="280" x2="1220" y2="280"/>
+    <line x1="80" y1="350" x2="1220" y2="350"/>
+    <line x1="80" y1="420" x2="1220" y2="420"/>
+    <line x1="80" y1="490" x2="1220" y2="490"/>
+    <line x1="80" y1="560" x2="1220" y2="560"/>
+  </g>
+
+  <!-- row labels -->
+  <g font-size="22" font-weight="600" fill="#0e0b24">
+    <text x="80" y="253">Hosting and uptime</text>
+    <text x="80" y="323">Platform security patches</text>
+    <text x="80" y="393">Checkout code</text>
+    <text x="80" y="463">Plugin or app updates</text>
+    <text x="80" y="533">New features and integrations</text>
+  </g>
+
+  <!-- cells: lilac = platform, sun = third parties, coral = you -->
+  <g>
+    <rect x="525" y="222" width="190" height="46" rx="23" fill="#cfc4ff"/>
+    <rect x="765" y="222" width="190" height="46" rx="23" fill="#ff6b3d"/>
+    <rect x="1005" y="222" width="190" height="46" rx="23" fill="#ff6b3d"/>
+
+    <rect x="525" y="292" width="190" height="46" rx="23" fill="#cfc4ff"/>
+    <rect x="765" y="292" width="190" height="46" rx="23" fill="#ff6b3d"/>
+    <rect x="1005" y="292" width="190" height="46" rx="23" fill="#ff6b3d"/>
+
+    <rect x="525" y="362" width="190" height="46" rx="23" fill="#cfc4ff"/>
+    <rect x="765" y="362" width="190" height="46" rx="23" fill="#ffd23f"/>
+    <rect x="1005" y="362" width="190" height="46" rx="23" fill="#ff6b3d"/>
+
+    <rect x="525" y="432" width="190" height="46" rx="23" fill="#ffd23f"/>
+    <rect x="765" y="432" width="190" height="46" rx="23" fill="#ff6b3d"/>
+    <rect x="1005" y="432" width="190" height="46" rx="23" fill="#ff6b3d"/>
+
+    <rect x="525" y="502" width="190" height="46" rx="23" fill="#ffd23f"/>
+    <rect x="765" y="502" width="190" height="46" rx="23" fill="#ffd23f"/>
+    <rect x="1005" y="502" width="190" height="46" rx="23" fill="#ff6b3d"/>
+  </g>
+  <g font-size="20" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <text x="620" y="252">Shopify</text>
+    <text x="860" y="252">You</text>
+    <text x="1100" y="252">You</text>
+
+    <text x="620" y="322">Shopify</text>
+    <text x="860" y="322">You</text>
+    <text x="1100" y="322">You</text>
+
+    <text x="620" y="392">Shopify</text>
+    <text x="860" y="392">Plugin authors</text>
+    <text x="1100" y="392">You</text>
+
+    <text x="620" y="462">App makers</text>
+    <text x="860" y="462">You</text>
+    <text x="1100" y="462">You</text>
+
+    <text x="620" y="532">Apps (or Plus)</text>
+    <text x="860" y="532">Plugins or you</text>
+    <text x="1100" y="532">You</text>
+  </g>
+
+  <!-- legend -->
+  <g font-size="20" fill="#0e0b24">
+    <rect x="80" y="610" width="26" height="26" rx="13" fill="#cfc4ff"/>
+    <text x="116" y="630">The platform handles it</text>
+    <rect x="420" y="610" width="26" height="26" rx="13" fill="#ffd23f"/>
+    <text x="456" y="630">Third-party developers</text>
+    <rect x="760" y="610" width="26" height="26" rx="13" fill="#ff6b3d"/>
+    <text x="796" y="630">You or your developer</text>
+  </g>
+</svg>

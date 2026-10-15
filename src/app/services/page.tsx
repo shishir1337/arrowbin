@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Cta } from "@/components/home/Cta";
 import { Faq } from "@/components/home/Faq";
 import { InnerMotion } from "@/components/motion/InnerMotion";
@@ -8,22 +7,20 @@ import { Engagement } from "@/components/services/Engagement";
 import { ServiceIndex } from "@/components/services/ServiceIndex";
 import { ServicesHero } from "@/components/services/ServicesHero";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { pageShare } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema, serviceListSchema } from "@/lib/schema";
 import { services } from "@/lib/services";
-import { defaultOgImage, pageAlternates } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Software Development Services",
+  title: "Software Development Services: Web, Mobile & AI",
   description:
-    "Arrowbin's software development services: custom software, e-commerce, mobile and SaaS apps, UI/UX, AI automation, cloud/DevOps and support.",
-  alternates: pageAlternates("/services"),
-  openGraph: {
-    title: "Software Development Services | Arrowbin",
+    "End-to-end software development services: custom software, e-commerce, mobile apps, SaaS, UI/UX, AI automation, cloud and ongoing support. See how we work.",
+  ...pageShare({
+    path: "/services",
+    title: "Software Development Services: Web, Mobile & AI | Arrowbin",
     description:
       "Custom software, web and mobile apps, SaaS, UI/UX, AI automation, cloud and support, end to end.",
-    url: "/services",
-    images: [defaultOgImage],
-  },
+  }),
 };
 
 const crumbs = [
@@ -78,21 +75,13 @@ export default function ServicesPage() {
       />
       <InnerMotion />
       <ServicesHero crumbs={crumbs} />
-      <Suspense fallback={null}>
-        <ServiceIndex />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Capabilities items={caps} />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Engagement />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Faq items={overviewFaqs} index="04" />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Cta index="05" />
-      </Suspense>
+      {/* No <Suspense> wrappers: they only split hydration, and made the
+          prerender stream these sections as hidden blocks after </main>. */}
+      <ServiceIndex />
+      <Capabilities items={caps} />
+      <Engagement />
+      <Faq items={overviewFaqs} index="04" />
+      <Cta index="05" />
     </>
   );
 }

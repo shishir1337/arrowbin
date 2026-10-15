@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Control vs upkeep: where each option sits</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">More control over checkout and data means more running work you own (Arrowbin view)</text>
+
+  <!-- quadrant tint -->
+  <rect x="200" y="180" width="980" height="420" fill="#F1F2F7"/>
+  <rect x="690" y="180" width="490" height="210" fill="#cfc4ff" fill-opacity="0.35"/>
+  <line x1="690" y1="180" x2="690" y2="600" stroke="#e4e4e7" stroke-width="2"/>
+  <line x1="200" y1="390" x2="1180" y2="390" stroke="#e4e4e7" stroke-width="2"/>
+
+  <!-- axes -->
+  <line x1="200" y1="600" x2="1190" y2="600" stroke="#4a4766" stroke-width="3" marker-end="url(#ax)"/>
+  <line x1="200" y1="600" x2="200" y2="170" stroke="#4a4766" stroke-width="3" marker-end="url(#ax)"/>
+  <text x="690" y="640" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">How much you can change: checkout, data, business logic</text>
+  <text x="200" y="640" font-size="18" fill="#4a4766" text-anchor="middle">Less</text>
+  <text x="1180" y="640" font-size="18" fill="#4a4766" text-anchor="middle">More</text>
+  <text transform="translate(150 390) rotate(-90)" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">Running work you own</text>
+  <text x="182" y="596" font-size="18" fill="#4a4766" text-anchor="end">Less</text>
+  <text x="182" y="196" font-size="18" fill="#4a4766" text-anchor="end">More</text>
+
+  <!-- points -->
+  <circle cx="347" cy="537" r="24" fill="#3b2bff"/>
+  <circle cx="690" cy="430" r="24" fill="#cfc4ff" stroke="#3b2bff" stroke-width="3"/>
+  <circle cx="808" cy="262" r="24" fill="#ff6b3d"/>
+  <circle cx="1082" cy="238" r="24" fill="#ff4da6"/>
+
+  <g fill="#0e0b24">
+    <text x="384" y="532" font-size="24" font-weight="700">Shopify</text>
+    <text x="384" y="558" font-size="18" fill="#4a4766">Launch fast, rent the platform</text>
+
+    <text x="726" y="436" font-size="24" font-weight="700">Headless Shopify</text>
+    <text x="726" y="462" font-size="18" fill="#4a4766">Your front end, Shopify checkout</text>
+
+    <text x="770" y="262" font-size="24" font-weight="700" text-anchor="end">WooCommerce</text>
+    <text x="770" y="288" font-size="18" fill="#4a4766" text-anchor="end">Open source, plugin upkeep</text>
+
+    <text x="1082" y="300" font-size="24" font-weight="700" text-anchor="middle">Custom store</text>
+    <text x="1082" y="326" font-size="18" fill="#4a4766" text-anchor="middle">Full control, full upkeep</text>
+  </g>
+</svg>

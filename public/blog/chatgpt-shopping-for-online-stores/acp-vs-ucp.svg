@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">ACP and UCP, side by side</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Two open protocols for a checkout that an AI agent runs with your store</text>
+
+  <!-- row labels -->
+  <g font-size="19" font-weight="700" fill="#4a4766">
+    <text x="80" y="276">Built by</text>
+    <text x="80" y="336">License</text>
+    <text x="80" y="396">Used in</text>
+    <text x="80" y="456">Payments</text>
+    <text x="80" y="516">Merchant of</text>
+    <text x="80" y="538">record</text>
+    <text x="80" y="586">Small-store</text>
+    <text x="80" y="608">route</text>
+  </g>
+
+  <!-- ACP card -->
+  <rect x="250" y="170" width="460" height="470" rx="20" fill="#F1F2F7"/>
+  <rect x="250" y="170" width="460" height="64" rx="20" fill="#3b2bff"/>
+  <rect x="250" y="210" width="460" height="24" fill="#3b2bff"/>
+  <text x="276" y="212" font-size="24" font-weight="700" fill="#ffffff">ACP: Agentic Commerce Protocol</text>
+  <g font-size="20" fill="#0e0b24">
+    <text x="276" y="276">Stripe and OpenAI</text>
+    <text x="276" y="336">Apache 2.0</text>
+    <text x="276" y="396">ChatGPT (first platform)</text>
+    <text x="276" y="456">Stripe first (Shared Payment Token)</text>
+    <text x="276" y="526">You. OpenAI is not the merchant</text>
+    <text x="276" y="596">Your payment provider or platform</text>
+  </g>
+
+  <!-- UCP card -->
+  <rect x="740" y="170" width="460" height="470" rx="20" fill="#F1F2F7"/>
+  <rect x="740" y="170" width="460" height="64" rx="20" fill="#ff4da6"/>
+  <rect x="740" y="210" width="460" height="24" fill="#ff4da6"/>
+  <text x="766" y="212" font-size="24" font-weight="700" fill="#ffffff">UCP: Universal Commerce Protocol</text>
+  <g font-size="20" fill="#0e0b24">
+    <text x="766" y="276">Google, with Shopify, Walmart, others</text>
+    <text x="766" y="336">Apache 2.0</text>
+    <text x="766" y="396">AI Mode, Gemini; Copilot feeds</text>
+    <text x="766" y="456">Google Pay on Google's surfaces</text>
+    <text x="766" y="526">You, the retailer</text>
+    <text x="766" y="596">Merchant Center, Shopify or your PSP</text>
+  </g>
+
+  <!-- dividers -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="80" y1="300" x2="1200" y2="300"/>
+    <line x1="80" y1="360" x2="1200" y2="360"/>
+    <line x1="80" y1="420" x2="1200" y2="420"/>
+    <line x1="80" y1="480" x2="1200" y2="480"/>
+    <line x1="80" y1="556" x2="1200" y2="556"/>
+  </g>
+
+  <text x="80" y="684" font-size="18" fill="#4a4766">Sources: agenticcommerce.dev, OpenAI commerce docs, ucp.dev, Google (Jan 11, 2026), Google Merchant Center Help, Microsoft Advertising.</text>
+</svg>

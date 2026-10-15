@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">What slows MVPs down</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Six avoidable causes behind most slipped launches</text>
+
+  <g fill="#f1f2f7">
+    <rect x="80" y="152" width="546" height="144" rx="22"/>
+    <rect x="654" y="152" width="546" height="144" rx="22"/>
+    <rect x="80" y="312" width="546" height="144" rx="22"/>
+    <rect x="654" y="312" width="546" height="144" rx="22"/>
+    <rect x="80" y="472" width="546" height="144" rx="22"/>
+    <rect x="654" y="472" width="546" height="144" rx="22"/>
+  </g>
+  <g fill="#ff6b3d">
+    <circle cx="136" cy="224" r="32"/>
+    <circle cx="710" cy="224" r="32"/>
+    <circle cx="136" cy="384" r="32"/>
+    <circle cx="710" cy="384" r="32"/>
+    <circle cx="136" cy="544" r="32"/>
+    <circle cx="710" cy="544" r="32"/>
+  </g>
+
+  <!-- scope creep: boxes piling up -->
+  <g fill="#ffffff">
+    <rect x="118" y="222" width="16" height="16" rx="2"/>
+    <rect x="137" y="222" width="16" height="16" rx="2"/>
+    <rect x="127" y="203" width="16" height="16" rx="2"/>
+  </g>
+  <!-- unclear requirements: question mark -->
+  <text x="710" y="237" font-size="38" font-weight="700" fill="#ffffff" text-anchor="middle">?</text>
+  <!-- slow decisions: clock -->
+  <circle cx="136" cy="384" r="16" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <path d="M136 374 v10 l7 5" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- perfectionism: magnifier on a detail -->
+  <circle cx="706" cy="380" r="11" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <line x1="714" y1="388" x2="724" y2="398" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- integrations: plug -->
+  <g fill="#ffffff">
+    <rect x="125" y="536" width="22" height="18" rx="5"/>
+    <rect x="129" y="526" width="4" height="12" rx="2"/>
+    <rect x="139" y="526" width="4" height="12" rx="2"/>
+    <rect x="134" y="552" width="4" height="12" rx="2"/>
+  </g>
+  <!-- changing direction: u-turn -->
+  <path d="M700 560 v-18 a10 10 0 0 1 20 0 v6" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M713 544 l7 9 l7 -9 z" fill="#ffffff"/>
+
+  <g font-size="24" font-weight="700" fill="#0e0b24">
+    <text x="190" y="216">Scope creep</text>
+    <text x="764" y="216">Unclear requirements</text>
+    <text x="190" y="376">Slow decisions and feedback</text>
+    <text x="764" y="376">Perfectionism</text>
+    <text x="190" y="536">Underestimated integrations</text>
+    <text x="764" y="536">Changing direction mid-build</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="190" y="246">"Just one more feature": the top cause</text>
+    <text x="764" y="246">Building before the core flow is agreed</text>
+    <text x="190" y="406">Sprints stall waiting on approvals</text>
+    <text x="764" y="406">Polish that does not test the idea</text>
+    <text x="190" y="566">A single complex API can add a week</text>
+    <text x="764" y="566">Pivoting the core after the build starts</text>
+  </g>
+
+  <text x="80" y="672" font-size="18" fill="#4a4766">The best protection: lock scope before development starts and make decisions the same day.</text>
+</svg>

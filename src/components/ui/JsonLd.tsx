@@ -1,5 +1,5 @@
 /**
- * Renders a schema.org JSON-LD block. Server component — output is static markup
+ * Renders a schema.org JSON-LD block. Server component: output is static markup
  * crawlers and answer engines read. Use one per structured-data graph.
  */
 

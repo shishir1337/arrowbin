@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Where model prices jump</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Input price per 1M tokens before and after the trigger, as listed 15 Oct 2026</text>
+  <rect x="80" y="165" width="357" height="525" rx="20" fill="#F1F2F7"/>
+  <text x="108" y="214" font-size="24" font-weight="700" fill="#0e0b24">Gemini 3.6 Flash</text>
+  <text x="409" y="216" font-size="32" font-weight="800" fill="#ff6b3d" text-anchor="end">2x</text>
+  <text x="108" y="246" font-size="19" fill="#4a4766">From 1 Jan 2027</text>
+  <line x1="120" y1="590" x2="397" y2="590" stroke="#e4e4e7" stroke-width="3"/>
+  <rect x="150" y="534" width="90" height="56" rx="6" fill="#cfc4ff"/>
+  <rect x="277" y="478" width="90" height="112" rx="6" fill="#ff4da6"/>
+  <text x="195" y="522" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$0.75</text>
+  <text x="322" y="466" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$1.50</text>
+  <text x="195" y="618" font-size="18" fill="#4a4766" text-anchor="middle">Before</text>
+  <text x="322" y="618" font-size="18" fill="#4a4766" text-anchor="middle">After</text>
+  <text x="108" y="662" font-size="19" font-weight="600" fill="#0e0b24">Output: $3.75 to $7.50</text>
+  <rect x="461" y="165" width="357" height="525" rx="20" fill="#F1F2F7"/>
+  <text x="489" y="214" font-size="24" font-weight="700" fill="#0e0b24">Claude Haiku 5.5</text>
+  <text x="790" y="216" font-size="32" font-weight="800" fill="#ff6b3d" text-anchor="end">5x</text>
+  <text x="489" y="246" font-size="19" fill="#4a4766">Prompts over 100,000 tokens</text>
+  <line x1="501" y1="590" x2="778" y2="590" stroke="#e4e4e7" stroke-width="3"/>
+  <rect x="531" y="534" width="90" height="56" rx="6" fill="#cfc4ff"/>
+  <rect x="658" y="310" width="90" height="280" rx="6" fill="#ff4da6"/>
+  <text x="576" y="522" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$0.10</text>
+  <text x="703" y="298" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$0.50</text>
+  <text x="576" y="618" font-size="18" fill="#4a4766" text-anchor="middle">Before</text>
+  <text x="703" y="618" font-size="18" fill="#4a4766" text-anchor="middle">After</text>
+  <text x="489" y="662" font-size="19" font-weight="600" fill="#0e0b24">Output: $0.50 to $2.50</text>
+  <rect x="842" y="165" width="357" height="525" rx="20" fill="#F1F2F7"/>
+  <text x="870" y="214" font-size="24" font-weight="700" fill="#0e0b24">OpenAI gpt-6-luna</text>
+  <text x="1171" y="216" font-size="32" font-weight="800" fill="#ff6b3d" text-anchor="end">2x</text>
+  <text x="870" y="246" font-size="19" fill="#4a4766">Input over 272K tokens</text>
+  <line x1="882" y1="590" x2="1159" y2="590" stroke="#e4e4e7" stroke-width="3"/>
+  <rect x="912" y="534" width="90" height="56" rx="6" fill="#cfc4ff"/>
+  <rect x="1039" y="478" width="90" height="112" rx="6" fill="#ff4da6"/>
+  <text x="957" y="522" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$0.10</text>
+  <text x="1084" y="466" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$0.20</text>
+  <text x="957" y="618" font-size="18" fill="#4a4766" text-anchor="middle">Before</text>
+  <text x="1084" y="618" font-size="18" fill="#4a4766" text-anchor="middle">After</text>
+  <text x="870" y="662" font-size="19" font-weight="600" fill="#0e0b24">Output: $0.50 to $0.75</text>
+</svg>

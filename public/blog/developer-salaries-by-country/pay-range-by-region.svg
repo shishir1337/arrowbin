@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="64" y="78" font-size="40" font-weight="700" fill="#0e0b24">The spread between regions</text>
+  <text x="64" y="118" font-size="24" fill="#4a4766">Lowest to highest country median in each region, USD a year</text>
+  <text x="64" y="180" font-size="26" font-weight="700" fill="#0e0b24">North America</text>
+  <text x="64" y="208" font-size="22" fill="#4a4766">$93k–$155k</text>
+  <line x1="400" y1="186" x2="1200" y2="186" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="865.7" y="174" width="309.3" height="24" rx="12" fill="#3b2bff"/>
+  <text x="64" y="242" font-size="26" font-weight="700" fill="#0e0b24">Western Europe</text>
+  <text x="64" y="270" font-size="22" fill="#4a4766">$61k–$140k</text>
+  <line x1="400" y1="248" x2="1200" y2="248" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="707.4" y="236" width="393.4" height="24" rx="12" fill="#3b2bff"/>
+  <text x="64" y="304" font-size="26" font-weight="700" fill="#0e0b24">Northern Europe</text>
+  <text x="64" y="332" font-size="22" fill="#4a4766">$72k–$101k</text>
+  <line x1="400" y1="310" x2="1200" y2="310" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="758.5" y="298" width="147.0" height="24" rx="12" fill="#3b2bff"/>
+  <text x="64" y="366" font-size="26" font-weight="700" fill="#0e0b24">Oceania</text>
+  <text x="64" y="394" font-size="22" fill="#4a4766">$81k–$101k</text>
+  <line x1="400" y1="372" x2="1200" y2="372" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="805.4" y="360" width="99.9" height="24" rx="12" fill="#3b2bff"/>
+  <text x="64" y="428" font-size="26" font-weight="700" fill="#0e0b24">Southern Europe</text>
+  <text x="64" y="456" font-size="22" fill="#4a4766">$45k–$63k</text>
+  <line x1="400" y1="434" x2="1200" y2="434" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="623.3" y="422" width="89.9" height="24" rx="12" fill="#3b2bff"/>
+  <text x="64" y="490" font-size="26" font-weight="700" fill="#0e0b24">Eastern Europe</text>
+  <text x="64" y="518" font-size="22" fill="#4a4766">$32k–$56k</text>
+  <line x1="400" y1="496" x2="1200" y2="496" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="558.8" y="484" width="123.4" height="24" rx="12" fill="#3b2bff"/>
+  <text x="64" y="552" font-size="26" font-weight="700" fill="#0e0b24">Latin America</text>
+  <text x="64" y="580" font-size="22" fill="#4a4766">$33k–$41k</text>
+  <line x1="400" y1="558" x2="1200" y2="558" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="563.8" y="546" width="42.9" height="24" rx="12" fill="#3b2bff"/>
+  <text x="64" y="614" font-size="26" font-weight="700" fill="#0e0b24">South Asia</text>
+  <text x="64" y="642" font-size="22" fill="#4a4766">$9.9k–$19.8k</text>
+  <line x1="400" y1="620" x2="1200" y2="620" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
+  <rect x="449.7" y="608" width="49.1" height="24" rx="12" fill="#ff4da6"/>
+  <text x="400.0" y="664" font-size="22" fill="#4a4766" text-anchor="middle">$0</text>
+  <text x="650.0" y="664" font-size="22" fill="#4a4766" text-anchor="middle">$50k</text>
+  <text x="900.0" y="664" font-size="22" fill="#4a4766" text-anchor="middle">$100k</text>
+  <text x="1150.0" y="664" font-size="22" fill="#4a4766" text-anchor="middle">$150k</text>
+  <text x="64" y="704" font-size="22" fill="#4a4766">Countries with 100+ respondents. Source: Stack Overflow Developer Survey 2025 and 2026</text>
+</svg>

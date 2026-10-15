@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Three buckets of AI agent cost</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">What you pay once, what you pay monthly, and the people time after launch</text>
+  <text x="1200" y="178" font-size="18" fill="#4a4766" text-anchor="end">Illustrative shape, not to scale</text>
+  <line x1="100" y1="500" x2="1180" y2="500" stroke="#e4e4e7" stroke-width="3"/>
+  <rect x="117.5" y="210" width="48" height="290" rx="6" fill="#3b2bff"/>
+  <text x="141.5" y="530" font-size="18" fill="#4a4766" text-anchor="middle">Build</text>
+  <rect x="200.6" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="200.6" y="410" width="48" height="56" rx="4" fill="#ff4da6"/>
+  <text x="224.6" y="530" font-size="18" fill="#4a4766" text-anchor="middle">1</text>
+  <rect x="283.7" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="283.7" y="410" width="48" height="56" rx="4" fill="#ff4da6"/>
+  <text x="307.7" y="530" font-size="18" fill="#4a4766" text-anchor="middle">2</text>
+  <rect x="366.8" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="366.8" y="410" width="48" height="56" rx="4" fill="#ff4da6"/>
+  <text x="390.8" y="530" font-size="18" fill="#4a4766" text-anchor="middle">3</text>
+  <rect x="449.8" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="449.8" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="473.8" y="530" font-size="18" fill="#4a4766" text-anchor="middle">4</text>
+  <rect x="532.9" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="532.9" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="556.9" y="530" font-size="18" fill="#4a4766" text-anchor="middle">5</text>
+  <rect x="616" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="616" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="640" y="530" font-size="18" fill="#4a4766" text-anchor="middle">6</text>
+  <rect x="699.1" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="699.1" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="723.1" y="530" font-size="18" fill="#4a4766" text-anchor="middle">7</text>
+  <rect x="782.2" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="782.2" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="806.2" y="530" font-size="18" fill="#4a4766" text-anchor="middle">8</text>
+  <rect x="865.2" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="865.2" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="889.2" y="530" font-size="18" fill="#4a4766" text-anchor="middle">9</text>
+  <rect x="948.3" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="948.3" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="972.3" y="530" font-size="18" fill="#4a4766" text-anchor="middle">10</text>
+  <rect x="1031.4" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="1031.4" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="1055.4" y="530" font-size="18" fill="#4a4766" text-anchor="middle">11</text>
+  <rect x="1114.5" y="466" width="48" height="34" fill="#cfc4ff"/>
+  <rect x="1114.5" y="442" width="48" height="24" rx="4" fill="#ff4da6"/>
+  <text x="1138.5" y="530" font-size="18" fill="#4a4766" text-anchor="middle">12</text>
+  <text x="681.5" y="560" font-size="18" fill="#4a4766" text-anchor="middle">Months after launch</text>
+  <rect x="80" y="584" width="357" height="108" rx="16" fill="#F1F2F7"/>
+  <rect x="102" y="603" width="18" height="18" rx="4" fill="#3b2bff"/>
+  <text x="132" y="620" font-size="22" font-weight="700" fill="#0e0b24">Build or setup</text>
+  <text x="102" y="650" font-size="18" fill="#4a4766">One-off: design, integrations,</text>
+  <text x="102" y="675" font-size="18" fill="#4a4766">testing and launch</text>
+  <rect x="461" y="584" width="357" height="108" rx="16" fill="#F1F2F7"/>
+  <rect x="483" y="603" width="18" height="18" rx="4" fill="#cfc4ff"/>
+  <text x="513" y="620" font-size="22" font-weight="700" fill="#0e0b24">Running</text>
+  <text x="483" y="650" font-size="18" fill="#4a4766">Monthly: model fees, hosting,</text>
+  <text x="483" y="675" font-size="18" fill="#4a4766">vector database, monitoring</text>
+  <rect x="842" y="584" width="357" height="108" rx="16" fill="#F1F2F7"/>
+  <rect x="864" y="603" width="18" height="18" rx="4" fill="#ff4da6"/>
+  <text x="894" y="620" font-size="22" font-weight="700" fill="#0e0b24">Upkeep</text>
+  <text x="864" y="650" font-size="18" fill="#4a4766">People time: reviews, fixes and</text>
+  <text x="864" y="675" font-size="18" fill="#4a4766">model changes, heavier at first</text>
+</svg>

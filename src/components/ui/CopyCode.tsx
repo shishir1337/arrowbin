@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/Icon";
  * A coupon/voucher code shown as a dashed chip that copies itself on click.
  *
  * The code is always readable as text, so the component still does its job if the
- * Clipboard API is unavailable (non-secure origin, or permission denied) — the copy
+ * Clipboard API is unavailable (non-secure origin, or permission denied): the copy
  * is a convenience, never the only way to get the value. The result is announced in
  * a polite live region so screen-reader users hear the confirmation too.
  */
@@ -26,7 +26,7 @@ export function CopyCode({
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard unavailable — the code stays visible and selectable.
+      // Clipboard unavailable: the code stays visible and selectable.
     }
   }
 

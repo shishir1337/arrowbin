@@ -6,7 +6,14 @@ import { Magnetic } from "./Magnetic";
  * Closing CTA (ultraviolet band): hundreds of arrowheads all point at the visitor's
  * cursor while a giant magnetic sun orb asks for the call.
  */
-export function Cta({ index = "09" }: { index?: string } = {}) {
+export function Cta({
+  index = "09",
+  text,
+}: {
+  index?: string;
+  /** Page-specific line under the headline; service pages pass their own. */
+  text?: string;
+} = {}) {
   return (
     <section className="relative isolate overflow-hidden bg-ultra text-white">
       <ArrowField className="absolute inset-0 -z-10 h-full w-full" />
@@ -25,8 +32,8 @@ export function Cta({ index = "09" }: { index?: string } = {}) {
           something <span className="text-sun">loud</span>
         </h2>
         <p className="mt-8 max-w-xl rounded-2xl bg-ultra/80 px-4 py-2 text-lg leading-relaxed text-white/90 backdrop-blur-[3px]">
-          Tell us what you&apos;re making. You&apos;ll get a straight answer on
-          scope, timeline and cost from a senior engineer, usually within a day.
+          {text ??
+            "Tell us what you're making. You'll get a straight answer on scope, timeline and cost from a senior engineer, usually within a day."}
         </p>
         <div className="pointer-events-auto mt-12 flex flex-col items-center gap-8 sm:flex-row sm:gap-12">
           <Magnetic strength={0.45}>

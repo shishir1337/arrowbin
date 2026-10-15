@@ -49,6 +49,9 @@ const TONES = [
 
 type Item = Project & { blur?: string };
 
+/** `lang="bn"` for a name in Bengali script, so screen readers switch voice. */
+const nameLang = (name: string) => (/[ঀ-৿]/.test(name) ? "bn" : undefined);
+
 /**
  * Sticky stacking project cards: each card pins near the top and, as the next
  * one slides over it, scales back and tilts away like a dealt deck.
@@ -83,6 +86,7 @@ export function WorkStack({ items }: { items: Item[] }) {
                     {String(i + 1).padStart(2, "0")}) · {p.tags[0]}
                   </p>
                   <h3
+                    lang={nameLang(p.name)}
                     className="mt-4 font-display text-[clamp(2.2rem,4.6vw,4.8rem)] font-black uppercase leading-[0.88] tracking-[-0.04em]"
                     style={{ fontVariationSettings: '"wdth" 112' }}
                   >

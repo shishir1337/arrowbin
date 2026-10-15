@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="head" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0e0b24"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">A weekly rhythm that keeps projects on track</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Ask any firm you shortlist what their week looks like</text>
+
+  <!-- loop arrows (clockwise) -->
+  <g fill="none" stroke="#0e0b24" stroke-width="5" stroke-linecap="round" marker-end="url(#head)">
+    <path d="M705 231.5 A190 190 0 0 1 818.5 345"/>
+    <path d="M818.5 475 A190 190 0 0 1 705 588.5"/>
+    <path d="M575 588.5 A190 190 0 0 1 461.5 475"/>
+    <path d="M461.5 345 A190 190 0 0 1 575 231.5"/>
+  </g>
+
+  <!-- centre -->
+  <text x="640" y="404" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="middle">Every</text>
+  <text x="640" y="436" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="middle">week</text>
+
+  <!-- nodes -->
+  <circle cx="640" cy="220" r="54" fill="#3b2bff"/>
+  <circle cx="830" cy="410" r="54" fill="#ff4da6"/>
+  <circle cx="640" cy="600" r="54" fill="#ffd23f"/>
+  <circle cx="450" cy="410" r="54" fill="#cfc4ff"/>
+
+  <!-- demo: screen with play button -->
+  <rect x="614" y="200" width="52" height="34" rx="5" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <path d="M634 209 l12 8 l-12 8 z" fill="#ffffff"/>
+  <path d="M630 244 h20" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- check-in: speech bubble -->
+  <path d="M808 392 h44 a6 6 0 0 1 6 6 v22 a6 6 0 0 1 -6 6 h-26 l-10 9 v-9 h-8 a6 6 0 0 1 -6 -6 v-22 a6 6 0 0 1 6 -6 z" fill="#ffffff"/>
+  <g fill="#ff4da6">
+    <circle cx="818" cy="409" r="3.5"/>
+    <circle cx="830" cy="409" r="3.5"/>
+    <circle cx="842" cy="409" r="3.5"/>
+  </g>
+
+  <!-- progress: rising bars -->
+  <g fill="#0e0b24">
+    <rect x="618" y="606" width="11" height="16" rx="2"/>
+    <rect x="634" y="596" width="11" height="26" rx="2"/>
+    <rect x="650" y="584" width="11" height="38" rx="2"/>
+  </g>
+
+  <!-- feedback: two messages -->
+  <rect x="424" y="392" width="34" height="22" rx="6" fill="#0e0b24"/>
+  <rect x="442" y="408" width="34" height="22" rx="6" fill="#ffffff" stroke="#0e0b24" stroke-width="3"/>
+
+  <!-- labels -->
+  <g font-size="24" font-weight="700" fill="#0e0b24">
+    <text x="760" y="200">Demo</text>
+    <text x="906" y="402">Check-in</text>
+    <text x="760" y="614">Progress update</text>
+    <text x="374" y="402" text-anchor="end">Feedback</text>
+  </g>
+  <g font-size="19" fill="#4a4766">
+    <text x="760" y="228">Working software you can click</text>
+    <text x="906" y="430">Risks and decisions, raised early</text>
+    <text x="760" y="642">What shipped and what is next</text>
+    <text x="374" y="430" text-anchor="end">Your input shapes the next sprint</text>
+  </g>
+</svg>

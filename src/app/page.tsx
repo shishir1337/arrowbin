@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Bento } from "@/components/home/Bento";
 import { Cta } from "@/components/home/Cta";
 import { Faq } from "@/components/home/Faq";
@@ -12,32 +11,18 @@ import { Tapes } from "@/components/home/Tapes";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Work } from "@/components/home/Work";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { defaultOgImage, site } from "@/lib/site";
+import { pageShare } from "@/lib/metadata";
+import { faqSchema } from "@/lib/schema";
 
-const homeTitle = "Custom Software Development Company | Arrowbin";
+const homeTitle = "Software Development Company for Startups & SMBs | Arrowbin";
 const homeDescription =
-  "Arrowbin is a software development company. We build custom software, web and mobile apps, SaaS products, AI automation and cloud solutions for clients worldwide.";
+  "Arrowbin is a founder-led software development company building custom software, web and mobile apps, SaaS and AI automation. Get a free consultation.";
 
 export const metadata: Metadata = {
   // Absolute title leads with the primary keyword (bypasses the "%s | Arrowbin" template).
   title: { absolute: homeTitle },
   description: homeDescription,
-  openGraph: {
-    type: "website",
-    siteName: site.name,
-    title: homeTitle,
-    description: homeDescription,
-    url: "/",
-    locale: "en_US",
-    images: [defaultOgImage],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: homeTitle,
-    description: homeDescription,
-    images: [defaultOgImage],
-  },
+  ...pageShare({ path: "/", title: homeTitle, description: homeDescription }),
 };
 
 const homeFaqs = [
@@ -71,45 +56,22 @@ const homeFaqs = [
 export default function HomePage() {
   return (
     <>
-      <JsonLd
-        data={[
-          breadcrumbSchema([{ name: "Home", path: "/" }]),
-          faqSchema(homeFaqs),
-        ]}
-      />
+      {/* No breadcrumb here: a one-item trail adds nothing on the homepage. */}
+      <JsonLd data={[faqSchema(homeFaqs)]} />
       <Hero />
-      {/* Each boundary hydrates as its own unit, so React yields to the
-          browser between sections instead of one long hydration task. */}
-      <Suspense fallback={null}>
-        <Tapes />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Manifesto />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Services />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Numbers />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Work />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Process />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Bento />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Testimonials />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Faq items={homeFaqs} />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Cta />
-      </Suspense>
+      {/* Sections render in document order, inside <main>. Wrapping each in
+          <Suspense> made the prerendered HTML stream them as hidden blocks after
+          </main>, so crawlers and AI tools reading raw HTML saw ~5% of the text. */}
+      <Tapes />
+      <Manifesto />
+      <Services />
+      <Numbers />
+      <Work />
+      <Process />
+      <Bento />
+      <Testimonials />
+      <Faq items={homeFaqs} />
+      <Cta />
     </>
   );
 }

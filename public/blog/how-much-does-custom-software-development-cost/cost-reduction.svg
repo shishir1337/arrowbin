@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Build in phases, not all at once</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Each phase is funded by the value the previous one created</text>
+
+  <!-- path -->
+  <path d="M200 540 C320 540 380 450 500 450 S680 360 800 360 S980 270 1100 270" fill="none" stroke="#0e0b24" stroke-width="5" stroke-dasharray="14 12" stroke-linecap="round"/>
+
+  <!-- milestones -->
+  <circle cx="200" cy="540" r="54" fill="#cfc4ff"/>
+  <circle cx="500" cy="450" r="54" fill="#ffd23f"/>
+  <circle cx="800" cy="360" r="54" fill="#ff4da6"/>
+  <circle cx="1100" cy="270" r="54" fill="#3b2bff"/>
+  <g font-size="34" font-weight="700" text-anchor="middle">
+    <text x="200" y="552" fill="#0e0b24">1</text>
+    <text x="500" y="462" fill="#0e0b24">2</text>
+    <text x="800" y="372" fill="#0e0b24">3</text>
+    <text x="1100" y="282" fill="#ffffff">4</text>
+  </g>
+
+  <!-- names -->
+  <g font-size="30" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="200" y="462">MVP</text>
+    <text x="500" y="372">Launch</text>
+    <text x="800" y="282">Scale</text>
+    <text x="1100" y="192">Expand</text>
+  </g>
+
+  <!-- what each phase does -->
+  <g font-size="20" fill="#4a4766" text-anchor="middle">
+    <text x="200" y="626">Prove the core value</text>
+    <text x="500" y="536">Real users, real feedback</text>
+    <text x="800" y="446">Grow what works</text>
+    <text x="1100" y="356">New features and markets</text>
+  </g>
+
+  <text x="80" y="684" font-size="18" fill="#4a4766">Cutting scope, not quality, is the safe way to lower cost: discovery, design and QA stay in every phase.</text>
+</svg>

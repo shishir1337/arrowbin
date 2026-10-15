@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff4da6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#ff4da6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#cfc4ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#cfc4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffd23f" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#ffd23f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="135%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16"/>
+      <feOffset dy="14"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.14"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="720" fill="#F1F2F7"/>
+  <circle cx="1130" cy="110" r="330" fill="url(#g1)"/>
+  <circle cx="150" cy="650" r="340" fill="url(#g2)"/>
+  <circle cx="760" cy="760" r="300" fill="url(#g3)"/>
+
+  <!-- browser window -->
+  <g filter="url(#sh)">
+    <rect x="72" y="88" width="880" height="560" rx="22" fill="#ffffff"/>
+  </g>
+  <path d="M94 88h836a22 22 0 0 1 22 22v30H72v-30a22 22 0 0 1 22-22z" fill="#f7f7fb"/>
+  <line x1="72" y1="140" x2="952" y2="140" stroke="#e4e4e7" stroke-width="1.5"/>
+  <circle cx="104" cy="114" r="7" fill="#ff6b3d"/>
+  <circle cx="128" cy="114" r="7" fill="#ffd23f"/>
+  <circle cx="152" cy="114" r="7" fill="#cfc4ff"/>
+  <rect x="190" y="99" width="470" height="30" rx="15" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+  <rect x="208" y="111" width="12" height="9" rx="2" fill="#4a4766"/>
+  <path d="M210.5 111v-3a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="#4a4766" stroke-width="1.8"/>
+  <text x="230" y="120" font-size="16" fill="#4a4766">yourstore.com.bd/checkout</text>
+
+  <!-- left: order summary -->
+  <text x="112" y="196" font-size="30" font-weight="700" fill="#0e0b24">Checkout</text>
+  <g font-size="15" font-weight="600">
+    <rect x="112" y="214" width="64" height="28" rx="14" fill="#F1F2F7"/>
+    <text x="144" y="233" text-anchor="middle" fill="#4a4766">Cart</text>
+    <rect x="184" y="214" width="88" height="28" rx="14" fill="#F1F2F7"/>
+    <text x="228" y="233" text-anchor="middle" fill="#4a4766">Delivery</text>
+    <rect x="280" y="214" width="92" height="28" rx="14" fill="#3b2bff"/>
+    <text x="326" y="233" text-anchor="middle" fill="#ffffff">Payment</text>
+  </g>
+
+  <rect x="112" y="262" width="340" height="282" rx="16" fill="#F1F2F7"/>
+  <rect x="132" y="282" width="56" height="56" rx="12" fill="#cfc4ff"/>
+  <path d="M146 324l12-16 9 11 6-7 9 12z" fill="#3b2bff" opacity="0.55"/>
+  <rect x="132" y="358" width="56" height="56" rx="12" fill="#ffd23f"/>
+  <circle cx="160" cy="386" r="13" fill="#ff6b3d" opacity="0.6"/>
+  <g font-size="18" fill="#0e0b24">
+    <text x="204" y="306" font-weight="600">Cotton kurti</text>
+    <text x="204" y="382" font-weight="600">Leather sandals</text>
+  </g>
+  <g font-size="16" fill="#4a4766">
+    <text x="204" y="330">Qty 1</text>
+    <text x="204" y="406">Qty 1</text>
+  </g>
+  <g font-size="18" fill="#0e0b24" text-anchor="end">
+    <text x="432" y="306">Tk 1,450</text>
+    <text x="432" y="382">Tk 1,000</text>
+    <text x="432" y="470">Tk 60</text>
+  </g>
+  <line x1="132" y1="436" x2="432" y2="436" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="132" y="470" font-size="18" fill="#4a4766">Delivery</text>
+  <text x="132" y="516" font-size="20" font-weight="700" fill="#0e0b24">Total</text>
+  <text x="432" y="516" font-size="22" font-weight="700" fill="#3b2bff" text-anchor="end">Tk 2,510</text>
+
+  <!-- right: payment options -->
+  <text x="488" y="196" font-size="20" font-weight="700" fill="#0e0b24">Payment method</text>
+
+  <rect x="488" y="218" width="424" height="66" rx="14" fill="#f4f2ff" stroke="#3b2bff" stroke-width="2.5"/>
+  <rect x="488" y="296" width="424" height="66" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <rect x="488" y="374" width="424" height="66" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <rect x="488" y="452" width="424" height="66" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+
+  <!-- radios -->
+  <circle cx="518" cy="251" r="11" fill="#ffffff" stroke="#3b2bff" stroke-width="2.5"/>
+  <circle cx="518" cy="251" r="6" fill="#3b2bff"/>
+  <g fill="#ffffff" stroke="#b9b7c8" stroke-width="2.5">
+    <circle cx="518" cy="329" r="11"/>
+    <circle cx="518" cy="407" r="11"/>
+    <circle cx="518" cy="485" r="11"/>
+  </g>
+
+  <!-- icons: wallet, wallet, card, cash -->
+  <g fill="none" stroke-width="2.5" stroke-linejoin="round">
+    <rect x="546" y="238" width="38" height="27" rx="6" stroke="#3b2bff"/>
+    <path d="M584 246h-10a5.5 5.5 0 0 0 0 11h10" stroke="#3b2bff"/>
+    <rect x="546" y="316" width="38" height="27" rx="6" stroke="#4a4766"/>
+    <path d="M584 324h-10a5.5 5.5 0 0 0 0 11h10" stroke="#4a4766"/>
+    <rect x="546" y="394" width="38" height="27" rx="5" stroke="#4a4766"/>
+    <line x1="546" y1="403" x2="584" y2="403" stroke="#4a4766"/>
+    <rect x="546" y="473" width="38" height="24" rx="4" stroke="#4a4766"/>
+    <circle cx="565" cy="485" r="6" stroke="#4a4766"/>
+  </g>
+
+  <g font-size="20" font-weight="600" fill="#0e0b24">
+    <text x="604" y="258">bKash</text>
+    <text x="604" y="336">Nagad</text>
+    <text x="604" y="414">Card</text>
+    <text x="604" y="492">Cash on delivery</text>
+  </g>
+  <g font-size="16" fill="#4a4766" text-anchor="end">
+    <text x="892" y="257">Mobile wallet</text>
+    <text x="892" y="335">Mobile wallet</text>
+    <text x="892" y="413">Visa, Mastercard</text>
+    <text x="892" y="491">Pay at your door</text>
+  </g>
+
+  <rect x="488" y="542" width="424" height="58" rx="29" fill="#3b2bff"/>
+  <text x="700" y="579" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">Pay Tk 2,510</text>
+
+  <!-- phone -->
+  <g filter="url(#sh)">
+    <rect x="968" y="128" width="244" height="500" rx="38" fill="#0e0b24"/>
+  </g>
+  <rect x="978" y="138" width="224" height="480" rx="30" fill="#ffffff"/>
+  <rect x="1060" y="150" width="60" height="16" rx="8" fill="#0e0b24"/>
+  <circle cx="1090" cy="254" r="46" fill="#ffd23f"/>
+  <path d="M1068 255l15 15 29-30" fill="none" stroke="#0e0b24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1090" y="336" font-size="21" font-weight="700" fill="#0e0b24" text-anchor="middle">Payment received</text>
+  <text x="1090" y="364" font-size="16" fill="#4a4766" text-anchor="middle">Order #A1024</text>
+  <rect x="996" y="386" width="188" height="96" rx="16" fill="#F1F2F7"/>
+  <text x="1090" y="418" font-size="16" fill="#4a4766" text-anchor="middle">Paid with bKash</text>
+  <text x="1090" y="458" font-size="28" font-weight="700" fill="#3b2bff" text-anchor="middle">Tk 2,510</text>
+  <rect x="996" y="506" width="188" height="50" rx="25" fill="#3b2bff"/>
+  <text x="1090" y="537" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">Track order</text>
+  <rect x="1050" y="596" width="80" height="6" rx="3" fill="#e4e4e7"/>
+
+  <!-- verification toast -->
+  <g filter="url(#sh)">
+    <rect x="640" y="624" width="280" height="68" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="678" cy="658" r="18" fill="#ff4da6"/>
+  <path d="M669 658l6 6 12-12" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="708" y="652" font-size="18" font-weight="700" fill="#0e0b24">Payment validated</text>
+  <text x="708" y="675" font-size="15" fill="#4a4766">server-side, amount matched</text>
+</svg>

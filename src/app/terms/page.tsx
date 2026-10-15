@@ -3,14 +3,22 @@ import Link from "next/link";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { pageShare } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
-import { pageAlternates, site } from "@/lib/site";
+import { site } from "@/lib/site";
+
+const description =
+  "The terms for using the Arrowbin website and how our software development projects are agreed: quotes, signed agreements, IP ownership and liability.";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description:
-    "The terms that govern your use of the Arrowbin website and how engagements for our software development services work.",
-  alternates: pageAlternates("/terms"),
+  // Absolute: the name is already in the title, so skip the " | Arrowbin" template.
+  title: { absolute: "Terms of Service for Arrowbin Projects" },
+  description,
+  ...pageShare({
+    path: "/terms",
+    title: "Terms of Service for Arrowbin Projects",
+    description,
+  }),
 };
 
 const crumbs = [

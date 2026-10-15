@@ -1,4 +1,4 @@
-/** Mono section tag: "(01) — Manifesto" with a short rule. */
+/** Mono section tag: "(01): Manifesto" with a short rule. */
 export function SectionLabel({
   index,
   title,

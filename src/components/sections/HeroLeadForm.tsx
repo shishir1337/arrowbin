@@ -128,10 +128,10 @@ export function HeroLeadForm({ serviceName }: { serviceName: string }) {
       className="card-surface rounded-2xl p-6 shadow-[var(--shadow-glow)] sm:p-7"
       noValidate
     >
-      {/* Service this enquiry is about — pre-filled from the page. */}
+      {/* Service this enquiry is about: pre-filled from the page. */}
       <input type="hidden" name="service" value={serviceName} />
 
-      {/* Honeypot — hidden from users, catches bots. */}
+      {/* Honeypot: hidden from users, catches bots. */}
       <div className="absolute left-[-9999px]" aria-hidden="true">
         <label htmlFor="hero_company_website">Leave this field empty</label>
         <input

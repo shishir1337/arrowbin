@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">Where an MVP budget goes, phase by phase</text>
+  <text x="60" y="128" font-size="24" fill="#4a4766">Typical split, how long each phase runs, and what it hands you</text>
+  <defs><clipPath id="bar"><rect x="80" y="236" width="1120" height="92" rx="16"/></clipPath></defs>
+  <g clip-path="url(#bar)">
+    <rect x="80" y="236" width="112" height="92" fill="#ff6b3d"/>
+    <rect x="192" y="236" width="168" height="92" fill="#ff4da6"/>
+    <rect x="360" y="236" width="560" height="92" fill="#3b2bff"/>
+    <rect x="920" y="236" width="168" height="92" fill="#ffd23f"/>
+    <rect x="1088" y="236" width="112" height="92" fill="#cfc4ff"/>
+  </g>
+  <text x="136" y="220" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Discovery</text>
+  <text x="136" y="293" font-size="30" font-weight="700" fill="#0e0b24" text-anchor="middle">10%</text>
+  <text x="136" y="358" font-size="18" fill="#4a4766" text-anchor="middle">1–2 wks</text>
+  <text x="276" y="220" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Design</text>
+  <text x="276" y="293" font-size="30" font-weight="700" fill="#0e0b24" text-anchor="middle">15%</text>
+  <text x="276" y="358" font-size="18" fill="#4a4766" text-anchor="middle">1.5–3 wks</text>
+  <text x="640" y="220" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Development</text>
+  <text x="640" y="293" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle">50%</text>
+  <text x="640" y="358" font-size="18" fill="#4a4766" text-anchor="middle">5–9 wks</text>
+  <text x="1004" y="220" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">QA</text>
+  <text x="1004" y="293" font-size="30" font-weight="700" fill="#0e0b24" text-anchor="middle">15%</text>
+  <text x="1004" y="358" font-size="18" fill="#4a4766" text-anchor="middle">1–2 wks</text>
+  <text x="1144" y="220" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">PM</text>
+  <text x="1144" y="293" font-size="30" font-weight="700" fill="#0e0b24" text-anchor="middle">10%</text>
+  <text x="1144" y="358" font-size="18" fill="#4a4766" text-anchor="middle">throughout</text>
+  <line x1="136" y1="370" x2="184" y2="418" stroke="#cfc4ff" stroke-width="2"/>
+  <rect x="80" y="420" width="208" height="176" rx="16" fill="#F1F2F7"/>
+  <rect x="80" y="420" width="208" height="8" rx="4" fill="#ff6b3d"/>
+  <text x="100" y="462" font-size="18" fill="#4a4766">You get</text>
+  <text x="100" y="498" font-size="20" font-weight="700" fill="#0e0b24">Locked scope</text>
+  <text x="100" y="530" font-size="20" font-weight="700" fill="#0e0b24">User flows</text>
+  <text x="100" y="562" font-size="20" font-weight="700" fill="#0e0b24">A fixed quote</text>
+  <line x1="276" y1="370" x2="412" y2="418" stroke="#cfc4ff" stroke-width="2"/>
+  <rect x="308" y="420" width="208" height="176" rx="16" fill="#F1F2F7"/>
+  <rect x="308" y="420" width="208" height="8" rx="4" fill="#ff4da6"/>
+  <text x="328" y="462" font-size="18" fill="#4a4766">You get</text>
+  <text x="328" y="498" font-size="20" font-weight="700" fill="#0e0b24">Key screens</text>
+  <text x="328" y="530" font-size="20" font-weight="700" fill="#0e0b24">Clickable flows</text>
+  <text x="328" y="562" font-size="20" font-weight="700" fill="#0e0b24">Design system</text>
+  <line x1="640" y1="370" x2="640" y2="418" stroke="#cfc4ff" stroke-width="2"/>
+  <rect x="536" y="420" width="208" height="176" rx="16" fill="#F1F2F7"/>
+  <rect x="536" y="420" width="208" height="8" rx="4" fill="#3b2bff"/>
+  <text x="556" y="462" font-size="18" fill="#4a4766">You get</text>
+  <text x="556" y="498" font-size="20" font-weight="700" fill="#0e0b24">Front end</text>
+  <text x="556" y="530" font-size="20" font-weight="700" fill="#0e0b24">Server and data</text>
+  <text x="556" y="562" font-size="20" font-weight="700" fill="#0e0b24">Integrations</text>
+  <line x1="1004" y1="370" x2="868" y2="418" stroke="#cfc4ff" stroke-width="2"/>
+  <rect x="764" y="420" width="208" height="176" rx="16" fill="#F1F2F7"/>
+  <rect x="764" y="420" width="208" height="8" rx="4" fill="#ffd23f"/>
+  <text x="784" y="462" font-size="18" fill="#4a4766">You get</text>
+  <text x="784" y="498" font-size="20" font-weight="700" fill="#0e0b24">Tested flows</text>
+  <text x="784" y="530" font-size="20" font-weight="700" fill="#0e0b24">Real devices</text>
+  <text x="784" y="562" font-size="20" font-weight="700" fill="#0e0b24">Bugs fixed</text>
+  <line x1="1144" y1="370" x2="1096" y2="418" stroke="#cfc4ff" stroke-width="2"/>
+  <rect x="992" y="420" width="208" height="176" rx="16" fill="#F1F2F7"/>
+  <rect x="992" y="420" width="208" height="8" rx="4" fill="#cfc4ff"/>
+  <text x="1012" y="462" font-size="18" fill="#4a4766">You get</text>
+  <text x="1012" y="498" font-size="20" font-weight="700" fill="#0e0b24">Weekly demos</text>
+  <text x="1012" y="530" font-size="20" font-weight="700" fill="#0e0b24">Decision log</text>
+  <text x="1012" y="562" font-size="20" font-weight="700" fill="#0e0b24">Scope held</text>
+  <text x="80" y="652" font-size="22" font-weight="700" fill="#0e0b24">Development is half the budget. The other half is what gets it launched.</text>
+  <text x="80" y="686" font-size="18" fill="#4a4766">Shares: Arrowbin estimate. Phase lengths: our MVP timeline guide.</text>
+</svg>

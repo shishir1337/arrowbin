@@ -9,7 +9,7 @@ import { FooterWordmark } from "./FooterWordmark";
 const year = new Date().getFullYear();
 
 const linkCls =
-  "group inline-flex items-center gap-1.5 text-[0.95rem] text-ink-2 transition-colors hover:text-ultra";
+  "group inline-flex min-h-11 items-center gap-1.5 text-[0.95rem] text-ink-2 transition-colors hover:text-ultra";
 
 export function Footer() {
   return (
@@ -42,7 +42,7 @@ export function Footer() {
 
           <nav aria-label="Services" className="lg:col-span-3">
             <h2 className="label text-ink-2">Services</h2>
-            <ul className="mt-5 space-y-2.5">
+            <ul className="mt-3">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services/${s.slug}`} className={linkCls}>
@@ -56,7 +56,7 @@ export function Footer() {
 
           <nav aria-label="Company" className="lg:col-span-2">
             <h2 className="label text-ink-2">Company</h2>
-            <ul className="mt-5 space-y-2.5">
+            <ul className="mt-3">
               {mainNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={linkCls}>
@@ -88,7 +88,7 @@ export function Footer() {
             >
               {site.email}
             </a>
-            <ul className="mt-5 space-y-2">
+            <ul className="mt-3">
               {site.phones.map((p) => (
                 <li key={p.value}>
                   <a href={p.href} className={linkCls}>

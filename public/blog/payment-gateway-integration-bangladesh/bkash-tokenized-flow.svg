@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#0e0b24"/>
+    </marker>
+    <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#ff6b3d"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="64" y="80" font-size="40" font-weight="700" fill="#0e0b24">bKash tokenized checkout, step by step</text>
+  <text x="64" y="118" font-size="24" fill="#4a4766">Execute once. If it hangs for 30 seconds, query before you retry.</text>
+
+  <!-- row 1: the happy path -->
+  <g>
+    <rect x="64" y="156" width="250" height="96" rx="16" fill="#cfc4ff"/>
+    <rect x="358" y="156" width="250" height="96" rx="16" fill="#cfc4ff"/>
+    <rect x="652" y="156" width="250" height="96" rx="16" fill="#cfc4ff"/>
+    <rect x="946" y="156" width="270" height="96" rx="16" fill="#cfc4ff"/>
+  </g>
+  <g font-size="20" font-weight="700" fill="#0e0b24">
+    <text x="86" y="196">1. Grant token</text>
+    <text x="380" y="196">2. Create payment</text>
+    <text x="674" y="196">3. Shopper confirms</text>
+    <text x="968" y="196">4. Callback to you</text>
+  </g>
+  <g font-size="19" fill="#0e0b24">
+    <text x="86" y="226">reuse it for 60 min</text>
+    <text x="380" y="226">get a paymentID</text>
+    <text x="674" y="226">wallet, OTP and PIN</text>
+    <text x="968" y="226">with paymentID, status</text>
+  </g>
+
+  <!-- row 2 -->
+  <rect x="946" y="326" width="270" height="96" rx="16" fill="#3b2bff"/>
+  <text x="968" y="366" font-size="20" font-weight="700" fill="#ffffff">5. Execute payment</text>
+  <text x="968" y="396" font-size="19" fill="#ffffff">once per paymentID</text>
+
+  <rect x="652" y="326" width="250" height="96" rx="16" fill="#ffffff" stroke="#ff6b3d" stroke-width="2.5"/>
+  <text x="674" y="366" font-size="20" font-weight="700" fill="#0e0b24">Order stays unpaid</text>
+  <text x="674" y="396" font-size="19" fill="#4a4766">offer a retry button</text>
+
+  <rect x="64" y="326" width="544" height="96" rx="16" fill="#F1F2F7" stroke="#3b2bff" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="86" y="366" font-size="20" font-weight="700" fill="#0e0b24">Refunds: full or partial, within 60 days</text>
+  <text x="86" y="396" font-size="19" fill="#4a4766">No reply in 30 s? Check Refund Status first</text>
+
+  <!-- row 3 -->
+  <rect x="946" y="496" width="270" height="96" rx="16" fill="#ffd23f"/>
+  <text x="968" y="536" font-size="20" font-weight="700" fill="#0e0b24">6. Mark the order paid</text>
+  <text x="968" y="566" font-size="19" fill="#0e0b24">then show the receipt</text>
+
+  <rect x="652" y="496" width="250" height="96" rx="16" fill="#ffffff" stroke="#ff6b3d" stroke-width="2.5"/>
+  <text x="674" y="536" font-size="20" font-weight="700" fill="#0e0b24">Query payment</text>
+  <text x="674" y="566" font-size="19" fill="#4a4766">before any retry</text>
+
+  <rect x="358" y="496" width="250" height="96" rx="16" fill="#F1F2F7"/>
+  <text x="380" y="526" font-size="19" font-weight="700" fill="#0e0b24">Completed: paid</text>
+  <text x="380" y="552" font-size="19" fill="#0e0b24">Initiated: not paid,</text>
+  <text x="380" y="578" font-size="19" fill="#0e0b24">start a new payment</text>
+
+  <rect x="64" y="496" width="250" height="96" rx="16" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="86" y="536" font-size="19" fill="#4a4766">app_secret and tokens</text>
+  <text x="86" y="564" font-size="19" fill="#4a4766">stay on your server</text>
+
+  <!-- arrows -->
+  <g stroke="#0e0b24" stroke-width="2.5" fill="none" marker-end="url(#a)">
+    <line x1="314" y1="204" x2="352" y2="204"/>
+    <line x1="608" y1="204" x2="646" y2="204"/>
+    <line x1="902" y1="204" x2="940" y2="204"/>
+    <line x1="1081" y1="252" x2="1081" y2="320"/>
+    <line x1="1081" y1="422" x2="1081" y2="490"/>
+  </g>
+  <g stroke="#ff6b3d" stroke-width="2.5" fill="none" marker-end="url(#c)">
+    <line x1="980" y1="252" x2="862" y2="322"/>
+    <line x1="980" y1="422" x2="862" y2="492"/>
+    <line x1="652" y1="544" x2="614" y2="544"/>
+  </g>
+  <g font-size="18" font-weight="600">
+    <text x="1094" y="294" fill="#0e0b24">success</text>
+    <text x="1094" y="464" fill="#0e0b24">Completed</text>
+    <text x="890" y="292" fill="#ff6b3d" text-anchor="end">failure or cancel</text>
+    <text x="890" y="462" fill="#ff6b3d" text-anchor="end">no reply in 30 s</text>
+  </g>
+
+  <text x="64" y="680" font-size="18" fill="#4a4766">Source: bKash developer portal (developer.bka.sh/docs): tokenized checkout, Query Payment, Refund. Checked 15 Oct 2026.</text>
+</svg>

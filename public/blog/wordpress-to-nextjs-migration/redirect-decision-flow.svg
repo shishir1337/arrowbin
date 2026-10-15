@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">What to do with each old WordPress URL</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">One decision per row of the redirect map, asked in this order</text>
+
+  <!-- start -->
+  <rect x="80" y="160" width="220" height="68" rx="14" fill="#3b2bff"/>
+  <text x="190" y="202" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">Each old URL</text>
+
+  <!-- connectors -->
+  <g stroke="#4a4766" stroke-width="2.5" marker-end="url(#a)">
+    <line x1="300" y1="194" x2="378" y2="194"/>
+    <line x1="595" y1="228" x2="595" y2="252"/>
+    <line x1="595" y1="322" x2="595" y2="346"/>
+    <line x1="595" y1="416" x2="595" y2="440"/>
+    <line x1="595" y1="510" x2="595" y2="534"/>
+    <line x1="810" y1="194" x2="898" y2="194"/>
+    <line x1="810" y1="288" x2="898" y2="288"/>
+    <line x1="810" y1="382" x2="898" y2="382"/>
+    <line x1="810" y1="476" x2="898" y2="476"/>
+    <line x1="810" y1="570" x2="898" y2="570"/>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="607" y="246">No</text>
+    <text x="607" y="340">No</text>
+    <text x="607" y="434">No</text>
+    <text x="607" y="528">No</text>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="854" y="184">Yes</text>
+    <text x="854" y="278">Yes</text>
+    <text x="854" y="372">Yes</text>
+    <text x="854" y="466">Yes</text>
+  </g>
+
+  <!-- questions -->
+  <g fill="#F1F2F7" stroke="#e4e4e7" stroke-width="2">
+    <rect x="380" y="160" width="430" height="68" rx="14"/>
+    <rect x="380" y="254" width="430" height="68" rx="14"/>
+    <rect x="380" y="348" width="430" height="68" rx="14"/>
+    <rect x="380" y="442" width="430" height="68" rx="14"/>
+  </g>
+  <rect x="380" y="536" width="430" height="68" rx="14" fill="#ffffff" stroke="#ff6b3d" stroke-width="3"/>
+  <g font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <text x="595" y="202">Same URL on the new site?</text>
+    <text x="595" y="296">Same content, new address?</text>
+    <text x="595" y="390">Merged into another page?</text>
+    <text x="595" y="484">Spam or junk parameters?</text>
+    <text x="595" y="578">No equivalent: removed on purpose</text>
+  </g>
+
+  <!-- outcomes -->
+  <rect x="900" y="160" width="300" height="68" rx="14" fill="#ffffff" stroke="#3b2bff" stroke-width="3"/>
+  <rect x="900" y="254" width="300" height="68" rx="14" fill="#3b2bff"/>
+  <rect x="900" y="348" width="300" height="68" rx="14" fill="#3b2bff"/>
+  <rect x="900" y="442" width="300" height="68" rx="14" fill="#cfc4ff"/>
+  <rect x="900" y="536" width="300" height="68" rx="14" fill="#ff6b3d"/>
+
+  <g font-size="21" font-weight="700" text-anchor="middle">
+    <text x="1050" y="190" fill="#0e0b24">Keep the URL</text>
+    <text x="1050" y="284" fill="#ffffff">308 to the new page</text>
+    <text x="1050" y="378" fill="#ffffff">308 to the closest page</text>
+    <text x="1050" y="472" fill="#0e0b24">308 to the clean URL</text>
+    <text x="1050" y="566" fill="#0e0b24">410 Gone + noindex</text>
+  </g>
+  <g font-size="18" text-anchor="middle">
+    <text x="1050" y="215" fill="#4a4766">no redirect needed</text>
+    <text x="1050" y="309" fill="#ffffff">/portfolio to /work</text>
+    <text x="1050" y="403" fill="#ffffff">/help to /contact</text>
+    <text x="1050" y="497" fill="#0e0b24">/?channel=x to /</text>
+    <text x="1050" y="591" fill="#0e0b24">/become-seller</text>
+  </g>
+
+  <text x="80" y="652" font-size="20" font-weight="600" fill="#0e0b24">Avoid: redirect chains (A to B to C) and dead URLs sent to the homepage.</text>
+  <text x="80" y="692" font-size="18" fill="#4a4766">Sources: Google Search Central site-move guide; examples from arrowbin.com (next.config.ts, src/proxy.ts)</text>
+</svg>

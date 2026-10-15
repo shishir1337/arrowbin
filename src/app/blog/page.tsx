@@ -1,27 +1,24 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { BlogAnswers, BlogHero, BlogList } from "@/components/blog/BlogIndex";
 import { Cta } from "@/components/home/Cta";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { sortedPosts } from "@/lib/blog";
+import { pageShare } from "@/lib/metadata";
 import { breadcrumbSchema, collectionPageSchema } from "@/lib/schema";
-import { defaultOgImage, pageAlternates } from "@/lib/site";
+
+const title = "Software Development Blog: Costs, MVPs & Hiring";
+const description =
+  "Practical software development guides from the Arrowbin team: what software costs, how long an MVP takes, and how to choose a development partner.";
 
 export const metadata: Metadata = {
-  title: "Blog & Insights",
-  description:
-    "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner, from the Arrowbin team.",
-  alternates: {
-    ...pageAlternates("/blog"),
-    types: { "application/rss+xml": "/blog/rss.xml" },
-  },
-  openGraph: {
-    title: "Blog & Insights | Arrowbin",
+  title,
+  description,
+  ...pageShare({
+    path: "/blog",
+    title: `${title} | Arrowbin`,
     description: "Guides on software development, cost, MVPs, SaaS and AI.",
-    url: "/blog",
-    images: [defaultOgImage],
-  },
+  }),
 };
 
 const crumbs = [
@@ -36,7 +33,7 @@ export default function BlogPage() {
         data={[
           breadcrumbSchema(crumbs),
           collectionPageSchema({
-            name: "Blog & Insights | Arrowbin",
+            name: "Arrowbin Blog",
             description:
               "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner.",
             path: "/blog",
@@ -48,9 +45,9 @@ export default function BlogPage() {
       <BlogHero crumbs={crumbs} posts={sortedPosts} />
       <BlogList posts={sortedPosts} label="01" />
       <BlogAnswers posts={sortedPosts} label="02" />
-      <Suspense fallback={null}>
-        <Cta index="03" />
-      </Suspense>
+      {/* Rendered directly, not inside <Suspense>: a boundary here made the
+          prerendered HTML stream the closing CTA as a hidden block after </main>. */}
+      <Cta index="03" />
     </>
   );
 }

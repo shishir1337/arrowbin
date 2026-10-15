@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">The MVP cost formula</text>
+  <text x="60" y="128" font-size="24" fill="#4a4766">Build weeks drive the number. Launch and running costs sit on top.</text>
+  <path d="M60 198 V186 H738 V198" fill="none" stroke="#3b2bff" stroke-width="3"/>
+  <text x="399" y="174" font-size="20" font-weight="700" fill="#3b2bff" text-anchor="middle">Build cost: almost all of the budget</text>
+  <path d="M783 198 V186 H1220 V198" fill="none" stroke="#ff6b3d" stroke-width="3"/>
+  <text x="1001" y="174" font-size="20" font-weight="700" fill="#ff6b3d" text-anchor="middle">Smaller, but plan for them</text>
+  <rect x="60" y="210" width="196" height="130" rx="18" fill="#3b2bff" stroke="none" stroke-width="2"/>
+  <text x="158" y="268" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">Build weeks</text>
+  <text x="158" y="300" font-size="18" fill="#e6e2ff" text-anchor="middle">set by your scope</text>
+  <text x="278.5" y="290" font-size="40" font-weight="700" fill="#0e0b24" text-anchor="middle">×</text>
+  <rect x="301" y="210" width="196" height="130" rx="18" fill="#cfc4ff" stroke="none" stroke-width="2"/>
+  <text x="399" y="268" font-size="24" font-weight="700" fill="#0e0b24" text-anchor="middle">Team size</text>
+  <text x="399" y="300" font-size="18" fill="#4a4766" text-anchor="middle">people on the build</text>
+  <text x="519.5" y="290" font-size="40" font-weight="700" fill="#0e0b24" text-anchor="middle">×</text>
+  <rect x="542" y="210" width="196" height="130" rx="18" fill="#cfc4ff" stroke="none" stroke-width="2"/>
+  <text x="640" y="268" font-size="24" font-weight="700" fill="#0e0b24" text-anchor="middle">Weekly rate</text>
+  <text x="640" y="300" font-size="18" fill="#4a4766" text-anchor="middle">per person</text>
+  <text x="760.5" y="290" font-size="40" font-weight="700" fill="#0e0b24" text-anchor="middle">+</text>
+  <rect x="783" y="210" width="196" height="130" rx="18" fill="#F1F2F7" stroke="#ff6b3d" stroke-width="2"/>
+  <text x="881" y="268" font-size="24" font-weight="700" fill="#0e0b24" text-anchor="middle">Launch costs</text>
+  <text x="881" y="300" font-size="18" fill="#4a4766" text-anchor="middle">domain, store fees</text>
+  <text x="1001.5" y="290" font-size="40" font-weight="700" fill="#0e0b24" text-anchor="middle">+</text>
+  <rect x="1024" y="210" width="196" height="130" rx="18" fill="#F1F2F7" stroke="#ff6b3d" stroke-width="2"/>
+  <text x="1122" y="268" font-size="24" font-weight="700" fill="#0e0b24" text-anchor="middle">Running costs</text>
+  <text x="1122" y="300" font-size="18" fill="#4a4766" text-anchor="middle">first year live</text>
+  <rect x="60" y="362" width="1160" height="56" rx="14" fill="#F1F2F7"/>
+  <text x="640" y="398" font-size="24" font-weight="700" fill="#0e0b24" text-anchor="middle">= your MVP budget</text>
+  <text x="60" y="480" font-size="24" font-weight="700" fill="#0e0b24">Worked example: a $60,000 SaaS MVP built in about 14 weeks</text>
+  <rect x="60" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="93" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W1</text>
+  <rect x="132.9" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="165.9" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W2</text>
+  <rect x="205.9" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="238.9" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W3</text>
+  <rect x="278.8" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="311.8" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W4</text>
+  <rect x="351.7" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="384.7" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W5</text>
+  <rect x="424.7" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="457.7" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W6</text>
+  <rect x="497.6" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="530.6" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W7</text>
+  <rect x="570.5" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="603.5" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W8</text>
+  <rect x="643.5" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="676.5" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W9</text>
+  <rect x="716.4" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="749.4" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W10</text>
+  <rect x="789.3" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="822.3" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W11</text>
+  <rect x="862.3" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="895.3" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W12</text>
+  <rect x="935.2" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="968.2" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W13</text>
+  <rect x="1008.1" y="504" width="66" height="70" rx="10" fill="#3b2bff"/>
+  <text x="1041.1" y="546" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">W14</text>
+  <rect x="1081.1" y="504" width="66" height="70" rx="10" fill="#ffffff" stroke="#ff4da6" stroke-width="3" stroke-dasharray="7 5"/>
+  <text x="1114.1" y="546" font-size="18" font-weight="700" fill="#ff4da6" text-anchor="middle">+1</text>
+  <rect x="1154" y="504" width="66" height="70" rx="10" fill="#ffffff" stroke="#ff4da6" stroke-width="3" stroke-dasharray="7 5"/>
+  <text x="1187" y="546" font-size="18" font-weight="700" fill="#ff4da6" text-anchor="middle">+2</text>
+  <text x="60" y="616" font-size="22" fill="#0e0b24">Each build week ≈ $4,300 ($60,000 ÷ 14)</text>
+  <text x="1220" y="616" font-size="22" font-weight="700" fill="#d81b7a" text-anchor="end">Two extra weeks of scope ≈ +$8,600</text>
+  <text x="60" y="668" font-size="18" fill="#4a4766">Arrowbin estimate, from the worked example in our custom software cost guide.</text>
+</svg>

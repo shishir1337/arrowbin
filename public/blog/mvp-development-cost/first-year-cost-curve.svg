@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">What an MVP costs across its first year</text>
+  <text x="60" y="128" font-size="24" fill="#4a4766">Cumulative spend on our $60,000, 14-week SaaS MVP example (Arrowbin estimate)</text>
+  <line x1="150" y1="610" x2="1180" y2="610" stroke="#e4e4e7" stroke-width="3"/>
+  <text x="136" y="617" font-size="18" fill="#4a4766" text-anchor="end">$0</text>
+  <line x1="150" y1="510" x2="1180" y2="510" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="136" y="517" font-size="18" fill="#4a4766" text-anchor="end">$20k</text>
+  <line x1="150" y1="410" x2="1180" y2="410" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="136" y="417" font-size="18" fill="#4a4766" text-anchor="end">$40k</text>
+  <line x1="150" y1="310" x2="1180" y2="310" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="136" y="317" font-size="18" fill="#4a4766" text-anchor="end">$60k</text>
+  <line x1="150" y1="210" x2="1180" y2="210" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="136" y="217" font-size="18" fill="#4a4766" text-anchor="end">$80k</text>
+  <line x1="368.4848484848485" y1="610" x2="368.4848484848485" y2="310" stroke="#cfc4ff" stroke-width="2" stroke-dasharray="6 6"/>
+  <polygon points="368.4848484848485,310 1180,265 1180,250" fill="#ff4da6" fill-opacity="0.28"/>
+  <line x1="368.4848484848485" y1="310" x2="1180" y2="265" stroke="#ff4da6" stroke-width="3"/>
+  <line x1="368.4848484848485" y1="310" x2="1180" y2="250" stroke="#ff4da6" stroke-width="3"/>
+  <line x1="150" y1="610" x2="368.4848484848485" y2="310" stroke="#3b2bff" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="368.4848484848485" cy="310" r="9" fill="#3b2bff" stroke="#ffffff" stroke-width="3"/>
+  <text x="170" y="252" font-size="20" font-weight="700" fill="#3b2bff">Build: about $4,300 a week</text>
+  <text x="388.4848484848485" y="354" font-size="20" font-weight="700" fill="#0e0b24">Launch: about $60,000</text>
+  <text x="388.4848484848485" y="386" font-size="18" fill="#4a4766">Plus store fees if you ship mobile:</text>
+  <text x="388.4848484848485" y="412" font-size="18" fill="#4a4766">Apple $99 a year, Google Play $25 once</text>
+  <line x1="760" y1="290.67139656460046" x2="760" y2="452" stroke="#ff4da6" stroke-width="2"/>
+  <circle cx="760" cy="284.67139656460046" r="6" fill="#ff4da6"/>
+  <text x="746" y="480" font-size="22" font-weight="700" fill="#0e0b24">Year one live: +$9,000 to +$12,000</text>
+  <text x="746" y="510" font-size="18" fill="#4a4766">15–20% of build cost: hosting, services, fixes</text>
+  <text x="746" y="536" font-size="18" fill="#4a4766">List-price subscriptions: about $850 of that</text>
+  <text x="150" y="644" font-size="18" fill="#4a4766">Kickoff</text>
+  <text x="368.4848484848485" y="644" font-size="18" font-weight="700" fill="#0e0b24" text-anchor="middle">Launch (week 14)</text>
+  <text x="774.2424242424242" y="644" font-size="18" fill="#4a4766" text-anchor="middle">6 months live</text>
+  <text x="1180" y="644" font-size="18" fill="#4a4766" text-anchor="end">12 months live</text>
+  <text x="60" y="690" font-size="18" fill="#4a4766">Illustrative. Ranges: Arrowbin estimates. Store fees: Apple and Google Play, October 2026.</text>
+</svg>

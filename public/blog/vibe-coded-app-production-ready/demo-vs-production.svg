@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a4766"/>
+    </marker>
+    <marker id="arrc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#ff6b3d"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="84" font-size="40" font-weight="700" fill="#0e0b24">Demo vs production: what sits in between</text>
+  <text x="80" y="122" font-size="24" fill="#4a4766">A vibe-coded demo talks straight to the database. Production adds guard layers.</text>
+
+  <!-- Demo row -->
+  <text x="80" y="186" font-size="22" font-weight="700" fill="#ff6b3d">DEMO</text>
+  <rect x="80" y="204" width="200" height="80" rx="14" fill="#cfc4ff"/>
+  <text x="180" y="252" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">UI screens</text>
+  <rect x="1000" y="204" width="200" height="80" rx="14" fill="#F1F2F7" stroke="#0e0b24" stroke-width="2"/>
+  <text x="1100" y="252" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">Database</text>
+  <line x1="292" y1="244" x2="986" y2="244" stroke="#ff6b3d" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#arrc)"/>
+  <rect x="470" y="222" width="340" height="44" rx="22" fill="#ffffff"/>
+  <text x="640" y="252" font-size="22" font-weight="600" fill="#ff6b3d" text-anchor="middle">Every request is trusted</text>
+
+  <line x1="80" y1="326" x2="1200" y2="326" stroke="#e4e4e7" stroke-width="2"/>
+
+  <!-- Production row -->
+  <text x="80" y="380" font-size="22" font-weight="700" fill="#3b2bff">PRODUCTION</text>
+  <rect x="80" y="404" width="200" height="200" rx="14" fill="#cfc4ff"/>
+  <text x="180" y="512" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">UI screens</text>
+  <rect x="1000" y="404" width="200" height="200" rx="14" fill="#F1F2F7" stroke="#0e0b24" stroke-width="2"/>
+  <text x="1100" y="512" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">Database</text>
+  <line x1="284" y1="504" x2="314" y2="504" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="966" y1="504" x2="996" y2="504" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- guard layers: 4 columns x 2 rows -->
+  <g>
+    <rect x="320" y="404" width="148" height="92" rx="12" fill="#F1F2F7"/>
+    <rect x="484" y="404" width="148" height="92" rx="12" fill="#F1F2F7"/>
+    <rect x="648" y="404" width="148" height="92" rx="12" fill="#F1F2F7"/>
+    <rect x="812" y="404" width="148" height="92" rx="12" fill="#F1F2F7"/>
+    <rect x="320" y="512" width="148" height="92" rx="12" fill="#F1F2F7"/>
+    <rect x="484" y="512" width="148" height="92" rx="12" fill="#F1F2F7"/>
+    <rect x="648" y="512" width="148" height="92" rx="12" fill="#F1F2F7"/>
+    <rect x="812" y="512" width="148" height="92" rx="12" fill="#F1F2F7"/>
+  </g>
+  <g>
+    <rect x="320" y="404" width="8" height="92" rx="4" fill="#3b2bff"/>
+    <rect x="484" y="404" width="8" height="92" rx="4" fill="#ff4da6"/>
+    <rect x="648" y="404" width="8" height="92" rx="4" fill="#ff6b3d"/>
+    <rect x="812" y="404" width="8" height="92" rx="4" fill="#ffd23f"/>
+    <rect x="320" y="512" width="8" height="92" rx="4" fill="#ff4da6"/>
+    <rect x="484" y="512" width="8" height="92" rx="4" fill="#3b2bff"/>
+    <rect x="648" y="512" width="8" height="92" rx="4" fill="#ffd23f"/>
+    <rect x="812" y="512" width="8" height="92" rx="4" fill="#ff6b3d"/>
+  </g>
+  <g font-size="19" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <text x="398" y="444">Input</text>
+    <text x="398" y="470">validation</text>
+    <text x="562" y="444">Access rules</text>
+    <text x="562" y="470">(RLS)</text>
+    <text x="726" y="444">Server-side</text>
+    <text x="726" y="470">secrets</text>
+    <text x="890" y="444">Webhook</text>
+    <text x="890" y="470">checks</text>
+    <text x="398" y="552">Rate</text>
+    <text x="398" y="578">limits</text>
+    <text x="562" y="552">Logs and</text>
+    <text x="562" y="578">alerts</text>
+    <text x="726" y="552">Tested</text>
+    <text x="726" y="578">backups</text>
+    <text x="890" y="552">CI/CD and</text>
+    <text x="890" y="578">rollback</text>
+  </g>
+
+  <text x="80" y="672" font-size="20" fill="#4a4766">Original Arrowbin diagram. Each guard layer maps to a row in the production checklist.</text>
+</svg>

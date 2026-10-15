@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1F2F7"/>
+      <stop offset="1" stop-color="#e9e6fb"/>
+    </linearGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16"/>
+      <feOffset dy="12"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.13"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="lift" x="-30%" y="-40%" width="160%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dy="6"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.14"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#d9d6ea"/>
+    </pattern>
+    <clipPath id="winA"><rect x="56" y="168" width="352" height="420" rx="16"/></clipPath>
+    <clipPath id="winB"><rect x="448" y="120" width="384" height="500" rx="18"/></clipPath>
+    <clipPath id="winC"><rect x="872" y="168" width="352" height="420" rx="16"/></clipPath>
+    <clipPath id="hero"><rect x="502" y="252" width="144" height="84" rx="12"/></clipPath>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1150" cy="70" r="250" fill="#cfc4ff" opacity="0.6" filter="url(#soft)"/>
+  <circle cx="120" cy="90" r="200" fill="#cfc4ff" opacity="0.35" filter="url(#soft)"/>
+  <circle cx="640" cy="760" r="240" fill="#ff4da6" opacity="0.14" filter="url(#soft)"/>
+  <circle cx="1220" cy="700" r="170" fill="#ffd23f" opacity="0.3" filter="url(#soft)"/>
+
+  <!-- 1. Proof of concept: code editor with a test run -->
+  <g filter="url(#shadow)">
+    <rect x="56" y="168" width="352" height="420" rx="16" fill="#ffffff"/>
+  </g>
+  <g clip-path="url(#winA)">
+    <rect x="56" y="168" width="352" height="44" fill="#f7f7fb"/>
+    <circle cx="80" cy="190" r="6" fill="#ff6b3d"/>
+    <circle cx="100" cy="190" r="6" fill="#ffd23f"/>
+    <circle cx="120" cy="190" r="6" fill="#cfc4ff"/>
+    <rect x="142" y="178" width="150" height="34" rx="8" fill="#ffffff"/>
+    <rect x="142" y="208" width="150" height="4" fill="#ffffff"/>
+    <text x="157" y="200" font-size="14" font-family="Consolas, Menlo, monospace" fill="#0e0b24">poc_extract.py</text>
+    <line x1="56" y1="212" x2="408" y2="212" stroke="#e4e4e7" stroke-width="1.5"/>
+    <rect x="142" y="209" width="150" height="3" fill="#3b2bff"/>
+
+    <g font-size="13" font-family="Consolas, Menlo, monospace" fill="#a5a1bd">
+      <text x="72" y="245">1</text>
+      <text x="72" y="271">2</text>
+      <text x="72" y="297">3</text>
+      <text x="72" y="323">4</text>
+      <text x="72" y="349">5</text>
+      <text x="72" y="375">6</text>
+      <text x="72" y="401">7</text>
+    </g>
+    <rect x="100" y="236" width="56" height="10" rx="5" fill="#3b2bff"/>
+    <rect x="164" y="236" width="104" height="10" rx="5" fill="#e4e4e7"/>
+    <rect x="120" y="262" width="74" height="10" rx="5" fill="#ff4da6"/>
+    <rect x="202" y="262" width="120" height="10" rx="5" fill="#e4e4e7"/>
+    <rect x="120" y="288" width="44" height="10" rx="5" fill="#3b2bff"/>
+    <rect x="172" y="288" width="88" height="10" rx="5" fill="#cfc4ff"/>
+    <rect x="140" y="314" width="132" height="10" rx="5" fill="#e4e4e7"/>
+    <rect x="280" y="314" width="48" height="10" rx="5" fill="#ff6b3d"/>
+    <rect x="140" y="340" width="90" height="10" rx="5" fill="#cfc4ff"/>
+    <rect x="120" y="366" width="56" height="10" rx="5" fill="#3b2bff"/>
+    <rect x="184" y="366" width="140" height="10" rx="5" fill="#e4e4e7"/>
+    <rect x="100" y="392" width="62" height="10" rx="5" fill="#ff4da6"/>
+    <rect x="170" y="391" width="2" height="13" fill="#0e0b24"/>
+
+    <!-- test output -->
+    <rect x="56" y="420" width="352" height="168" fill="#fbfbfe"/>
+    <line x1="56" y1="420" x2="408" y2="420" stroke="#e4e4e7" stroke-width="1.5"/>
+    <text x="76" y="450" font-size="12" font-weight="700" letter-spacing="1.2" fill="#4a4766">TEST OUTPUT</text>
+    <g font-size="14" font-family="Consolas, Menlo, monospace" fill="#0e0b24">
+      <circle cx="86" cy="479" r="9" fill="#3b2bff"/>
+      <path d="M81.5 479 l3 3 l5.5 -6" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="104" y="484">extract_fields</text>
+      <circle cx="86" cy="513" r="9" fill="#3b2bff"/>
+      <path d="M81.5 513 l3 3 l5.5 -6" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="104" y="518">match_supplier</text>
+      <circle cx="86" cy="547" r="9" fill="#3b2bff"/>
+      <path d="M81.5 547 l3 3 l5.5 -6" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="104" y="552">cost_per_call</text>
+    </g>
+    <g font-size="12" font-weight="700" fill="#3b2bff">
+      <rect x="338" y="469" width="50" height="22" rx="11" fill="#ece8ff"/>
+      <text x="363" y="484" text-anchor="middle">pass</text>
+      <rect x="338" y="503" width="50" height="22" rx="11" fill="#ece8ff"/>
+      <text x="363" y="518" text-anchor="middle">pass</text>
+      <rect x="338" y="537" width="50" height="22" rx="11" fill="#ece8ff"/>
+      <text x="363" y="552" text-anchor="middle">pass</text>
+    </g>
+  </g>
+
+  <!-- 2. Prototype: design tool canvas with a clickable phone flow -->
+  <g filter="url(#shadow)">
+    <rect x="448" y="120" width="384" height="500" rx="18" fill="#ffffff"/>
+  </g>
+  <g clip-path="url(#winB)">
+    <rect x="448" y="170" width="384" height="450" fill="#F1F2F7"/>
+    <rect x="448" y="170" width="384" height="450" fill="url(#dots)"/>
+    <line x1="448" y1="170" x2="832" y2="170" stroke="#e4e4e7" stroke-width="1.5"/>
+    <rect x="468" y="134" width="24" height="24" rx="7" fill="#ff4da6"/>
+    <path d="M474 152 l6 -12 l6 12" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="510" y="152" font-size="14" fill="#4a4766">Design</text>
+    <text x="574" y="152" font-size="14" font-weight="700" fill="#3b2bff">Prototype</text>
+    <rect x="572" y="166" width="72" height="4" rx="2" fill="#3b2bff"/>
+    <rect x="756" y="132" width="56" height="28" rx="14" fill="#3b2bff"/>
+    <path d="M778 139 l13 7 l-13 7 z" fill="#ffffff"/>
+    <circle cx="730" cy="146" r="12" fill="#ffd23f"/>
+    <circle cx="712" cy="146" r="12" fill="#cfc4ff" stroke="#ffffff" stroke-width="2"/>
+  </g>
+
+  <!-- phone -->
+  <g filter="url(#lift)">
+    <rect x="484" y="194" width="180" height="356" rx="30" fill="#ffffff" stroke="#0e0b24" stroke-width="5"/>
+  </g>
+  <rect x="550" y="205" width="48" height="8" rx="4" fill="#0e0b24"/>
+  <rect x="502" y="228" width="72" height="11" rx="5.5" fill="#0e0b24" opacity="0.85"/>
+  <circle cx="638" cy="233" r="8" fill="#cfc4ff"/>
+  <rect x="502" y="252" width="144" height="84" rx="12" fill="#ece8ff"/>
+  <circle cx="526" cy="274" r="10" fill="#ffd23f"/>
+  <polygon clip-path="url(#hero)" points="502,336 540,294 566,320 588,302 646,336" fill="#cfc4ff"/>
+  <rect x="502" y="350" width="118" height="10" rx="5" fill="#0e0b24" opacity="0.8"/>
+  <rect x="502" y="368" width="92" height="8" rx="4" fill="#e4e4e7"/>
+  <rect x="502" y="390" width="144" height="34" rx="10" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+  <circle cx="520" cy="407" r="7" fill="#ffffff" stroke="#3b2bff" stroke-width="2.5"/>
+  <circle cx="520" cy="407" r="3" fill="#3b2bff"/>
+  <rect x="534" y="402" width="80" height="9" rx="4.5" fill="#4a4766" opacity="0.5"/>
+  <rect x="502" y="432" width="144" height="34" rx="10" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+  <circle cx="520" cy="449" r="7" fill="#ffffff" stroke="#cfc4ff" stroke-width="2.5"/>
+  <rect x="534" y="444" width="64" height="9" rx="4.5" fill="#4a4766" opacity="0.5"/>
+  <rect x="502" y="484" width="144" height="38" rx="19" fill="#3b2bff"/>
+  <text x="564" y="508" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Get started</text>
+
+  <!-- hotspot, connector and next screen -->
+  <rect x="496" y="478" width="156" height="50" rx="25" fill="#ff4da6" fill-opacity="0.08" stroke="#ff4da6" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <path d="M652 503 C 690 503, 676 322, 700 322" fill="none" stroke="#3b2bff" stroke-width="3"/>
+  <circle cx="652" cy="503" r="6" fill="#3b2bff" stroke="#ffffff" stroke-width="2"/>
+  <polygon points="712,322 699,315 699,329" fill="#3b2bff"/>
+  <g filter="url(#lift)">
+    <rect x="714" y="232" width="96" height="190" rx="16" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  </g>
+  <rect x="728" y="250" width="40" height="7" rx="3.5" fill="#0e0b24" opacity="0.8"/>
+  <circle cx="762" cy="306" r="22" fill="#3b2bff"/>
+  <path d="M752 306 l7 7 l13 -14" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="732" y="346" width="60" height="8" rx="4" fill="#0e0b24" opacity="0.75"/>
+  <rect x="738" y="362" width="48" height="6" rx="3" fill="#e4e4e7"/>
+  <rect x="728" y="392" width="68" height="18" rx="9" fill="#ece8ff"/>
+
+  <!-- tap -->
+  <circle cx="630" cy="503" r="14" fill="#ff4da6" opacity="0.3"/>
+  <circle cx="630" cy="503" r="6" fill="#ff4da6"/>
+  <path d="M634 508 l0 30 l8 -8 l7 15 l6 -3 l-7 -14 l11 -1 z" fill="#0e0b24" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- test session chip -->
+  <g filter="url(#lift)">
+    <rect x="676" y="562" width="140" height="36" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="697" cy="580" r="6" fill="#ff4da6"/>
+  <text x="711" y="585" font-size="14" font-weight="700" fill="#0e0b24">Test session</text>
+
+  <!-- 3. MVP: live web app -->
+  <g filter="url(#shadow)">
+    <rect x="872" y="168" width="352" height="420" rx="16" fill="#ffffff"/>
+  </g>
+  <g clip-path="url(#winC)">
+    <rect x="872" y="168" width="352" height="44" fill="#f7f7fb"/>
+    <circle cx="896" cy="190" r="6" fill="#ff6b3d"/>
+    <circle cx="916" cy="190" r="6" fill="#ffd23f"/>
+    <circle cx="936" cy="190" r="6" fill="#cfc4ff"/>
+    <rect x="960" y="179" width="200" height="22" rx="11" fill="#F1F2F7"/>
+    <rect x="973" y="187" width="8" height="7" rx="1.5" fill="#4a4766"/>
+    <path d="M974.3 187 v-2.2 a2.7 2.7 0 0 1 5.4 0 v2.2" fill="none" stroke="#4a4766" stroke-width="1.4"/>
+    <text x="989" y="195" font-size="12" fill="#4a4766">app.yourproduct.com</text>
+    <line x1="872" y1="212" x2="1224" y2="212" stroke="#e4e4e7" stroke-width="1.5"/>
+
+    <rect x="892" y="228" width="28" height="28" rx="8" fill="#3b2bff"/>
+    <path d="M899 247 l7 -10 l7 10" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="930" y="248" font-size="17" font-weight="700" fill="#0e0b24">Dashboard</text>
+    <rect x="1148" y="230" width="58" height="24" rx="12" fill="#ffe8f3"/>
+    <circle cx="1163" cy="242" r="4" fill="#ff4da6"/>
+    <text x="1173" y="247" font-size="13" font-weight="700" fill="#c4176c">Live</text>
+
+    <!-- KPI cards -->
+    <rect x="892" y="270" width="150" height="70" rx="12" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+    <text x="906" y="292" font-size="12" fill="#4a4766">Sign-ups</text>
+    <rect x="906" y="306" width="52" height="16" rx="5" fill="#0e0b24" opacity="0.85"/>
+    <polyline points="972,322 986,314 998,317 1012,304 1026,298" fill="none" stroke="#3b2bff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="1056" y="270" width="150" height="70" rx="12" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+    <text x="1070" y="292" font-size="12" fill="#4a4766">Paid plans</text>
+    <rect x="1070" y="306" width="40" height="16" rx="5" fill="#0e0b24" opacity="0.85"/>
+    <polyline points="1136,322 1150,319 1162,312 1176,314 1190,302" fill="none" stroke="#ff4da6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- weekly chart -->
+    <rect x="892" y="352" width="314" height="110" rx="12" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+    <text x="906" y="374" font-size="12" font-weight="700" fill="#0e0b24">Weekly active</text>
+    <line x1="906" y1="446" x2="1192" y2="446" stroke="#e4e4e7" stroke-width="1.5"/>
+    <rect x="910" y="426" width="20" height="20" rx="4" fill="#cfc4ff"/>
+    <rect x="942" y="420" width="20" height="26" rx="4" fill="#cfc4ff"/>
+    <rect x="974" y="422" width="20" height="24" rx="4" fill="#cfc4ff"/>
+    <rect x="1006" y="412" width="20" height="34" rx="4" fill="#cfc4ff"/>
+    <rect x="1038" y="406" width="20" height="40" rx="4" fill="#3b2bff"/>
+    <rect x="1070" y="398" width="20" height="48" rx="4" fill="#3b2bff"/>
+    <rect x="1102" y="394" width="20" height="52" rx="4" fill="#3b2bff"/>
+    <rect x="1134" y="386" width="20" height="60" rx="4" fill="#3b2bff"/>
+    <rect x="1166" y="380" width="20" height="66" rx="4" fill="#3b2bff"/>
+
+    <!-- customer rows -->
+    <circle cx="904" cy="490" r="10" fill="#ff6b3d"/>
+    <rect x="922" y="485" width="104" height="10" rx="5" fill="#0e0b24" opacity="0.75"/>
+    <rect x="1150" y="479" width="54" height="22" rx="11" fill="#fff3c4"/>
+    <text x="1177" y="494" font-size="12" font-weight="700" fill="#0e0b24" text-anchor="middle">Paid</text>
+    <circle cx="904" cy="524" r="10" fill="#cfc4ff"/>
+    <rect x="922" y="519" width="84" height="10" rx="5" fill="#0e0b24" opacity="0.75"/>
+    <rect x="1150" y="513" width="54" height="22" rx="11" fill="#ece8ff"/>
+    <text x="1177" y="528" font-size="12" font-weight="700" fill="#3b2bff" text-anchor="middle">Trial</text>
+    <circle cx="904" cy="558" r="10" fill="#ff4da6"/>
+    <rect x="922" y="553" width="96" height="10" rx="5" fill="#0e0b24" opacity="0.75"/>
+  </g>
+
+  <!-- toast -->
+  <g filter="url(#lift)">
+    <rect x="1022" y="548" width="216" height="54" rx="14" fill="#ffffff"/>
+  </g>
+  <circle cx="1050" cy="575" r="13" fill="#3b2bff"/>
+  <path d="M1044 575 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1072" y="581" font-size="15" font-weight="700" fill="#0e0b24">New subscription</text>
+
+  <!-- connectors between stages -->
+  <g filter="url(#lift)">
+    <circle cx="428" cy="378" r="17" fill="#ffffff"/>
+    <circle cx="852" cy="378" r="17" fill="#ffffff"/>
+  </g>
+  <path d="M424 371 l7 7 l-7 7" fill="none" stroke="#3b2bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M848 371 l7 7 l-7 7" fill="none" stroke="#3b2bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- stage labels -->
+  <g filter="url(#lift)">
+    <rect x="118" y="640" width="228" height="42" rx="21" fill="#ffffff"/>
+    <rect x="556" y="640" width="168" height="42" rx="21" fill="#ffffff"/>
+    <rect x="990" y="640" width="116" height="42" rx="21" fill="#ffffff"/>
+  </g>
+  <circle cx="141" cy="661" r="13" fill="#3b2bff"/>
+  <text x="141" y="666" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="164" y="667" font-size="17" font-weight="700" fill="#0e0b24">Proof of concept</text>
+  <circle cx="579" cy="661" r="13" fill="#ff4da6"/>
+  <text x="579" y="666" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="602" y="667" font-size="17" font-weight="700" fill="#0e0b24">Prototype</text>
+  <circle cx="1013" cy="661" r="13" fill="#ffd23f"/>
+  <text x="1013" y="666" font-size="14" font-weight="700" fill="#0e0b24" text-anchor="middle">3</text>
+  <text x="1036" y="667" font-size="17" font-weight="700" fill="#0e0b24">MVP</text>
+</svg>

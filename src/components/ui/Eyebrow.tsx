@@ -3,7 +3,7 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 
 /**
  * Small glowing glass "pill" label used above hero/section headings. A lime dot
- * (or an optional icon) with a bloom + frosted glass background — the consistent
+ * (or an optional icon) with a bloom + frosted glass background: the consistent
  * cinematic eyebrow used site-wide (also mirrored inside SectionHeading).
  */
 export function Eyebrow({

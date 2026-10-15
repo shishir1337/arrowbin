@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="64" y="78" font-size="40" font-weight="700" fill="#0e0b24">Experience pays more in lower-cost countries</text>
+  <text x="64" y="118" font-size="24" fill="#4a4766">Median yearly pay in USD by years working professionally</text>
+  <circle cx="820" cy="168" r="12" fill="#ff6b3d"/><text x="840" y="176" font-size="24" fill="#0e0b24">0–4 years</text>
+  <circle cx="1010" cy="168" r="12" fill="#3b2bff"/><text x="1030" y="176" font-size="24" fill="#0e0b24">10+ years</text>
+  <text x="1250" y="210" font-size="22" fill="#4a4766" text-anchor="end">10+ vs 0–4</text>
+  <text x="300" y="271" font-size="26" fill="#0e0b24" text-anchor="end">United States</text>
+  <line x1="747.8" y1="262" x2="1090.0" y2="262" stroke="#cfc4ff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="747.8" cy="262" r="12" fill="#ff6b3d"/><circle cx="1090.0" cy="262" r="12" fill="#3b2bff"/>
+  <text x="747.8" y="242" font-size="22" fill="#4a4766" text-anchor="middle">$94k</text>
+  <text x="1090.0" y="242" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$171k</text>
+  <text x="1250" y="271" font-size="26" font-weight="700" fill="#ff4da6" text-anchor="end">1.8x</text>
+  <text x="300" y="335" font-size="26" fill="#0e0b24" text-anchor="end">United Kingdom</text>
+  <line x1="584.1" y1="326" x2="797.2" y2="326" stroke="#cfc4ff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="584.1" cy="326" r="12" fill="#ff6b3d"/><circle cx="797.2" cy="326" r="12" fill="#3b2bff"/>
+  <text x="584.1" y="306" font-size="22" fill="#4a4766" text-anchor="middle">$57k</text>
+  <text x="797.2" y="306" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$105k</text>
+  <text x="1250" y="335" font-size="26" font-weight="700" fill="#ff4da6" text-anchor="end">1.8x</text>
+  <text x="300" y="399" font-size="26" fill="#0e0b24" text-anchor="end">Germany</text>
+  <line x1="597.5" y1="390" x2="742.5" y2="390" stroke="#cfc4ff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="597.5" cy="390" r="12" fill="#ff6b3d"/><circle cx="742.5" cy="390" r="12" fill="#3b2bff"/>
+  <text x="597.5" y="370" font-size="22" fill="#4a4766" text-anchor="middle">$60k</text>
+  <text x="742.5" y="370" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$93k</text>
+  <text x="1250" y="399" font-size="26" font-weight="700" fill="#ff4da6" text-anchor="end">1.5x</text>
+  <text x="300" y="463" font-size="26" fill="#0e0b24" text-anchor="end">Poland</text>
+  <line x1="470.1" y1="454" x2="637.1" y2="454" stroke="#cfc4ff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="470.1" cy="454" r="12" fill="#ff6b3d"/><circle cx="637.1" cy="454" r="12" fill="#3b2bff"/>
+  <text x="470.1" y="434" font-size="22" fill="#4a4766" text-anchor="middle">$32k</text>
+  <text x="637.1" y="434" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$69k</text>
+  <text x="1250" y="463" font-size="26" font-weight="700" fill="#ff4da6" text-anchor="end">2.2x</text>
+  <text x="300" y="527" font-size="26" fill="#0e0b24" text-anchor="end">Ukraine</text>
+  <line x1="407.8" y1="518" x2="565.6" y2="518" stroke="#cfc4ff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="407.8" cy="518" r="12" fill="#ff6b3d"/><circle cx="565.6" cy="518" r="12" fill="#3b2bff"/>
+  <text x="407.8" y="498" font-size="22" fill="#4a4766" text-anchor="middle">$17.5k</text>
+  <text x="565.6" y="498" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$53k</text>
+  <text x="1250" y="527" font-size="26" font-weight="700" fill="#ff4da6" text-anchor="end">3.0x</text>
+  <text x="300" y="591" font-size="26" fill="#0e0b24" text-anchor="end">Brazil</text>
+  <line x1="380.5" y1="582" x2="519.2" y2="582" stroke="#cfc4ff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="380.5" cy="582" r="12" fill="#ff6b3d"/><circle cx="519.2" cy="582" r="12" fill="#3b2bff"/>
+  <text x="380.5" y="562" font-size="22" fill="#4a4766" text-anchor="middle">$11.4k</text>
+  <text x="519.2" y="562" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$43k</text>
+  <text x="1250" y="591" font-size="26" font-weight="700" fill="#ff4da6" text-anchor="end">3.7x</text>
+  <text x="300" y="655" font-size="26" fill="#0e0b24" text-anchor="end">India</text>
+  <line x1="371.3" y1="646" x2="510.8" y2="646" stroke="#cfc4ff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="371.3" cy="646" r="12" fill="#ff6b3d"/><circle cx="510.8" cy="646" r="12" fill="#3b2bff"/>
+  <text x="371.3" y="626" font-size="22" fill="#4a4766" text-anchor="middle">$9.3k</text>
+  <text x="510.8" y="626" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$41k</text>
+  <text x="1250" y="655" font-size="26" font-weight="700" fill="#ff4da6" text-anchor="end">4.4x</text>
+  <text x="64" y="704" font-size="22" fill="#4a4766">Source: Stack Overflow Developer Survey 2025 and 2026, Arrowbin analysis</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="64" y="80" font-size="40" font-weight="700" fill="#0e0b24">Picking a courier for each parcel</text>
+  <text x="64" y="118" font-size="24" fill="#4a4766">Run every parcel through the same checks, in this order</text>
+
+  <!-- funnel bars, centred on x=500 -->
+  <rect x="90" y="156" width="820" height="68" rx="16" fill="#3b2bff"/>
+  <rect x="130" y="240" width="740" height="68" rx="16" fill="#cfc4ff"/>
+  <rect x="170" y="324" width="660" height="68" rx="16" fill="#ff4da6"/>
+  <rect x="210" y="408" width="580" height="68" rx="16" fill="#ffd23f"/>
+  <rect x="250" y="492" width="500" height="68" rx="16" fill="#ff6b3d"/>
+
+  <g font-size="23" font-weight="700" text-anchor="middle">
+    <text x="500" y="198" fill="#ffffff">1. Couriers you have a contract with</text>
+    <text x="500" y="282" fill="#0e0b24">2. Deliver to this area (area ID mapped)</text>
+    <text x="500" y="366" fill="#ffffff">3. API working right now</text>
+    <text x="500" y="450" fill="#0e0b24">4. Fit your COD, weight and item rules</text>
+    <text x="500" y="534" fill="#0e0b24">5. Best quote or preferred courier</text>
+  </g>
+
+  <!-- book -->
+  <line x1="500" y1="562" x2="500" y2="590" stroke="#4a4766" stroke-width="3" marker-end="url(#a)"/>
+  <rect x="370" y="596" width="260" height="56" rx="28" fill="#0e0b24"/>
+  <text x="500" y="632" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">Book the parcel</text>
+
+  <!-- drop-out bracket -->
+  <g stroke="#4a4766" stroke-width="2.5" stroke-dasharray="6 6" fill="none">
+    <line x1="874" y1="274" x2="940" y2="274"/>
+    <line x1="834" y1="358" x2="940" y2="358"/>
+    <line x1="794" y1="442" x2="940" y2="442"/>
+    <line x1="754" y1="526" x2="940" y2="526"/>
+    <line x1="940" y1="274" x2="940" y2="526"/>
+  </g>
+  <line x1="940" y1="400" x2="972" y2="400" stroke="#4a4766" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <rect x="980" y="318" width="250" height="164" rx="18" fill="#F1F2F7" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="1000" y="360" font-size="22" font-weight="700" fill="#0e0b24">No courier left?</text>
+  <g font-size="20" fill="#4a4766">
+    <text x="1000" y="396">Send the order to a</text>
+    <text x="1000" y="424">manual booking queue</text>
+    <text x="1000" y="452">and fix the gap.</text>
+  </g>
+
+  <text x="64" y="694" font-size="18" fill="#4a4766">Original Arrowbin diagram. The order of the checks is our recommendation, not a courier rule.</text>
+</svg>

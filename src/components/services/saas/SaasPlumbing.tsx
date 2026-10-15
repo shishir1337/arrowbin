@@ -1,6 +1,6 @@
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { SectionReveal } from "@/components/motion/SectionReveal";
-import { PlanToggle } from "./PlanToggle";
+import { PlanToggle } from "../signature/demos";
 
 const ROLES = [
   { who: "Maya R.", role: "Owner", c: "bg-plasma" },

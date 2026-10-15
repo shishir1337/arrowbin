@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="head" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0e0b24"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Prototype, MVP or full product?</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">They answer different questions and take very different amounts of time</text>
+
+  <!-- arrows between stages -->
+  <g stroke="#0e0b24" stroke-width="4" stroke-linecap="round" marker-end="url(#head)">
+    <line x1="362" y1="290" x2="530" y2="290"/>
+    <line x1="752" y1="290" x2="910" y2="290"/>
+  </g>
+
+  <!-- 1. prototype: a sketchy wireframe -->
+  <g fill="none" stroke="#4a4766" stroke-width="3" stroke-dasharray="8 6">
+    <rect x="185" y="156" width="150" height="270" rx="22"/>
+  </g>
+  <g fill="none" stroke="#4a4766" stroke-width="2" stroke-dasharray="5 5">
+    <rect x="203" y="186" width="114" height="18" rx="4"/>
+    <rect x="203" y="216" width="114" height="70" rx="6"/>
+    <line x1="208" y1="221" x2="312" y2="281"/>
+    <line x1="312" y1="221" x2="208" y2="281"/>
+    <rect x="203" y="298" width="114" height="12" rx="4"/>
+    <rect x="203" y="318" width="80" height="12" rx="4"/>
+    <rect x="203" y="346" width="114" height="28" rx="14"/>
+  </g>
+
+  <!-- 2. MVP: one working flow -->
+  <rect x="565" y="156" width="150" height="270" rx="22" fill="#ffffff" stroke="#0e0b24" stroke-width="4"/>
+  <rect x="620" y="166" width="40" height="8" rx="4" fill="#0e0b24"/>
+  <rect x="583" y="192" width="80" height="12" rx="6" fill="#0e0b24"/>
+  <g fill="#ffffff" stroke="#cfc4ff" stroke-width="3">
+    <rect x="583" y="218" width="114" height="26" rx="8"/>
+    <rect x="583" y="254" width="114" height="26" rx="8"/>
+  </g>
+  <rect x="583" y="292" width="114" height="30" rx="15" fill="#3b2bff"/>
+  <g fill="#3b2bff">
+    <circle cx="592" cy="346" r="8"/>
+    <circle cx="592" cy="374" r="8"/>
+  </g>
+  <g fill="#e4e4e7">
+    <rect x="608" y="342" width="80" height="8" rx="4"/>
+    <rect x="608" y="370" width="64" height="8" rx="4"/>
+  </g>
+  <rect x="620" y="406" width="40" height="5" rx="2.5" fill="#0e0b24"/>
+
+  <!-- 3. full product: a rich app -->
+  <rect x="945" y="156" width="150" height="270" rx="22" fill="#ffffff" stroke="#0e0b24" stroke-width="4"/>
+  <rect x="1000" y="166" width="40" height="8" rx="4" fill="#0e0b24"/>
+  <circle cx="969" cy="196" r="9" fill="#ff4da6"/>
+  <rect x="984" y="191" width="60" height="10" rx="5" fill="#e4e4e7"/>
+  <rect x="963" y="214" width="114" height="62" rx="10" fill="#ff4da6"/>
+  <polyline points="971,262 990,248 1006,254 1024,236 1042,242 1068,224" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <g>
+    <rect x="963" y="286" width="24" height="24" rx="6" fill="#ffd23f"/>
+    <rect x="993" y="286" width="24" height="24" rx="6" fill="#cfc4ff"/>
+    <rect x="1023" y="286" width="24" height="24" rx="6" fill="#ff6b3d"/>
+    <rect x="1053" y="286" width="24" height="24" rx="6" fill="#3b2bff"/>
+  </g>
+  <g fill="#f1f2f7">
+    <rect x="963" y="320" width="114" height="22" rx="6"/>
+    <rect x="963" y="348" width="114" height="22" rx="6"/>
+  </g>
+  <rect x="963" y="380" width="114" height="2" fill="#e4e4e7"/>
+  <g fill="#0e0b24">
+    <circle cx="977" cy="396" r="5"/>
+    <circle cx="1005" cy="396" r="5"/>
+    <circle cx="1035" cy="396" r="5"/>
+    <circle cx="1063" cy="396" r="5"/>
+  </g>
+  <rect x="1000" y="410" width="40" height="5" rx="2.5" fill="#0e0b24"/>
+
+  <!-- names -->
+  <g font-size="28" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="260" y="482">Prototype</text>
+    <text x="640" y="482">MVP</text>
+    <text x="1020" y="482">Full product</text>
+  </g>
+  <!-- timelines -->
+  <g font-size="23" font-weight="700" fill="#3b2bff" text-anchor="middle">
+    <text x="260" y="518">Days to 2 weeks</text>
+    <text x="640" y="518">6–14 weeks</text>
+    <text x="1020" y="518">6–18 months</text>
+  </g>
+  <!-- goal and build -->
+  <g font-size="19" fill="#4a4766" text-anchor="middle">
+    <text x="260" y="556">Clickable mockups</text>
+    <text x="260" y="582">to show the idea</text>
+    <text x="640" y="556">Real, working code</text>
+    <text x="640" y="582">to learn from real users</text>
+    <text x="1020" y="556">A complete feature set</text>
+    <text x="1020" y="582">to serve at scale</text>
+  </g>
+  <g font-size="19" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="260" y="626">Users can pay: no</text>
+    <text x="640" y="626">Users can pay: yes</text>
+    <text x="1020" y="626">Users can pay: yes</text>
+  </g>
+</svg>

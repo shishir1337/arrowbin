@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <g id="tick">
+      <circle r="15" fill="#3b2bff"/>
+      <path d="M-7 0 l5 5 l9 -10" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">How to launch an MVP faster</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Discipline on scope and cadence compresses the timeline, not rushing the work</text>
+
+  <!-- rocket -->
+  <g stroke="#cfc4ff" stroke-width="6" stroke-linecap="round">
+    <line x1="150" y1="560" x2="220" y2="490"/>
+    <line x1="120" y1="500" x2="170" y2="450"/>
+    <line x1="210" y1="610" x2="260" y2="560"/>
+  </g>
+  <g transform="translate(320 400) rotate(40)">
+    <path d="M-34 24 L-66 78 L-30 72 Z" fill="#ff4da6"/>
+    <path d="M34 24 L66 78 L30 72 Z" fill="#ff4da6"/>
+    <path d="M-18 76 Q0 150 18 76 Z" fill="#ffd23f"/>
+    <path d="M0 -130 C46 -86 46 40 32 80 H-32 C-46 40 -46 -86 0 -130 Z" fill="#3b2bff"/>
+    <circle cx="0" cy="-38" r="20" fill="#ffffff"/>
+    <circle cx="0" cy="-38" r="11" fill="#cfc4ff"/>
+  </g>
+
+  <!-- checklist -->
+  <rect x="540" y="150" width="660" height="490" rx="22" fill="#f1f2f7"/>
+  <text x="580" y="208" font-size="26" font-weight="700" fill="#0e0b24">Every sprint</text>
+  <use href="#tick" x="596" y="264"/>
+  <use href="#tick" x="596" y="326"/>
+  <use href="#tick" x="596" y="388"/>
+  <use href="#tick" x="596" y="450"/>
+  <use href="#tick" x="596" y="512"/>
+  <use href="#tick" x="596" y="574"/>
+  <g font-size="22" fill="#0e0b24">
+    <text x="626" y="272">One core workflow, everything else cut</text>
+    <text x="626" y="334">Scope locked before development starts</text>
+    <text x="626" y="396">A reused design system and components</text>
+    <text x="626" y="458">Third-party services for auth, payments, email</text>
+    <text x="626" y="520">A live demo every week</text>
+    <text x="626" y="582">Same-day decisions to keep the sprint moving</text>
+  </g>
+</svg>

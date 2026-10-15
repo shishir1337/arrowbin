@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { markSvg } from "@/components/brand/mark";
 
-// Raster brand logo (512×512) for schema.org logo/image — Google rich results don't
+// Raster brand logo (512×512) for schema.org logo/image: Google rich results don't
 // accept SVG. Ultraviolet tile + white arrowhead "A" + plasma bit on white.
 export const dynamic = "force-static";
 

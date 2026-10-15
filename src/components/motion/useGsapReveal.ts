@@ -13,7 +13,7 @@ type Killable = { kill: () => void };
  * Runs a one-shot GSAP reveal when the element first enters the viewport.
  *
  * Two performance properties:
- *  - **IntersectionObserver** (not GSAP ScrollTrigger) decides when to fire — async,
+ *  - **IntersectionObserver** (not GSAP ScrollTrigger) decides when to fire: async,
  *    off the main thread, so it never forces a synchronous reflow on load.
  *  - **GSAP is lazy-loaded.** It's kept out of the initial bundle and fetched via
  *    `loadGsap()`. To avoid a reveal stalling on a ~70 KiB fetch mid-scroll, GSAP is

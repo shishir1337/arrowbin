@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Two sites, two very different migrations</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Illustrative: a brochure site and a WooCommerce store on six drivers</text>
+
+  <!-- legend -->
+  <circle cx="92" cy="172" r="11" fill="#3b2bff"/>
+  <text x="112" y="179" font-size="20" fill="#0e0b24">Brochure site</text>
+  <circle cx="290" cy="172" r="11" fill="#ff4da6"/>
+  <text x="310" y="179" font-size="20" fill="#0e0b24">WooCommerce store</text>
+  <text x="1200" y="179" font-size="18" fill="#4a4766" text-anchor="end">Further right means more work</text>
+
+  <!-- row labels -->
+  <g font-size="22" font-weight="600" fill="#0e0b24">
+    <text x="80" y="236">Page templates</text>
+    <text x="80" y="306">Content to move</text>
+    <text x="80" y="376">Store</text>
+    <text x="80" y="446">Integrations</text>
+    <text x="80" y="516">Languages</text>
+    <text x="80" y="586">Redirect map</text>
+  </g>
+
+  <!-- tracks -->
+  <g stroke="#e4e4e7" stroke-width="12" stroke-linecap="round">
+    <line x1="420" y1="228" x2="1200" y2="228"/>
+    <line x1="420" y1="298" x2="1200" y2="298"/>
+    <line x1="420" y1="368" x2="1200" y2="368"/>
+    <line x1="420" y1="438" x2="1200" y2="438"/>
+    <line x1="420" y1="508" x2="1200" y2="508"/>
+    <line x1="420" y1="578" x2="1200" y2="578"/>
+  </g>
+
+  <!-- end labels -->
+  <g font-size="18" fill="#4a4766">
+    <text x="420" y="262">A handful</text>
+    <text x="420" y="332">Clean posts and pages</text>
+    <text x="420" y="402">No store</text>
+    <text x="420" y="472">A contact form</text>
+    <text x="420" y="542">One</text>
+    <text x="420" y="612">URLs kept as they were</text>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="end">
+    <text x="1200" y="262">Dozens, built in a page builder</text>
+    <text x="1200" y="332">Shortcodes and embeds everywhere</text>
+    <text x="1200" y="402">WooCommerce with order history</text>
+    <text x="1200" y="472">Payments, couriers, CRM</text>
+    <text x="1200" y="542">Several, each with its own URLs</text>
+    <text x="1200" y="612">New structure, many old URLs</text>
+  </g>
+
+  <!-- brochure site -->
+  <g fill="#3b2bff" stroke="#ffffff" stroke-width="3">
+    <circle cx="537" cy="228" r="13"/>
+    <circle cx="576" cy="298" r="13"/>
+    <circle cx="436" cy="368" r="13"/>
+    <circle cx="498" cy="438" r="13"/>
+    <circle cx="443" cy="508" r="13"/>
+    <circle cx="615" cy="578" r="13"/>
+  </g>
+  <!-- woocommerce store -->
+  <g fill="#ff4da6" stroke="#ffffff" stroke-width="3">
+    <circle cx="888" cy="228" r="13"/>
+    <circle cx="849" cy="298" r="13"/>
+    <circle cx="1138" cy="368" r="13"/>
+    <circle cx="1083" cy="438" r="13"/>
+    <circle cx="654" cy="508" r="13"/>
+    <circle cx="982" cy="578" r="13"/>
+  </g>
+
+  <text x="80" y="680" font-size="18" fill="#4a4766">Illustrative profiles, not client data. Positions are an Arrowbin estimate of relative effort.</text>
+</svg>

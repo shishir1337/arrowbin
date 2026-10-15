@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">What goes into an MVP, and what waits</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Keep the core workflow; defer everything else</text>
+
+  <!-- links to deferred features -->
+  <g stroke="#cfc4ff" stroke-width="3" stroke-dasharray="6 7">
+    <line x1="850" y1="290" x2="850" y2="267"/>
+    <line x1="951.6" y1="338.9" x2="969.6" y2="324.6"/>
+    <line x1="976.7" y1="448.9" x2="999.2" y2="454"/>
+    <line x1="906.4" y1="537.1" x2="916.4" y2="557.8"/>
+    <line x1="793.6" y1="537.1" x2="783.6" y2="557.8"/>
+    <line x1="723.3" y1="448.9" x2="700.8" y2="454"/>
+    <line x1="748.4" y1="338.9" x2="730.4" y2="324.6"/>
+  </g>
+
+  <!-- deferred features -->
+  <g fill="#ffffff" stroke="#4a4766" stroke-width="2.5" stroke-dasharray="7 6">
+    <circle cx="850" cy="215" r="50"/>
+    <circle cx="1010.3" cy="292.2" r="50"/>
+    <circle cx="1049.9" cy="465.6" r="50"/>
+    <circle cx="938.9" cy="604.7" r="50"/>
+    <circle cx="761.1" cy="604.7" r="50"/>
+    <circle cx="650.1" cy="465.6" r="50"/>
+    <circle cx="689.7" cy="292.2" r="50"/>
+  </g>
+  <g font-size="18" font-weight="600" fill="#4a4766" text-anchor="middle">
+    <text x="850" y="221">Plan</text>
+    <text x="1010.3" y="298.2">Integrate</text>
+    <text x="1049.9" y="471.6">Track</text>
+    <text x="938.9" y="610.7">Analyze</text>
+    <text x="761.1" y="610.7">Profile</text>
+    <text x="650.1" y="471.6">Map</text>
+    <text x="689.7" y="298.2">Notify</text>
+  </g>
+
+  <!-- version 1 -->
+  <circle cx="850" cy="420" r="118" fill="none" stroke="#cfc4ff" stroke-width="24"/>
+  <circle cx="850" cy="420" r="96" fill="#3b2bff"/>
+  <g font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <text x="850" y="416">Core</text>
+    <text x="850" y="446">workflow</text>
+  </g>
+
+  <!-- legend -->
+  <circle cx="98" cy="226" r="14" fill="#3b2bff"/>
+  <circle cx="98" cy="336" r="12" fill="none" stroke="#cfc4ff" stroke-width="8"/>
+  <circle cx="98" cy="446" r="13" fill="#ffffff" stroke="#4a4766" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="128" y="234">In v1: the core workflow</text>
+    <text x="128" y="344">In v1: just enough around it</text>
+    <text x="128" y="454">Later: everything else</text>
+  </g>
+  <g font-size="19" fill="#4a4766">
+    <text x="128" y="264">The one job your product does,</text>
+    <text x="128" y="290">end to end</text>
+    <text x="128" y="374">Sign-in, basic data and a clean UI,</text>
+    <text x="128" y="400">so the workflow is usable</text>
+    <text x="128" y="484">Added once real users show</text>
+    <text x="128" y="510">what matters most</text>
+  </g>
+</svg>

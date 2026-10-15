@@ -1,16 +1,15 @@
 "use client";
 
 import { type FormEvent, useEffect, useId, useRef, useState } from "react";
+import { track } from "@/components/analytics/track";
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { reducedMotion } from "@/lib/gsap";
-import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 type Errors = { name?: string; email?: string; message?: string };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const NEEDS = [...services.map((s) => s.name), "Not sure yet"];
 const BUDGETS = ["Under $5k", "$5k–$15k", "$15k–$50k", "$50k+", "Not sure"];
 const TIMELINES = [
   "As soon as possible",
@@ -35,11 +34,22 @@ function Chips({
   multi?: boolean;
   onChange: (v: string[]) => void;
 }) {
+  // Name the group by the legend text alone, with "pick any" as its
+  // description, so the name doesn't run together as "need?pick any".
+  const id = useId();
   return (
-    <fieldset className="m-0 min-w-0 border-0 p-0">
+    <fieldset
+      aria-labelledby={`${id}-l`}
+      aria-describedby={multi ? `${id}-h` : undefined}
+      className="m-0 min-w-0 border-0 p-0"
+    >
       <legend className="mb-3 text-sm font-semibold text-ink">
-        {legend}
-        {multi && <span className="ml-2 font-normal text-ink-2">pick any</span>}
+        <span id={`${id}-l`}>{legend}</span>
+        {multi && (
+          <span id={`${id}-h`} className="ml-2 font-normal text-ink-2">
+            pick any
+          </span>
+        )}
       </legend>
       <div className="flex flex-wrap gap-2">
         {options.map((o) => {
@@ -87,8 +97,16 @@ function Chips({
  * Posts to /api/contact (same contract as before: name, email, service,
  * message), folding the chip answers into the message.
  */
-export function ContactBrief({ label }: { label: string }) {
+export function ContactBrief({
+  label,
+  services,
+}: {
+  label: string;
+  /** Slug and name of each service, for the "need" chips and `?service=`. */
+  services: { slug: string; name: string }[];
+}) {
   const uid = useId();
+  const NEEDS = [...services.map((s) => s.name), "Not sure yet"];
   const [needs, setNeeds] = useState<string[]>([]);
   const [budget, setBudget] = useState<string[]>([]);
   const [timeline, setTimeline] = useState<string[]>([]);
@@ -110,7 +128,7 @@ export function ContactBrief({ label }: { label: string }) {
     const q = new URLSearchParams(window.location.search).get("service");
     const m = services.find((s) => s.slug === q || s.name === q);
     if (m) setNeeds([m.name]);
-  }, []);
+  }, [services]);
 
   // The success card is much shorter than the form: bring it into view and
   // move focus to it so nobody is left looking at empty space.
@@ -170,7 +188,7 @@ export function ContactBrief({ label }: { label: string }) {
           timeline: timeline[0] ?? "",
           company: company.trim(),
           page: window.location.pathname,
-          company_website: trap.current?.value ?? "",
+          hp_trap: trap.current?.value ?? "",
         }),
       });
       if (!res.ok) {
@@ -178,7 +196,7 @@ export function ContactBrief({ label }: { label: string }) {
         throw new Error(b.error ?? "Something went wrong. Please try again.");
       }
       setStatus("success");
-      window.gtag?.("event", "generate_lead", {
+      track("generate_lead", {
         event_category: "contact",
         event_label: "contact_brief",
       });
@@ -266,15 +284,20 @@ export function ContactBrief({ label }: { label: string }) {
               </output>
             ) : (
               <form onSubmit={onSubmit} noValidate className="grid gap-8">
-                {/* Honeypot: hidden from people, filled by bots. */}
+                {/* Honeypot: hidden from people, filled by bots. The name and
+                    label must not look like a real field, or an AI agent or
+                    autofill may fill it and the lead is silently dropped. */}
                 <div className="absolute left-[-9999px]" aria-hidden="true">
                   <label htmlFor={`${uid}-hp`}>Leave this field empty</label>
                   <input
                     ref={trap}
                     id={`${uid}-hp`}
-                    name="company_website"
+                    name="hp_trap"
+                    type="text"
                     tabIndex={-1}
                     autoComplete="off"
+                    data-1p-ignore
+                    data-lpignore="true"
                   />
                 </div>
 
@@ -306,12 +329,16 @@ export function ContactBrief({ label }: { label: string }) {
                       htmlFor={`${uid}-name`}
                       className="mb-2 block text-sm font-semibold text-ink"
                     >
-                      Name <span className="text-[#c0144f]">*</span>
+                      Name{" "}
+                      <span aria-hidden="true" className="text-[#c0144f]">
+                        *
+                      </span>
                     </label>
                     <input
                       ref={nameRef}
                       id={`${uid}-name`}
                       name="name"
+                      aria-required="true"
                       autoComplete="name"
                       placeholder="Your name"
                       value={name}
@@ -329,6 +356,7 @@ export function ContactBrief({ label }: { label: string }) {
                     {errors.name && (
                       <p
                         id={`${uid}-name-e`}
+                        role="alert"
                         className="mt-1.5 text-sm font-medium text-[#c0144f]"
                       >
                         {errors.name}
@@ -340,13 +368,17 @@ export function ContactBrief({ label }: { label: string }) {
                       htmlFor={`${uid}-email`}
                       className="mb-2 block text-sm font-semibold text-ink"
                     >
-                      Email <span className="text-[#c0144f]">*</span>
+                      Email{" "}
+                      <span aria-hidden="true" className="text-[#c0144f]">
+                        *
+                      </span>
                     </label>
                     <input
                       ref={emailRef}
                       id={`${uid}-email`}
                       name="email"
                       type="email"
+                      aria-required="true"
                       autoComplete="email"
                       placeholder="you@company.com"
                       value={email}
@@ -364,6 +396,7 @@ export function ContactBrief({ label }: { label: string }) {
                     {errors.email && (
                       <p
                         id={`${uid}-email-e`}
+                        role="alert"
                         className="mt-1.5 text-sm font-medium text-[#c0144f]"
                       >
                         {errors.email}
@@ -395,12 +428,15 @@ export function ContactBrief({ label }: { label: string }) {
                       className="mb-2 block text-sm font-semibold text-ink"
                     >
                       About the project{" "}
-                      <span className="text-[#c0144f]">*</span>
+                      <span aria-hidden="true" className="text-[#c0144f]">
+                        *
+                      </span>
                     </label>
                     <textarea
                       ref={msgRef}
                       id={`${uid}-msg`}
                       name="message"
+                      aria-required="true"
                       rows={5}
                       maxLength={4500}
                       placeholder="What are you building, who is it for, and what does success look like?"
@@ -418,6 +454,7 @@ export function ContactBrief({ label }: { label: string }) {
                     {errors.message && (
                       <p
                         id={`${uid}-msg-e`}
+                        role="alert"
                         className="mt-1.5 text-sm font-medium text-[#c0144f]"
                       >
                         {errors.message}

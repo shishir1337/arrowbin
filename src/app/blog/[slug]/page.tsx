@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { ArticleHero } from "@/components/blog/ArticleHero";
 import { AuthorCard } from "@/components/blog/AuthorCard";
 import { PostCard } from "@/components/blog/BlogIndex";
@@ -13,20 +12,33 @@ import { Faq } from "@/components/home/Faq";
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { getPost, posts, sortedPosts, tableOfContents } from "@/lib/blog";
+import {
+  getPost,
+  type Post,
+  postModified,
+  posts,
+  relatedPosts,
+  tableOfContents,
+} from "@/lib/blog";
+import { feedAlternate, ogLocale, xHandle } from "@/lib/metadata";
 import { blogPostingSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { pageAlternates, site } from "@/lib/site";
 
 type Params = { slug: string };
+
+/** Only slugs from `generateStaticParams` exist; any other returns a real 404. */
+export const dynamicParams = false;
 
 export function generateStaticParams(): Params[] {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
 /** Approximate article word count from the structured body, for BlogPosting schema. */
-function bodyWordCount(blocks: (typeof posts)[number]["body"]): number {
+function bodyWordCount(blocks: Post["body"]): number {
   const text = blocks
     .map((b) => {
+      // The in-article CTA is a sales prompt, not article copy.
+      if (b.type === "cta") return "";
       if ("text" in b) return b.text;
       if ("items" in b) return b.items.join(" ");
       if (b.type === "table") return [...b.headers, ...b.rows.flat()].join(" ");
@@ -45,29 +57,40 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return {};
   const path = `/blog/${post.slug}`;
+  const image = {
+    url: `${path}/opengraph-image`,
+    width: 1200,
+    height: 630,
+    alt: `${post.title}: a guide from the Arrowbin blog`,
+  };
+  // Each object is complete on its own: Next.js merges metadata shallowly, so a
+  // page-level openGraph or twitter replaces the root layout's, not extends it.
   return {
-    // Absolute (no "| Arrowbin" suffix) — keeps long article titles under the SERP limit.
+    // Absolute (no "| Arrowbin" suffix): keeps long article titles under the SERP limit.
     title: { absolute: post.title },
     description: post.description,
     keywords: post.keywords,
-    alternates: pageAlternates(path),
+    alternates: { ...pageAlternates(path), types: feedAlternate },
     openGraph: {
       type: "article",
+      siteName: site.name,
+      locale: ogLocale,
+      url: path,
       title: post.title,
       description: post.description,
-      url: path,
       publishedTime: post.date,
-      modifiedTime: post.updated ?? post.date,
+      modifiedTime: postModified(post),
       authors: [post.author],
-      images: [
-        { url: `/blog/${post.slug}/opengraph-image`, width: 1200, height: 630 },
-      ],
+      section: post.category,
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
+      site: xHandle,
+      creator: xHandle,
       title: post.title,
       description: post.description,
-      images: [`/blog/${post.slug}/opengraph-image`],
+      images: [image],
     },
   };
 }
@@ -86,7 +109,8 @@ export default async function BlogPostPage({
     { name: "Blog", path: "/blog" },
     { name: post.title, path: `/blog/${post.slug}` },
   ];
-  const more = sortedPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
+  // Related by category and topic, so posts link to each other as the blog grows.
+  const more = relatedPosts(post, 3);
   const toc = tableOfContents(post);
   const shareUrl = `${site.url}/blog/${post.slug}`;
   const labels = {
@@ -108,7 +132,7 @@ export default async function BlogPostPage({
             description: post.description,
             slug: post.slug,
             datePublished: post.date,
-            dateModified: post.updated ?? post.date,
+            dateModified: postModified(post),
             author: post.author,
             category: post.category,
             hasTldr: Boolean(post.tldr),
@@ -240,7 +264,11 @@ export default async function BlogPostPage({
             >
               More before you build
             </h2>
-            <ul className="mt-12 grid gap-6 md:grid-cols-2">
+            <ul
+              // Three cards: on tablets the third spans both columns instead of
+              // sitting alone in half a row; from lg up they sit in one row of three.
+              className={`mt-12 grid gap-6 md:grid-cols-2 ${more.length > 2 ? "md:[&>li:nth-child(3)]:col-span-2 lg:grid-cols-3 lg:[&>li:nth-child(3)]:col-span-1" : ""}`}
+            >
               {more.map((p, i) => (
                 <li key={p.slug}>
                   <PostCard post={p} tone={i + 1} as="h3" />
@@ -251,9 +279,9 @@ export default async function BlogPostPage({
         </section>
       ) : null}
 
-      <Suspense fallback={null}>
-        <Cta index={labels.cta} />
-      </Suspense>
+      {/* Rendered directly, not inside <Suspense>: a boundary here made the
+          prerendered HTML stream the closing CTA as a hidden block after </main>. */}
+      <Cta index={labels.cta} />
     </>
   );
 }

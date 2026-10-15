@@ -1,11 +1,14 @@
-import { AgentSignature } from "../ai/AgentSignature";
-import { PipelineSignature } from "../cloud/PipelineSignature";
-import { OrderRace } from "../custom/OrderRace";
-import { FunnelSignature } from "../ecommerce/FunnelSignature";
-import { DecaySignature } from "../maintenance/DecaySignature";
-import { PhoneSignature } from "../mobile/PhoneSignature";
-import { ScaleSignature } from "../saas/ScaleSignature";
-import { FidelitySignature } from "../uiux/FidelitySignature";
+// One chunk per signature (next/dynamic): a service page downloads only its own.
+import {
+  AgentSignature,
+  DecaySignature,
+  FidelitySignature,
+  FunnelSignature,
+  OrderRace,
+  PhoneSignature,
+  PipelineSignature,
+  ScaleSignature,
+} from "./demos";
 import { SignatureFrame } from "./SignatureFrame";
 
 /**

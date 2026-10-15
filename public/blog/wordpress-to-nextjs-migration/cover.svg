@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="gl" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#cfc4ff" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#cfc4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gp" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff4da6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#ff4da6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gs" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd23f" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ffd23f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b2bff"/>
+      <stop offset="1" stop-color="#ff4da6"/>
+    </linearGradient>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14"/>
+      <feOffset dy="12" result="b"/>
+      <feFlood flood-color="#0e0b24" flood-opacity="0.14"/>
+      <feComposite in2="b" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="720" fill="#F1F2F7"/>
+  <circle cx="1130" cy="110" r="340" fill="url(#gl)"/>
+  <circle cx="110" cy="700" r="320" fill="url(#gp)"/>
+  <circle cx="640" cy="760" r="260" fill="url(#gs)"/>
+
+  <!-- ===== browser: the rebuilt storefront ===== -->
+  <rect x="48" y="64" width="700" height="580" rx="18" fill="#ffffff" filter="url(#sh)"/>
+  <path d="M48 82 a18 18 0 0 1 18 -18 h664 a18 18 0 0 1 18 18 v34 h-700 z" fill="#F1F2F7"/>
+  <line x1="48" y1="116" x2="748" y2="116" stroke="#e4e4e7" stroke-width="2"/>
+  <circle cx="78" cy="90" r="7" fill="#ff6b3d"/>
+  <circle cx="100" cy="90" r="7" fill="#ffd23f"/>
+  <circle cx="122" cy="90" r="7" fill="#cfc4ff"/>
+  <rect x="150" y="76" width="480" height="28" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+  <rect x="166" y="88" width="10" height="8" rx="2" fill="#4a4766"/>
+  <path d="M168 88 v-3 a3 3 0 0 1 6 0 v3" fill="none" stroke="#4a4766" stroke-width="1.6"/>
+  <text x="186" y="95" font-size="15" fill="#4a4766">example.com</text>
+
+  <!-- site header -->
+  <rect x="76" y="136" width="26" height="26" rx="7" fill="#3b2bff"/>
+  <rect x="110" y="143" width="88" height="12" rx="6" fill="#0e0b24"/>
+  <g font-size="15" fill="#4a4766">
+    <text x="452" y="155">Shop</text>
+    <text x="508" y="155">Journal</text>
+    <text x="580" y="155">About</text>
+  </g>
+  <circle cx="704" cy="149" r="14" fill="#F1F2F7"/>
+  <path d="M697 145 h14 l-2 9 h-10 z" fill="none" stroke="#0e0b24" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- hero -->
+  <rect x="76" y="180" width="644" height="200" rx="16" fill="#F1F2F7"/>
+  <rect x="104" y="214" width="290" height="24" rx="6" fill="#0e0b24"/>
+  <rect x="104" y="248" width="220" height="24" rx="6" fill="#0e0b24"/>
+  <rect x="104" y="290" width="260" height="10" rx="5" fill="#4a4766" opacity="0.35"/>
+  <rect x="104" y="308" width="200" height="10" rx="5" fill="#4a4766" opacity="0.35"/>
+  <rect x="104" y="332" width="120" height="34" rx="17" fill="#3b2bff"/>
+  <text x="164" y="354" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">Shop now</text>
+  <rect x="440" y="196" width="262" height="168" rx="14" fill="url(#hero)"/>
+  <circle cx="640" cy="240" r="34" fill="#ffd23f"/>
+  <rect x="516" y="262" width="96" height="84" rx="12" fill="#ffffff" opacity="0.92"/>
+  <path d="M542 262 v-12 a22 22 0 0 1 44 0 v12" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- product grid -->
+  <g fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5">
+    <rect x="76" y="400" width="152" height="216" rx="14"/>
+    <rect x="240" y="400" width="152" height="216" rx="14"/>
+    <rect x="404" y="400" width="152" height="216" rx="14"/>
+    <rect x="568" y="400" width="152" height="216" rx="14"/>
+  </g>
+  <rect x="86" y="410" width="132" height="120" rx="10" fill="#cfc4ff"/>
+  <rect x="250" y="410" width="132" height="120" rx="10" fill="#ffd23f" opacity="0.7"/>
+  <rect x="414" y="410" width="132" height="120" rx="10" fill="#ff4da6" opacity="0.35"/>
+  <rect x="578" y="410" width="132" height="120" rx="10" fill="#ff6b3d" opacity="0.4"/>
+  <g fill="#ffffff" opacity="0.85">
+    <circle cx="152" cy="470" r="26"/>
+    <rect x="290" y="446" width="52" height="64" rx="10"/>
+    <circle cx="480" cy="470" r="26"/>
+    <rect x="618" y="446" width="52" height="64" rx="10"/>
+  </g>
+  <g fill="#0e0b24" opacity="0.8">
+    <rect x="88" y="546" width="100" height="10" rx="5"/>
+    <rect x="252" y="546" width="88" height="10" rx="5"/>
+    <rect x="416" y="546" width="104" height="10" rx="5"/>
+    <rect x="580" y="546" width="92" height="10" rx="5"/>
+  </g>
+  <g fill="#3b2bff">
+    <rect x="88" y="568" width="56" height="10" rx="5"/>
+    <rect x="252" y="568" width="48" height="10" rx="5"/>
+    <rect x="416" y="568" width="60" height="10" rx="5"/>
+    <rect x="580" y="568" width="52" height="10" rx="5"/>
+    <circle cx="206" cy="592" r="13"/>
+    <circle cx="370" cy="592" r="13"/>
+    <circle cx="534" cy="592" r="13"/>
+    <circle cx="698" cy="592" r="13"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="2.4" stroke-linecap="round">
+    <path d="M200 592 h12 M206 586 v12"/>
+    <path d="M364 592 h12 M370 586 v12"/>
+    <path d="M528 592 h12 M534 586 v12"/>
+    <path d="M692 592 h12 M698 586 v12"/>
+  </g>
+
+  <!-- ===== redirect map panel ===== -->
+  <rect x="690" y="92" width="542" height="262" rx="16" fill="#ffffff" filter="url(#sh)"/>
+  <path d="M690 108 a16 16 0 0 1 16 -16 h510 a16 16 0 0 1 16 16 v30 h-542 z" fill="#F1F2F7"/>
+  <line x1="690" y1="138" x2="1232" y2="138" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="716" y="122" font-size="15" font-weight="600" fill="#0e0b24" font-family="Consolas, Menlo, monospace">next.config.ts</text>
+  <rect x="710" y="134" width="136" height="4" rx="2" fill="#3b2bff"/>
+  <g font-size="14" font-weight="600" fill="#4a4766">
+    <text x="716" y="168">OLD URL</text>
+    <text x="930" y="168">NEW URL</text>
+    <text x="1140" y="168">STATUS</text>
+  </g>
+  <g stroke="#e4e4e7" stroke-width="1.5">
+    <line x1="706" y1="180" x2="1216" y2="180"/>
+    <line x1="706" y1="222" x2="1216" y2="222"/>
+    <line x1="706" y1="264" x2="1216" y2="264"/>
+    <line x1="706" y1="306" x2="1216" y2="306"/>
+  </g>
+  <g font-size="17" fill="#0e0b24" font-family="Consolas, Menlo, monospace">
+    <text x="716" y="207">/about-us</text>
+    <text x="930" y="207">/about</text>
+    <text x="716" y="249">/portfolio</text>
+    <text x="930" y="249">/work</text>
+    <text x="716" y="291">/2021/04/sale</text>
+    <text x="930" y="291">/blog/sale</text>
+    <text x="716" y="333">/become-seller</text>
+  </g>
+  <text x="930" y="333" font-size="16" fill="#4a4766">removed</text>
+  <g>
+    <rect x="1140" y="188" width="58" height="26" rx="13" fill="#3b2bff"/>
+    <rect x="1140" y="230" width="58" height="26" rx="13" fill="#3b2bff"/>
+    <rect x="1140" y="272" width="58" height="26" rx="13" fill="#3b2bff"/>
+    <rect x="1140" y="314" width="58" height="26" rx="13" fill="#ff6b3d"/>
+  </g>
+  <g font-size="15" font-weight="700" text-anchor="middle">
+    <text x="1169" y="206" fill="#ffffff">308</text>
+    <text x="1169" y="248" fill="#ffffff">308</text>
+    <text x="1169" y="290" fill="#ffffff">308</text>
+    <text x="1169" y="332" fill="#0e0b24">410</text>
+  </g>
+
+  <!-- ===== terminal panel ===== -->
+  <rect x="740" y="384" width="492" height="258" rx="16" fill="#ffffff" filter="url(#sh)"/>
+  <path d="M740 400 a16 16 0 0 1 16 -16 h460 a16 16 0 0 1 16 16 v24 h-492 z" fill="#F1F2F7"/>
+  <line x1="740" y1="424" x2="1232" y2="424" stroke="#e4e4e7" stroke-width="1.5"/>
+  <circle cx="764" cy="404" r="6" fill="#ff6b3d"/>
+  <circle cx="784" cy="404" r="6" fill="#ffd23f"/>
+  <circle cx="804" cy="404" r="6" fill="#cfc4ff"/>
+  <text x="986" y="409" font-size="14" fill="#4a4766" text-anchor="middle">Terminal</text>
+  <g font-size="17" font-family="Consolas, Menlo, monospace">
+    <text x="764" y="460"><tspan fill="#3b2bff" font-weight="700">$</tspan><tspan fill="#0e0b24" dx="10">curl -I example.com/about-us</tspan></text>
+    <text x="764" y="488" fill="#0e0b24">HTTP/2 <tspan fill="#3b2bff" font-weight="700">308</tspan></text>
+    <text x="764" y="516" fill="#4a4766">location: /about</text>
+    <text x="764" y="556"><tspan fill="#3b2bff" font-weight="700">$</tspan><tspan fill="#0e0b24" dx="10">curl -I example.com/become-seller</tspan></text>
+    <text x="764" y="584" fill="#0e0b24">HTTP/2 <tspan fill="#ff6b3d" font-weight="700">410</tspan></text>
+    <text x="764" y="612" fill="#4a4766">x-robots-tag: noindex</text>
+  </g>
+</svg>

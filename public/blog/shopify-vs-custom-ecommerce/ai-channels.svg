@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">How products reach AI shopping assistants</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Shopify's built-in path vs the work you do on a custom store</text>
+
+  <!-- lane 1: Shopify -->
+  <text x="80" y="182" font-size="24" font-weight="700" fill="#3b2bff">On Shopify</text>
+  <g>
+    <rect x="80" y="202" width="300" height="84" rx="16" fill="#cfc4ff"/>
+    <rect x="470" y="202" width="270" height="84" rx="16" fill="#cfc4ff"/>
+    <rect x="830" y="202" width="370" height="84" rx="16" fill="#3b2bff"/>
+  </g>
+  <g font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <text x="230" y="238">Products in</text>
+    <text x="230" y="266">Shopify Admin</text>
+    <text x="605" y="252">Shopify Catalog</text>
+  </g>
+  <g font-size="22" font-weight="600" fill="#ffffff" text-anchor="middle">
+    <text x="1015" y="238">ChatGPT, Copilot,</text>
+    <text x="1015" y="266">Google AI Mode, Gemini</text>
+  </g>
+  <line x1="384" y1="244" x2="462" y2="244" stroke="#4a4766" stroke-width="3" marker-end="url(#ar)"/>
+  <line x1="744" y1="244" x2="822" y2="244" stroke="#4a4766" stroke-width="3" marker-end="url(#ar)"/>
+  <text x="80" y="320" font-size="18" fill="#4a4766">Turned on from the admin; active by default for eligible stores</text>
+
+  <!-- lane 2: custom store -->
+  <text x="80" y="384" font-size="24" font-weight="700" fill="#ff4da6">On a custom store</text>
+  <rect x="80" y="440" width="300" height="84" rx="16" fill="#F1F2F7" stroke="#ff4da6" stroke-width="3"/>
+  <rect x="470" y="400" width="320" height="84" rx="16" fill="#F1F2F7" stroke="#ff4da6" stroke-width="3"/>
+  <rect x="470" y="500" width="320" height="84" rx="16" fill="#F1F2F7" stroke="#ff4da6" stroke-width="3"/>
+  <rect x="880" y="450" width="320" height="84" rx="16" fill="#ff4da6"/>
+  <g font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <text x="230" y="476">Your product</text>
+    <text x="230" y="504">database</text>
+    <text x="630" y="436">Server-rendered pages</text>
+    <text x="630" y="464">+ structured data</text>
+    <text x="630" y="536">Product feed</text>
+    <text x="630" y="564">by SFTP upload or API</text>
+    <text x="1040" y="486">AI crawlers</text>
+    <text x="1040" y="514">and ChatGPT</text>
+  </g>
+  <line x1="384" y1="470" x2="462" y2="446" stroke="#4a4766" stroke-width="3" marker-end="url(#ar)"/>
+  <line x1="384" y1="494" x2="462" y2="536" stroke="#4a4766" stroke-width="3" marker-end="url(#ar)"/>
+  <line x1="794" y1="446" x2="872" y2="478" stroke="#4a4766" stroke-width="3" marker-end="url(#ar)"/>
+  <line x1="794" y1="540" x2="872" y2="508" stroke="#4a4766" stroke-width="3" marker-end="url(#ar)"/>
+
+  <!-- optional route -->
+  <rect x="80" y="616" width="1120" height="56" rx="14" fill="#ffffff" stroke="#4a4766" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="104" y="651" font-size="20" fill="#0e0b24">Optional: Shopify's Agentic plan can add a non-Shopify store's products to Shopify Catalog</text>
+</svg>

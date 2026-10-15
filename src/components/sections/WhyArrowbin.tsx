@@ -31,7 +31,7 @@ const points: { icon: IconName; title: string; description: string }[] = [
   },
 ];
 
-/** Shared "why choose us" trust band — used on the services and detail pages. */
+/** Shared "why choose us" trust band: used on the services and detail pages. */
 export function WhyArrowbin({
   className = "py-16 sm:py-20",
 }: {

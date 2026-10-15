@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { SectionLabel } from "@/components/home/SectionLabel";
+import type { EngagementCopy } from "@/lib/services";
+
+/** Generic copy, used on /services and wherever no per-service copy is passed. */
+const INTRO =
+  "Same senior team either way. Pick the shape that fits where your product is today; you can switch later.";
 
 const MODELS = [
   {
+    key: "project",
     tag: "Most popular",
     name: "Project",
     lead: "A defined build with a fixed, itemised estimate.",
@@ -18,6 +24,7 @@ const MODELS = [
     rot: "xl:-rotate-2",
   },
   {
+    key: "team",
     tag: "For growing products",
     name: "Product team",
     lead: "A senior squad working on your roadmap, month to month.",
@@ -33,6 +40,7 @@ const MODELS = [
     rot: "xl:translate-y-8",
   },
   {
+    key: "care",
     tag: "After launch",
     name: "Care plan",
     lead: "Monitoring, updates and fixes so it keeps running well.",
@@ -50,10 +58,32 @@ const MODELS = [
     chip: "bg-ultra text-white",
     rot: "xl:rotate-2",
   },
-];
+] as const;
 
-/** Three ways to engage, as tilted colour cards that straighten on hover. */
-export function Engagement({ label = "03" }: { label?: string } = {}) {
+/**
+ * Three ways to engage, as tilted colour cards that straighten on hover. A
+ * service page passes `copy` so each card speaks to that service's buyer; the
+ * names, tags, colours and layout stay the same everywhere.
+ */
+export function Engagement({
+  label = "03",
+  copy,
+}: {
+  label?: string;
+  copy?: EngagementCopy;
+} = {}) {
+  const models = MODELS.map((m) => {
+    const c = copy?.[m.key];
+    return c
+      ? {
+          ...m,
+          lead: c.lead,
+          fit: c.fit,
+          points: c.points,
+          cta: c.cta ?? m.cta,
+        }
+      : m;
+  });
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
@@ -68,8 +98,7 @@ export function Engagement({ label = "03" }: { label?: string } = {}) {
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-ink-2 sm:text-lg">
-            Same senior team either way. Pick the shape that fits where your
-            product is today; you can switch later.
+            {copy?.intro ?? INTRO}
           </p>
         </div>
 
@@ -77,7 +106,7 @@ export function Engagement({ label = "03" }: { label?: string } = {}) {
           data-inview="deal"
           className="mt-14 grid gap-5 xl:grid-cols-3 xl:grid-rows-[repeat(6,auto)] xl:gap-x-6 xl:gap-y-0"
         >
-          {MODELS.map((m) => (
+          {models.map((m) => (
             <li
               key={m.name}
               className={`group flex flex-col rounded-[2rem] p-7 xl:row-span-6 xl:grid xl:grid-rows-subgrid shadow-[0_30px_60px_-34px_rgba(14,11,36,0.55)] transition-[rotate,translate,box-shadow] duration-700 ease-[var(--ease-out-expo)] hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_40px_70px_-34px_rgba(14,11,36,0.6)] sm:p-9 ${m.tone} ${m.rot}`}

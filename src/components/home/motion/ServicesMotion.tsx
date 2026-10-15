@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { services } from "@/lib/services";
 import { useGsapIdle } from "@/lib/useIdleEffect";
 
 /** Motion controller for a server-rendered section: renders a hidden anchor
- * and drives the section's animations from it. */
-export function ServicesMotion() {
+ * and drives the section's animations from it. Takes the panel count as a prop
+ * (importing `@/lib/services` here put the whole services module, about 10 KB
+ * gzipped, into the home page's first scripts). */
+export function ServicesMotion({ count }: { count: number }) {
   const anchor = useRef<HTMLSpanElement>(null);
 
   useGsapIdle(({ gsap, ScrollTrigger }) => {
@@ -29,10 +30,7 @@ export function ServicesMotion() {
           scrub: 0.8,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
-            const i = Math.min(
-              services.length,
-              Math.floor(self.progress * services.length) + 1,
-            );
+            const i = Math.min(count, Math.floor(self.progress * count) + 1);
             if (counter) counter.textContent = String(i).padStart(2, "0");
             if (bar) bar.style.transform = `scaleX(${self.progress})`;
           },

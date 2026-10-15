@@ -1,4 +1,28 @@
-@import "tailwindcss";
+/* Scan only src/ for class names. Without source(), Tailwind also scans docs/,
+ * reports and root files, which slowed dev compiles and added unused classes. */
+@import "tailwindcss" source("../");
+/* Legacy components that nothing imports any more (checked 15 Oct 2026). Not
+ * scanned, so their utility classes stay out of the stylesheet. If one of them
+ * is ever imported again, delete its line here. */
+@source not "../components/sections";
+@source not "../components/motion/CountUp.tsx";
+@source not "../components/motion/CursorGlow.tsx";
+@source not "../components/motion/CursorGlowMount.tsx";
+@source not "../components/motion/Magnetic.tsx";
+@source not "../components/motion/Reveal.tsx";
+@source not "../components/motion/SpotlightCard.tsx";
+@source not "../components/motion/StaggerGroup.tsx";
+@source not "../components/motion/gsap.ts";
+@source not "../components/motion/useGsapReveal.ts";
+@source not "../components/motion/useTilt.ts";
+@source not "../components/ui/Breadcrumbs.tsx";
+@source not "../components/ui/Button.tsx";
+@source not "../components/ui/Container.tsx";
+@source not "../components/ui/Eyebrow.tsx";
+@source not "../components/ui/SectionHeading.tsx";
+/* Placeholder gradients in lib/portfolio.ts (`gradient` field) that no
+ * component renders any more. */
+@source not inline("from-slate-500 to-stone-700 from-orange-500 to-red-600 from-indigo-500 to-fuchsia-500 from-amber-500 to-orange-600 from-rose-500 to-pink-600 from-yellow-500 to-amber-600 from-red-500 to-rose-600 from-cyan-500 to-blue-600");
 
 /*
  * Arrowbin "Hyperchrome" design system (Tailwind v4 @theme).
@@ -10,6 +34,122 @@
  */
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Width-matched fallbacks for Geist Mono (wired in via `fallback` in layout.tsx).
+ * Geist Mono is strictly monospaced (every glyph 0.6em wide), so a system
+ * monospace face scaled to the same 0.6em advance wraps every mono label
+ * exactly like Geist Mono does. That keeps CLS at 0 whenever Geist Mono
+ * arrives after first paint (slow networks), even though it is preloaded.
+ * Vertical metrics are matched too (Geist Mono: ascent 1.005em, descent
+ * 0.295em, no line gap). Each family is
+ * one advance-width class; any face it can't find locally is skipped.
+ *   ab-mono-a: Menlo / DejaVu Sans Mono (1233/2048 em)
+ *   ab-mono-b: Consolas (1126/2048 em)
+ *   ab-mono-c: Courier New and its metric clones, Droid / Noto Sans Mono (0.6 em)
+ * Their unicode-range is Geist Mono's latin subset, so they only stand in for
+ * characters Geist Mono itself draws. Anything Geist Mono lacks (the arrows in
+ * "SEE ALL WORK ->" style labels, for one) skips them and falls through to
+ * ab-mono-arial, a copy of next/font's old "Geist Mono Fallback" face, so those
+ * glyphs render exactly as before.
+ */
+@font-face {
+  font-family: ab-mono-a;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+  src:
+    local("Menlo Regular"), local("Menlo-Regular"), local("DejaVu Sans Mono"),
+    local("DejaVuSansMono");
+  font-weight: 100 549;
+  size-adjust: 99.66%;
+  ascent-override: 100.84%;
+  descent-override: 29.6%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: ab-mono-a;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+  src:
+    local("Menlo Bold"), local("Menlo-Bold"), local("DejaVu Sans Mono Bold"),
+    local("DejaVuSansMono-Bold");
+  font-weight: 550 900;
+  size-adjust: 99.66%;
+  ascent-override: 100.84%;
+  descent-override: 29.6%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: ab-mono-b;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+  src: local("Consolas");
+  font-weight: 100 549;
+  size-adjust: 109.13%;
+  ascent-override: 92.09%;
+  descent-override: 27.03%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: ab-mono-b;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+  src: local("Consolas Bold"), local("Consolas-Bold");
+  font-weight: 550 900;
+  size-adjust: 109.13%;
+  ascent-override: 92.09%;
+  descent-override: 27.03%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: ab-mono-c;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+  src:
+    local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"),
+    local("LiberationMono"), local("Cousine"), local("Droid Sans Mono"),
+    local("DroidSansMono"), local("Noto Sans Mono"), local("NotoSansMono-Regular");
+  font-weight: 100 549;
+  size-adjust: 99.99%;
+  ascent-override: 100.51%;
+  descent-override: 29.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: ab-mono-c;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+  src:
+    local("Courier New Bold"), local("CourierNewPS-BoldMT"),
+    local("Liberation Mono Bold"), local("LiberationMono-Bold"),
+    local("Cousine Bold"), local("Droid Sans Mono"), local("DroidSansMono"),
+    local("Noto Sans Mono Bold"), local("NotoSansMono-Bold");
+  font-weight: 550 900;
+  size-adjust: 99.99%;
+  ascent-override: 100.51%;
+  descent-override: 29.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: ab-mono-arial;
+  src: local("Arial");
+  ascent-override: 74.67%;
+  descent-override: 21.92%;
+  line-gap-override: 0%;
+  size-adjust: 134.59%;
+}
 
 :root {
   color-scheme: light;
@@ -49,17 +189,6 @@
   --color-brand-fg: #ffffff;
   --brand-rgb: 59 43 255;
 
-  --grad-from: var(--ultra);
-  --grad-via: #8a3bff;
-  --grad-to: var(--plasma);
-
-  --sheen: rgba(255, 255, 255, 0.7);
-  --shadow-card:
-    0 1px 2px rgba(14, 11, 36, 0.06), 0 18px 40px -22px rgba(14, 11, 36, 0.25);
-  --shadow-card-hover:
-    0 1px 2px rgba(14, 11, 36, 0.08), 0 30px 60px -24px rgba(59, 43, 255, 0.35);
-  --shadow-glow: 0 14px 40px -12px rgb(var(--brand-rgb) / 0.55);
-  --glass-bg: rgba(255, 255, 255, 0.72);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   /* Symmetric ease for hover in/out (menu flips, colour swaps). */
@@ -109,10 +238,6 @@
   --default-transition-duration: 350ms;
   --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --z-base: 1;
-  --z-dropdown: 20;
-  --z-header: 40;
-  --z-overlay: 50;
 }
 
 /* In the base layer so Tailwind border-colour utilities can override it. */
@@ -178,7 +303,7 @@ html.lenis body {
     text-transform: uppercase;
   }
 
-  /* Mono meta label: "[01] — SERVICES". */
+  /* Mono meta label: "[01]: SERVICES". */
   .label {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -193,80 +318,9 @@ html.lenis body {
     -webkit-text-stroke: 1.5px currentColor;
   }
 
-  /* Legacy elevated card, restyled for the light system. */
-  .card-surface {
-    border: 1px solid var(--color-border);
-    background: var(--color-surface);
-    box-shadow: var(--shadow-card);
-    transition:
-      transform 0.35s var(--ease-out-expo),
-      box-shadow 0.35s var(--ease-out-expo),
-      border-color 0.35s ease;
-  }
-  .card-interactive:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
-    border-color: color-mix(in oklab, var(--ultra) 40%, var(--color-border));
-  }
-
-  .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px) saturate(160%);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
-    border: 1px solid var(--color-border);
-  }
-
-  .glow-brand {
-    box-shadow: var(--shadow-glow);
-  }
-
-  .text-gradient {
-    color: var(--ultra);
-    background: linear-gradient(
-      100deg,
-      var(--grad-from),
-      var(--grad-via) 50%,
-      var(--grad-to)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  @supports (background-clip: text) or (-webkit-background-clip: text) {
-    .text-gradient {
-      color: transparent;
-    }
-  }
-
-  .rule-gradient {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      color-mix(in oklab, var(--ultra) 60%, transparent),
-      transparent
-    );
-  }
-
-  @keyframes blob-drift {
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-    50% {
-      transform: translate3d(4%, -6%, 0) scale(1.12);
-    }
-  }
-  .blob {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(48px);
-    background: rgb(var(--brand-rgb));
-    opacity: 0.14;
-    animation: blob-drift 16s ease-in-out infinite;
-    will-change: transform;
-  }
 }
 
-/* Fine film grain over everything — keeps the flat colour fields tactile. */
+/* Fine film grain over everything: keeps the flat colour fields tactile. */
 body::after {
   content: "";
   position: fixed;
@@ -289,58 +343,6 @@ body::after {
   background: var(--ultra);
   border-radius: 9999px;
   border: 3px solid var(--color-bg);
-}
-
-/* Spotlight surface (legacy pages): radial highlight follows --mx/--my. */
-.spotlight {
-  position: relative;
-  isolation: isolate;
-}
-.spotlight::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: radial-gradient(
-    18rem 18rem at var(--mx, 50%) var(--my, 0%),
-    rgb(var(--brand-rgb) / 0.6),
-    transparent 60%
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-.spotlight::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    20rem 20rem at var(--mx, 50%) var(--my, 0%),
-    rgb(var(--brand-rgb) / 0.07),
-    transparent 55%
-  );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-  z-index: 0;
-}
-.spotlight:hover::before,
-.spotlight:hover::after {
-  opacity: 1;
-}
-
-.tilt {
-  transform-style: preserve-3d;
-  transition: transform 0.25s var(--ease-out-expo);
-  will-change: transform;
 }
 
 @keyframes marquee-scroll {
@@ -374,23 +376,6 @@ body::after {
 }
 .spin-slow {
   animation: spin-slow 18s linear infinite;
-}
-.glow-ring {
-  position: relative;
-}
-.glow-ring::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    rgb(var(--brand-rgb) / 0.8) 20%,
-    transparent 40%
-  );
-  animation: spin-slow 4s linear infinite;
-  z-index: -1;
 }
 
 /* ── Custom cursor (fine pointers only; mounted by <Cursor/>) ───────── */
@@ -469,46 +454,6 @@ body::after {
   border-radius: 4px;
 }
 
-/* Animation primitives: visible by default; only hidden once JS is confirmed. */
-.js [data-reveal] {
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-@keyframes hero-in {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.js [data-hero="badge"],
-.js [data-hero="sub"],
-.js [data-hero="cta"] > *,
-.js [data-hero="chip"] {
-  opacity: 0;
-  animation: hero-in 0.8s var(--ease-out-expo) both;
-}
-.js [data-hero="badge"] {
-  animation-delay: 0.05s;
-}
-.js [data-hero="sub"] {
-  animation-delay: 0.15s;
-}
-.js [data-hero="cta"] > *:nth-child(1) {
-  animation-delay: 0.25s;
-}
-.js [data-hero="cta"] > *:nth-child(2) {
-  animation-delay: 0.33s;
-}
-
-.js [data-countup] {
-  visibility: hidden;
-}
-
 @media (max-width: 767px) {
   body::after {
     display: none;
@@ -525,18 +470,6 @@ body::after {
     animation-iteration-count: 1 !important;
     /* biome-ignore lint/complexity/noImportantStyles: must override all transitions. */
     transition-duration: 0.01ms !important;
-  }
-  .js [data-reveal],
-  .js [data-hero="badge"],
-  .js [data-hero="sub"],
-  .js [data-hero="cta"] > *,
-  .js [data-hero="chip"] {
-    /* biome-ignore lint/complexity/noImportantStyles: force-reveal over JS-set opacity. */
-    opacity: 1 !important;
-  }
-  .js [data-countup] {
-    /* biome-ignore lint/complexity/noImportantStyles: force-reveal over JS-set visibility. */
-    visibility: visible !important;
   }
   body::after {
     display: none;
@@ -732,6 +665,11 @@ body::after {
   .mf-outline {
     -webkit-text-stroke-width: 1px;
   }
+}
+/* The solid copy is generated from data-word, not text, so crawlers and
+ * text extraction read each manifesto word once. */
+.mf-word::before {
+  content: attr(data-word);
 }
 /* Before JS (and for reduced motion) the words are simply solid. */
 .js .mf-word {

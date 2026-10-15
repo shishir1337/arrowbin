@@ -3,8 +3,13 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { reducedMotion } from "@/lib/gsap";
+import { preloadWideImage } from "@/lib/preloadWideImage";
 
 type Shot = { name: string; image: string; blur?: string };
+
+// Measured card widths: 544px from 640px up (max-w less the padding), about
+// 74vw on phones. 90vw made phones fetch a larger file than the card can show.
+const SIZES = "(min-width: 1024px) 560px, (min-width: 640px) 544px, 76vw";
 
 /** Where each card in the fan sits, front (0) to back. */
 const SLOTS = [
@@ -22,6 +27,9 @@ const SLOTS = [
 export function WorkDeck({ shots }: { shots: Shot[] }) {
   const [front, setFront] = useState(0);
   const n = shots.length;
+  // The front card is the LCP element on desktop; on phones the deck sits
+  // under the headline, so it is preloaded for wide screens only.
+  if (shots[0]) preloadWideImage(shots[0].image, SIZES);
 
   useEffect(() => {
     if (reducedMotion() || n < 2) return;
@@ -65,10 +73,16 @@ export function WorkDeck({ shots }: { shots: Shot[] }) {
               <div className="relative aspect-[16/10] overflow-hidden rounded-[0.9rem] bg-frost">
                 <Image
                   src={s.image}
-                  alt=""
+                  // The deck is aria-hidden; the alt still names the build for image search.
+                  alt={`${s.name} website, built by Arrowbin`}
                   fill
-                  sizes="(min-width: 1024px) 560px, 90vw"
-                  priority={i === 0}
+                  sizes={SIZES}
+                  // Every card is visible, so all load eagerly; low priority
+                  // stops React adding an unconditional <link rel="preload"> per
+                  // eager image at the top of <head>, ahead of the CSS and
+                  // scripts (the front card's wide-screen preload is above).
+                  loading="eager"
+                  fetchPriority="low"
                   className="object-cover object-top"
                   {...(s.blur
                     ? { placeholder: "blur" as const, blurDataURL: s.blur }

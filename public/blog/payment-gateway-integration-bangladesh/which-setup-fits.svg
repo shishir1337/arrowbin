@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="64" y="84" font-size="40" font-weight="700" fill="#0e0b24">Which payment setup fits your store?</text>
+  <text x="64" y="124" font-size="24" fill="#4a4766">Where we would start, by store type (our view, not a rule)</text>
+
+  <!-- header -->
+  <rect x="64" y="152" width="1152" height="48" rx="12" fill="#0e0b24"/>
+  <g font-size="20" font-weight="700" fill="#ffffff">
+    <text x="96" y="183">Your store</text>
+    <text x="404" y="183">Start with</text>
+    <text x="764" y="183">Why</text>
+  </g>
+
+  <!-- rows -->
+  <rect x="64" y="212" width="1152" height="100" rx="14" fill="#F1F2F7"/>
+  <rect x="64" y="320" width="1152" height="100" rx="14" fill="#F1F2F7"/>
+  <rect x="64" y="428" width="1152" height="100" rx="14" fill="#F1F2F7"/>
+  <rect x="64" y="536" width="1152" height="100" rx="14" fill="#F1F2F7"/>
+  <rect x="64" y="212" width="12" height="100" rx="6" fill="#3b2bff"/>
+  <rect x="64" y="320" width="12" height="100" rx="6" fill="#ff4da6"/>
+  <rect x="64" y="428" width="12" height="100" rx="6" fill="#ffd23f"/>
+  <rect x="64" y="536" width="12" height="100" rx="6" fill="#ff6b3d"/>
+
+  <!-- column 1 -->
+  <g font-size="20" font-weight="600" fill="#0e0b24">
+    <text x="96" y="254">New store,</text>
+    <text x="96" y="280">most orders are COD</text>
+    <text x="96" y="362">Most online payments</text>
+    <text x="96" y="388">come through bKash</text>
+    <text x="96" y="470">Many shoppers</text>
+    <text x="96" y="496">pay by card</text>
+    <text x="96" y="578">Store runs</text>
+    <text x="96" y="604">on Shopify</text>
+  </g>
+
+  <!-- column 2 -->
+  <g font-size="20" font-weight="700" fill="#3b2bff">
+    <text x="404" y="254">COD with confirmation,</text>
+    <text x="404" y="280">plus one aggregator</text>
+    <text x="404" y="362">Aggregator plus</text>
+    <text x="404" y="388">direct bKash</text>
+    <text x="404" y="470">An aggregator</text>
+    <text x="404" y="496">for card coverage</text>
+    <text x="404" y="578">A third-party</text>
+    <text x="404" y="604">payment app</text>
+  </g>
+
+  <!-- column 3 -->
+  <g font-size="20" fill="#4a4766">
+    <text x="764" y="254">One contract covers cards and wallets</text>
+    <text x="764" y="280">while you learn how buyers pay</text>
+    <text x="764" y="350">Saved wallets and refunds through</text>
+    <text x="764" y="376">bKash's own API, plus one more</text>
+    <text x="764" y="402">settlement report to reconcile</text>
+    <text x="764" y="458">Cards and wallets in one integration.</text>
+    <text x="764" y="484">SSLCommerz lists AMEX at 3.5%</text>
+    <text x="764" y="510">per successful transaction</text>
+    <text x="764" y="578">Shopify Payments isn't offered in</text>
+    <text x="764" y="604">Bangladesh; use a provider's app</text>
+  </g>
+
+  <text x="64" y="684" font-size="18" fill="#4a4766">Sources: SSLCommerz pricing page; Shopify Payments supported-countries list (both checked 15 Oct 2026).</text>
+</svg>

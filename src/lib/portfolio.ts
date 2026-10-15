@@ -10,8 +10,9 @@ export type Project = {
   /** Short description of what we delivered. */
   blurb: string;
   /**
-   * Headline outcome metric shown on the card. PLACEHOLDER values — approved for
-   * launch, to be replaced with the client's real measured results before production.
+   * Headline outcome shown on the card: a factual description of what was
+   * delivered. Only add a number (conversion, speed, revenue) once the client
+   * has confirmed it in writing; unconfirmed figures are a trust and legal risk.
    */
   result: string;
   /** Category tags shown on the card. */
@@ -30,7 +31,7 @@ export const projects: Project[] = [
     url: "https://silentlifestylebd.com/",
     image: "/portfolio/silent-lifestyle-bd.jpg",
     blurb:
-      "A men's and women's fashion storefront for Bangladesh, built around cash-on-delivery ordering and phone confirmation rather than card checkout.",
+      "A men's and women's fashion storefront for Bangladesh, built around cash-on-delivery ordering with phone confirmation, alongside bKash, Nagad and card payments.",
     result: "Cash-on-delivery ordering live nationwide",
     tags: ["E-commerce", "Fashion", "Storefront"],
     mark: "Sl",
@@ -41,8 +42,8 @@ export const projects: Project[] = [
     url: "https://www.flexoverbd.com/",
     image: "/portfolio/flexover-bd.jpg",
     blurb:
-      "A multi-category online store covering fashion, gadgets, home and beauty, with cash on delivery and returns across all 64 districts.",
-    result: "Delivery coverage across all 64 districts",
+      "A multi-category online store covering fashion, gadgets, home and beauty, with cash on delivery, easy returns and nationwide delivery.",
+    result: "Rebuilt from WordPress as a multi-category Next.js store",
     tags: ["E-commerce", "Retail", "UI/UX"],
     mark: "Fo",
     gradient: "from-orange-500 to-red-600",
@@ -53,7 +54,7 @@ export const projects: Project[] = [
     image: "/portfolio/north-bengal-agro-farms.jpg",
     blurb:
       "Corporate and product website for an organic agro-export company, combining its brand story with online ordering.",
-    result: "Online ordering live in 8 weeks",
+    result: "Rebuilt from WordPress with online ordering built in",
     tags: ["Corporate", "E-commerce"],
     mark: "Nb",
     gradient: "from-indigo-500 to-fuchsia-500",
@@ -64,7 +65,7 @@ export const projects: Project[] = [
     image: "/portfolio/maneel-club.jpg",
     blurb:
       "An e-commerce storefront for a men's fashion brand, built mobile-first so shoppers can browse and check out quickly on a phone.",
-    result: "+28% mobile conversion after launch",
+    result: "Rebuilt from WordPress as a mobile-first Next.js store",
     tags: ["E-commerce", "Fashion"],
     mark: "Mc",
     gradient: "from-amber-500 to-orange-600",
@@ -75,7 +76,7 @@ export const projects: Project[] = [
     image: "/portfolio/brandingly.jpg",
     blurb:
       "A website for a full-service branding and marketing agency, tuned for fast load times and steady lead generation.",
-    result: "2.4s faster page loads post-rebuild",
+    result: "Rebuilt from WordPress on Next.js for fast page loads",
     tags: ["Agency", "Web Design", "SEO"],
     mark: "Br",
     gradient: "from-rose-500 to-pink-600",
@@ -86,7 +87,7 @@ export const projects: Project[] = [
     image: "/portfolio/gtegoyna.jpg",
     blurb:
       "A handcrafted-jewelry storefront for traditional Bangladeshi pieces, with a mobile-first checkout flow.",
-    result: "Checkout drop-off cut by ~30%",
+    result: "Mobile-first Next.js store with a streamlined checkout",
     tags: ["E-commerce", "Storefront"],
     mark: "গ",
     gradient: "from-yellow-500 to-amber-600",
@@ -97,7 +98,7 @@ export const projects: Project[] = [
     image: "/portfolio/yt-shop-india.jpg",
     blurb:
       "An online marketplace for buying and selling YouTube channels. Listings are verified and payments run through a secure transaction flow.",
-    result: "1,000+ verified listings onboarded",
+    result: "Marketplace with verified listings and secure payments",
     tags: ["Marketplace", "E-commerce"],
     mark: "Yt",
     gradient: "from-red-500 to-rose-600",
@@ -108,14 +109,14 @@ export const projects: Project[] = [
     image: "/portfolio/outnet.jpg",
     blurb:
       "A marketing site for a full-service digital agency that also works as its portfolio and main source of leads.",
-    result: "Bounce rate down 22% after redesign",
+    result: "Rebuilt from WordPress on Next.js as its lead engine",
     tags: ["Agency", "Web Design"],
     mark: "On",
     gradient: "from-cyan-500 to-blue-600",
   },
 ];
 
-/** Additional companies Arrowbin has worked with — shown as a logo/text cloud. */
+/** Additional companies Arrowbin has worked with: shown as a logo/text cloud. */
 export const clients: string[] = [
   "Sikkhon",
   "Dizishore",

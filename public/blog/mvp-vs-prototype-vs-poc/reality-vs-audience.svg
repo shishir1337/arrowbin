@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">How real is it, and who uses it?</text>
+  <text x="60" y="126" font-size="24" fill="#4a4766">Where each build sits on two questions (original Arrowbin diagram)</text>
+  <rect x="260" y="156" width="306" height="232" rx="16" fill="#F1F2F7"/>
+  <rect x="586" y="156" width="306" height="232" rx="16" fill="#F1F2F7"/>
+  <rect x="912" y="156" width="306" height="232" rx="16" fill="#F1F2F7"/>
+  <rect x="260" y="404" width="306" height="232" rx="16" fill="#F1F2F7"/>
+  <rect x="586" y="404" width="306" height="232" rx="16" fill="#F1F2F7"/>
+  <rect x="912" y="404" width="306" height="232" rx="16" fill="#F1F2F7"/>
+  <text x="60" y="262" font-size="22" font-weight="700" fill="#0e0b24">Working code</text>
+  <text x="60" y="290" font-size="18" fill="#4a4766">real logic and data</text>
+  <text x="60" y="510" font-size="22" font-weight="700" fill="#0e0b24">Screens only</text>
+  <text x="60" y="538" font-size="18" fill="#4a4766">nothing behind them</text>
+  <text x="413" y="676" font-size="22" font-weight="700" text-anchor="middle" fill="#0e0b24">Your team only</text>
+  <text x="739" y="676" font-size="22" font-weight="700" text-anchor="middle" fill="#0e0b24">A few test users</text>
+  <text x="1065" y="676" font-size="22" font-weight="700" text-anchor="middle" fill="#0e0b24">Real customers</text>
+  <text x="60" y="676" font-size="20" font-weight="700" fill="#4a4766">Who uses it</text>
+  <rect x="278" y="174" width="270" height="196" rx="14" fill="#ffffff" stroke="#3b2bff" stroke-width="2.5"/>
+  <text x="300" y="222" font-size="26" font-weight="700" fill="#3b2bff">Proof of concept</text>
+  <text x="300" y="260" font-size="21" fill="#0e0b24">Can we build it?</text>
+  <text x="300" y="302" font-size="18" fill="#4a4766">Rough code, no interface,</text>
+  <text x="300" y="328" font-size="18" fill="#4a4766">seen by engineers</text>
+  <rect x="604" y="174" width="270" height="196" rx="14" fill="#fff3ee" stroke="#ff6b3d" stroke-width="2.5" stroke-dasharray="9 7"/>
+  <text x="626" y="222" font-size="26" font-weight="700" fill="#0e0b24">AI-built app</text>
+  <text x="626" y="260" font-size="20" fill="#0e0b24">Runs, so it feels real</text>
+  <text x="626" y="302" font-size="18" fill="#4a4766">Harden it before real</text>
+  <text x="626" y="328" font-size="18" fill="#4a4766">users' data or money</text>
+  <rect x="930" y="174" width="270" height="196" rx="14" fill="#3b2bff" stroke="#3b2bff" stroke-width="2.5"/>
+  <text x="952" y="224" font-size="30" font-weight="700" fill="#ffffff">MVP</text>
+  <text x="952" y="262" font-size="20" fill="#ffffff">Will people pay for it?</text>
+  <text x="952" y="302" font-size="18" fill="#e6e2ff">Real code, used by</text>
+  <text x="952" y="328" font-size="18" fill="#e6e2ff">paying customers</text>
+  <line x1="878" y1="272" x2="914" y2="272" stroke="#ff6b3d" stroke-width="3"/>
+  <polygon points="928,272 914,264 914,280" fill="#ff6b3d"/>
+  <rect x="278" y="422" width="270" height="196" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="300" y="470" font-size="22" font-weight="700" fill="#4a4766">Wireframes</text>
+  <text x="300" y="508" font-size="18" fill="#4a4766">Sketches the team</text>
+  <text x="300" y="534" font-size="18" fill="#4a4766">reviews in-house</text>
+  <rect x="604" y="422" width="270" height="196" rx="14" fill="#ffe8f3" stroke="#ff4da6" stroke-width="2.5"/>
+  <text x="626" y="470" font-size="26" font-weight="700" fill="#0e0b24">Prototype</text>
+  <text x="626" y="508" font-size="21" fill="#0e0b24">Will people get it?</text>
+  <text x="626" y="550" font-size="18" fill="#4a4766">Clickable, tested with</text>
+  <text x="626" y="576" font-size="18" fill="#4a4766">about five users</text>
+  <rect x="930" y="422" width="270" height="196" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="952" y="470" font-size="22" font-weight="700" fill="#4a4766">Concierge test</text>
+  <text x="952" y="508" font-size="18" fill="#4a4766">Real customers, with</text>
+  <text x="952" y="534" font-size="18" fill="#4a4766">the work done by hand</text>
+  <text x="952" y="560" font-size="18" fill="#4a4766">behind the screens</text>
+</svg>

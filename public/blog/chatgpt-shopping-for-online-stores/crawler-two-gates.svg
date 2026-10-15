@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Two gates every AI crawler has to pass</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">robots.txt asks politely; your CDN, firewall or security plugin decides</text>
+
+  <!-- column headings -->
+  <g font-size="20" font-weight="700" fill="#4a4766" text-anchor="middle">
+    <text x="190" y="196">Crawler</text>
+    <text x="500" y="196">Gate 1: robots.txt</text>
+    <text x="820" y="196">Gate 2: CDN or firewall</text>
+    <text x="1110" y="196">Product page</text>
+  </g>
+
+  <!-- row A -->
+  <rect x="80" y="226" width="220" height="120" rx="16" fill="#F1F2F7"/>
+  <text x="190" y="280" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">OAI-SearchBot</text>
+  <text x="190" y="310" text-anchor="middle" font-size="18" fill="#4a4766">ChatGPT search</text>
+  <rect x="390" y="226" width="220" height="120" rx="16" fill="#ffffff" stroke="#3b2bff" stroke-width="3"/>
+  <circle cx="436" cy="286" r="22" fill="#3b2bff"/>
+  <path d="M426 286 l7 7 13 -14" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="470" y="282" font-size="20" font-weight="600" fill="#0e0b24">Allow: /</text>
+  <text x="470" y="308" font-size="18" fill="#4a4766">request granted</text>
+  <rect x="710" y="226" width="220" height="120" rx="16" fill="#ffffff" stroke="#3b2bff" stroke-width="3"/>
+  <circle cx="756" cy="286" r="22" fill="#3b2bff"/>
+  <path d="M746 286 l7 7 13 -14" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="790" y="282" font-size="20" font-weight="600" fill="#0e0b24">Bot allowed</text>
+  <text x="790" y="308" font-size="18" fill="#4a4766">rule passes</text>
+  <rect x="1010" y="226" width="200" height="120" rx="16" fill="#3b2bff"/>
+  <text x="1110" y="280" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">200 OK</text>
+  <text x="1110" y="310" text-anchor="middle" font-size="18" fill="#ffffff">price is read</text>
+  <g stroke="#4a4766" stroke-width="3" fill="none" marker-end="url(#ar)">
+    <path d="M300 286 L382 286"/>
+    <path d="M610 286 L702 286"/>
+    <path d="M930 286 L1002 286"/>
+  </g>
+
+  <!-- row B -->
+  <rect x="80" y="406" width="220" height="120" rx="16" fill="#F1F2F7"/>
+  <text x="190" y="460" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">GPTBot</text>
+  <text x="190" y="490" text-anchor="middle" font-size="18" fill="#4a4766">same robots.txt</text>
+  <rect x="390" y="406" width="220" height="120" rx="16" fill="#ffffff" stroke="#3b2bff" stroke-width="3"/>
+  <circle cx="436" cy="466" r="22" fill="#3b2bff"/>
+  <path d="M426 466 l7 7 13 -14" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="470" y="462" font-size="20" font-weight="600" fill="#0e0b24">Allow: /</text>
+  <text x="470" y="488" font-size="18" fill="#4a4766">request granted</text>
+  <rect x="710" y="406" width="220" height="120" rx="16" fill="#ffffff" stroke="#ff6b3d" stroke-width="3"/>
+  <circle cx="756" cy="466" r="22" fill="#ff6b3d"/>
+  <path d="M747 457 l18 18 M765 457 l-18 18" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <text x="790" y="462" font-size="20" font-weight="600" fill="#0e0b24">AI bot rule</text>
+  <text x="790" y="488" font-size="18" fill="#4a4766">request blocked</text>
+  <rect x="1010" y="406" width="200" height="120" rx="16" fill="#ff6b3d"/>
+  <text x="1110" y="460" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">403</text>
+  <text x="1110" y="490" text-anchor="middle" font-size="18" fill="#ffffff">page never read</text>
+  <g stroke="#4a4766" stroke-width="3" fill="none" marker-end="url(#ar)">
+    <path d="M300 466 L382 466"/>
+    <path d="M610 466 L702 466"/>
+    <path d="M930 466 L1002 466"/>
+  </g>
+
+  <!-- how to check -->
+  <rect x="80" y="566" width="1130" height="64" rx="14" fill="#F1F2F7"/>
+  <text x="104" y="606" font-size="20" fill="#0e0b24">Check: request a product page with the crawler's user agent, then confirm in your CDN's event log.</text>
+
+  <text x="80" y="678" font-size="18" fill="#4a4766">Sources: OpenAI crawler docs; Cloudflare AI bot policy docs (updated Jul 1, 2026). Row 2 is what we found on our own site on Oct 14, 2026.</text>
+</svg>

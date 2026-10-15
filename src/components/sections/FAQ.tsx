@@ -2,7 +2,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Icon } from "@/components/ui/Icon";
 
 /**
- * Accessible FAQ accordion built on native <details>/<summary> — works without JS,
+ * Accessible FAQ accordion built on native <details>/<summary>: works without JS,
  * keyboard-friendly, and renders question/answer text crawlers can read for AEO.
  * JSON-LD (FAQPage) is emitted separately by the page via faqSchema().
  */

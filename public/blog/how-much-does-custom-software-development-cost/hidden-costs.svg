@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <clipPath id="card"><rect width="1280" height="720" rx="24"/></clipPath>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">The costs below the waterline</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">The build price is only the visible part of owning software</text>
+
+  <!-- water -->
+  <g clip-path="url(#card)">
+    <rect x="0" y="262" width="1280" height="458" fill="#f1f2f7"/>
+  </g>
+  <path d="M0 262 q40 -10 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#cfc4ff" stroke-width="4"/>
+
+  <!-- tip above the water -->
+  <path d="M560 262 L602 200 L628 214 L660 152 L698 212 L728 196 L762 262 Z" fill="#cfc4ff"/>
+  <text x="792" y="206" font-size="28" font-weight="700" fill="#0e0b24">Build cost</text>
+  <text x="792" y="236" font-size="19" fill="#4a4766">What the quote shows</text>
+
+  <!-- mass below the water -->
+  <path d="M362 266 L920 266 L1010 330 L980 470 L880 600 L700 690 L560 672 L400 560 L300 420 L292 322 Z" fill="#3b2bff"/>
+
+  <!-- hidden costs -->
+  <g fill="#ffd23f">
+    <circle cx="450" cy="330" r="7"/>
+    <circle cx="640" cy="330" r="7"/>
+    <circle cx="830" cy="330" r="7"/>
+    <circle cx="470" cy="452" r="7"/>
+    <circle cx="640" cy="452" r="7"/>
+    <circle cx="810" cy="452" r="7"/>
+  </g>
+  <g font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <text x="450" y="368">Hosting and</text>
+    <text x="450" y="394">infrastructure</text>
+    <text x="640" y="368">Maintenance</text>
+    <text x="640" y="394">and updates</text>
+    <text x="830" y="368">Third-party</text>
+    <text x="830" y="394">APIs</text>
+    <text x="470" y="490">Support and</text>
+    <text x="470" y="516">monitoring</text>
+    <text x="640" y="490">Security and</text>
+    <text x="640" y="516">compliance</text>
+    <text x="810" y="490">Future</text>
+    <text x="810" y="516">features</text>
+  </g>
+
+  <!-- annotation -->
+  <g font-size="19" fill="#0e0b24">
+    <text x="80" y="612" font-weight="700">Ongoing ownership</text>
+    <text x="80" y="640">Roughly 15–20% of the build</text>
+    <text x="80" y="666">cost per year (Arrowbin estimate)</text>
+  </g>
+</svg>

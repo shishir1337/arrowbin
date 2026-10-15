@@ -1,6 +1,6 @@
 /**
  * Inline SVG icon set (Lucide-style, 24x24 viewBox, currentColor stroke).
- * Inline SVG keeps icons crisp, themeable and zero-request — no emoji icons.
+ * Inline SVG keeps icons crisp, themeable and zero-request: no emoji icons.
  * Decorative by default (aria-hidden); pass a `title` for meaningful icons.
  */
 

@@ -1,19 +1,23 @@
 /**
  * Blog content store. Posts are structured (not raw HTML) so they render safely and
- * consistently. Each post is written to target a real question people search — good
- * for SEO and AEO. Add new posts by appending to `posts`.
+ * consistently. Each post is written to target a real question people search, which
+ * is good for SEO and AEO. Add new posts as one file each in `./posts/` (see
+ * posts/index.ts).
  */
+
+import { extraPosts } from "./posts";
+import { site } from "./site";
 
 /** An image used in a post. When `pending`, the renderer shows a placeholder card
  * with the generation `prompt` and target `src` path instead of an <img>. */
 export type PostImage = {
-  /** Public path, e.g. "/blog/<slug>/cost-ranges.webp". */
+  /** Public path, e.g. "/blog/<slug>/cost-ranges.webp" (or an original .svg chart). */
   src: string;
   alt: string;
   caption?: string;
   width?: number;
   height?: number;
-  /** AI image-generation prompt — shown in the placeholder so it can be produced. */
+  /** AI image-generation prompt, shown in the placeholder so it can be produced. */
   prompt?: string;
   /** True until the real image file exists at `src`. */
   pending?: boolean;
@@ -27,7 +31,10 @@ export type ContentBlock =
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "quote"; text: string; cite?: string }
-  | { type: "image"; image: PostImage };
+  | { type: "image"; image: PostImage }
+  /** One modest in-article call to action: a short pitch and a single link.
+   * `href` is a site path ("/contact") or an absolute URL (the booking page). */
+  | { type: "cta"; title: string; text: string; href: string; label: string };
 
 export type Post = {
   slug: string;
@@ -59,8 +66,11 @@ export type Post = {
 };
 
 const COST_DIR = "/blog/how-much-does-custom-software-development-cost";
+const CHOOSE_DIR = "/blog/how-to-choose-a-software-development-company";
+const MVP_DIR = "/blog/how-long-does-it-take-to-build-an-mvp";
 
-export const posts: Post[] = [
+/** The original three guides. New posts live one per file in `./posts/`. */
+const corePosts: Post[] = [
   {
     slug: "how-much-does-custom-software-development-cost",
     title: "How Much Does Custom Software Development Cost in 2026?",
@@ -75,13 +85,13 @@ export const posts: Post[] = [
     ],
     date: "2026-05-12",
     dateLabel: "May 12, 2026",
-    updated: "2026-06-20",
-    updatedLabel: "June 20, 2026",
+    updated: "2026-10-15",
+    updatedLabel: "October 15, 2026",
     author: "Md. Shishir Ahmed",
     readingTime: "14 min read",
     category: "Guides",
     excerpt:
-      "Custom software can cost anywhere from $5,000 to $250,000+. Here's what drives the number, broken down by project type, region and pricing model, plus how to spend smart.",
+      "Custom software can cost anywhere from $5,000 to $250,000+. See what drives the number, broken down by project type, region and pricing model, plus how to spend smart.",
     image: {
       src: `${COST_DIR}/team-collaboration.webp`,
       alt: "A software development team collaborating around a screen, planning a project budget and scope",
@@ -92,11 +102,11 @@ export const posts: Post[] = [
     body: [
       {
         type: "p",
-        text: "If you are planning a custom software project, the first question on your mind is almost certainly how much it will cost. It is also the hardest question to answer in a single number. [Custom software](/services/custom-software-development) is built around your specific workflows, users and scale, so the price moves with what you actually need. This guide is for founders, product owners and operations leaders who want a realistic budget before they talk to a single agency. We build custom software for a living, and the numbers below reflect real 2026 market pricing rather than a sales pitch.",
+        text: "If you're planning a custom software project, the first question on your mind is almost certainly how much it will cost. It's also the hardest question to answer in a single number. [Custom software](/services/custom-software-development) is built around your own workflows and users, so the price moves with what you actually need. This guide is for founders, product owners and operations leaders who want a realistic budget before they talk to a single agency. We build custom software for a living, and the numbers below are our best estimate of 2026 market pricing, not a sales pitch.",
       },
       {
         type: "p",
-        text: "These ranges come from Arrowbin's own delivered projects and publicly available [developer-rate data](https://survey.stackoverflow.co/), not a sales sheet. We will cover the honest price ranges by project type, what you are actually paying for, the factors that move the number most, how regional rates change the math, the costs nobody mentions up front, and a worked example of a real $60,000 build. By the end you should be able to budget with confidence and spot a bad quote quickly.",
+        text: "The ranges in this guide are Arrowbin estimates, drawn from our own scoping and quoting work and checked against public [developer salary data](/blog/developer-salaries-by-country). They're planning figures, not quotes. We'll cover price ranges by project type, what you're actually paying for, the factors that move the number most, how regional rates change the math, the costs nobody mentions up front, and a worked example of a typical $60,000 build. By the end you should be able to budget with confidence and spot a bad quote quickly.",
       },
 
       {
@@ -138,18 +148,25 @@ export const posts: Post[] = [
         ],
       },
       {
+        type: "cta",
+        title: "Want a fixed number for your scope?",
+        text: "Ranges only get you so far. Tell us what you are building and we will give you a fixed, transparent estimate after a short discovery call, before any work begins.",
+        href: "/contact",
+        label: "Get a fixed estimate",
+      },
+      {
         type: "p",
-        text: "Treat these as planning ranges, not quotes. The same feature list can cost twice as much with one team as another, depending on complexity, design and who is doing the work. The rest of this guide explains why, so you can place your own project on this map.",
+        text: "These figures are Arrowbin estimates, so treat them as planning ranges, not quotes. The same feature list can cost twice as much with one team as another, depending on complexity, design and who's doing the work. The rest of this guide explains why, so you can place your own project on this map.",
       },
       {
         type: "image",
         image: {
-          src: `${COST_DIR}/cost-spectrum.webp`,
-          alt: "Cost spectrum infographic showing the four custom software project tiers from MVP to enterprise with 2026 price ranges",
+          src: `${COST_DIR}/cost-spectrum.svg`,
+          alt: "Staircase chart of four custom software project tiers with 2026 price ranges: MVP or internal tool $5,000 to $30,000, mid-size web or mobile app $30,000 to $90,000, SaaS platform $80,000 to $200,000, enterprise system $150,000 to $500,000 or more",
           caption:
-            "The 2026 cost spectrum, from a lean MVP to an enterprise platform.",
-          prompt:
-            "A clean, modern horizontal infographic on a white background showing four ascending tiers of a staircase or bar steps labelled 'MVP', 'Web/Mobile App', 'SaaS Platform', 'Enterprise'. Each step rises higher and is tinted in a lime-green to dark-green gradient (#a3e635 to #1a2e05). Minimal flat vector style, generous white space, no text other than the four tier labels. 1280x720, professional fintech/SaaS aesthetic.",
+            "The 2026 cost spectrum, from a lean MVP to an enterprise platform (Arrowbin estimate).",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -159,7 +176,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "When you pay for custom software, you are paying for more than code. A credible quote covers the whole lifecycle: discovery and planning, UX/UI design, engineering, quality assurance, and project management. Writing code is only about half the work. The other half is figuring out the right thing to build and making sure it actually works.",
+        text: "When you pay for custom software, you're paying for more than code. A credible quote covers the whole lifecycle: discovery and planning, UX/UI design, engineering, quality assurance, and project management. Writing code is only about half the work. The other half is figuring out the right thing to build and making sure it actually works.",
       },
       {
         type: "image",
@@ -188,7 +205,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "If a quote is dramatically cheaper than the rest, ask which of these phases has been cut. Usually it is discovery, QA or design, and those are exactly the phases that protect you from an expensive rebuild six months later.",
+        text: "If a quote is dramatically cheaper than the rest, ask which of these phases has been cut. Usually it's discovery, QA or design, and those are exactly the phases that protect you from an expensive rebuild six months later.",
       },
 
       {
@@ -202,36 +219,36 @@ export const posts: Post[] = [
       { type: "h3", text: "1. Scope: how much you are building" },
       {
         type: "p",
-        text: "Scope is the single biggest driver. Every screen, feature, user role and report adds design, build and testing time. A product with 5 core features will always cost a fraction of one with 25. This is why a focused MVP is the best cost-control tool you have.",
+        text: "Scope is the single biggest driver. Every screen, feature, user role and report adds design, build and testing time. A product with 5 core features will always cost a fraction of one with 25. That's why a focused MVP is the best cost-control tool you have.",
       },
       { type: "h3", text: "2. Technical complexity" },
       {
         type: "p",
-        text: "Not all features are equal. A static content page is cheap. Real-time data, payments, AI features, third-party integrations, complex permissions and high-scale infrastructure are expensive, because they take more engineering and far more testing. Two products with the same screen count can differ wildly in cost based on what happens under the hood.",
+        text: "Not all features are equal. A static content page is cheap. Real-time data, payments, [AI features](/services/ai-automation), third-party integrations, complex permissions and high-scale infrastructure are expensive, because they take more engineering and far more testing. Two products with the same screen count can differ wildly in cost based on what happens under the hood. If the AI part is an agent that works inside your systems, our guide to [AI agent costs for small businesses](/blog/ai-agent-cost-small-business) breaks that bill down.",
       },
       { type: "h3", text: "3. Design depth" },
       {
         type: "p",
-        text: "A templated, off-the-shelf UI is fast and cheap. A bespoke, brand-aligned experience with custom interactions, animation and a full design system costs more, but for customer-facing products it often pays for itself in conversion and retention.",
+        text: "A templated, off-the-shelf UI is fast and cheap. Bespoke, brand-aligned [UI/UX design](/services/ui-ux-design), with custom interactions, animation and a full design system, costs more, but for customer-facing products it often pays for itself in conversion and retention.",
       },
       { type: "h3", text: "4. Platforms and devices" },
       {
         type: "p",
-        text: "A web-only product is the cheapest path. Adding native iOS and Android apps can increase cost significantly because each platform needs its own build and testing. Cross-platform frameworks reduce this, but multi-platform is still more than single-platform.",
+        text: "A web-only product is the cheapest path. Adding [native iOS and Android apps](/services/mobile-app-development) can increase cost significantly because each platform needs its own build and testing. Cross-platform frameworks reduce this, but multi-platform is still more than single-platform.",
       },
       { type: "h3", text: "5. Team seniority and location" },
       {
         type: "p",
-        text: "A senior team charges more per hour but often costs less overall. They make better architectural decisions, write cleaner code and ship with fewer defects. Location matters too. A developer in San Francisco and one in Dhaka with identical skills can have a 4–5x difference in rate.",
+        text: "A senior team charges more per hour but often costs less overall. They make better architectural decisions, write cleaner code and ship with fewer defects. Location matters too. A developer in San Francisco and one in Dhaka with identical skills can have a 4–5x difference in rate (Arrowbin estimate).",
       },
       {
         type: "image",
         image: {
-          src: `${COST_DIR}/cost-factors.webp`,
-          alt: "Infographic of the five main factors that affect custom software cost: scope, complexity, design, platforms, and team",
+          src: `${COST_DIR}/cost-factors.svg`,
+          alt: "Infographic of the five main factors that affect custom software cost: scope, technical complexity, design depth, platforms, and team seniority and location",
           caption: "The five levers that move a software budget the most.",
-          prompt:
-            "A modern flat-vector infographic on a white background with five labelled icons arranged in a row or wheel: a stack of cards (Scope), interlocking gears (Complexity), a paintbrush/palette (Design), stacked devices phone+laptop (Platforms), and a group of people (Team). Lime-green (#65a30d) and charcoal (#0a0a0a) accents, lots of white space, minimal, no paragraph text. 1280x720, clean SaaS infographic style.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -243,17 +260,17 @@ export const posts: Post[] = [
       { type: "h3", text: "MVP or internal tool: $5,000 to $30,000" },
       {
         type: "p",
-        text: "A minimum viable product or a focused internal tool covers one core workflow done well. Think an admin dashboard, a booking system or a simple two-sided app with a handful of screens. The goal is to validate value or remove a manual bottleneck quickly, then expand based on real usage.",
+        text: "A minimum viable product or a focused internal tool covers one core workflow done well. Think an admin dashboard, a booking system or a simple two-sided app with a handful of screens. The goal is to validate value or remove a manual bottleneck quickly, then expand based on real usage. For the schedule side of that decision, see our guide on [how long it takes to build an MVP](/blog/how-long-does-it-take-to-build-an-mvp), and for the budget, our guide to [MVP development cost](/blog/mvp-development-cost) works through the sums.",
       },
       { type: "h3", text: "Mid-size web or mobile app: $30,000 to $90,000" },
       {
         type: "p",
-        text: "This is the sweet spot for most businesses: a polished product with user accounts, a real database, several integrations, payments and a considered design. A customer portal, a marketplace or a content platform usually lands here.",
+        text: "This is where most businesses end up: a polished product with user accounts, a real database, several integrations, payments and a considered design. A customer portal, an [online store or marketplace](/services/ecommerce-development), or a content platform usually lands here. If it's a store, weigh [Shopify against a custom store](/blog/shopify-vs-custom-ecommerce) before you budget for a build at all.",
       },
       { type: "h3", text: "SaaS platform: $80,000 to $200,000" },
       {
         type: "p",
-        text: "A full software-as-a-service product adds multi-tenancy, subscription billing, role-based permissions, analytics, admin tooling and the reliability customers expect from something they pay for monthly. The higher cost reflects the surrounding engineering, not just more screens.",
+        text: "A full [software-as-a-service product](/services/saas-product-engineering) adds multi-tenancy, subscription billing, role-based permissions, analytics, admin tooling and the reliability customers expect from something they pay for monthly. The higher cost reflects the surrounding engineering, not just more screens. Our guide to [what a SaaS costs to build and run](/blog/saas-development-cost) breaks that work down, monthly running costs included.",
       },
       {
         type: "h3",
@@ -266,12 +283,12 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: `${COST_DIR}/project-types.webp`,
-          alt: "Comparison illustration of four product types: MVP dashboard, marketplace app, SaaS platform and enterprise system",
+          src: `${COST_DIR}/project-types.svg`,
+          alt: "Four product wireframes, one per tier: an admin dashboard for an MVP or internal tool, a marketplace app for a mid-size product, an analytics dashboard for a SaaS platform and a dense data table for an enterprise system",
           caption:
             "What you get at each tier, from a single workflow to a full platform.",
-          prompt:
-            "A 2x2 grid of clean, minimal product-screen mockups on a light grey background: top-left a simple admin dashboard, top-right a mobile marketplace app, bottom-left a SaaS analytics dashboard, bottom-right a dense enterprise data table. Soft shadows, rounded corners, lime-green (#65a30d) accent UI elements, realistic but generic (no real brand names). 1280x720, modern product showcase style.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -281,21 +298,22 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "Location is one of the biggest hidden variables in any quote. The same product can cost three to five times more depending on where your team sits, because hourly rates vary enormously by region. Here is the 2026 picture for a senior development team.",
+        text: "Location is one of the biggest hidden variables in any quote. The same product can cost three to five times more depending on where your team sits, because hourly rates vary enormously by region. Here is our 2026 estimate for a senior development team. These are Arrowbin estimates of blended agency rates, not published survey figures, so use them to compare regions rather than to price a specific quote. For the sourced pay figures underneath them, see our [developer salaries by country](/blog/developer-salaries-by-country) data.",
       },
       {
         type: "image",
         image: {
           src: `${COST_DIR}/developer-rates-by-region.svg`,
-          alt: "Bar chart of typical 2026 custom software hourly rates by region, from North America at $120-180 to South Asia at $25-60",
-          caption: "Blended senior team rates by region (USD/hour), 2026.",
+          alt: "Bar chart of typical 2026 custom software hourly rates by region, from North America at $120-180 to South Asia at $25-60 (Arrowbin estimate)",
+          caption:
+            "Blended senior team rates by region (USD/hour), 2026. Arrowbin estimate.",
           width: 1280,
           height: 720,
         },
       },
       {
         type: "table",
-        headers: ["Region", "Typical 2026 hourly rate"],
+        headers: ["Region", "Typical 2026 hourly rate (Arrowbin estimate)"],
         rows: [
           ["North America", "$120–180"],
           ["Western Europe", "$90–150"],
@@ -306,7 +324,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "It is tempting to chase the lowest rate, but rate and total cost are not the same thing. A cheap team that needs three attempts to get something right ends up more expensive than a strong team that gets it right once. The best value is usually a senior team in a lower-cost region: strong engineering at a sustainable rate, with enough time-zone overlap for real collaboration. If you are weighing how to [evaluate a senior team](/blog/how-to-choose-a-software-development-company) rather than just a rate card, that comes down to proof and process more than geography.",
+        text: "It's tempting to chase the lowest rate. But rate and total cost aren't the same thing. A cheap team that needs three attempts to get something right ends up more expensive than a strong team that gets it right once. The best value is usually a senior team in a lower-cost region: strong engineering at a sustainable rate, with enough time-zone overlap for real collaboration. If you are weighing how to [evaluate a senior team](/blog/how-to-choose-a-software-development-company) rather than just a rate card, that comes down to proof and process more than geography.",
       },
       {
         type: "quote",
@@ -320,7 +338,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "How you are billed matters almost as much as the rate. The two common models are fixed-price (one agreed number for a defined scope) and time & materials (you pay for the hours actually worked). Neither is universally cheaper. They suit different situations.",
+        text: "How you're billed matters almost as much as the rate. The two common models are fixed-price (one agreed number for a defined scope) and time & materials (you pay for the hours actually worked). Neither is universally cheaper. They suit different situations.",
       },
       {
         type: "table",
@@ -348,40 +366,40 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: `${COST_DIR}/pricing-models.webp`,
-          alt: "Side-by-side comparison illustration of fixed-price versus time and materials software pricing models",
+          src: `${COST_DIR}/pricing-models.svg`,
+          alt: "Side-by-side comparison of fixed-price and time and materials pricing: fixed price suits a well-defined scope and gives budget certainty, time and materials suits an evolving scope and gives flexibility",
           caption:
             "Two pricing models. Match the model to the stage of your project.",
-          prompt:
-            "A clean split-screen comparison illustration on a white background. Left side labelled 'Fixed Price' shows a locked padlock and a single price tag; right side labelled 'Time & Materials' shows a flexible clock and a sliding scale. Lime-green (#65a30d) and charcoal accents, flat vector, minimal, balanced composition. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
       { type: "h2", text: "What hidden costs should you budget for?" },
       {
         type: "p",
-        text: "The build price is not the whole story. Software keeps running after launch, and a realistic budget accounts for the costs that arrive once development ends (and sometimes while it is still going). Set aside roughly 15–20% of your build cost per year for ongoing ownership.",
+        text: "The build price isn't the whole story. Software keeps running after launch, and a realistic budget accounts for the costs that arrive once development ends (and sometimes while it's still going). As a planning rule of thumb (an Arrowbin estimate, not an industry statistic), set aside roughly 15–20% of your build cost per year for ongoing ownership. Our guide to [what software maintenance costs per year](/blog/software-maintenance-cost) explains what that money buys and when it runs higher.",
       },
       {
         type: "ul",
         items: [
-          "Hosting and infrastructure: cloud servers, databases and bandwidth that scale with usage.",
+          "[Hosting and infrastructure](/services/cloud-devops-hosting): cloud servers, databases and bandwidth that scale with usage.",
           "Third-party services: payment processors, email, SMS, maps and other APIs that charge per use.",
-          "Maintenance and updates: bug fixes, security patches, and keeping libraries current.",
+          "[Maintenance and updates](/services/maintenance-support): bug fixes, security patches, and keeping libraries current.",
           "Support and monitoring: uptime monitoring, error tracking and responding to issues.",
-          "Future features: the roadmap you will inevitably want once real users arrive.",
+          "Future features: the roadmap you'll inevitably want once real users arrive. Budget these separately; the 15–20% covers small improvements, not a new roadmap.",
           "Compliance and security: audits, certifications and data protection for regulated industries.",
         ],
       },
       {
         type: "image",
         image: {
-          src: `${COST_DIR}/hidden-costs.webp`,
-          alt: "Iceberg infographic showing the visible build cost above the waterline and hidden ongoing costs below it",
+          src: `${COST_DIR}/hidden-costs.svg`,
+          alt: "Iceberg infographic: the build cost sits above the waterline, while hosting, maintenance, third-party APIs, support, security and future features sit below it",
           caption:
             "The visible build price sits above a larger run of ongoing costs. Plan for ownership, not just delivery.",
-          prompt:
-            "An iceberg infographic on a clean white-to-pale-blue background. Above the waterline, a small labelled tip reads 'Build cost'. Below the waterline, a much larger iceberg mass with small icons for hosting, maintenance, APIs, support, security and future features. Minimal flat vector, lime-green (#65a30d) highlights, subtle, professional. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -391,7 +409,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "There is a right way and a wrong way to cut a software budget. The wrong way is skipping QA, design or discovery, which just defers cost into expensive rework. The right way is building less, building smarter, and building in the correct order.",
+        text: "There's a right way and a wrong way to cut a software budget. The wrong way is skipping QA, design or discovery, which just defers cost into expensive rework. The right way is to build less, and to build it in the right order.",
       },
       {
         type: "ol",
@@ -407,21 +425,21 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: `${COST_DIR}/cost-reduction.webp`,
-          alt: "Illustration of phased MVP-first development reducing risk and spreading cost over time",
+          src: `${COST_DIR}/cost-reduction.svg`,
+          alt: "Roadmap of phased, MVP-first development rising through four stages: MVP, launch, scale and expand, each funded by the stage before it",
           caption: "Build in phases, funded by the value each phase creates.",
-          prompt:
-            "A clean horizontal roadmap illustration on a white background showing three or four ascending phases connected by a path: 'MVP' then 'Launch' then 'Scale' then 'Expand'. Each milestone is a lime-green (#65a30d) node with a small icon, on a charcoal path, lots of white space, flat vector, minimal, no paragraph text. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
       {
         type: "h2",
-        text: "A real example: what a $60,000 SaaS MVP looks like",
+        text: "Worked example: what a typical $60,000 SaaS MVP looks like",
       },
       {
         type: "p",
-        text: "To make this concrete, here is a representative breakdown of a $60,000 SaaS MVP: a multi-tenant B2B product with accounts, a dashboard, billing and a couple of integrations, delivered in roughly 14 weeks.",
+        text: "To make this concrete, here is a representative breakdown of a $60,000 SaaS MVP: a multi-tenant B2B product with accounts, a dashboard, billing and a couple of integrations, delivered in roughly 14 weeks. It's an illustrative model built on the budget split above, not a specific client project.",
       },
       {
         type: "table",
@@ -441,22 +459,22 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: `${COST_DIR}/project-timeline.webp`,
-          alt: "Gantt-style timeline of a 14-week SaaS MVP build across discovery, design, development, QA and launch",
-          caption: "A typical 14-week MVP timeline, phase by phase.",
-          prompt:
-            "A clean horizontal Gantt-chart timeline on a white background spanning 14 weeks, with five stacked bars in a lime-green gradient labelled Discovery, Design, Development, QA, Launch, overlapping slightly to show agile phases. Minimal, flat, professional project-management aesthetic, charcoal text, no extra clutter. 1280x720.",
+          src: `${COST_DIR}/project-timeline.svg`,
+          alt: "Gantt chart of a representative 14-week SaaS MVP: discovery in weeks 1 to 2, design in weeks 2 to 4, development in weeks 3 to 11, QA in weeks 9 to 13 and launch in weeks 13 to 14, with each phase's share of the $60,000 budget",
+          caption: "A representative 14-week MVP timeline, phase by phase.",
+          width: 1280,
+          height: 720,
         },
       },
 
       { type: "h2", text: "So, how much should you budget?" },
       {
         type: "p",
-        text: "For most businesses building their first serious product in 2026, a budget of $40,000–$120,000 is realistic for a polished, launch-ready MVP or app. The exact figure comes down to scope, complexity and design. Below that range you are usually looking at a simple tool or a single-workflow MVP. Above it, a full platform or an enterprise system. Whatever your range, the same few habits keep it under control: keep the scope tight, spend properly on planning, work with a senior team, and release in phases so each stage funds the next.",
+        text: "For most businesses building their first serious product in 2026, a budget of $40,000–$120,000 is realistic for a polished, launch-ready MVP or app. The exact figure comes down to scope, complexity and design. Below that range you're usually looking at a simple tool or a single-workflow MVP. Above it, a full platform or an enterprise system. Whatever your range, the same few habits keep it under control: keep the scope tight, spend properly on planning, work with a senior team, and release in phases so each stage funds the next.",
       },
       {
         type: "p",
-        text: "At Arrowbin, we give you a fixed, transparent estimate after a short discovery call, so you know the real number before any work begins. If you want a grounded figure for your specific idea, book a free 30-minute call and we will map your scope to a budget on the spot.",
+        text: `At Arrowbin, we give you a fixed, transparent estimate after a short discovery call, so you know the real number before any work begins. If you want a grounded figure for your specific idea, [book a free 30-minute call](${site.bookingUrl}) and we'll map your scope to a budget on the spot.`,
       },
       {
         type: "image",
@@ -466,23 +484,23 @@ export const posts: Post[] = [
           caption:
             "A budget only becomes a working product once a team puts the planning behind it.",
           prompt:
-            "A warm, natural photograph of a small, diverse software team of 3-4 people collaborating around a laptop and a wall of sticky notes in a bright modern office. Candid, professional, soft daylight, shallow depth of field. Subtle lime-green accents in the environment. No visible brand logos or readable screen text. 1280x720, authentic startup atmosphere.",
+            "A warm, natural photograph of a small, diverse software team of 3-4 people collaborating around a laptop and a wall of sticky notes in a bright modern office. Candid, professional, soft daylight, shallow depth of field. Subtle ultraviolet (#3b2bff) and sun-yellow (#ffd23f) accents in the environment, no green. No visible brand logos or readable screen text. 1280x720, authentic startup atmosphere.",
         },
       },
     ],
     takeaways: [
-      "Most custom software costs $5,000–$250,000+, and most first products land in the $40,000–$120,000 range.",
-      "Cost tracks scope, technical complexity, design depth, the number of platforms, and how senior and where based your team is.",
-      "Development is only about 50% of a healthy budget. Discovery, design, QA and PM make up the rest.",
-      "Regional rates vary 3–5x, but the cheapest rate rarely produces the cheapest project.",
-      "Budget 15–20% of the build cost per year for hosting, maintenance and ongoing ownership.",
+      "By Arrowbin's estimate, most custom software costs $5,000–$250,000+, and most first products land in the $40,000–$120,000 range.",
+      "Cost tracks scope, technical complexity, design depth, the number of platforms, and your team's seniority and location.",
+      "In our typical budget split, development is only about 50% of the cost. Discovery, design, QA and PM make up the rest.",
+      "Regional rates vary 3–5x (Arrowbin estimate), but the cheapest rate rarely produces the cheapest project.",
+      "As a rule of thumb, budget roughly 15–20% of the build cost per year for hosting, maintenance and ongoing ownership (Arrowbin estimate).",
       "Control cost by starting with a tightly scoped MVP and getting a fixed estimate after discovery.",
     ],
     faqs: [
       {
         question: "Is custom software cheaper than off-the-shelf?",
         answer:
-          "Upfront, off-the-shelf is usually cheaper. Over time, custom software often wins. There are no per-seat fees, you don't pay for features you never use, and it fits your workflow exactly, which saves hours of manual work. For growing teams, the break-even point usually arrives within 2–3 years.",
+          "Upfront, off-the-shelf is usually cheaper. Over time, custom software often wins. There are no per-seat fees, you don't pay for features you never use, and it fits your workflow exactly, which saves hours of manual work. In our experience, growing teams often reach the break-even point within 2–3 years.",
       },
       {
         question: "Can I build custom software in phases to spread the cost?",
@@ -497,12 +515,12 @@ export const posts: Post[] = [
       {
         question: "How much does it cost to maintain custom software?",
         answer:
-          "Plan for roughly 15–20% of the original build cost per year. That covers hosting, third-party services, security patches, bug fixes and small improvements. It's the cost of keeping the product reliable and current.",
+          "As a rule of thumb, plan for roughly 15–20% of the original build cost per year (an Arrowbin estimate). That covers hosting, third-party services, security patches, bug fixes and small improvements. It's the cost of keeping the product reliable and current.",
       },
       {
         question: "Does location really change the price that much?",
         answer:
-          "Yes. Senior team rates range from around $120–180/hour in North America to $25–60/hour in South Asia in 2026. The same product can cost three to five times more depending on where your team is based.",
+          "Yes. By our 2026 estimate, senior team rates range from around $120–180/hour in North America to $25–60/hour in South Asia. The same product can cost three to five times more depending on where your team is based.",
       },
       {
         question: "Should I get a fixed price or pay hourly?",
@@ -530,15 +548,15 @@ export const posts: Post[] = [
     ],
     date: "2026-04-28",
     dateLabel: "April 28, 2026",
-    updated: "2026-06-18",
-    updatedLabel: "June 18, 2026",
+    updated: "2026-10-15",
+    updatedLabel: "October 15, 2026",
     author: "Md. Shishir Ahmed",
     readingTime: "13 min read",
     category: "Guides",
     excerpt:
       "Picking the wrong development partner is expensive. Use this framework of criteria, questions, red flags and a decision scorecard to choose a team that delivers.",
     image: {
-      src: "/blog/how-to-choose-a-software-development-company/choosing-a-partner.webp",
+      src: `${CHOOSE_DIR}/choosing-a-partner.webp`,
       alt: "Two business people shaking hands to begin a software development partnership",
       width: 1280,
       height: 720,
@@ -547,11 +565,11 @@ export const posts: Post[] = [
     body: [
       {
         type: "p",
-        text: "Your software is too important to hand to the wrong team. The right development partner gives you a product that moves the business forward; the wrong one can cost you months and a chunk of your budget before you even realise it. This guide lays out a practical framework: the criteria that actually matter, the questions to ask, the red flags to avoid, and a simple way to make the final call.",
+        text: "Your software is too important to hand to the wrong team. The right development partner gives you a product that moves the business forward; the wrong one can cost you months and a chunk of your budget before you even realize it. This guide lays out a practical framework: the criteria that actually matter, the questions to ask, the red flags to avoid, and a simple way to make the final call.",
       },
       {
         type: "p",
-        text: "It is written for founders, product owners and business leaders who are about to spend real money and cannot afford to get this wrong. The advice here reflects how we run our own selection and onboarding at Arrowbin, not a generic checklist. Let's start with the decision itself.",
+        text: "It's written for founders, product owners and business leaders who are about to spend real money and can't afford to get this wrong. The advice here reflects how we run our own selection and onboarding at Arrowbin, not a generic checklist. Let's start with the decision itself.",
       },
       {
         type: "image",
@@ -561,7 +579,7 @@ export const posts: Post[] = [
           caption:
             "The right partner works like an extension of your team and stays invested in the outcome.",
           prompt:
-            "A warm, natural photograph of two professionals shaking hands across a table in a bright modern office, laptops and notes visible, signalling the start of a partnership. Candid, soft daylight, shallow depth of field, subtle lime-green (#65a30d) accents in the environment, no visible brand logos. 1280x720, authentic business atmosphere.",
+            "A warm, natural photograph of two professionals shaking hands across a table in a bright modern office, laptops and notes visible, signalling the start of a partnership. Candid, soft daylight, shallow depth of field, subtle ultraviolet (#3b2bff) and sun-yellow (#ffd23f) accents in the environment, no green, no visible brand logos. 1280x720, authentic business atmosphere.",
         },
       },
 
@@ -571,11 +589,11 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "Choose a software development company on proof, not promises. Review live products they have shipped, talk to past clients, confirm who will actually work on your project, and check how they communicate and test. Shortlist three to five firms, score them against consistent criteria, and pick the one that pairs genuine technical depth with clear communication and a real process. Price comes last.",
+        text: "Choose a software development company on proof, not promises. Review live products they've shipped, talk to past clients, confirm who will actually work on your project, and check how they communicate and test. Shortlist three to five firms, score them against consistent criteria, and pick the one that pairs genuine technical depth with clear communication and a real process. Price comes last.",
       },
       {
         type: "p",
-        text: "That is the short version. The rest of this guide breaks each part down so you can run the process yourself, starting with what 'good' actually looks like.",
+        text: "That's the short version. The rest of this guide breaks each part down so you can run the process yourself, starting with what 'good' actually looks like.",
       },
 
       {
@@ -594,12 +612,12 @@ export const posts: Post[] = [
       { type: "h3", text: "Clear, proactive communication" },
       {
         type: "p",
-        text: "You will spend months working with this team. Watch how they communicate during the sales process. Clarity, responsiveness and honesty now is the best predictor of how the project itself will go.",
+        text: "You'll spend months working with this team. Watch how they communicate during the sales process. How clear and honest they are now, and how fast they reply, is the best predictor of how the project itself will go.",
       },
       { type: "h3", text: "Genuine technical depth and a real process" },
       {
         type: "p",
-        text: "Ask about their approach to architecture, testing, code reviews and deployment. A serious team has opinions and a repeatable process. A risky one improvises. Technical skill is table stakes. Process is what makes it reliable.",
+        text: "Ask about their approach to architecture, testing, code reviews and deployment, and who looks after [hosting and DevOps](/services/cloud-devops-hosting) once the product is live. A serious team has opinions and a repeatable process. A risky one improvises. Technical skill is table stakes. Process is what makes it reliable.",
       },
       {
         type: "p",
@@ -637,13 +655,28 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-to-choose-a-software-development-company/questions-checklist.webp",
-          alt: "Checklist infographic of key questions to ask a software development company before hiring",
+          src: `${CHOOSE_DIR}/questions-checklist.svg`,
+          alt: "Checklist of seven questions to ask a software development company before hiring: live work, who builds it, progress updates, testing and security, code ownership, life after launch, and scope changes",
           caption:
             "Ask every shortlisted firm the same questions, then compare.",
-          prompt:
-            "A clean checklist infographic on a white background showing a vertical list of 6-7 ticked checkbox rows with short placeholder lines, a lime-green (#65a30d) check in each box. Minimal flat vector, plenty of white space, charcoal accents, no real paragraph text. 1280x720, modern productivity aesthetic.",
+          width: 1280,
+          height: 720,
         },
+      },
+      {
+        type: "p",
+        text: "Listen closely to the answer about life after launch. Software needs [ongoing maintenance and support](/services/maintenance-support): security patches, dependency updates and someone to call when something breaks. A partner with no plan for that is handing you a future problem. Ask what the plan costs, too: our guide to [what a fair maintenance plan should cost](/blog/software-maintenance-cost) gives you a number to hold their quote against.",
+      },
+      {
+        type: "p",
+        text: "If the project is a prototype someone built with AI tools, add one question: how will you audit it before changing anything? Our [production checklist for vibe-coded apps](/blog/vibe-coded-app-production-ready) covers what that audit should look for.",
+      },
+      {
+        type: "cta",
+        title: "Put these questions to us",
+        text: "Ask us everything on this list and we will walk you through live products we have shipped. Book a free 30-minute call and treat it as your first interview.",
+        href: site.bookingUrl,
+        label: "Book a 30-minute call",
       },
 
       {
@@ -675,7 +708,7 @@ export const posts: Post[] = [
           alt: "A person reviewing a software company's portfolio of live products on a laptop and phone",
           caption: "Open the live products. Don't settle for screenshots.",
           prompt:
-            "A natural photograph of a person at a desk comparing a software portfolio on a laptop screen and a smartphone, evaluating real apps. Soft daylight, shallow depth of field, modern office, subtle lime-green accents, no readable brand names or text on screens. 1280x720, candid professional style.",
+            "A natural photograph of a person at a desk comparing a software portfolio on a laptop screen and a smartphone, evaluating real apps. Soft daylight, shallow depth of field, modern office, subtle ultraviolet (#3b2bff) and sun-yellow (#ffd23f) accents, no green, no readable brand names or text on screens. 1280x720, candid professional style.",
         },
       },
 
@@ -685,7 +718,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "There are three common ways to build software, and the right choice depends on your scope, budget and how central software is to your business.",
+        text: "There are three common ways to build software, and the right choice depends on your scope and budget, and on how central software is to your business.",
       },
       {
         type: "table",
@@ -726,17 +759,17 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "For most businesses building their first serious product, an agency hits the sweet spot: a full team and a repeatable process without the cost and delay of hiring. This is the usual route for [custom software](/services/custom-software-development) where you need design, engineering and QA under one roof. Freelancers suit small, well-defined tasks. An in-house team makes sense once software becomes your core, ongoing advantage.",
+        text: "For most businesses building their first serious product, an agency is usually the best fit: a full team and a repeatable process without the cost and delay of hiring. This is the usual route for [custom software](/services/custom-software-development) where you need [UI/UX design](/services/ui-ux-design), engineering and QA under one roof. Freelancers suit small, well-defined tasks. An in-house team makes sense once software becomes your core, ongoing advantage.",
       },
       {
         type: "image",
         image: {
-          src: "/blog/how-to-choose-a-software-development-company/agency-vs-freelancer.webp",
-          alt: "Comparison illustration of freelancer, agency and in-house team options for building software",
+          src: `${CHOOSE_DIR}/agency-vs-freelancer.svg`,
+          alt: "Three ways to build software compared: a freelancer for small, defined tasks, an agency team for end-to-end products, and an in-house team for long-term ownership",
           caption:
             "Three ways to build. Match the model to your stage and scope.",
-          prompt:
-            "A clean three-column comparison illustration on a white background: column 1 a single person (Freelancer), column 2 a small connected team of 4 (Agency), column 3 a larger office group (In-house). Flat vector icons, lime-green (#65a30d) and charcoal accents, balanced spacing, minimal labels only. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -759,11 +792,11 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-to-choose-a-software-development-company/red-flags.webp",
-          alt: "Infographic of red flags to avoid when hiring a software development company",
+          src: `${CHOOSE_DIR}/red-flags.svg`,
+          alt: "Six red flags when hiring a software development company: a too-good-to-be-true quote, vague timelines, no references or live work, no testing or maintenance plan, unclear code ownership, and slow communication",
           caption: "Spot these early. They rarely improve after you sign.",
-          prompt:
-            "A clean warning-themed infographic on a white background with 5-6 small red warning-flag or alert icons in a grid, each beside a short placeholder line. Red (#dc2626) flags with charcoal text and subtle lime-green section accents, minimal flat vector, lots of white space, no real paragraph text. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
       {
@@ -810,12 +843,12 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-to-choose-a-software-development-company/quote-comparison.webp",
-          alt: "Illustration of comparing two software development quotes side by side beyond the headline price",
+          src: `${CHOOSE_DIR}/quote-comparison.svg`,
+          alt: "Two software proposals compared line by line under a magnifying glass: the cheaper one leaves out discovery, QA and post-launch support",
           caption:
             "Compare what's included, not just the number at the bottom.",
-          prompt:
-            "A clean side-by-side illustration on a white background of two proposal documents or price cards being compared with a magnifying glass over the line items. Lime-green (#65a30d) and charcoal accents, flat vector, minimal, focus on the details rather than the totals, no real text. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -834,11 +867,11 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-to-choose-a-software-development-company/communication-cadence.webp",
-          alt: "Illustration of a weekly communication cadence between a client and a software development team",
+          src: `${CHOOSE_DIR}/communication-cadence.svg`,
+          alt: "Weekly communication loop between a client and a development team: demo, check-in, progress update and feedback",
           caption: "A predictable weekly cadence keeps projects on track.",
-          prompt:
-            "A clean illustration on a white background showing a weekly cadence loop: icons for a demo, a check-in call, a progress update and feedback arranged in a circular flow with arrows. Lime-green (#65a30d) and charcoal accents, flat vector, minimal, labelled with short single words only. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -860,7 +893,7 @@ export const posts: Post[] = [
       {
         type: "ol",
         items: [
-          "Define your needs: goals, must-have features, budget range and timeline.",
+          "Define your needs: goals, must-have features, budget range and a realistic [launch timeline](/blog/how-long-does-it-take-to-build-an-mvp).",
           "Shortlist three to five firms whose live work and focus fit your project.",
           "Review their products and talk to past clients about real outcomes.",
           "Interview each team with the same questions and score the answers.",
@@ -870,22 +903,22 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-to-choose-a-software-development-company/decision-scorecard.webp",
-          alt: "A vendor scorecard template for scoring software development companies against weighted criteria",
+          src: `${CHOOSE_DIR}/decision-scorecard.svg`,
+          alt: "Example vendor scorecard rating three software development companies from 1 to 5 on track record, communication, technical ability, process maturity and price",
           caption: "Score each firm against the same weighted criteria.",
-          prompt:
-            "A clean scorecard / comparison table infographic on a white background with three vendor columns and rows for criteria (track record, communication, technical, process, price), filled with simple 1-5 star or rating indicators in lime-green (#65a30d). Minimal flat vector, charcoal headers, lots of white space, no real brand names. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
       { type: "h2", text: "Making the call" },
       {
         type: "p",
-        text: "Choosing a development partner is one of the highest-leverage decisions your project will face. Get it right and you gain a team that ships, communicates and stays invested in your success. Anchor your decision in the work they've shipped, the way they communicate and the process they follow, treat price as a tiebreaker rather than the headline, and pay attention to how a team behaves before you sign. That behaviour is exactly what you'll live with afterwards.",
+        text: "Choosing a development partner is one of the biggest calls your project will face. Get it right and you gain a team that ships and stays invested in your success. Anchor your decision in the work they've shipped, the way they communicate and the process they follow, treat price as a tiebreaker rather than the headline, and pay attention to how a team behaves before you sign. That behavior is exactly what you'll live with afterward.",
       },
       {
         type: "p",
-        text: "At Arrowbin, we welcome every one of the questions above. You can [inspect the products we've shipped](/work), talk to our clients, and you always own your code. If you'd like to see whether we're the right fit, book a free 30-minute call and we'll talk through your project honestly, with no pressure.",
+        text: `At Arrowbin, we welcome every one of the questions above. You can [inspect the products we've shipped](/work), talk to our clients, and you always own your code. If you'd like to see whether we're the right fit, [book a free 30-minute call](${site.bookingUrl}) and we'll talk through your project honestly, with no pressure.`,
       },
       {
         type: "image",
@@ -894,7 +927,7 @@ export const posts: Post[] = [
           alt: "A development team and client collaborating closely on a software project",
           caption: "The best partnerships outlast the first launch.",
           prompt:
-            "A warm, candid photograph of a software team and a client collaborating around a screen in a bright modern office, engaged and smiling, sticky notes on the wall. Soft daylight, shallow depth of field, subtle lime-green accents, no visible logos or readable screen text. 1280x720, authentic partnership atmosphere.",
+            "A warm, candid photograph of a software team and a client collaborating around a screen in a bright modern office, engaged and smiling, sticky notes on the wall. Soft daylight, shallow depth of field, subtle ultraviolet (#3b2bff) and sun-yellow (#ffd23f) accents, no green, no visible logos or readable screen text. 1280x720, authentic partnership atmosphere.",
         },
       },
     ],
@@ -915,7 +948,7 @@ export const posts: Post[] = [
       {
         question: "How important is location and time zone?",
         answer:
-          "Less than it used to be. What matters is overlap for real-time communication and clear, reliable processes. Arrowbin works with clients worldwide across time zones from offices in Bangladesh and the USA.",
+          "Less than it used to be. What matters is overlap for real-time communication and clear, reliable processes. Arrowbin works with clients worldwide, across time zones.",
       },
       {
         question: "What questions should I ask a software development company?",
@@ -925,7 +958,7 @@ export const posts: Post[] = [
       {
         question: "How do I know if a development company is reliable?",
         answer:
-          "Reliability shows up as live, usable products, references who'd hire them again, a clear process for testing and communication, and honest, responsive behaviour during the sales conversation. Vagueness and slow replies are the warning signs.",
+          "Reliability shows up as live, usable products, references who'd hire them again, a clear process for testing and communication, and honest, responsive behavior during the sales conversation. Vagueness and slow replies are the warning signs.",
       },
       {
         question: "Should I always choose the cheapest quote?",
@@ -953,15 +986,15 @@ export const posts: Post[] = [
     ],
     date: "2026-04-10",
     dateLabel: "April 10, 2026",
-    updated: "2026-06-16",
-    updatedLabel: "June 16, 2026",
+    updated: "2026-10-15",
+    updatedLabel: "October 15, 2026",
     author: "Md. Shishir Ahmed",
     readingTime: "12 min read",
     category: "Product",
     excerpt:
       "Most MVPs take 6–14 weeks. Here's the week-by-week timeline, what shapes it, the common delays, and how to launch faster without sacrificing quality.",
     image: {
-      src: "/blog/how-long-does-it-take-to-build-an-mvp/team-shipping.webp",
+      src: `${MVP_DIR}/team-shipping.webp`,
       alt: "A product team celebrating the launch of a minimum viable product",
       width: 1280,
       height: 720,
@@ -970,11 +1003,11 @@ export const posts: Post[] = [
     body: [
       {
         type: "p",
-        text: "An MVP, or minimum viable product, is the smallest version of your product that delivers real value and lets you learn from actual users. Done right, it gets you to market fast and takes a lot of risk out of the bigger build, because you are working from evidence instead of guesses. The question every founder asks is simple: how long will it take? This guide gives you honest 2026 timelines and a week-by-week breakdown, looks at what speeds the schedule up or slows it down, and shows how to launch sooner without skipping the work that matters.",
+        text: "An MVP, or minimum viable product, is the smallest version of your product that delivers real value and lets you learn from actual users. Done right, it gets you to market fast and takes a lot of risk out of the bigger build, because you're working from evidence instead of guesses. The question every founder asks is simple: how long will it take? This guide gives you honest 2026 timelines and a week-by-week breakdown, looks at what speeds the schedule up or slows it down, and shows how to launch sooner without skipping the work that matters.",
       },
       {
         type: "p",
-        text: "It's written for founders and product owners who need a realistic schedule before committing. We ship MVPs for a living, so these numbers reflect real projects, not best-case marketing. The ranges below come from Arrowbin's own delivered work and publicly available developer-rate data, not a sales sheet.",
+        text: "It's written for founders and product owners who need a realistic schedule before committing. We ship MVPs for a living, and the ranges below are Arrowbin estimates drawn from that planning and delivery work, not best-case marketing.",
       },
 
       { type: "h2", text: "How long does it take to build an MVP?" },
@@ -1027,18 +1060,18 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-long-does-it-take-to-build-an-mvp/mvp-scope.webp",
-          alt: "Infographic showing the core MVP workflow kept in scope versus secondary features left for later",
+          src: `${MVP_DIR}/mvp-scope.svg`,
+          alt: "Diagram of MVP scope: the core workflow sits in the centre for version one, while secondary features such as planning, integrations, notifications, tracking, maps, analytics and profiles wait for later",
           caption: "Keep the core workflow; defer everything else.",
-          prompt:
-            "A clean flat-vector infographic on a white background showing a central highlighted 'core feature' circle in lime-green (#65a30d) surrounded by smaller, faded grey 'later' feature circles being set aside. Minimal, charcoal accents, generous white space, single-word labels only. 1280x720, modern product aesthetic.",
+          width: 1280,
+          height: 720,
         },
       },
 
       { type: "h2", text: "What does the MVP build look like, week by week?" },
       {
         type: "p",
-        text: "A modern MVP is built in overlapping agile phases. Design starts before discovery fully ends, and QA runs alongside development rather than after it. Here's how a typical 14-week SaaS MVP flows.",
+        text: "A modern MVP is built in overlapping agile phases. Design starts before discovery fully ends, and QA runs alongside development rather than after it. A typical 14-week SaaS MVP flows like this.",
       },
       {
         type: "image",
@@ -1073,6 +1106,13 @@ export const posts: Post[] = [
           ],
         ],
       },
+      {
+        type: "cta",
+        title: "Want a timeline for your MVP?",
+        text: "Tell us the one workflow your product has to nail. We will map it to a realistic week-by-week plan and a fixed estimate, so you know what it takes to launch.",
+        href: "/contact",
+        label: "Get a timeline and estimate",
+      },
 
       { type: "h2", text: "What factors affect how long an MVP takes?" },
       {
@@ -1082,7 +1122,7 @@ export const posts: Post[] = [
       { type: "h3", text: "Scope" },
       {
         type: "p",
-        text: "The number of features and screens in v1 is the single biggest lever. The fewer you commit to before launch, the faster you ship.",
+        text: "The number of features and screens in v1 is the single biggest lever. The fewer you commit to before launch, the faster you ship. Platforms count as scope too: every extra platform, such as separate [iOS and Android apps](/services/mobile-app-development), adds its own build and testing time.",
       },
       { type: "h3", text: "Clarity" },
       {
@@ -1092,12 +1132,12 @@ export const posts: Post[] = [
       { type: "h3", text: "Integrations" },
       {
         type: "p",
-        text: "Payments, third-party APIs, data imports and AI all add build and testing time. A single complex integration can quietly stretch a sprint.",
+        text: "Payments, third-party APIs, data imports and [AI features](/services/ai-automation) all add build and testing time. A single complex integration can quietly stretch a sprint. If one of those features is an AI agent, our guide to [what an AI agent adds to the budget](/blog/ai-agent-cost-small-business) covers its running costs as well as the build.",
       },
       { type: "h3", text: "Design" },
       {
         type: "p",
-        text: "Reusing a design system is far faster than building bespoke screens for everything. Custom interaction design is worth it for some products, but it costs days you should plan for.",
+        text: "Reusing a design system is far faster than building bespoke screens for everything. Custom [UI/UX design](/services/ui-ux-design) is worth it for some products, but it costs days you should plan for.",
       },
       { type: "h3", text: "Decision speed" },
       {
@@ -1107,16 +1147,16 @@ export const posts: Post[] = [
       { type: "h3", text: "Team experience" },
       {
         type: "p",
-        text: "A senior team that has shipped MVPs before avoids the dead ends that cost weeks. They know which shortcuts are safe and which ones come back to bite you.",
+        text: "A senior team that has shipped MVPs before avoids the dead ends that cost weeks. They know which shortcuts are safe and which ones come back to bite you. If you're still picking that team, our guide on [how to choose a software development company](/blog/how-to-choose-a-software-development-company) covers what to check.",
       },
       {
         type: "image",
         image: {
-          src: "/blog/how-long-does-it-take-to-build-an-mvp/timeline-factors.webp",
-          alt: "Infographic of factors that affect MVP timeline: scope, clarity, integrations, design, decision speed, team",
+          src: `${MVP_DIR}/timeline-factors.svg`,
+          alt: "Six factors that affect an MVP timeline: scope, clarity, integrations, design, decision speed and team experience",
           caption: "Six factors that speed up or slow down an MVP.",
-          prompt:
-            "A modern flat-vector infographic on a white background with six small labelled icons in a row or grid: stacked cards (Scope), a target (Clarity), plug/connector (Integrations), a paintbrush (Design), a fast-forward icon (Decisions), a group of people (Team). Lime-green (#65a30d) and charcoal accents, lots of white space, minimal, no paragraph text. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -1126,7 +1166,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "It helps to know where an MVP sits between a quick prototype and a full product. They answer different questions and take very different amounts of time.",
+        text: "It helps to know where an MVP sits between a quick prototype and a full product. They answer [different questions](/blog/mvp-vs-prototype-vs-poc) and take very different amounts of time. If you already have a prototype built with an AI tool, read [what separates an AI-built prototype from a launch-ready MVP](/blog/vibe-coded-app-production-ready) before you count it as weeks saved.",
       },
       {
         type: "table",
@@ -1152,18 +1192,18 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-long-does-it-take-to-build-an-mvp/mvp-vs-prototype.webp",
-          alt: "Comparison illustration of a prototype, an MVP and a full product on a timeline",
+          src: `${MVP_DIR}/mvp-vs-prototype.svg`,
+          alt: "Three stages on one line: a clickable prototype in days to 2 weeks, a working MVP in 6 to 14 weeks, and a full product in 6 to 18 months",
           caption: "Three stages, three very different timelines.",
-          prompt:
-            "A clean horizontal comparison illustration on a white background showing three stages along an arrow: a wireframe sketch (Prototype), a simple working app screen (MVP), and a rich full app (Full product), each getting more detailed. Lime-green (#65a30d) and charcoal accents, flat vector, minimal labels. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
       { type: "h2", text: "What slows MVPs down, and how do you avoid it?" },
       {
         type: "p",
-        text: "Most MVP delays come from a handful of avoidable causes. Recognising them early keeps your launch on schedule.",
+        text: "Most MVP delays come from a handful of avoidable causes. Recognizing them early keeps your launch on schedule.",
       },
       {
         type: "ul",
@@ -1179,11 +1219,11 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-long-does-it-take-to-build-an-mvp/delay-causes.webp",
-          alt: "Infographic of common causes of MVP delays such as scope creep and slow decisions",
+          src: `${MVP_DIR}/delay-causes.svg`,
+          alt: "Six common causes of MVP delays: scope creep, unclear requirements, slow decisions and feedback, perfectionism, underestimated integrations, and changing direction mid-build",
           caption: "The usual suspects behind a slipped MVP launch.",
-          prompt:
-            "A clean infographic on a white background showing 5-6 small warning icons (a growing pile for scope creep, a clock for slow decisions, a question mark for unclear requirements) each beside a short placeholder line. Amber/charcoal accents with subtle lime-green highlights, minimal flat vector, white space, no real paragraph text. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
       {
@@ -1211,19 +1251,19 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-long-does-it-take-to-build-an-mvp/launch-faster.webp",
-          alt: "Illustration of strategies to launch an MVP faster through tight scope and weekly sprints",
+          src: `${MVP_DIR}/launch-faster.svg`,
+          alt: "Rocket beside a sprint checklist: one core workflow, scope locked before development, a reused design system, third-party services for auth, payments and email, a live demo every week and same-day decisions",
           caption:
             "Discipline on scope and cadence is what compresses the timeline.",
-          prompt:
-            "A clean illustration on a white background of a weekly sprint cadence with a fast-forward / rocket motif and a tight checklist, conveying speed through focus. Lime-green (#65a30d) and charcoal accents, flat vector, minimal, single-word labels only. 1280x720.",
+          width: 1280,
+          height: 720,
         },
       },
 
-      { type: "h2", text: "A real example: a 12-week SaaS MVP" },
+      { type: "h2", text: "Worked example: a smaller 12-week SaaS MVP" },
       {
         type: "p",
-        text: "Here's how a focused B2B SaaS MVP (accounts, one core workflow, billing and a simple dashboard) typically maps across 12 weeks.",
+        text: "This is a different, smaller example than the 14-week build above. The $60,000 example in our cost guide also runs about 14 weeks, but it's multi-tenant and adds a couple of integrations. This one keeps to accounts, one core workflow, billing and a simple dashboard, so it maps across 12 weeks. Both are representative plans, not specific client projects.",
       },
       {
         type: "table",
@@ -1239,11 +1279,11 @@ export const posts: Post[] = [
       {
         type: "image",
         image: {
-          src: "/blog/how-long-does-it-take-to-build-an-mvp/worked-example.webp",
-          alt: "Sprint board illustration of a 12-week SaaS MVP build broken into weekly focus areas",
-          caption: "A real 12-week MVP, week by week.",
-          prompt:
-            "A clean kanban / sprint-board illustration on a white background with columns and a few task cards, plus a horizontal 12-week progress bar beneath. Lime-green (#65a30d) and charcoal accents, flat vector, minimal, generic placeholder card text. 1280x720, modern project-management aesthetic.",
+          src: `${MVP_DIR}/worked-example.svg`,
+          alt: "Week-by-week plan of a smaller 12-week SaaS MVP with accounts, one core workflow, billing and a simple dashboard: discovery in weeks 1 to 2, design in weeks 2 to 4, build in weeks 3 to 10, QA in weeks 8 to 11 and launch in week 12",
+          caption: "The smaller 12-week example, week by week.",
+          width: 1280,
+          height: 720,
         },
       },
 
@@ -1254,11 +1294,15 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "Timeline is only half the planning question; the other half is budget. If you are also asking how much an MVP costs, our guide on [what custom software costs](/blog/how-much-does-custom-software-development-cost) breaks down the ranges by project type. For the engineering side of a multi-tenant build, see how we approach [SaaS product engineering](/services/saas-product-engineering).",
+        text: "Timeline is only half the planning question; the other half is budget. Our [MVP budget guide](/blog/mvp-development-cost) turns week counts like these into dollars, and our guide on [what custom software costs](/blog/how-much-does-custom-software-development-cost) breaks down the ranges by project type.",
       },
       {
         type: "p",
-        text: "At Arrowbin, we specialize in shipping focused MVPs fast, then scaling them on the back of real feedback. If you have an idea, book a free 30-minute call and we'll map it to a realistic timeline and a fixed estimate, so you know exactly what it takes to launch.",
+        text: "If yours is a multi-tenant product, our [SaaS development cost guide](/blog/saas-development-cost) covers what tenancy and billing add. For the engineering side, see how we approach [SaaS product engineering](/services/saas-product-engineering).",
+      },
+      {
+        type: "p",
+        text: `At Arrowbin, we specialize in shipping focused MVPs fast, then scaling them on the back of real feedback. If you have an idea, [book a free 30-minute call](${site.bookingUrl}) and we'll map it to a realistic timeline and a fixed estimate, so you know exactly what it takes to launch.`,
       },
       {
         type: "image",
@@ -1268,7 +1312,7 @@ export const posts: Post[] = [
           caption:
             "Ship the core, learn fast, then build what users actually want.",
           prompt:
-            "A warm, candid photograph of a small diverse software team in a bright modern office, gathered around a laptop at the moment of a product launch, looking energised. Soft daylight, shallow depth of field, subtle lime-green accents, no visible logos or readable screen text. 1280x720, authentic startup atmosphere.",
+            "A warm, candid photograph of a small diverse software team in a bright modern office, gathered around a laptop at the moment of a product launch, looking energised. Soft daylight, shallow depth of field, subtle ultraviolet (#3b2bff) and sun-yellow (#ffd23f) accents, no green, no visible logos or readable screen text. 1280x720, authentic startup atmosphere.",
         },
       },
     ],
@@ -1327,6 +1371,21 @@ export const posts: Post[] = [
   },
 ];
 
+/** Today's date (YYYY-MM-DD) in Dhaka, where the site is built and published. */
+const today = new Date().toLocaleDateString("en-CA", {
+  timeZone: "Asia/Dhaka",
+});
+
+/**
+ * Every published post: the core guides plus the per-file posts in `./posts/`.
+ * A post dated in the future stays unpublished (no page, no sitemap, RSS or
+ * llms.txt entry) until a build runs on or after its date, so posts can be
+ * scheduled in waves by setting `date`.
+ */
+export const posts: Post[] = [...corePosts, ...extraPosts].filter(
+  (p) => p.date <= today,
+);
+
 export const postSlugs = posts.map((p) => p.slug);
 
 /** Slugify a heading into a stable anchor id. */
@@ -1347,6 +1406,15 @@ export function tableOfContents(post: Post): { id: string; text: string }[] {
     });
 }
 
+/**
+ * True when a post's cover is a designed 16:9 UI mockup (`cover.webp` or
+ * `cover.svg` in the post's folder) rather than a photo. Mockups carry labels
+ * and screens that must never be cropped, so layouts show them whole.
+ */
+export function isMockupCover(image: PostImage): boolean {
+  return /\/cover\.(webp|svg)$/.test(image.src);
+}
+
 /** Resolve a post's card/social thumbnail (defaults to its generated OG image). */
 export function postThumbnail(post: Post): string {
   return post.thumbnail ?? `/blog/${post.slug}/opengraph-image`;
@@ -1360,3 +1428,76 @@ export function getPost(slug: string): Post | undefined {
 export const sortedPosts = [...posts].sort((a, b) =>
   b.date.localeCompare(a.date),
 );
+
+/** ISO date a post last changed: its `updated` date, or its publish date. */
+export function postModified(post: Post): string {
+  return post.updated ?? post.date;
+}
+
+/** Words too common in post keywords to say anything about the topic. */
+const STOP_WORDS = new Set([
+  "a",
+  "an",
+  "and",
+  "the",
+  "to",
+  "of",
+  "for",
+  "in",
+  "on",
+  "vs",
+  "how",
+  "what",
+  "does",
+  "it",
+  "much",
+  "long",
+  "take",
+  "build",
+  "cost",
+  "2026",
+]);
+
+/** The topic words each post targets, from its keywords and title. */
+const topicTerms = new Map(
+  posts.map((p) => [
+    p.slug,
+    new Set(
+      [...p.keywords, p.title]
+        .join(" ")
+        .toLowerCase()
+        .split(/[^a-z0-9]+/)
+        .filter((w) => w.length > 2 && !STOP_WORDS.has(w)),
+    ),
+  ]),
+);
+
+/** How many posts use each topic word. Words every post shares carry no signal. */
+const termPostCount = new Map<string, number>();
+for (const terms of topicTerms.values()) {
+  for (const t of terms) termPostCount.set(t, (termPostCount.get(t) ?? 0) + 1);
+}
+
+/**
+ * Up to `n` posts to read next: same category first, then the most shared topic
+ * words (rarer words count for more), with the newest post winning a tie. Falls
+ * back to the newest posts when nothing overlaps, so every article links on to
+ * others as the blog grows.
+ */
+export function relatedPosts(post: Post, n = 3): Post[] {
+  const mine = topicTerms.get(post.slug) ?? new Set<string>();
+  return sortedPosts
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => {
+      let overlap = 0;
+      for (const t of topicTerms.get(p.slug) ?? []) {
+        if (mine.has(t)) {
+          overlap += Math.log(posts.length / (termPostCount.get(t) ?? 1));
+        }
+      }
+      return { p, score: (p.category === post.category ? 3 : 0) + overlap };
+    })
+    .sort((a, b) => b.score - a.score || b.p.date.localeCompare(a.p.date))
+    .slice(0, n)
+    .map(({ p }) => p);
+}

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Which kinds of AI UK businesses use</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Share of UK businesses with 10+ employees using each AI technology, June 2026</text>
+
+  <!-- bars: label column 80..400, bars start 420, 22px per % -->
+  <text x="80" y="218" font-size="20" font-weight="600" fill="#0e0b24">Large language models</text>
+  <rect x="420" y="192" width="396" height="40" rx="8" fill="#3b2bff"/>
+  <text x="830" y="219" font-size="22" font-weight="700" fill="#0e0b24">18%</text>
+
+  <text x="80" y="290" font-size="20" font-weight="600" fill="#0e0b24">Visual content creation</text>
+  <rect x="420" y="264" width="352" height="40" rx="8" fill="#cfc4ff"/>
+  <text x="786" y="291" font-size="22" font-weight="700" fill="#0e0b24">16%</text>
+
+  <text x="80" y="362" font-size="20" font-weight="600" fill="#0e0b24">Data processing (ML)</text>
+  <rect x="420" y="336" width="264" height="40" rx="8" fill="#cfc4ff"/>
+  <text x="698" y="363" font-size="22" font-weight="700" fill="#0e0b24">12%</text>
+
+  <text x="80" y="434" font-size="20" font-weight="600" fill="#0e0b24">Image processing (ML)</text>
+  <rect x="420" y="408" width="132" height="40" rx="8" fill="#cfc4ff"/>
+  <text x="566" y="435" font-size="22" font-weight="700" fill="#0e0b24">6%</text>
+
+  <text x="80" y="506" font-size="20" font-weight="600" fill="#0e0b24">Robotics</text>
+  <rect x="420" y="480" width="44" height="40" rx="8" fill="#cfc4ff"/>
+  <text x="478" y="507" font-size="22" font-weight="700" fill="#0e0b24">2%</text>
+
+  <text x="80" y="578" font-size="20" font-weight="600" fill="#0e0b24">Other AI technologies</text>
+  <rect x="420" y="552" width="44" height="40" rx="8" fill="#cfc4ff"/>
+  <text x="478" y="579" font-size="22" font-weight="700" fill="#0e0b24">2%</text>
+
+  <!-- side panel: any AI use by size -->
+  <rect x="930" y="176" width="270" height="420" rx="18" fill="#F1F2F7"/>
+  <text x="1065" y="216" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Any AI use, by size</text>
+  <text x="1065" y="306" font-size="64" font-weight="700" fill="#ff4da6" text-anchor="middle">28%</text>
+  <text x="1065" y="340" font-size="18" fill="#4a4766" text-anchor="middle">of firms with</text>
+  <text x="1065" y="364" font-size="18" fill="#4a4766" text-anchor="middle">0 to 9 employees</text>
+  <line x1="970" y1="392" x2="1160" y2="392" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="1065" y="470" font-size="64" font-weight="700" fill="#3b2bff" text-anchor="middle">49%</text>
+  <text x="1065" y="504" font-size="18" fill="#4a4766" text-anchor="middle">of firms with</text>
+  <text x="1065" y="528" font-size="18" fill="#4a4766" text-anchor="middle">250+ employees</text>
+
+  <text x="80" y="652" font-size="18" fill="#4a4766">Source: ONS, Artificial intelligence in UK businesses: 2023 to 2026 (published July 2026).</text>
+  <text x="80" y="678" font-size="18" fill="#4a4766">Technology shares are from Wave 159 (5 to 28 June 2026). ML = machine learning.</text>
+</svg>

@@ -33,7 +33,7 @@ export function ShareLinks({ url, title }: { url: string; title: string }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
-      // Clipboard unavailable — no-op.
+      // Clipboard unavailable: no-op.
     }
   }
 

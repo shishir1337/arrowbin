@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Monthly model fees for one workload</text>
+  <text x="80" y="130" font-size="22" fill="#4a4766">Worked estimate: 36M input + 3.6M output tokens a month (3,000 conversations, 4 calls each)</text>
+  <rect x="80" y="158" width="18" height="18" rx="4" fill="#3b2bff"/>
+  <text x="106" y="174" font-size="18" fill="#4a4766">Google</text>
+  <rect x="200" y="158" width="18" height="18" rx="4" fill="#ff6b3d"/>
+  <text x="226" y="174" font-size="18" fill="#4a4766">Anthropic</text>
+  <rect x="350" y="158" width="18" height="18" rx="4" fill="#ff4da6"/>
+  <text x="376" y="174" font-size="18" fill="#4a4766">OpenAI</text>
+  <rect x="470" y="158" width="18" height="18" rx="4" fill="#cfc4ff" stroke="#3b2bff" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="496" y="174" font-size="18" fill="#4a4766">Scheduled 2027 price</text>
+  <text x="440" y="224" font-size="20" fill="#0e0b24" text-anchor="end">Gemini 2.5 Flash-Lite</text>
+  <rect x="460" y="202" width="14.9" height="30" rx="5" fill="#3b2bff"/>
+  <text x="486.9" y="224" font-size="20" font-weight="700" fill="#0e0b24">$5.04</text>
+  <text x="440" y="274" font-size="20" fill="#0e0b24" text-anchor="end">Claude Haiku 5.5</text>
+  <rect x="460" y="252" width="16" height="30" rx="5" fill="#ff6b3d"/>
+  <text x="488" y="274" font-size="20" font-weight="700" fill="#0e0b24">$5.40</text>
+  <text x="440" y="324" font-size="20" fill="#0e0b24" text-anchor="end">OpenAI gpt-6-luna</text>
+  <rect x="460" y="302" width="16" height="30" rx="5" fill="#ff4da6"/>
+  <text x="488" y="324" font-size="20" font-weight="700" fill="#0e0b24">$5.40</text>
+  <text x="440" y="374" font-size="20" fill="#0e0b24" text-anchor="end">Gemini 3.6 Flash</text>
+  <rect x="460" y="352" width="120" height="30" rx="5" fill="#3b2bff"/>
+  <text x="592" y="374" font-size="20" font-weight="700" fill="#0e0b24">$40.50</text>
+  <text x="440" y="424" font-size="20" fill="#0e0b24" text-anchor="end">Gemini 3.6 Flash from 1 Jan 2027</text>
+  <rect x="460" y="402" width="240" height="30" rx="5" fill="#cfc4ff" stroke="#3b2bff" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="712" y="424" font-size="20" font-weight="700" fill="#0e0b24">$81.00</text>
+  <text x="440" y="474" font-size="20" fill="#0e0b24" text-anchor="end">Claude Sonnet 5.5</text>
+  <rect x="460" y="452" width="320" height="30" rx="5" fill="#ff6b3d"/>
+  <text x="792" y="474" font-size="20" font-weight="700" fill="#0e0b24">$108.00</text>
+  <text x="440" y="524" font-size="20" fill="#0e0b24" text-anchor="end">OpenAI gpt-6.1-sol</text>
+  <rect x="460" y="502" width="320" height="30" rx="5" fill="#ff4da6"/>
+  <text x="792" y="524" font-size="20" font-weight="700" fill="#0e0b24">$108.00</text>
+  <text x="440" y="574" font-size="20" fill="#0e0b24" text-anchor="end">Gemini 3.1 Pro Preview</text>
+  <rect x="460" y="552" width="341.3" height="30" rx="5" fill="#3b2bff"/>
+  <text x="813.3" y="574" font-size="20" font-weight="700" fill="#0e0b24">$115.20</text>
+  <text x="440" y="624" font-size="20" fill="#0e0b24" text-anchor="end">Claude Opus 5.5</text>
+  <rect x="460" y="602" width="640" height="30" rx="5" fill="#ff6b3d"/>
+  <text x="1112" y="624" font-size="20" font-weight="700" fill="#0e0b24">$216.00</text>
+  <line x1="460" y1="192" x2="460" y2="652" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="80" y="690" font-size="18" fill="#4a4766">Prices per 1M tokens as listed on 15 Oct 2026. Same token counts for every model. No caching or batch discounts.</text>
+</svg>

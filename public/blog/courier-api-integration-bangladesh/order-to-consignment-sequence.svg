@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#0e0b24"/>
+    </marker>
+    <marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#ff4da6"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="64" y="76" font-size="40" font-weight="700" fill="#0e0b24">How an order becomes a RedX consignment</text>
+  <text x="64" y="114" font-size="24" fill="#4a4766">Book once, save the tracking ID, and confirm every status before you act on it</text>
+
+  <!-- lanes -->
+  <g font-size="20" font-weight="700" text-anchor="middle">
+    <rect x="80" y="134" width="240" height="44" rx="22" fill="#cfc4ff"/>
+    <text x="200" y="163" fill="#0e0b24">Store admin</text>
+    <rect x="520" y="134" width="240" height="44" rx="22" fill="#3b2bff"/>
+    <text x="640" y="163" fill="#ffffff">Your server</text>
+    <rect x="960" y="134" width="240" height="44" rx="22" fill="#ffd23f"/>
+    <text x="1080" y="163" fill="#0e0b24">RedX OpenAPI</text>
+  </g>
+  <g stroke="#e4e4e7" stroke-width="3" stroke-dasharray="6 8">
+    <line x1="200" y1="182" x2="200" y2="648"/>
+    <line x1="640" y1="182" x2="640" y2="648"/>
+    <line x1="1080" y1="182" x2="1080" y2="648"/>
+  </g>
+
+  <!-- booking: arrows -->
+  <g stroke="#0e0b24" stroke-width="2.5" fill="none" marker-end="url(#a)">
+    <line x1="200" y1="216" x2="634" y2="216"/>
+    <line x1="640" y1="256" x2="1074" y2="256"/>
+    <line x1="1080" y1="296" x2="646" y2="296"/>
+    <line x1="640" y1="336" x2="1074" y2="336"/>
+    <line x1="1080" y1="376" x2="646" y2="376"/>
+    <line x1="640" y1="416" x2="1074" y2="416"/>
+    <line x1="1080" y1="456" x2="646" y2="456"/>
+    <line x1="640" y1="496" x2="206" y2="496"/>
+  </g>
+  <g font-size="19" fill="#0e0b24" text-anchor="middle">
+    <text x="420" y="207">1. Order confirmed, COD amount fixed</text>
+    <text x="860" y="247">2. GET /areas?district_name=...</text>
+    <text x="860" y="287">3. Areas: id, name, post_code</text>
+    <text x="860" y="327">4. GET /charge/charge_calculator</text>
+    <text x="860" y="367">5. deliveryCharge, codCharge</text>
+    <text x="860" y="407" font-weight="700">6. POST /parcel with your order no.</text>
+    <text x="860" y="447" font-weight="700">7. tracking_id</text>
+    <text x="420" y="487">8. Tracking ID saved on the order</text>
+  </g>
+
+  <!-- later -->
+  <rect x="64" y="514" width="1152" height="30" rx="8" fill="#F1F2F7"/>
+  <text x="640" y="536" font-size="18" fill="#4a4766" text-anchor="middle">Later, each time the parcel moves</text>
+
+  <line x1="1080" y1="574" x2="646" y2="574" stroke="#ff4da6" stroke-width="3" marker-end="url(#p)"/>
+  <g stroke="#0e0b24" stroke-width="2.5" fill="none" marker-end="url(#a)">
+    <line x1="640" y1="612" x2="1074" y2="612"/>
+    <line x1="640" y1="648" x2="206" y2="648"/>
+  </g>
+  <g font-size="19" text-anchor="middle">
+    <text x="860" y="565" font-weight="700" fill="#ff4da6">9. Webhook: status, invoice_number</text>
+    <text x="860" y="603" fill="#0e0b24">10. GET /parcel/info/&lt;id&gt; to confirm</text>
+    <text x="420" y="639" fill="#0e0b24">11. Order state moves forward, once</text>
+  </g>
+
+  <text x="64" y="694" font-size="18" fill="#4a4766">Source: RedX OpenAPI documentation (redx.com.bd/developer-api), read 15 Oct 2026. Step order: Arrowbin.</text>
+</svg>

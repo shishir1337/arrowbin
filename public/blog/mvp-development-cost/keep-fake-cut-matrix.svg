@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">Keep, fake or cut: sorting MVP features</text>
+  <text x="60" y="128" font-size="24" fill="#4a4766">Placed by what each feature tests and what it costs to build. Illustrative.</text>
+  <line x1="140" y1="626" x2="1214" y2="626" stroke="#0e0b24" stroke-width="3"/>
+  <polygon points="1226,626 1210,618 1210,634" fill="#0e0b24"/>
+  <line x1="140" y1="626" x2="140" y2="178" stroke="#0e0b24" stroke-width="3"/>
+  <polygon points="140,166 132,182 148,182" fill="#0e0b24"/>
+  <text x="683" y="664" font-size="20" font-weight="700" fill="#4a4766" text-anchor="middle">How directly it tests your riskiest assumption</text>
+  <text x="0" y="0" font-size="20" font-weight="700" fill="#4a4766" text-anchor="middle" transform="translate(104 402) rotate(-90)">Cost to build properly</text>
+  <rect x="156" y="180" width="512" height="432" rx="18" fill="#F1F2F7" stroke="#ff6b3d" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="180" y="220" font-size="24" font-weight="700" fill="#d9481a">CUT FROM V1</text>
+  <text x="180" y="248" font-size="18" fill="#4a4766">Wait until paying users ask for it</text>
+  <rect x="684" y="180" width="526" height="206" rx="18" fill="#ebe7ff"/>
+  <text x="708" y="220" font-size="24" font-weight="700" fill="#3b2bff">FAKE IT FIRST</text>
+  <text x="708" y="248" font-size="18" fill="#4a4766">Do it by hand behind a working screen</text>
+  <rect x="684" y="400" width="526" height="212" rx="18" fill="#3b2bff"/>
+  <text x="708" y="440" font-size="24" font-weight="700" fill="#ffffff">KEEP AND BUILD PROPERLY</text>
+  <text x="708" y="468" font-size="18" fill="#e6e2ff">This is the thing you are testing</text>
+  <rect x="184" y="278" width="285" height="38" rx="19" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="200" y="303" font-size="18" fill="#0e0b24">Native iOS and Android apps</text>
+  <rect x="250" y="330" width="303" height="38" rx="19" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="266" y="355" font-size="18" fill="#0e0b24">Team accounts and extra roles</text>
+  <rect x="184" y="382" width="303" height="38" rx="19" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="200" y="407" font-size="18" fill="#0e0b24">Second and third integrations</text>
+  <rect x="300" y="446" width="238" height="38" rx="19" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="316" y="471" font-size="18" fill="#0e0b24">Multi-language support</text>
+  <rect x="184" y="504" width="172" height="38" rx="19" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="200" y="529" font-size="18" fill="#0e0b24">Onboarding tour</text>
+  <rect x="390" y="552" width="116" height="38" rx="19" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="406" y="577" font-size="18" fill="#0e0b24">Dark mode</text>
+  <rect x="708" y="272" width="135" height="38" rx="19" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  <text x="724" y="297" font-size="18" fill="#0e0b24">Admin panel</text>
+  <rect x="880" y="272" width="191" height="38" rx="19" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  <text x="896" y="297" font-size="18" fill="#0e0b24">Automated billing</text>
+  <rect x="790" y="330" width="200" height="38" rx="19" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  <text x="806" y="355" font-size="18" fill="#0e0b24">Customer analytics</text>
+  <rect x="708" y="484" width="303" height="38" rx="19" fill="#ffffff" stroke="none" stroke-width="2"/>
+  <text x="724" y="509" font-size="18" fill="#0e0b24">The core workflow, end to end</text>
+  <rect x="708" y="526" width="257" height="38" rx="19" fill="#ffffff" stroke="none" stroke-width="2"/>
+  <text x="724" y="551" font-size="18" fill="#0e0b24">Hosted sign-up and login</text>
+  <rect x="708" y="568" width="294" height="38" rx="19" fill="#ffffff" stroke="none" stroke-width="2"/>
+  <text x="724" y="593" font-size="18" fill="#0e0b24">Receipts and password resets</text>
+</svg>

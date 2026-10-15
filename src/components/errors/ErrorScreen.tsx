@@ -66,6 +66,7 @@ export function ErrorScreen({
             >
               {title.map((line, i) => (
                 <span key={line} className="block overflow-y-clip pb-[0.04em]">
+                  {" "}
                   <span
                     className="svh-line block"
                     style={{ animationDelay: `${120 + i * 110}ms` }}

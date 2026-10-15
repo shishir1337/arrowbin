@@ -15,11 +15,14 @@ export function ServiceHero({
   index,
   total,
   crumbs,
+  form,
 }: {
   service: Service;
   index: number;
   total: number;
   crumbs: { name: string; path: string }[];
+  /** Quote form wording for this service (`serviceExtras[slug].copy.form`). */
+  form?: { intro: string; placeholder: string };
 }) {
   const t = serviceTheme(index);
   const panel = t.bg === "bg-white" ? "bg-ultra" : t.bg;
@@ -48,6 +51,7 @@ export function ServiceHero({
                   key={i}
                   className="inline-block overflow-y-clip pb-[0.04em] pr-[0.22em] align-top"
                 >
+                  {" "}
                   <span
                     className="svh-line block"
                     style={{ animationDelay: `${100 + i * 90}ms` }}
@@ -111,7 +115,11 @@ export function ServiceHero({
               />
             </div>
             <div className="relative pt-6" data-tilt="4">
-              <ServiceQuoteForm serviceName={service.name} />
+              <ServiceQuoteForm
+                serviceName={service.name}
+                intro={form?.intro}
+                placeholder={form?.placeholder}
+              />
             </div>
           </div>
         </div>

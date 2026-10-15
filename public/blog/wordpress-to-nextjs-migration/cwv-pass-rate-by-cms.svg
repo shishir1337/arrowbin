@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Mobile Core Web Vitals pass rate by CMS, 2025</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Share of each platform's sites that pass all three Core Web Vitals on mobile</text>
+
+  <!-- grid: 0 to 100% maps to x 300 to 1120 -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="300" y1="175" x2="300" y2="625"/>
+    <line x1="505" y1="175" x2="505" y2="625"/>
+    <line x1="710" y1="175" x2="710" y2="625"/>
+    <line x1="915" y1="175" x2="915" y2="625"/>
+    <line x1="1120" y1="175" x2="1120" y2="625"/>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="300" y="652">0%</text>
+    <text x="505" y="652">25%</text>
+    <text x="710" y="652">50%</text>
+    <text x="915" y="652">75%</text>
+    <text x="1120" y="652">100%</text>
+  </g>
+
+  <!-- bars -->
+  <g>
+    <rect x="300" y="190" width="697" height="60" rx="10" fill="#cfc4ff"/>
+    <rect x="300" y="280" width="648" height="60" rx="10" fill="#cfc4ff"/>
+    <rect x="300" y="370" width="607" height="60" rx="10" fill="#cfc4ff"/>
+    <rect x="300" y="460" width="385" height="60" rx="10" fill="#cfc4ff"/>
+    <rect x="300" y="550" width="369" height="60" rx="10" fill="#ff4da6"/>
+  </g>
+
+  <!-- labels -->
+  <g font-size="26" fill="#0e0b24" text-anchor="end">
+    <text x="276" y="229">Duda</text>
+    <text x="276" y="319">TYPO3 CMS</text>
+    <text x="276" y="409">Wix</text>
+    <text x="276" y="499">Weebly</text>
+    <text x="276" y="589" font-weight="700">WordPress</text>
+  </g>
+
+  <!-- values -->
+  <g font-size="26" font-weight="700" fill="#0e0b24">
+    <text x="1013" y="229">85%</text>
+    <text x="964" y="319">79%</text>
+    <text x="923" y="409">74%</text>
+    <text x="701" y="499">47%</text>
+    <text x="685" y="589">45%</text>
+  </g>
+  <text x="750" y="589" font-size="20" fill="#4a4766">among the lowest-ranked</text>
+
+  <text x="80" y="696" font-size="18" fill="#4a4766">Source: HTTP Archive Web Almanac 2025, CMS chapter (Figure 12.8)</text>
+</svg>

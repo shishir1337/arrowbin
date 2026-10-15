@@ -5,6 +5,9 @@ export const alt = "Arrowbin blog post";
 export const size = ogSize;
 export const contentType = "image/png";
 
+/** Like the page: unknown slugs 404 instead of rendering a generic card. */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return postSlugs.map((slug) => ({ slug }));
 }

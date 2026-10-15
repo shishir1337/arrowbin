@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- one person: head and shoulders, centred on (0,0) -->
+    <g id="person">
+      <circle cx="0" cy="-22" r="15"/>
+      <path d="M-26 26 a26 26 0 0 1 52 0 z"/>
+    </g>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Freelancer, agency or in-house?</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Three ways to build. Match the model to your stage and scope.</text>
+
+  <g fill="#f1f2f7">
+    <rect x="80" y="150" width="346" height="500" rx="22"/>
+    <rect x="467" y="150" width="346" height="500" rx="22"/>
+    <rect x="854" y="150" width="346" height="500" rx="22"/>
+  </g>
+
+  <!-- freelancer: one person -->
+  <use href="#person" x="253" y="244" fill="#3b2bff"/>
+
+  <!-- agency: a team of four -->
+  <use href="#person" x="565" y="244" fill="#3b2bff"/>
+  <use href="#person" x="618" y="244" fill="#ff4da6"/>
+  <use href="#person" x="671" y="244" fill="#ffd23f"/>
+  <use href="#person" x="724" y="244" fill="#ff6b3d"/>
+
+  <!-- in-house: a larger group -->
+  <g fill="#0e0b24">
+    <use href="#person" x="955" y="214"/>
+    <use href="#person" x="1027" y="214"/>
+    <use href="#person" x="1099" y="214"/>
+  </g>
+  <g fill="#cfc4ff">
+    <use href="#person" x="919" y="268"/>
+    <use href="#person" x="991" y="268"/>
+    <use href="#person" x="1063" y="268"/>
+    <use href="#person" x="1135" y="268"/>
+  </g>
+
+  <!-- titles -->
+  <g font-size="30" font-weight="700" fill="#0e0b24">
+    <text x="112" y="350">Freelancer</text>
+    <text x="499" y="350">Agency</text>
+    <text x="886" y="350">In-house team</text>
+  </g>
+
+  <!-- rows -->
+  <g font-size="17" fill="#4a4766">
+    <text x="112" y="392">Best for</text>
+    <text x="112" y="452">Team breadth</text>
+    <text x="112" y="512">Cost</text>
+    <text x="112" y="572">Continuity risk</text>
+    <text x="499" y="392">Best for</text>
+    <text x="499" y="452">Team breadth</text>
+    <text x="499" y="512">Cost</text>
+    <text x="499" y="572">Continuity risk</text>
+    <text x="886" y="392">Best for</text>
+    <text x="886" y="452">Team breadth</text>
+    <text x="886" y="512">Cost</text>
+    <text x="886" y="572">Continuity risk</text>
+  </g>
+  <g font-size="21" font-weight="700" fill="#0e0b24">
+    <text x="112" y="418">Small, defined tasks</text>
+    <text x="112" y="478">One skill set</text>
+    <text x="112" y="538">Lowest hourly rate</text>
+    <text x="112" y="598">High (one person)</text>
+    <text x="499" y="418">End-to-end products</text>
+    <text x="499" y="478">Design, dev, QA, PM</text>
+    <text x="499" y="538">Mid: a full team</text>
+    <text x="499" y="598">Low (the team covers)</text>
+    <text x="886" y="418">Long-term ownership</text>
+    <text x="886" y="478">Whoever you hire</text>
+    <text x="886" y="538">Salaries plus overhead</text>
+    <text x="886" y="598">Low, once it is built</text>
+  </g>
+
+  <text x="80" y="690" font-size="18" fill="#4a4766">An in-house team is also the slowest to start: hiring takes months.</text>
+</svg>

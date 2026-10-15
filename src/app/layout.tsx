@@ -7,17 +7,18 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Cursor } from "@/components/motion/Cursor";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { feedAlternate, ogLocale, xHandle } from "@/lib/metadata";
 import {
   localBusinessSchema,
   organizationSchema,
   websiteSchema,
 } from "@/lib/schema";
-import { defaultOgImage, pageAlternates, site, siteUrl } from "@/lib/site";
+import { defaultOgImage, site, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 // Production GA4 id, with the property hard-coded as a fallback so prod analytics
-// works without extra env config. Only loaded in production builds — never in local
-// dev — so it doesn't fire during development or tests.
+// works without extra env config. Only loaded in production builds (never in local
+// dev), so it doesn't fire during development or tests.
 const gaId =
   process.env.NODE_ENV === "production"
     ? process.env.NEXT_PUBLIC_GA_ID || "G-ZZ3NJCZVMZ"
@@ -30,9 +31,14 @@ const anybody = Anybody({
   subsets: ["latin"],
   display: "swap",
   axes: ["wdth"],
-  // Not preloaded: the headline is hidden behind its intro reveal while this
-  // loads, so preloading only competed with the main text for bandwidth.
-  preload: false,
+  // Preloaded (15 Oct 2026). Every page sets above-the-fold text in this face,
+  // so the browser fetches it before first paint either way. Discovered from
+  // the stylesheet, a font request gets "VeryHigh" priority, which Lighthouse's
+  // simulation counts as render-blocking for FCP (58 KB here); a preloaded
+  // font gets "High" and does not. Preloading also lets it land before first
+  // paint more often, which removes the headline swap shift (desktop CLS on
+  // /about and /blog).
+  preload: true,
 });
 
 // Bengali fallback for the display face, for the "গ তে গয়না" project name.
@@ -62,8 +68,19 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
-  // Small labels only; not worth a high-priority preload.
-  preload: false,
+  // Preloaded: the mono labels sit above the fold (breadcrumbs, hero meta), and
+  // a preloaded font is not counted as render-blocking by Lighthouse's FCP
+  // simulation (see Anybody above). Dropping the preload was measured to add
+  // 0.15 to 0.3 s of simulated mobile FCP with no LCP gain.
+  preload: true,
+  // With next/font's default fallback (Arial scaled to Geist Mono's average
+  // lower-case width, far too wide for the capitals in labels) the
+  // service-page breadcrumb wrapped to two lines, then snapped to one when
+  // Geist Mono arrived (CLS 0.139). These fallbacks are system monospace faces
+  // scaled to Geist Mono's exact 0.6em advance (@font-face rules in
+  // globals.css), so a late swap moves nothing.
+  adjustFontFallback: false,
+  fallback: ["ab-mono-a", "ab-mono-b", "ab-mono-c", "ab-mono-arial"],
 });
 
 export const metadata: Metadata = {
@@ -86,24 +103,24 @@ export const metadata: Metadata = {
   authors: [{ name: site.legalName, url: siteUrl }],
   creator: site.legalName,
   publisher: site.legalName,
-  alternates: {
-    ...pageAlternates("/"),
-    // Site-wide RSS auto-discovery so feed readers find it from any page.
-    types: { "application/rss+xml": "/blog/rss.xml" },
-  },
+  // RSS auto-discovery only. No canonical here: a page without its own
+  // `alternates` (the 404) would inherit the homepage canonical. Every
+  // indexable page sets its canonical itself (see `pageShare` in lib/metadata).
+  alternates: { types: feedAlternate },
+  // Site-wide fallback, used as is only by pages that set no `openGraph` of
+  // their own (the 404). No `url`, so it never claims the homepage URL.
   openGraph: {
     type: "website",
     siteName: site.name,
     title: `${site.name} | Software Development Company`,
     description: site.description,
-    url: siteUrl,
-    locale: "en_US",
+    locale: ogLocale,
     images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@Arrowbinllc",
-    creator: "@Arrowbinllc",
+    site: xHandle,
+    creator: xHandle,
     title: `${site.name} | Software Development Company`,
     description: site.description,
     images: [defaultOgImage],
@@ -143,7 +160,13 @@ export default function RootLayout({
         {/** biome-ignore lint/security/noDangerouslySetInnerHtml: tiny inline theme script must run before paint. */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="flex min-h-dvh flex-col bg-bg text-text">
+      {/* suppressHydrationWarning: browser extensions (ColorZilla's
+          cz-shortcut-listen, Grammarly, etc.) add attributes to <body> before
+          React loads. It only covers this tag's own attributes. */}
+      <body
+        className="flex min-h-dvh flex-col bg-bg text-text"
+        suppressHydrationWarning
+      >
         <SmoothScroll />
         <Cursor />
         <JsonLd

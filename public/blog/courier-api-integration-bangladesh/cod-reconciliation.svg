@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="64" y="76" font-size="40" font-weight="700" fill="#0e0b24">Reconciling COD payouts, line by line</text>
+  <text x="64" y="114" font-size="24" fill="#4a4766">Match payout lines to your delivered orders, then sort every parcel into three buckets</text>
+
+  <!-- payout sheet -->
+  <rect x="64" y="150" width="340" height="330" rx="18" fill="#F1F2F7"/>
+  <text x="88" y="190" font-size="22" font-weight="700" fill="#0e0b24">Courier payout sheet</text>
+  <text x="88" y="218" font-size="18" fill="#4a4766">One line per parcel (illustrative)</text>
+  <g fill="#ffffff" stroke="#e4e4e7" stroke-width="2">
+    <rect x="88" y="238" width="292" height="48" rx="10"/>
+    <rect x="88" y="296" width="292" height="48" rx="10"/>
+    <rect x="88" y="354" width="292" height="48" rx="10"/>
+    <rect x="88" y="412" width="292" height="48" rx="10"/>
+  </g>
+  <g font-size="19" fill="#0e0b24">
+    <text x="106" y="269">Tracking ID ...1041</text>
+    <text x="106" y="327">Tracking ID ...1044</text>
+    <text x="106" y="385">Tracking ID ...1047</text>
+    <text x="106" y="443">No order found</text>
+  </g>
+  <g>
+    <circle cx="356" cy="262" r="9" fill="#3b2bff"/>
+    <circle cx="356" cy="320" r="9" fill="#3b2bff"/>
+    <circle cx="356" cy="378" r="9" fill="#ff4da6"/>
+    <circle cx="356" cy="436" r="9" fill="#ff4da6"/>
+  </g>
+
+  <!-- match step -->
+  <line x1="404" y1="315" x2="462" y2="315" stroke="#4a4766" stroke-width="3" marker-end="url(#a)"/>
+  <rect x="470" y="246" width="280" height="138" rx="18" fill="#3b2bff"/>
+  <g font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <text x="610" y="292">Match on tracking ID</text>
+    <text x="610" y="322">and order number,</text>
+    <text x="610" y="352">compare to expected</text>
+  </g>
+
+  <!-- delivered orders feed -->
+  <rect x="470" y="420" width="280" height="56" rx="14" fill="#ffffff" stroke="#3b2bff" stroke-width="2.5"/>
+  <text x="610" y="455" font-size="19" font-weight="700" fill="#0e0b24" text-anchor="middle">Your delivered orders</text>
+  <line x1="610" y1="420" x2="610" y2="392" stroke="#4a4766" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- buckets -->
+  <g stroke="#4a4766" stroke-width="3" fill="none" marker-end="url(#a)">
+    <path d="M750 290 C790 290 790 200 836 200"/>
+    <line x1="750" y1="315" x2="836" y2="315"/>
+    <path d="M750 340 C790 340 790 430 836 430"/>
+  </g>
+  <rect x="844" y="150" width="372" height="100" rx="18" fill="#f4f2ff" stroke="#3b2bff" stroke-width="2.5"/>
+  <rect x="844" y="265" width="372" height="100" rx="18" fill="#fff6d6" stroke="#ffd23f" stroke-width="2.5"/>
+  <rect x="844" y="380" width="372" height="100" rx="18" fill="#fff0f7" stroke="#ff4da6" stroke-width="2.5"/>
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="868" y="192">Matched</text>
+    <text x="868" y="307">Delivered, not yet paid</text>
+    <text x="868" y="422">Differs, or unknown</text>
+  </g>
+  <g font-size="19" fill="#4a4766">
+    <text x="868" y="226">Paid equals expected. Close it.</text>
+    <text x="868" y="341">Past your cut-off: chase it.</text>
+    <text x="868" y="456">Check partials, return charges.</text>
+  </g>
+
+  <!-- formula -->
+  <rect x="64" y="510" width="1152" height="138" rx="18" fill="#F1F2F7"/>
+  <text x="96" y="556" font-size="23" font-weight="700" fill="#0e0b24">Expected payout = cash collected − delivery charge − COD charge − VAT</text>
+  <text x="96" y="596" font-size="20" fill="#0e0b24">Worked example: Steadfast lists a 1% COD and risk management charge.</text>
+  <text x="96" y="628" font-size="20" fill="#0e0b24">On a Tk 2,000 COD parcel that is Tk 20, before VAT and the delivery charge.</text>
+
+  <text x="64" y="694" font-size="18" fill="#4a4766">Source: Steadfast pricing page (steadfast.com.bd/pricing), read 15 Oct 2026. Tracking IDs are illustrative; buckets are our method.</text>
+</svg>

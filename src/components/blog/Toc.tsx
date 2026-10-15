@@ -15,7 +15,7 @@ const IDLE_CLASSES = [
 /**
  * Table of contents with scroll-spy: highlights the section currently in view.
  * The active link is toggled by mutating class lists directly inside a
- * frame-throttled scroll check — no React state — so rapid scrolling never
+ * frame-throttled scroll check (no React state), so rapid scrolling never
  * queues re-renders of the whole list (keeps INP low on long posts).
  */
 export function Toc({ items }: { items: TocItem[] }) {

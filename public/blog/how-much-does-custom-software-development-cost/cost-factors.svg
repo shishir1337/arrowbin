@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">What moves a software budget most</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Five levers explain most of the price difference between projects</text>
+
+  <!-- cards -->
+  <g fill="#f1f2f7">
+    <rect x="80" y="170" width="216" height="400" rx="22"/>
+    <rect x="306" y="170" width="216" height="400" rx="22"/>
+    <rect x="532" y="170" width="216" height="400" rx="22"/>
+    <rect x="758" y="170" width="216" height="400" rx="22"/>
+    <rect x="984" y="170" width="216" height="400" rx="22"/>
+  </g>
+
+  <!-- 1. Scope: stacked cards -->
+  <circle cx="188" cy="268" r="56" fill="#3b2bff"/>
+  <g fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">
+    <rect x="160" y="252" width="50" height="36" rx="5"/>
+    <path d="M168 244 h48 v34"/>
+    <path d="M176 236 h48 v34"/>
+  </g>
+
+  <!-- 2. Complexity: gear -->
+  <circle cx="414" cy="268" r="56" fill="#ff6b3d"/>
+  <circle cx="414" cy="268" r="24" fill="none" stroke="#ffffff" stroke-width="12" stroke-dasharray="7.5 5"/>
+  <circle cx="414" cy="268" r="14" fill="none" stroke="#ffffff" stroke-width="5"/>
+
+  <!-- 3. Design: palette -->
+  <circle cx="640" cy="268" r="56" fill="#ff4da6"/>
+  <path d="M640 238 a30 30 0 1 0 6 59 c7 -2 5 -10 0 -12 c-6 -3 -3 -11 4 -11 h10 c8 0 10 -6 10 -10 c0 -15 -14 -26 -30 -26 z" fill="#ffffff"/>
+  <g>
+    <circle cx="626" cy="256" r="6" fill="#3b2bff"/>
+    <circle cx="646" cy="252" r="6" fill="#ffd23f"/>
+    <circle cx="620" cy="276" r="6" fill="#0e0b24"/>
+  </g>
+
+  <!-- 4. Platforms: laptop and phone -->
+  <circle cx="866" cy="268" r="56" fill="#ffd23f"/>
+  <g fill="none" stroke="#0e0b24" stroke-width="5" stroke-linejoin="round">
+    <rect x="834" y="246" width="50" height="34" rx="4"/>
+    <path d="M826 288 h66"/>
+    <rect x="884" y="256" width="20" height="34" rx="4" fill="#ffd23f"/>
+  </g>
+
+  <!-- 5. Team: three people -->
+  <circle cx="1092" cy="268" r="56" fill="#cfc4ff"/>
+  <g fill="#0e0b24">
+    <circle cx="1092" cy="252" r="10"/>
+    <path d="M1074 290 a18 18 0 0 1 36 0 z"/>
+    <circle cx="1068" cy="258" r="7"/>
+    <path d="M1055 286 a13 13 0 0 1 22 -8 a22 22 0 0 0 -3 8 z"/>
+    <circle cx="1116" cy="258" r="7"/>
+    <path d="M1129 286 a13 13 0 0 0 -22 -8 a22 22 0 0 1 3 8 z"/>
+  </g>
+
+  <!-- numbers -->
+  <g font-size="18" font-weight="700" fill="#4a4766" text-anchor="middle">
+    <text x="188" y="370">01</text>
+    <text x="414" y="370">02</text>
+    <text x="640" y="370">03</text>
+    <text x="866" y="370">04</text>
+    <text x="1092" y="370">05</text>
+  </g>
+
+  <!-- names -->
+  <g font-size="28" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="188" y="408">Scope</text>
+    <text x="414" y="408">Complexity</text>
+    <text x="640" y="408">Design</text>
+    <text x="866" y="408">Platforms</text>
+    <text x="1092" y="408">Team</text>
+  </g>
+
+  <!-- descriptions -->
+  <g font-size="19" fill="#4a4766" text-anchor="middle">
+    <text x="188" y="452">Screens, features,</text>
+    <text x="188" y="478">user roles and</text>
+    <text x="188" y="504">reports in v1</text>
+
+    <text x="414" y="452">Payments, AI,</text>
+    <text x="414" y="478">real-time data and</text>
+    <text x="414" y="504">integrations</text>
+
+    <text x="640" y="452">A template UI or a</text>
+    <text x="640" y="478">bespoke design</text>
+    <text x="640" y="504">system</text>
+
+    <text x="866" y="452">Web only, or iOS</text>
+    <text x="866" y="478">and Android apps</text>
+    <text x="866" y="504">as well</text>
+
+    <text x="1092" y="452">Seniority and</text>
+    <text x="1092" y="478">location set the</text>
+    <text x="1092" y="504">hourly rate</text>
+  </g>
+
+  <text x="80" y="640" font-size="18" fill="#4a4766">Scope is the biggest lever, which is why a tightly scoped MVP is the best cost control you have.</text>
+</svg>

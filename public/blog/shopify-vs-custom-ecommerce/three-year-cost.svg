@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Three-year cost: Shopify fees vs a custom build</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Shopify plan + third-party gateway fee (yearly billing) vs Arrowbin's custom estimate</text>
+
+  <!-- custom estimate band: $43.5k to $144k -->
+  <rect x="130" y="235.6" width="970" height="261.3" fill="#cfc4ff" fill-opacity="0.35"/>
+  <line x1="130" y1="235.6" x2="1100" y2="235.6" stroke="#3b2bff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="8 6"/>
+  <line x1="130" y1="496.9" x2="1100" y2="496.9" stroke="#3b2bff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- grid and axes -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="130" y1="480" x2="1100" y2="480"/>
+    <line x1="130" y1="350" x2="1100" y2="350"/>
+    <line x1="130" y1="220" x2="1100" y2="220"/>
+    <line x1="372.5" y1="220" x2="372.5" y2="610"/>
+    <line x1="615" y1="220" x2="615" y2="610"/>
+    <line x1="857.5" y1="220" x2="857.5" y2="610"/>
+    <line x1="1100" y1="220" x2="1100" y2="610"/>
+  </g>
+  <line x1="130" y1="610" x2="1100" y2="610" stroke="#4a4766" stroke-width="2"/>
+  <rect x="142" y="246" width="612" height="32" rx="6" fill="#ffffff" fill-opacity="0.8"/>
+  <text x="150" y="268" font-size="20" font-weight="600" fill="#0e0b24">Custom store over 3 years: $43.5k to $144k (Arrowbin estimate)</text>
+  <line x1="130" y1="220" x2="130" y2="610" stroke="#4a4766" stroke-width="2"/>
+
+  <g font-size="20" fill="#4a4766" text-anchor="end">
+    <text x="118" y="617">$0</text>
+    <text x="118" y="487">$50k</text>
+    <text x="118" y="357">$100k</text>
+    <text x="118" y="227">$150k</text>
+  </g>
+  <text x="40" y="190" font-size="18" fill="#4a4766">3-year cost (USD)</text>
+  <g font-size="20" fill="#4a4766" text-anchor="middle">
+    <text x="130" y="642">$0</text>
+    <text x="372.5" y="642">$50k</text>
+    <text x="615" y="642">$100k</text>
+    <text x="857.5" y="642">$150k</text>
+    <text x="1100" y="642">$200k</text>
+  </g>
+  <text x="615" y="680" font-size="20" font-weight="600" fill="#0e0b24" text-anchor="middle">Monthly sales paid through a third-party gateway (USD)</text>
+
+  <!-- Shopify lines: cost = plan x 36 + rate x sales x 36 -->
+  <line x1="130" y1="607.9" x2="1100" y2="233.5" stroke="#ff6b3d" stroke-width="5" stroke-linecap="round"/>
+  <line x1="130" y1="604.6" x2="1100" y2="417.4" stroke="#ff4da6" stroke-width="5" stroke-linecap="round"/>
+  <line x1="130" y1="576.4" x2="1100" y2="464.1" stroke="#3b2bff" stroke-width="5" stroke-linecap="round"/>
+
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <circle cx="1100" cy="233.5" r="7" fill="#ff6b3d"/>
+    <text x="1114" y="240">Basic</text>
+    <circle cx="1100" cy="417.4" r="7" fill="#ff4da6"/>
+    <text x="1114" y="424">Grow</text>
+    <circle cx="1100" cy="464.1" r="7" fill="#3b2bff"/>
+    <text x="1114" y="471">Advanced</text>
+  </g>
+
+  <!-- break-even marker -->
+  <circle cx="816.5" cy="496.9" r="9" fill="#ffffff" stroke="#0e0b24" stroke-width="3"/>
+  <line x1="822" y1="506" x2="842" y2="528" stroke="#0e0b24" stroke-width="2"/>
+  <text x="848" y="545" font-size="20" font-weight="600" fill="#0e0b24">About $142k a month: Advanced</text>
+  <text x="848" y="571" font-size="20" font-weight="600" fill="#0e0b24">meets the custom low end</text>
+</svg>

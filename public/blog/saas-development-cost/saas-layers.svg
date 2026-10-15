@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">What a SaaS adds on top of a web app</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Solid layers ship in the first version. Outlined layers wait for customers to ask.</text>
+
+  <!-- column headers -->
+  <text x="80" y="190" font-size="24" font-weight="700" fill="#3b2bff">First version</text>
+  <text x="660" y="190" font-size="24" font-weight="700" fill="#ff4da6">When paying customers ask</text>
+
+  <!-- left column: day one, built bottom to top -->
+  <g font-size="22" font-weight="600">
+    <rect x="80" y="518" width="540" height="50" rx="12" fill="#3b2bff"/>
+    <text x="104" y="551" fill="#ffffff">Tenant isolation</text>
+    <rect x="80" y="460" width="540" height="50" rx="12" fill="#3b2bff"/>
+    <text x="104" y="493" fill="#ffffff">Sign-up, login and 2FA</text>
+    <rect x="80" y="402" width="540" height="50" rx="12" fill="#ff6b3d"/>
+    <text x="104" y="435" fill="#ffffff">Subscription billing and dunning</text>
+    <rect x="80" y="344" width="540" height="50" rx="12" fill="#ff6b3d"/>
+    <text x="104" y="377" fill="#ffffff">Simple onboarding</text>
+    <rect x="80" y="286" width="540" height="50" rx="12" fill="#ffd23f"/>
+    <text x="104" y="319" fill="#0e0b24">Admin view for your team</text>
+    <rect x="80" y="228" width="540" height="50" rx="12" fill="#ffd23f"/>
+    <text x="104" y="261" fill="#0e0b24">Monitoring, alerts and daily backups</text>
+  </g>
+
+  <!-- right column: later, outlined -->
+  <g font-size="22" font-weight="600" fill="#0e0b24">
+    <rect x="660" y="518" width="540" height="50" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="684" y="551">Teams and roles</text>
+    <rect x="660" y="460" width="540" height="50" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="684" y="493">Audit logs</text>
+    <rect x="660" y="402" width="540" height="50" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="684" y="435">SSO for enterprise buyers</text>
+    <rect x="660" y="344" width="540" height="50" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="684" y="377">Public API and webhooks</text>
+    <rect x="660" y="286" width="540" height="50" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="684" y="319">White-labelling</text>
+    <rect x="660" y="228" width="540" height="50" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="684" y="261">Compliance work (SOC 2 readiness)</text>
+  </g>
+
+  <!-- base: the product itself -->
+  <rect x="80" y="584" width="1120" height="56" rx="14" fill="#0e0b24"/>
+  <text x="640" y="620" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">Your core workflow: the thing customers pay for</text>
+
+  <text x="80" y="686" font-size="18" fill="#4a4766">Original Arrowbin diagram, based on the scope of our SaaS product engineering service.</text>
+</svg>

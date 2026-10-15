@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Crumbs } from "@/components/ui/Crumbs";
-import type { Post } from "@/lib/blog";
+import { isMockupCover, type Post } from "@/lib/blog";
 import { getBlurDataURL } from "@/lib/blur";
 import { author } from "@/lib/site";
 
@@ -11,7 +11,14 @@ import { author } from "@/lib/site";
 export async function ArticleHero({ post }: { post: Post }) {
   const blur = await getBlurDataURL(author.image);
   const cover = post.image && !post.image.pending ? post.image : undefined;
-  const coverBlur = cover ? await getBlurDataURL(cover.src) : undefined;
+  // An .svg cover is served as-is (no optimizer, no blur); raster covers, including
+  // .webp exports of SVG charts, get the optimizer and a blur placeholder.
+  const coverSvg = cover?.src.endsWith(".svg") ?? false;
+  // Photos fill the banner; designed UI mockups are shown whole (contained on
+  // the frost they were drawn on) so no label is cut off.
+  const coverMockup = cover ? isMockupCover(cover) : false;
+  const coverBlur =
+    cover && !coverSvg ? await getBlurDataURL(cover.src) : undefined;
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "Blog", path: "/blog" },
@@ -45,7 +52,7 @@ export async function ArticleHero({ post }: { post: Post }) {
               <span className="flex items-center gap-3">
                 <Image
                   src={author.image}
-                  alt=""
+                  alt={`${author.name}, founder of Arrowbin`}
                   width={44}
                   height={44}
                   {...(blur
@@ -78,14 +85,17 @@ export async function ArticleHero({ post }: { post: Post }) {
           </div>
         </div>
         {cover && (
-          <div className="svh-fade relative mt-12 aspect-[16/10] overflow-hidden rounded-[2rem] bg-lilac sm:aspect-[21/9]">
+          <div
+            className={`svh-fade relative mt-12 aspect-[16/10] overflow-hidden rounded-[2rem] sm:aspect-[21/9] ${coverMockup ? "bg-frost" : "bg-lilac"}`}
+          >
             <Image
               src={cover.src}
               alt={cover.alt}
               fill
               priority
+              unoptimized={coverSvg}
               sizes="(min-width: 1600px) 1500px, 94vw"
-              className="object-cover"
+              className={coverMockup ? "object-contain" : "object-cover"}
               {...(coverBlur
                 ? { placeholder: "blur" as const, blurDataURL: coverBlur }
                 : {})}

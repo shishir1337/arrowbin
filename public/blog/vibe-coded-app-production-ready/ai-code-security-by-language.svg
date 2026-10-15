@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="84" font-size="40" font-weight="700" fill="#0e0b24">AI-written code often fails security tests</text>
+  <text x="80" y="122" font-size="24" fill="#4a4766">Share of AI-generated code samples that failed, by language</text>
+
+  <!-- gridlines: x = 300 + pct * 8.6 -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="300" y1="196" x2="300" y2="560"/>
+    <line x1="515" y1="196" x2="515" y2="560"/>
+    <line x1="730" y1="196" x2="730" y2="560"/>
+    <line x1="945" y1="196" x2="945" y2="560"/>
+    <line x1="1160" y1="196" x2="1160" y2="560"/>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="300" y="590">0%</text>
+    <text x="515" y="590">25%</text>
+    <text x="730" y="590">50%</text>
+    <text x="945" y="590">75%</text>
+    <text x="1160" y="590">100%</text>
+  </g>
+
+  <!-- category labels -->
+  <g font-size="24" font-weight="600" fill="#0e0b24" text-anchor="end">
+    <text x="276" y="245">Java</text>
+    <text x="276" y="335">C#</text>
+    <text x="276" y="425">JavaScript</text>
+    <text x="276" y="515">Python</text>
+  </g>
+
+  <!-- bars -->
+  <rect x="300" y="210" width="619" height="52" rx="8" fill="#3b2bff"/>
+  <rect x="300" y="300" width="387" height="52" rx="8" fill="#cfc4ff"/>
+  <rect x="300" y="390" width="370" height="52" rx="8" fill="#ff4da6"/>
+  <rect x="300" y="480" width="327" height="52" rx="8" fill="#cfc4ff"/>
+
+  <!-- overall line at 45% -->
+  <line x1="687" y1="180" x2="687" y2="560" stroke="#ff6b3d" stroke-width="3" stroke-dasharray="10 8"/>
+  <text x="687" y="170" font-size="20" font-weight="700" fill="#ff6b3d" text-anchor="middle">45% overall</text>
+
+  <!-- values -->
+  <g font-size="26" font-weight="700" fill="#0e0b24">
+    <text x="935" y="245">72%</text>
+    <text x="703" y="335">45%</text>
+    <text x="703" y="425">43%</text>
+
+  </g>
+  <text x="770" y="425" font-size="19" fill="#4a4766">what most app builders ship</text>
+  <text x="612" y="515" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="end">38%</text>
+
+  <text x="80" y="660" font-size="20" fill="#4a4766">Source: Veracode, 2025 GenAI Code Security Report (30 July 2025), over 100 LLMs tested.</text>
+</svg>

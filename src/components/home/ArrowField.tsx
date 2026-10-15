@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { useIdleEffect } from "@/lib/useIdleEffect";
 
 /**
  * Canvas field of tiny Arrowbin arrowheads that all turn to face the pointer.
@@ -11,7 +12,11 @@ import { useEffect, useRef } from "react";
 export function ArrowField({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
+  // Set up in idle time, not during hydration: the field sits in the closing
+  // CTA at the bottom of every page, and measuring the canvas while hydration
+  // has just dirtied the page's styles forced a full style recalc + layout
+  // (about 25 ms) into the hydration task.
+  useIdleEffect(() => {
     const canvas = ref.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
@@ -132,7 +137,7 @@ export function ArrowField({ className = "" }: { className?: string }) {
       parent.removeEventListener("pointermove", onMove);
       window.removeEventListener("resize", build);
     };
-  }, []);
+  });
 
   return <canvas ref={ref} className={className} />;
 }

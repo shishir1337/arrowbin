@@ -1,5 +1,5 @@
 /**
- * Lazy GSAP loader. GSAP (~70 KiB) is intentionally NOT imported statically anywhere —
+ * Lazy GSAP loader. GSAP (~70 KiB) is intentionally NOT imported statically anywhere , 
  * it's code-split and fetched on demand via `loadGsap()` (on idle / first scroll
  * reveal), keeping it out of the initial bundle and off the critical path. The Hero's
  * entrance is pure CSS, so nothing above the fold depends on GSAP.

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Six factors that set an MVP's timeline</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Two MVPs with the same headline idea can differ by weeks</text>
+
+  <g fill="#f1f2f7">
+    <rect x="80" y="156" width="346" height="220" rx="22"/>
+    <rect x="467" y="156" width="346" height="220" rx="22"/>
+    <rect x="854" y="156" width="346" height="220" rx="22"/>
+    <rect x="80" y="400" width="346" height="220" rx="22"/>
+    <rect x="467" y="400" width="346" height="220" rx="22"/>
+    <rect x="854" y="400" width="346" height="220" rx="22"/>
+  </g>
+
+  <!-- icons -->
+  <circle cx="146" cy="222" r="36" fill="#3b2bff"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">
+    <rect x="126" y="214" width="34" height="24" rx="4"/>
+    <path d="M132 208 h34 v24"/>
+    <path d="M138 202 h34 v24"/>
+  </g>
+
+  <circle cx="533" cy="222" r="36" fill="#ff6b3d"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4">
+    <circle cx="533" cy="222" r="20"/>
+    <circle cx="533" cy="222" r="10"/>
+  </g>
+  <circle cx="533" cy="222" r="3.5" fill="#ffffff"/>
+
+  <circle cx="920" cy="222" r="36" fill="#ff4da6"/>
+  <g fill="#ffffff">
+    <rect x="908" y="208" width="24" height="20" rx="5"/>
+    <rect x="912" y="198" width="4" height="12" rx="2"/>
+    <rect x="924" y="198" width="4" height="12" rx="2"/>
+    <rect x="918" y="226" width="4" height="14" rx="2"/>
+  </g>
+
+  <circle cx="146" cy="466" r="36" fill="#ffd23f"/>
+  <path d="M130 482 l4 -14 l22 -22 l10 10 l-22 22 z" fill="#0e0b24"/>
+  <path d="M130 482 l4 -14 l10 10 z" fill="#ffffff" stroke="#0e0b24" stroke-width="2" stroke-linejoin="round"/>
+
+  <circle cx="533" cy="466" r="36" fill="#cfc4ff"/>
+  <g fill="#0e0b24">
+    <path d="M513 452 l18 14 l-18 14 z"/>
+    <path d="M533 452 l18 14 l-18 14 z"/>
+  </g>
+
+  <circle cx="920" cy="466" r="36" fill="#0e0b24"/>
+  <g fill="#ffffff">
+    <circle cx="920" cy="456" r="7"/>
+    <path d="M907 482 a13 13 0 0 1 26 0 z"/>
+    <circle cx="903" cy="461" r="5"/>
+    <path d="M893 480 a10 10 0 0 1 16 -7 a16 16 0 0 0 -2 7 z"/>
+    <circle cx="937" cy="461" r="5"/>
+    <path d="M947 480 a10 10 0 0 0 -16 -7 a16 16 0 0 1 2 7 z"/>
+  </g>
+
+  <!-- names -->
+  <g font-size="26" font-weight="700" fill="#0e0b24">
+    <text x="112" y="300">Scope</text>
+    <text x="499" y="300">Clarity</text>
+    <text x="886" y="300">Integrations</text>
+    <text x="112" y="544">Design</text>
+    <text x="499" y="544">Decision speed</text>
+    <text x="886" y="544">Team experience</text>
+  </g>
+
+  <!-- what each one means -->
+  <g font-size="19" fill="#4a4766">
+    <text x="112" y="332">How many features and screens</text>
+    <text x="112" y="356">you commit to before launch</text>
+    <text x="499" y="332">How well you know your user</text>
+    <text x="499" y="356">and their key workflow</text>
+    <text x="886" y="332">Payments, APIs, data imports</text>
+    <text x="886" y="356">and AI add build and test time</text>
+    <text x="112" y="576">A reused design system is far</text>
+    <text x="112" y="600">faster than bespoke screens</text>
+    <text x="499" y="576">Slow approvals stall sprints</text>
+    <text x="499" y="600">without anyone adding scope</text>
+    <text x="886" y="576">A senior team avoids the</text>
+    <text x="886" y="600">dead ends that cost weeks</text>
+  </g>
+</svg>

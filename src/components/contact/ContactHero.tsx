@@ -24,6 +24,7 @@ export function ContactHero({
             >
               {["Tell us", "what you're", "building."].map((line, i) => (
                 <span key={line} className="block overflow-y-clip pb-[0.04em]">
+                  {" "}
                   <span
                     className="svh-line block"
                     style={{ animationDelay: `${120 + i * 110}ms` }}
@@ -94,7 +95,7 @@ export function ContactHero({
                   <li key={p.value}>
                     <a
                       href={p.href}
-                      className="font-semibold text-ink transition-colors duration-500 hover:text-ultra"
+                      className="inline-flex min-h-11 items-center font-semibold text-ink transition-colors duration-500 hover:text-ultra"
                     >
                       {p.value}
                     </a>

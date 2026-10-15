@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1F2F7"/>
+      <stop offset="1" stop-color="#e6e2ff"/>
+    </linearGradient>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0e0b24" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1170" cy="110" r="150" fill="#cfc4ff" opacity="0.45"/>
+  <circle cx="120" cy="640" r="120" fill="#ff4da6" opacity="0.16"/>
+
+  <!-- browser window -->
+  <g filter="url(#sh)">
+    <rect x="90" y="64" width="1100" height="600" rx="22" fill="#ffffff"/>
+  </g>
+  <path d="M90 86a22 22 0 0 1 22-22h1056a22 22 0 0 1 22 22v34H90z" fill="#F1F2F7"/>
+  <circle cx="122" cy="92" r="8" fill="#ff6b3d"/>
+  <circle cx="148" cy="92" r="8" fill="#ffd23f"/>
+  <circle cx="174" cy="92" r="8" fill="#cfc4ff"/>
+  <rect x="420" y="78" width="440" height="28" rx="14" fill="#ffffff"/>
+  <text x="640" y="98" font-size="16" fill="#4a4766" text-anchor="middle">pay-explorer / developers / 2026</text>
+
+  <!-- sidebar -->
+  <rect x="90" y="120" width="200" height="544" fill="#fafaff"/>
+  <rect x="112" y="146" width="40" height="40" rx="10" fill="#3b2bff"/>
+  <path d="M122 176 l10 -12 l8 7 l10 -14" stroke="#ffffff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="112" y="218" width="156" height="40" rx="10" fill="#e9e6ff"/>
+  <text x="128" y="244" font-size="17" font-weight="600" fill="#3b2bff">By country</text>
+  <text x="128" y="296" font-size="17" fill="#4a4766">By region</text>
+  <text x="128" y="342" font-size="17" fill="#4a4766">By experience</text>
+  <text x="128" y="388" font-size="17" fill="#4a4766">Methodology</text>
+
+  <!-- tabs -->
+  <text x="326" y="170" font-size="26" font-weight="700" fill="#0e0b24">Median developer pay</text>
+  <rect x="326" y="190" width="70" height="30" rx="15" fill="#0e0b24"/>
+  <text x="361" y="211" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">USD</text>
+  <rect x="406" y="190" width="100" height="30" rx="15" fill="#F1F2F7"/>
+  <text x="456" y="211" font-size="15" fill="#4a4766" text-anchor="middle">Per year</text>
+
+  <!-- ranking card -->
+  <rect x="326" y="240" width="560" height="398" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="350" y="280" font-size="18" font-weight="600" fill="#4a4766">Country ranking</text>
+  <g font-size="18">
+    <text x="350" y="332" fill="#0e0b24">United States</text>
+    <rect x="510" y="316" width="300" height="22" rx="6" fill="#3b2bff"/>
+    <text x="820" y="333" font-weight="700" fill="#0e0b24">$155k</text>
+
+    <text x="350" y="390" fill="#0e0b24">United Kingdom</text>
+    <rect x="510" y="374" width="184" height="22" rx="6" fill="#3b2bff"/>
+    <text x="704" y="391" font-weight="700" fill="#0e0b24">$95k</text>
+
+    <text x="350" y="448" fill="#0e0b24">Germany</text>
+    <rect x="510" y="432" width="161" height="22" rx="6" fill="#3b2bff"/>
+    <text x="681" y="449" font-weight="700" fill="#0e0b24">$83k</text>
+
+    <text x="350" y="506" fill="#0e0b24">Poland</text>
+    <rect x="510" y="490" width="107" height="22" rx="6" fill="#3b2bff"/>
+    <text x="627" y="507" font-weight="700" fill="#0e0b24">$55k</text>
+
+    <text x="350" y="564" fill="#0e0b24">India</text>
+    <rect x="510" y="548" width="38" height="22" rx="6" fill="#ff4da6"/>
+    <text x="558" y="565" font-weight="700" fill="#0e0b24">$20k</text>
+  </g>
+  <line x1="350" y1="600" x2="862" y2="600" stroke="#F1F2F7" stroke-width="2"/>
+  <text x="350" y="624" font-size="15" fill="#4a4766">Countries with 100+ respondents</text>
+
+  <!-- stat tiles -->
+  <rect x="910" y="160" width="250" height="140" rx="18" fill="#3b2bff"/>
+  <text x="934" y="200" font-size="17" fill="#cfc4ff">Countries</text>
+  <text x="934" y="266" font-size="52" font-weight="700" fill="#ffffff">38</text>
+
+  <rect x="910" y="320" width="250" height="140" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="934" y="360" font-size="17" fill="#4a4766">Respondents</text>
+  <text x="934" y="426" font-size="46" font-weight="700" fill="#0e0b24">25,416</text>
+
+  <rect x="910" y="480" width="250" height="158" rx="18" fill="#efecff"/>
+  <text x="934" y="518" font-size="17" fill="#4a4766">Data file</text>
+  <rect x="934" y="540" width="202" height="48" rx="24" fill="#0e0b24"/>
+  <path d="M960 552v16m-7-7l7 7l7-7M952 578h16" stroke="#ffd23f" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="984" y="571" font-size="17" font-weight="600" fill="#ffffff">Download CSV</text>
+  <text x="934" y="618" font-size="15" fill="#4a4766">ODbL 1.0</text>
+</svg>

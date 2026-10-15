@@ -7,11 +7,13 @@ import {
   secondaryAction,
 } from "@/components/errors/ErrorScreen";
 
-// Overrides the site-wide "index, follow" so both robots tags on a 404 agree
-// with the "noindex" Next adds itself.
+// Next adds its own <meta name="robots" content="noindex"> to every 404.
+// `robots: null` drops the site-wide "index, follow" (metadata merges shallowly,
+// so null replaces the root value) without emitting a second robots tag. No
+// `alternates` either: the root layout sets no canonical, so the 404 has none.
 export const metadata: Metadata = {
   title: "Page not found",
-  robots: { index: false, follow: true },
+  robots: null,
 };
 
 export default function NotFound() {

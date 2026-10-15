@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- a flag on a pole, top-left at (0,0) -->
+    <g id="flag">
+      <rect x="0" y="0" width="5" height="52" rx="2.5" fill="#0e0b24"/>
+      <path d="M5 2 h30 l-7 11 l7 11 h-30 z" fill="#ff6b3d"/>
+    </g>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Six red flags to watch for</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Spot these early. They rarely improve after you sign.</text>
+
+  <g fill="#f1f2f7">
+    <rect x="80" y="156" width="346" height="220" rx="22"/>
+    <rect x="467" y="156" width="346" height="220" rx="22"/>
+    <rect x="854" y="156" width="346" height="220" rx="22"/>
+    <rect x="80" y="400" width="346" height="220" rx="22"/>
+    <rect x="467" y="400" width="346" height="220" rx="22"/>
+    <rect x="854" y="400" width="346" height="220" rx="22"/>
+  </g>
+
+  <use href="#flag" x="112" y="186"/>
+  <use href="#flag" x="499" y="186"/>
+  <use href="#flag" x="886" y="186"/>
+  <use href="#flag" x="112" y="430"/>
+  <use href="#flag" x="499" y="430"/>
+  <use href="#flag" x="886" y="430"/>
+
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="112" y="290">A quote that seems</text>
+    <text x="112" y="320">too good to be true</text>
+
+    <text x="499" y="290">Vague timelines and</text>
+    <text x="499" y="320">no clear process</text>
+
+    <text x="886" y="290">No references, or no</text>
+    <text x="886" y="320">live work you can use</text>
+
+    <text x="112" y="534">No mention of testing,</text>
+    <text x="112" y="564">security or maintenance</text>
+
+    <text x="499" y="534">Won't confirm you own</text>
+    <text x="499" y="564">the code and infrastructure</text>
+
+    <text x="886" y="534">Slow, unclear replies</text>
+    <text x="886" y="564">during the sales process</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="112" y="350">It usually leaves out design or QA</text>
+    <text x="499" y="350">Hand-wavy answers on process</text>
+    <text x="886" y="350">Screenshots are not proof</text>
+    <text x="112" y="594">Software needs all three</text>
+    <text x="499" y="594">You should own it outright</text>
+    <text x="886" y="594">It only gets worse after signing</text>
+  </g>
+</svg>

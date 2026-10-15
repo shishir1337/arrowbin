@@ -103,14 +103,14 @@ export function Manifesto() {
                 {typeof t === "string" ? (
                   <span className="relative inline-block">
                     {/* Outlined letters (always legible) with a solid ink copy
-                        that fades in on scroll; the copy is aria-hidden. */}
+                        that fades in on scroll. The copy is drawn from
+                        data-word by CSS, so the HTML holds each word once. */}
                     <span className="mf-outline">{t}</span>
                     <span
                       aria-hidden="true"
+                      data-word={t}
                       className="mf-word absolute inset-0 text-ink will-change-[opacity]"
-                    >
-                      {t}
-                    </span>
+                    />
                   </span>
                 ) : (
                   <span className="mf-pill inline-block" aria-hidden="true">

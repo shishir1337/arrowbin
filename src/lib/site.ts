@@ -1,5 +1,5 @@
 /**
- * Central site configuration — single source of truth for NAP (name/address/phone),
+ * Central site configuration: single source of truth for NAP (name/address/phone),
  * social profiles, navigation, and the canonical site URL. Imported by metadata,
  * JSON-LD, the navbar, the footer, and the sitemap.
  */
@@ -10,8 +10,12 @@ export const site = {
   name: "Arrowbin",
   legalName: "Arrowbin LLC",
   tagline: "Software Development Company",
+  /** The brand line used on the homepage hero and in the footer. */
+  slogan: "Software that moves.",
+  // Matches the homepage title ("Software Development Company for Startups &
+  // SMBs"). Also the default meta description, so keep it near 160 characters.
   description:
-    "Arrowbin is a software development company. We build custom software, web & mobile apps, SaaS, AI automation and cloud solutions for clients worldwide.",
+    "Arrowbin is a software development company for startups and SMBs worldwide. We build custom software, web & mobile apps, SaaS, AI automation and cloud services.",
   url: siteUrl,
   bookingUrl: "https://cal.com/arrowbin/30min",
   email: "hello@arrowbin.com",
@@ -28,34 +32,39 @@ export const site = {
   offices: [
     {
       label: "Dhaka, Bangladesh",
-      // No house/road line for this office; Mohammadpur (the area) is the most
-      // specific street-level value available.
-      streetAddress: "Mohammadpur",
+      // No confirmed house/road line for this office yet, so no street address is
+      // published: a neighbourhood (Mohammadpur) is not a street address. Add the
+      // full street line here once the founder confirms it (FIX-PLAN D8).
+      streetAddress: undefined,
       city: "Dhaka",
       region: "Dhaka",
       postalCode: "1207",
       country: "BD",
       countryName: "Bangladesh",
       geo: { lat: 23.766, lng: 90.359 },
+      /** Staffed office: emitted as a ProfessionalService location. */
+      mailingOnly: false,
     },
     {
       label: "St. Petersburg, Florida",
-      streetAddress: "7901 4th St N",
+      streetAddress: "7901 4th St N, Ste 300",
       city: "St. Petersburg",
       region: "FL",
       postalCode: "33702",
       country: "US",
       countryName: "United States",
       geo: { lat: 27.8206, lng: -82.6389 },
+      /** Registered/mailing address (shared virtual office), not a place
+       * clients visit: kept as a postal address only, never as a
+       * LocalBusiness location (Google treats virtual offices as ineligible). */
+      mailingOnly: true,
     },
   ],
+  // LinkedIn is left out until the Arrowbin company page exists (FIX-PLAN P1.4).
+  // When it does, add it back as the first entry here
+  // ({ label: "LinkedIn", href: "https://www.linkedin.com/company/<slug>", icon: "linkedin" })
+  // and append the same URL to `sameAs` below.
   socials: [
-    {
-      label: "LinkedIn",
-      // TODO: replace with the real Arrowbin company page once created.
-      href: "https://www.linkedin.com/in/arrowbinllc",
-      icon: "linkedin",
-    },
     {
       label: "Facebook",
       href: "https://www.facebook.com/arrowbinllc/",
@@ -91,8 +100,8 @@ export const hostinger = {
   couponCode: "ARROWBIN",
   badge: {
     // SVG, so it needs no next/image optimisation (which would require
-    // `dangerouslyAllowSVG`) and carries no filename-encoding risk — several files
-    // in the supplied pack use a U+00D7 "×" in their names.
+    // `dangerouslyAllowSVG`) and carries no filename-encoding risk (several files
+    // in the supplied pack use a U+00D7 "×" in their names).
     src: "/hostinger-partner-badge/svg/Badge_brand_light.svg",
     /** Native aspect ratio of the supplied badge; keep 8:3 when scaling. */
     width: 320,
@@ -112,13 +121,24 @@ export const mainNav = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
-/** Aggregate social URLs for schema.org `sameAs`. */
-export const sameAs = site.socials.map((s) => s.href);
+/**
+ * schema.org `sameAs`: only verified profiles of this company. Kept separate
+ * from the footer socials so a placeholder link never becomes an entity claim.
+ * Add the LinkedIn company page (linkedin.com/company/...) once it exists, and
+ * the Clutch profile (clutch.co/profile/arrowbin-0) once it has been claimed
+ * and corrected (FIX-PLAN P1.3, P1.4).
+ */
+export const sameAs = [
+  "https://github.com/Arrowbin-LLC",
+  "https://www.facebook.com/arrowbinllc/",
+  "https://www.instagram.com/arrowbinllc",
+  "https://x.com/Arrowbinllc",
+];
 
 /**
  * Build the `alternates` metadata for a page: just the self-referencing canonical.
  * The site is single-language (English) with one URL per page, so we intentionally
- * omit hreflang — self-referencing `en`/`x-default` tags add no signal on a
+ * omit hreflang: self-referencing `en`/`x-default` tags add no signal on a
  * monolingual site (the canonical already handles self-reference). Add a real
  * `languages` map here only if/when localized URLs exist. Pass a root-relative
  * path; Next.js resolves it against `metadataBase`.
@@ -129,7 +149,7 @@ export function pageAlternates(path: string) {
   };
 }
 
-/** Default content author — used for blog bylines and BlogPosting Person schema. */
+/** Default content author, used for blog bylines and BlogPosting Person schema. */
 export const author = {
   name: "Md. Shishir Ahmed",
   jobTitle: "Founder",

@@ -25,7 +25,8 @@ export function Crumbs({
               ) : (
                 <Link
                   href={item.path}
-                  className="transition-colors hover:text-ultra"
+                  // Taller hit area for touch, with no change to the layout.
+                  className="-my-3 inline-block py-3 transition-colors hover:text-ultra"
                 >
                   {item.name}
                 </Link>

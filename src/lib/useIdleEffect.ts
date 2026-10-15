@@ -17,23 +17,32 @@ export function useIdleEffect(effect: () => undefined | (() => void)) {
   useEffect(() => {
     let cleanup: undefined | (() => void);
     let done = false;
-    const run = () => {
+    const cancel = whenIdle(() => {
       if (!done) cleanup = fn.current();
-    };
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    const id = w.requestIdleCallback
-      ? w.requestIdleCallback(run, { timeout: 1200 })
-      : window.setTimeout(run, 1);
+    }, 1200);
     return () => {
       done = true;
-      if (w.cancelIdleCallback) w.cancelIdleCallback(id);
-      else window.clearTimeout(id);
+      cancel();
       cleanup?.();
     };
   }, []);
+}
+
+/**
+ * Runs `cb` in browser idle time (capped by `timeout` ms), or on a short timer
+ * where requestIdleCallback is missing. Returns a cancel function.
+ */
+export function whenIdle(cb: () => void, timeout: number): () => void {
+  const w = window as Window & {
+    requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
+    cancelIdleCallback?: (id: number) => void;
+  };
+  if (w.requestIdleCallback && w.cancelIdleCallback) {
+    const id = w.requestIdleCallback(cb, { timeout });
+    return () => w.cancelIdleCallback?.(id);
+  }
+  const id = window.setTimeout(cb, 1);
+  return () => window.clearTimeout(id);
 }
 
 /**
@@ -47,11 +56,19 @@ export function useGsapIdle(setup: (kit: GsapKit) => undefined | (() => void)) {
   useIdleEffect(() => {
     let cleanup: undefined | (() => void);
     let dead = false;
+    let cancel: undefined | (() => void);
     loadGsap().then((k) => {
-      if (!dead) cleanup = fn.current(k);
+      if (dead) return;
+      // Every section waiting on GSAP resumes in the same microtask flush when
+      // it arrives; giving each setup its own idle task keeps that from
+      // becoming one long task during load.
+      cancel = whenIdle(() => {
+        if (!dead) cleanup = fn.current(k);
+      }, 600);
     });
     return () => {
       dead = true;
+      cancel?.();
       cleanup?.();
     };
   });

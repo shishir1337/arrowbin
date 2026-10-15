@@ -12,6 +12,9 @@ const GUIDE_TONES = [
   "bg-ultra text-white",
 ];
 
+/** `lang="bn"` for a name in Bengali script, so screen readers switch voice. */
+const nameLang = (name: string) => (/[ঀ-৿]/.test(name) ? "bn" : undefined);
+
 /** Selected work for this service: three framed screenshots linking out. */
 export function ServiceWork({
   work,
@@ -89,6 +92,7 @@ export function ServiceWork({
                 <div className="mt-5 flex items-start justify-between gap-4 px-1">
                   <div>
                     <h3
+                      lang={nameLang(p.name)}
                       className="font-display text-2xl font-black uppercase leading-none tracking-[-0.03em] text-ink"
                       style={{ fontVariationSettings: '"wdth" 106' }}
                     >

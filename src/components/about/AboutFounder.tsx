@@ -39,7 +39,7 @@ export function AboutFounder({
             <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-4 ring-white">
               <Image
                 src={author.image}
-                alt=""
+                alt={`Headshot of ${author.name}, founder of Arrowbin`}
                 fill
                 sizes="80px"
                 className="object-cover"

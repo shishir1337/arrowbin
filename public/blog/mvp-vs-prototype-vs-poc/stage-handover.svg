@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">What each stage hands to the next</text>
+  <text x="60" y="126" font-size="24" fill="#4a4766">Keep the findings, not the scaffolding (original Arrowbin diagram)</text>
+  <rect x="60" y="156" width="360" height="496" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <path d="M60 252 V174 a18 18 0 0 1 18 -18 H402 a18 18 0 0 1 18 18 V252 Z" fill="#3b2bff"/>
+  <text x="88" y="200" font-size="26" font-weight="700" fill="#ffffff">Proof of concept</text>
+  <text x="88" y="234" font-size="20" fill="#e6e2ff">Can we build it?</text>
+  <text x="88" y="296" font-size="18" font-weight="700" fill="#4a4766">HANDS OVER</text>
+  <circle cx="100" cy="331" r="12" fill="#3b2bff"/>
+  <path d="M94 331 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="124" y="338" font-size="20" fill="#0e0b24">A yes or no, with numbers</text>
+  <circle cx="100" cy="375" r="12" fill="#3b2bff"/>
+  <path d="M94 375 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="124" y="382" font-size="20" fill="#0e0b24">Test data and notes</text>
+  <line x1="88" y1="486" x2="392" y2="486" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="88" y="530" font-size="18" font-weight="700" fill="#4a4766">LEAVES BEHIND</text>
+  <circle cx="100" cy="565" r="12" fill="#F1F2F7" stroke="#ff6b3d" stroke-width="2.5"/>
+  <path d="M95 560 l10 10 M105 560 l-10 10" stroke="#ff6b3d" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="124" y="572" font-size="20" fill="#4a4766">The code, or keep it</text>
+  <text x="124" y="602" font-size="20" fill="#4a4766">as a reference only</text>
+  <rect x="460" y="156" width="360" height="496" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <path d="M460 252 V174 a18 18 0 0 1 18 -18 H802 a18 18 0 0 1 18 18 V252 Z" fill="#ff4da6"/>
+  <text x="488" y="200" font-size="26" font-weight="700" fill="#0e0b24">Prototype</text>
+  <text x="488" y="234" font-size="20" fill="#0e0b24">Will people get it?</text>
+  <text x="488" y="296" font-size="18" font-weight="700" fill="#4a4766">HANDS OVER</text>
+  <circle cx="500" cy="331" r="12" fill="#3b2bff"/>
+  <path d="M494 331 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="524" y="338" font-size="20" fill="#0e0b24">Flows that tested well</text>
+  <circle cx="500" cy="375" r="12" fill="#3b2bff"/>
+  <path d="M494 375 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="524" y="382" font-size="20" fill="#0e0b24">Design files for the build</text>
+  <line x1="488" y1="486" x2="792" y2="486" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="488" y="530" font-size="18" font-weight="700" fill="#4a4766">LEAVES BEHIND</text>
+  <circle cx="500" cy="565" r="12" fill="#F1F2F7" stroke="#ff6b3d" stroke-width="2.5"/>
+  <path d="M495 560 l10 10 M505 560 l-10 10" stroke="#ff6b3d" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="524" y="572" font-size="20" fill="#4a4766">Screens nobody could use</text>
+  <rect x="860" y="156" width="360" height="496" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+  <path d="M860 252 V174 a18 18 0 0 1 18 -18 H1202 a18 18 0 0 1 18 18 V252 Z" fill="#ffd23f"/>
+  <text x="888" y="200" font-size="26" font-weight="700" fill="#0e0b24">MVP</text>
+  <text x="888" y="234" font-size="20" fill="#0e0b24">Will people pay for it?</text>
+  <text x="888" y="296" font-size="18" font-weight="700" fill="#4a4766">HANDS OVER</text>
+  <circle cx="900" cy="331" r="12" fill="#3b2bff"/>
+  <path d="M894 331 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="924" y="338" font-size="20" fill="#0e0b24">Usage data you agreed on</text>
+  <circle cx="900" cy="375" r="12" fill="#3b2bff"/>
+  <path d="M894 375 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="924" y="382" font-size="20" fill="#0e0b24">What users asked for</text>
+  <circle cx="900" cy="419" r="12" fill="#3b2bff"/>
+  <path d="M894 419 l4.5 4.5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="924" y="426" font-size="20" fill="#0e0b24">The code: it's version one</text>
+  <line x1="888" y1="486" x2="1192" y2="486" stroke="#e4e4e7" stroke-width="2"/>
+  <text x="888" y="530" font-size="18" font-weight="700" fill="#4a4766">LEAVES BEHIND</text>
+  <circle cx="900" cy="565" r="12" fill="#F1F2F7" stroke="#ff6b3d" stroke-width="2.5"/>
+  <path d="M895 560 l10 10 M905 560 l-10 10" stroke="#ff6b3d" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="924" y="572" font-size="20" fill="#4a4766">Features nobody used</text>
+  <circle cx="440" cy="404" r="17" fill="#0e0b24"/>
+  <path d="M436 397 l7 7 l-7 7" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="840" cy="404" r="17" fill="#0e0b24"/>
+  <path d="M836 397 l7 7 l-7 7" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="60" y="694" font-size="20" fill="#4a4766">Agree each stage's pass mark in writing before it starts.</text>
+</svg>

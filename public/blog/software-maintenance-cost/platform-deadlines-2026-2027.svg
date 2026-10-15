@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Platform deadlines that force maintenance</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">April 2026 to April 2027, as published on October 15, 2026</text>
+
+  <!-- column headers -->
+  <rect x="80" y="170" width="196" height="36" rx="18" fill="#cfc4ff"/>
+  <text x="178" y="195" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Already in force</text>
+  <rect x="680" y="170" width="168" height="36" rx="18" fill="#ff4da6"/>
+  <text x="764" y="195" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">Coming up</text>
+  <text x="864" y="196" font-size="20" fill="#4a4766">after October 15, 2026</text>
+
+  <!-- left rail: passed -->
+  <line x1="100" y1="236" x2="100" y2="560" stroke="#e4e4e7" stroke-width="4"/>
+  <g fill="#cfc4ff" stroke="#ffffff" stroke-width="4">
+    <circle cx="100" cy="250" r="12"/>
+    <circle cx="100" cy="338" r="12"/>
+    <circle cx="100" cy="426" r="12"/>
+    <circle cx="100" cy="514" r="12"/>
+  </g>
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="130" y="248">April 28, 2026</text>
+    <text x="130" y="336">April 30, 2026</text>
+    <text x="130" y="424">August 31, 2026</text>
+    <text x="130" y="512">September 9, 2026</text>
+  </g>
+  <g font-size="20" fill="#4a4766">
+    <text x="130" y="276">Apple: builds need Xcode 26 and the 26 SDKs</text>
+    <text x="130" y="364">Node.js 20 reaches end of life</text>
+    <text x="130" y="452">Google Play: updates must target API 36</text>
+    <text x="130" y="540">Apple: apps must target iOS 13 or later</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="640" y1="236" x2="640" y2="620" stroke="#e4e4e7" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- right rail: coming up -->
+  <line x1="700" y1="236" x2="700" y2="610" stroke="#cfc4ff" stroke-width="4"/>
+  <g stroke="#ffffff" stroke-width="4">
+    <circle cx="700" cy="250" r="12" fill="#3b2bff"/>
+    <circle cx="700" cy="338" r="12" fill="#3b2bff"/>
+    <circle cx="700" cy="426" r="12" fill="#3b2bff"/>
+    <circle cx="700" cy="514" r="12" fill="#3b2bff"/>
+    <circle cx="700" cy="602" r="12" fill="#3b2bff"/>
+  </g>
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="730" y="248">November 1, 2026</text>
+    <text x="730" y="336">November 12, 2026</text>
+    <text x="730" y="424">December 31, 2026</text>
+    <text x="730" y="512">March 15, 2027</text>
+    <text x="730" y="600">April 30, 2027</text>
+  </g>
+  <g font-size="20" fill="#4a4766">
+    <text x="730" y="276">Google Play: API 36 extensions run out</text>
+    <text x="730" y="364">PostgreSQL 14: final release</text>
+    <text x="730" y="452">PHP 8.2: security support ends</text>
+    <text x="730" y="540">TLS certificates: 100-day maximum</text>
+    <text x="730" y="628">Node.js 22: scheduled end of life</text>
+  </g>
+
+  <text x="80" y="684" font-size="18" fill="#4a4766">Sources: Apple Developer, Android Developers, PostgreSQL, Node.js, php.net, CA/Browser Forum</text>
+</svg>

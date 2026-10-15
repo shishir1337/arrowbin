@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Stripe's cut of each charge, by plan price</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">US domestic cards: 2.9% + 30¢ processing, plus 0.7% for Stripe Billing</text>
+
+  <!-- legend -->
+  <rect x="80" y="158" width="20" height="20" rx="4" fill="#3b2bff"/>
+  <text x="110" y="175" font-size="20" fill="#0e0b24">Card processing</text>
+  <rect x="300" y="158" width="20" height="20" rx="4" fill="#ff4da6"/>
+  <text x="330" y="175" font-size="20" fill="#0e0b24">Stripe Billing (pay as you go)</text>
+
+  <!-- grid: baseline y=580, 50px per 1% -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="170" y1="580" x2="1180" y2="580"/>
+    <line x1="170" y1="480" x2="1180" y2="480"/>
+    <line x1="170" y1="380" x2="1180" y2="380"/>
+    <line x1="170" y1="280" x2="1180" y2="280"/>
+  </g>
+  <g font-size="20" fill="#4a4766" text-anchor="end">
+    <text x="150" y="587">0%</text>
+    <text x="150" y="487">2%</text>
+    <text x="150" y="387">4%</text>
+    <text x="150" y="287">6%</text>
+  </g>
+
+  <!-- $10: processing 5.9% (295px), billing 0.7% (35px), total 6.6% -->
+  <rect x="220" y="285" width="130" height="295" fill="#3b2bff"/>
+  <rect x="220" y="250" width="130" height="35" fill="#ff4da6"/>
+  <text x="285" y="236" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="middle">6.6%</text>
+
+  <!-- $25: 4.1% (205px), total 4.8% -->
+  <rect x="420" y="375" width="130" height="205" fill="#3b2bff"/>
+  <rect x="420" y="340" width="130" height="35" fill="#ff4da6"/>
+  <text x="485" y="326" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="middle">4.8%</text>
+
+  <!-- $50: 3.5% (175px), total 4.2% -->
+  <rect x="620" y="405" width="130" height="175" fill="#3b2bff"/>
+  <rect x="620" y="370" width="130" height="35" fill="#ff4da6"/>
+  <text x="685" y="356" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="middle">4.2%</text>
+
+  <!-- $100: 3.2% (160px), total 3.9% -->
+  <rect x="820" y="420" width="130" height="160" fill="#3b2bff"/>
+  <rect x="820" y="385" width="130" height="35" fill="#ff4da6"/>
+  <text x="885" y="371" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="middle">3.9%</text>
+
+  <!-- $500: 2.96% (148px), total 3.66% -->
+  <rect x="1020" y="432" width="130" height="148" fill="#3b2bff"/>
+  <rect x="1020" y="397" width="130" height="35" fill="#ff4da6"/>
+  <text x="1085" y="383" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="middle">3.7%</text>
+
+  <!-- x labels -->
+  <g font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="285" y="614">$10 plan</text>
+    <text x="485" y="614">$25 plan</text>
+    <text x="685" y="614">$50 plan</text>
+    <text x="885" y="614">$100 plan</text>
+    <text x="1085" y="614">$500 plan</text>
+  </g>
+  <g font-size="20" fill="#4a4766" text-anchor="middle">
+    <text x="285" y="642">fee $0.66</text>
+    <text x="485" y="642">fee $1.20</text>
+    <text x="685" y="642">fee $2.10</text>
+    <text x="885" y="642">fee $3.90</text>
+    <text x="1085" y="642">fee $18.30</text>
+  </g>
+
+  <text x="80" y="690" font-size="18" fill="#4a4766">Source: stripe.com/pricing and stripe.com/billing/pricing, as listed on 15 October 2026. International cards cost more.</text>
+</svg>

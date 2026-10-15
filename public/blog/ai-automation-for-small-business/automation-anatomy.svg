@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Anatomy of a small-business AI automation</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">One AI step, wrapped in ordinary workflow that checks, asks and records</text>
+
+  <!-- bypass arc: passes checks and low risk -->
+  <path d="M528 268 C 560 190, 820 190, 848 268" fill="none" stroke="#3b2bff" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arr)"/>
+  <rect x="598" y="186" width="182" height="34" rx="17" fill="#e6e1ff"/>
+  <text x="689" y="209" font-size="18" font-weight="600" fill="#3b2bff" text-anchor="middle">Low risk, checks pass</text>
+
+  <!-- boxes: x = 80 + i*190, w = 168 -->
+  <rect x="80" y="280" width="168" height="200" rx="16" fill="#F1F2F7"/>
+  <text x="164" y="322" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">1  Trigger</text>
+  <text x="164" y="368" font-size="18" fill="#4a4766" text-anchor="middle">New email,</text>
+  <text x="164" y="394" font-size="18" fill="#4a4766" text-anchor="middle">upload</text>
+  <text x="164" y="420" font-size="18" fill="#4a4766" text-anchor="middle">or form</text>
+
+  <rect x="270" y="280" width="168" height="200" rx="16" fill="#3b2bff"/>
+  <text x="354" y="322" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">2  AI step</text>
+  <text x="354" y="368" font-size="18" fill="#ffffff" text-anchor="middle">Reads it,</text>
+  <text x="354" y="394" font-size="18" fill="#ffffff" text-anchor="middle">labels it,</text>
+  <text x="354" y="420" font-size="18" fill="#ffffff" text-anchor="middle">pulls fields</text>
+
+  <rect x="460" y="280" width="168" height="200" rx="16" fill="#F1F2F7"/>
+  <text x="544" y="322" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">3  Checks</text>
+  <text x="544" y="368" font-size="18" fill="#4a4766" text-anchor="middle">Totals add up?</text>
+  <text x="544" y="394" font-size="18" fill="#4a4766" text-anchor="middle">Known sender?</text>
+  <text x="544" y="420" font-size="18" fill="#4a4766" text-anchor="middle">Sure enough?</text>
+
+  <rect x="650" y="280" width="168" height="200" rx="16" fill="#ff4da6"/>
+  <text x="734" y="322" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">4  Approval</text>
+  <text x="734" y="368" font-size="18" fill="#ffffff" text-anchor="middle">A person signs</text>
+  <text x="734" y="394" font-size="18" fill="#ffffff" text-anchor="middle">off risky or</text>
+  <text x="734" y="420" font-size="18" fill="#ffffff" text-anchor="middle">unsure items</text>
+
+  <rect x="840" y="280" width="168" height="200" rx="16" fill="#F1F2F7"/>
+  <text x="924" y="322" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">5  Action</text>
+  <text x="924" y="368" font-size="18" fill="#4a4766" text-anchor="middle">Route, draft</text>
+  <text x="924" y="394" font-size="18" fill="#4a4766" text-anchor="middle">or update</text>
+  <text x="924" y="420" font-size="18" fill="#4a4766" text-anchor="middle">a record</text>
+
+  <rect x="1030" y="280" width="168" height="200" rx="16" fill="#F1F2F7"/>
+  <text x="1114" y="322" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">6  Log</text>
+  <text x="1114" y="368" font-size="18" fill="#4a4766" text-anchor="middle">What it saw</text>
+  <text x="1114" y="394" font-size="18" fill="#4a4766" text-anchor="middle">and what</text>
+  <text x="1114" y="420" font-size="18" fill="#4a4766" text-anchor="middle">it did</text>
+
+  <!-- arrows between boxes -->
+  <line x1="250" y1="380" x2="266" y2="380" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="440" y1="380" x2="456" y2="380" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="630" y1="380" x2="646" y2="380" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="820" y1="380" x2="836" y2="380" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="1010" y1="380" x2="1026" y2="380" stroke="#4a4766" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- legend -->
+  <rect x="80" y="536" width="24" height="24" rx="6" fill="#3b2bff"/>
+  <text x="116" y="555" font-size="20" fill="#0e0b24">The model</text>
+  <rect x="260" y="536" width="24" height="24" rx="6" fill="#ff4da6"/>
+  <text x="296" y="555" font-size="20" fill="#0e0b24">A person</text>
+  <rect x="430" y="536" width="24" height="24" rx="6" fill="#F1F2F7" stroke="#e4e4e7"/>
+  <text x="466" y="555" font-size="20" fill="#0e0b24">Plain workflow: rules and code, same every time</text>
+
+  <rect x="80" y="596" width="1118" height="64" rx="14" fill="#F1F2F7"/>
+  <rect x="80" y="596" width="10" height="64" rx="5" fill="#ffd23f"/>
+  <text x="639" y="636" font-size="20" font-weight="600" fill="#0e0b24" text-anchor="middle">When an automation fails, look for a missing check or a missing log before blaming the model.</text>
+  <text x="80" y="696" font-size="18" fill="#4a4766">Arrowbin build pattern.</text>
+</svg>

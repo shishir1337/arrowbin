@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="84" font-size="40" font-weight="700" fill="#0e0b24">Developers use AI, but few trust its output</text>
+  <text x="80" y="122" font-size="24" fill="#4a4766">Percent of developers answering each question, Stack Overflow 2025 survey</text>
+
+  <!-- track backgrounds: 100% = 1000px from x=80 -->
+  <g fill="#F1F2F7">
+    <rect x="80" y="200" width="1000" height="40" rx="8"/>
+    <rect x="80" y="292" width="1000" height="40" rx="8"/>
+    <rect x="80" y="384" width="1000" height="40" rx="8"/>
+    <rect x="80" y="476" width="1000" height="40" rx="8"/>
+    <rect x="80" y="568" width="1000" height="40" rx="8"/>
+  </g>
+
+  <!-- labels -->
+  <g font-size="21" font-weight="600" fill="#0e0b24">
+    <text x="80" y="188">Use or plan to use AI tools</text>
+    <text x="80" y="280">Frustrated by AI answers that are 'almost right, but not quite'</text>
+    <text x="80" y="372">Distrust the accuracy of AI output</text>
+    <text x="80" y="464">Say debugging AI-generated code takes more time</text>
+    <text x="80" y="556">Trust the accuracy of AI output</text>
+  </g>
+
+  <!-- bars -->
+  <rect x="80" y="200" width="840" height="40" rx="8" fill="#3b2bff"/>
+  <rect x="80" y="292" width="660" height="40" rx="8" fill="#ff4da6"/>
+  <rect x="80" y="384" width="460" height="40" rx="8" fill="#ff6b3d"/>
+  <rect x="80" y="476" width="452" height="40" rx="8" fill="#ffd23f"/>
+  <rect x="80" y="568" width="330" height="40" rx="8" fill="#cfc4ff"/>
+
+  <!-- values -->
+  <g font-size="26" font-weight="700" fill="#0e0b24" text-anchor="end">
+    <text x="1200" y="230">84%</text>
+    <text x="1200" y="322">66%</text>
+    <text x="1200" y="414">46%</text>
+    <text x="1200" y="506">45%</text>
+    <text x="1200" y="598">33%</text>
+  </g>
+
+  <text x="80" y="668" font-size="20" fill="#4a4766">Source: Stack Overflow 2025 Developer Survey, AI section (survey.stackoverflow.co/2025/ai).</text>
+</svg>

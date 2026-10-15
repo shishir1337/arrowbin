@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { ContactBrief } from "@/components/contact/ContactBrief";
 import { ContactHero } from "@/components/contact/ContactHero";
 import { ContactNext } from "@/components/contact/ContactNext";
 import { Faq } from "@/components/home/Faq";
+// Below-the-fold client island, fetched during hydration (see islands.tsx).
+import { ContactBrief, IslandPreload } from "@/components/home/islands";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { breadcrumbSchema, faqSchema, localBusinessSchema } from "@/lib/schema";
-import { defaultOgImage, pageAlternates } from "@/lib/site";
+import { pageShare } from "@/lib/metadata";
+import { breadcrumbSchema, contactPageSchema, faqSchema } from "@/lib/schema";
+import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
   // Absolute (skips the "| Arrowbin" template): keyword-rich and avoids a
@@ -14,19 +16,20 @@ export const metadata: Metadata = {
   title: { absolute: "Contact Arrowbin | Free Software Consultation" },
   description:
     "Tell Arrowbin about your custom software, web or mobile app, SaaS or AI automation project. Free consultation and a reply within one business day.",
-  alternates: pageAlternates("/contact"),
-  openGraph: {
+  ...pageShare({
+    path: "/contact",
     title: "Contact Arrowbin",
     description: "Start your project with a free, no-obligation consultation.",
-    url: "/contact",
-    images: [defaultOgImage],
-  },
+  }),
 };
 
 const crumbs = [
   { name: "Home", path: "/" },
   { name: "Contact", path: "/contact" },
 ];
+
+/** Only what the brief's "need" chips use, not the whole services module. */
+const NEEDS = services.map(({ slug, name }) => ({ slug, name }));
 
 const FAQS = [
   {
@@ -60,15 +63,12 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd
-        data={[
-          breadcrumbSchema(crumbs),
-          ...localBusinessSchema(),
-          faqSchema(FAQS),
-        ]}
+        data={[contactPageSchema(), breadcrumbSchema(crumbs), faqSchema(FAQS)]}
       />
+      <IslandPreload keys={["contactBrief"]} />
       <InnerMotion />
       <ContactHero crumbs={crumbs} />
-      <ContactBrief label="01" />
+      <ContactBrief label="01" services={NEEDS} />
       <ContactNext label="02" />
       <Faq items={FAQS} index="03" />
     </>

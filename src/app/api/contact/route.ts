@@ -16,6 +16,15 @@ import { site } from "@/lib/site";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Hidden trap fields (current name first). Any value in them marks a bot. */
+const HONEYPOT_FIELDS = ["hp_trap", "company_website"] as const;
+
+/** True when a trap field carries anything: a non-blank string or any other value. */
+function filled(v: unknown): boolean {
+  if (v === undefined || v === null) return false;
+  return typeof v === "string" ? v.trim() !== "" : true;
+}
+
 // Best-effort in-memory rate limit: 5 submissions per IP per 10 minutes. This guards a
 // single server instance (cold starts / multi-instance serverless reset it); for
 // hardened multi-instance protection add a shared store (e.g. Upstash) or a CAPTCHA.
@@ -41,7 +50,7 @@ function clientIp(request: Request): string {
 }
 
 export async function POST(request: Request) {
-  // Require a JSON body — also forces a CORS preflight, which a cross-origin
+  // Require a JSON body. This also forces a CORS preflight, which a cross-origin
   // attacker cannot forge from a simple form (cheap CSRF mitigation).
   const contentType = request.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) {
@@ -78,11 +87,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Honeypot: real users never fill this.
-  if (
-    typeof body.company_website === "string" &&
-    body.company_website.trim() !== ""
-  ) {
+  // Honeypot: real users never fill this. Bots get a fake success so they
+  // don't retry. `hp_trap` is the current field; `company_website` is the old
+  // name, still checked so pages cached before the rename stay protected
+  // (safe to drop from 2027). Hits are logged (field name only, no lead data)
+  // so a wrongly filled trap is visible instead of a silently lost lead.
+  const trapHit = HONEYPOT_FIELDS.find((f) => filled(body[f]));
+  if (trapHit) {
+    console.warn(`[contact] honeypot "${trapHit}" filled; submission dropped.`);
     return NextResponse.json({ ok: true });
   }
 

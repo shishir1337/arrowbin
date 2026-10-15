@@ -2,7 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { finePointer, loadGsap, reducedMotion } from "@/lib/gsap";
+import { finePointer, type GsapKit, loadGsap, reducedMotion } from "@/lib/gsap";
+import { whenIdle } from "@/lib/useIdleEffect";
 
 /**
  * One light motion layer for inner pages. Drop it once in a page; it scans
@@ -254,70 +255,80 @@ export function InnerMotion() {
       ).requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 200));
     idle(
       () => {
-        loadGsap().then(({ gsap, ScrollTrigger }) => {
+        loadGsap().then((kit) => {
           if (dead) return;
-          const ctx = gsap.context(() => {
-            // Heading word reveal (below the fold only, so nothing flashes).
-            const sections = Array.from(main.querySelectorAll("section"));
-            for (const h of main.querySelectorAll<HTMLElement>(
-              "section h2.display",
-            )) {
-              const sec = h.closest("section");
-              if (!sec || sections.indexOf(sec) === 0) continue;
-              if (h.getBoundingClientRect().top < window.innerHeight) continue;
-              if (h.dataset.split) continue;
-              h.dataset.split = "1";
-              h.normalize();
-              const words: HTMLElement[] = [];
-              const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
-              const texts: Text[] = [];
-              while (walker.nextNode()) texts.push(walker.currentNode as Text);
-              for (const t of texts) {
-                const frag = document.createDocumentFragment();
-                for (const part of t.data.split(/(\s+)/)) {
-                  if (!part) continue;
-                  if (/^\s+$/.test(part)) {
-                    frag.append(part);
-                    continue;
-                  }
-                  const outer = document.createElement("span");
-                  outer.className =
-                    "inline-block overflow-y-clip pb-[0.06em] align-top";
-                  const inner = document.createElement("span");
-                  inner.className = "inline-block";
-                  inner.textContent = part;
-                  outer.append(inner);
-                  words.push(inner);
-                  frag.append(outer);
-                }
-                t.replaceWith(frag);
-              }
-              gsap.from(words, {
-                yPercent: 110,
-                duration: 1,
-                stagger: 0.06,
-                ease: "expo.out",
-                scrollTrigger: { trigger: h, start: "top 88%", once: true },
-              });
-            }
-            // Scroll-scrubbed rails.
-            for (const r of main.querySelectorAll<HTMLElement>("[data-rail]")) {
-              ScrollTrigger.create({
-                trigger: r.closest("section") ?? r,
-                start: "top 70%",
-                end: "bottom 60%",
-                scrub: 0.4,
-                onUpdate: (self) => {
-                  r.style.setProperty("--p", self.progress.toFixed(3));
-                },
-              });
-            }
-          }, main);
-          offs.push(() => ctx.revert());
+          // Own idle task: GSAP's arrival also resumes other waiting setups in
+          // the same microtask flush, which made one long task.
+          offs.push(whenIdle(() => setupGsap(kit), 600));
         });
       },
       { timeout: 1500 },
     );
+    const setupGsap = ({ gsap, ScrollTrigger }: GsapKit) => {
+      if (dead) return;
+      const ctx = gsap.context(() => {
+        // Heading word reveal (below the fold only, so nothing flashes).
+        // All positions are read before any heading is split: reading
+        // between the DOM writes forced a fresh layout per heading.
+        const sections = Array.from(main.querySelectorAll("section"));
+        const below = Array.from(
+          main.querySelectorAll<HTMLElement>("section h2.display"),
+        ).filter((h) => {
+          const sec = h.closest("section");
+          if (!sec || sections.indexOf(sec) === 0) return false;
+          return h.getBoundingClientRect().top >= window.innerHeight;
+        });
+        for (const h of below) {
+          if (h.dataset.split) continue;
+          h.dataset.split = "1";
+          h.normalize();
+          const words: HTMLElement[] = [];
+          const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+          const texts: Text[] = [];
+          while (walker.nextNode()) texts.push(walker.currentNode as Text);
+          for (const t of texts) {
+            const frag = document.createDocumentFragment();
+            for (const part of t.data.split(/(\s+)/)) {
+              if (!part) continue;
+              if (/^\s+$/.test(part)) {
+                frag.append(part);
+                continue;
+              }
+              const outer = document.createElement("span");
+              outer.className =
+                "inline-block overflow-y-clip pb-[0.06em] align-top";
+              const inner = document.createElement("span");
+              inner.className = "inline-block";
+              inner.textContent = part;
+              outer.append(inner);
+              words.push(inner);
+              frag.append(outer);
+            }
+            t.replaceWith(frag);
+          }
+          gsap.from(words, {
+            yPercent: 110,
+            duration: 1,
+            stagger: 0.06,
+            ease: "expo.out",
+            scrollTrigger: { trigger: h, start: "top 88%", once: true },
+          });
+        }
+        // Scroll-scrubbed rails.
+        for (const r of main.querySelectorAll<HTMLElement>("[data-rail]")) {
+          ScrollTrigger.create({
+            trigger: r.closest("section") ?? r,
+            start: "top 70%",
+            end: "bottom 60%",
+            scrub: 0.4,
+            onUpdate: (self) => {
+              r.style.setProperty("--p", self.progress.toFixed(3));
+            },
+          });
+        }
+      }, main);
+      offs.push(() => ctx.revert());
+    };
 
     return () => {
       dead = true;

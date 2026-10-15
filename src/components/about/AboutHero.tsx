@@ -2,7 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Magnetic } from "@/components/home/Magnetic";
 import { Crumbs } from "@/components/ui/Crumbs";
+import { preloadWideImage } from "@/lib/preloadWideImage";
 import { author } from "@/lib/site";
+
+const PORTRAIT_SIZES = "(min-width: 1024px) 420px, 82vw";
 
 const FACTS = [
   { value: "2020", label: "Building since" },
@@ -21,6 +24,9 @@ export function AboutHero({
   crumbs: { name: string; path: string }[];
   blur?: string;
 }) {
+  // The portrait is the LCP element on desktop; on phones it sits under the
+  // headline, so it is preloaded for wide screens only.
+  preloadWideImage(author.image, PORTRAIT_SIZES);
   return (
     <section className="relative isolate overflow-hidden pb-16 pt-10 sm:pb-24 sm:pt-14">
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
@@ -34,6 +40,7 @@ export function AboutHero({
             >
               {["We build it", "like it's", "ours."].map((line, i) => (
                 <span key={line} className="block overflow-y-clip pb-[0.04em]">
+                  {" "}
                   <span
                     className="svh-line block"
                     style={{ animationDelay: `${120 + i * 110}ms` }}
@@ -119,8 +126,9 @@ export function AboutHero({
                   src={author.image}
                   alt={`${author.name}, ${author.jobTitle} of Arrowbin`}
                   fill
-                  priority
-                  sizes="(min-width: 1024px) 420px, 82vw"
+                  loading="eager"
+                  fetchPriority="low"
+                  sizes={PORTRAIT_SIZES}
                   className="object-cover"
                   {...(blur
                     ? { placeholder: "blur" as const, blurDataURL: blur }

@@ -43,6 +43,9 @@ const TONES = [
 const host = (url: string) =>
   url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
+/** `lang="bn"` for a name in Bengali script, so screen readers switch voice. */
+const nameLang = (name: string) => (/[ঀ-৿]/.test(name) ? "bn" : undefined);
+
 function Arrow({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -234,7 +237,7 @@ export function WorkExplorer({
                           src={p.image}
                           alt={`${p.name} website, built by Arrowbin`}
                           fill
-                          sizes="(min-width: 1280px) 30vw, (min-width: 768px) 46vw, 92vw"
+                          sizes="(min-width: 1280px) 30vw, (min-width: 768px) 46vw, 88vw"
                           className="object-cover object-top"
                           {...(p.blur
                             ? {
@@ -249,6 +252,7 @@ export function WorkExplorer({
                   <div className="mt-5 px-1">
                     <div className="flex items-start justify-between gap-4">
                       <h3
+                        lang={nameLang(p.name)}
                         className="font-display text-2xl font-black uppercase leading-none tracking-[-0.03em] text-ink"
                         style={{ fontVariationSettings: '"wdth" 106' }}
                       >
@@ -323,6 +327,7 @@ export function WorkExplorer({
                       </span>
                       <span className="min-w-0 lg:pr-[320px]">
                         <span
+                          lang={nameLang(p.name)}
                           className="block break-words font-display text-[clamp(1.4rem,5vw,4rem)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-ink transition-colors duration-500 group-hover:text-ultra"
                           style={{ fontVariationSettings: '"wdth" 104' }}
                         >

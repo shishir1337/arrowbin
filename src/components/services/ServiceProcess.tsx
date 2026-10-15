@@ -12,12 +12,15 @@ export function ServiceProcess({
   index,
   label,
   durations,
+  note = "Short sprints, a demo at the end of each one, and no surprises on scope or cost.",
 }: {
   service: Service;
   index: number;
   label: string;
   /** Optional typical duration per step, shown as a chip. */
   durations?: string[];
+  /** Line beside the heading; per service from `serviceExtras[slug].copy.process`. */
+  note?: string;
 }) {
   const t = serviceTheme(index);
   const accent = t.bg === "bg-white" ? serviceTheme(0) : t;
@@ -37,8 +40,7 @@ export function ServiceProcess({
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-ink-2 sm:text-lg">
-            Short sprints, a demo at the end of each one, and no surprises on
-            scope or cost.
+            {note}
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 /**
- * Client testimonials — single source for the Testimonials section and the
+ * Client testimonials: single source for the Testimonials section and the
  * Organization Review / AggregateRating schema.
  *
  * NOTE: these are stand-ins approved for launch and will be replaced with real,

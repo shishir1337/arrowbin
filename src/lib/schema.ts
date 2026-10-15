@@ -18,25 +18,40 @@ const LOGO_OBJECT = {
   height: 512,
 };
 
-/** E.164 phone (digits + leading +) for schema — derived from the tel: href. */
+/** E.164 phone (digits + leading +) for schema, derived from the tel: href. */
 const e164 = (href: string) => href.replace(/^tel:/, "");
 
-const AREA_SERVED = [
-  { "@type": "Place", name: "Worldwide" },
-  { "@type": "Country", name: "United States" },
-  { "@type": "Country", name: "Bangladesh" },
-];
-
+// One entry per service in src/lib/services.ts.
 const KNOWS_ABOUT = [
   "Custom software development",
-  "Web application development",
+  "E-commerce development",
   "Mobile app development",
   "SaaS product engineering",
   "UI/UX design",
   "AI automation",
-  "Cloud and DevOps",
+  "Cloud, DevOps and hosting",
   "Software maintenance and support",
 ];
+
+/**
+ * The founder as one Person node. The layout emits Organization on every page,
+ * and Organization.founder embeds this node, so the #founder reference always
+ * resolves. /about (founderSchema) and blog posts (BlogPosting.author) build
+ * from the same function, so every copy of #founder on a page carries the same
+ * values and merges into one entity instead of conflicting.
+ */
+function founderNode(): Record<string, unknown> {
+  return {
+    "@type": "Person",
+    "@id": FOUNDER_ID,
+    name: author.name,
+    jobTitle: author.jobTitle,
+    image: `${siteUrl}${author.image}`,
+    url: author.url,
+    sameAs: author.sameAs,
+    worksFor: { "@id": ORG_ID },
+  };
+}
 
 export function organizationSchema() {
   return {
@@ -50,11 +65,15 @@ export function organizationSchema() {
     logo: LOGO_OBJECT,
     image: LOGO_URL,
     description: site.description,
+    slogan: site.slogan,
     email: site.email,
-    // Single canonical telephone (E.164) — per-number detail lives in contactPoint.
+    // Single canonical telephone (E.164); per-number detail lives in contactPoint.
     telephone: site.phones[0] ? e164(site.phones[0].href) : undefined,
     areaServed: "Worldwide",
     knowsAbout: KNOWS_ABOUT,
+    // Embedded (not just an @id reference): the standalone Person node is only
+    // emitted on /about and blog posts, so a bare reference dangled elsewhere.
+    founder: founderNode(),
     sameAs,
     address: site.offices.map((o) => ({
       "@type": "PostalAddress",
@@ -73,7 +92,7 @@ export function organizationSchema() {
     })),
     // NOTE: aggregateRating/review intentionally omitted until real, named,
     // verifiable client reviews exist. Emitting placeholder ratings as structured
-    // data is a trust/policy risk — restore these only with genuine testimonials.
+    // data is a trust/policy risk: restore these only with genuine testimonials.
   };
 }
 
@@ -84,12 +103,26 @@ export function websiteSchema() {
     "@id": WEBSITE_ID,
     url: siteUrl,
     name: site.name,
+    // Google's site-name guidance: other names the site is known by.
+    alternateName: site.legalName,
     description: site.description,
+    inLanguage: "en",
     publisher: { "@id": ORG_ID },
   };
 }
 
-export function breadcrumbSchema(items: { name: string; path: string }[]) {
+/**
+ * BreadcrumbList for a trail of two or more items. A one-item trail (the
+ * homepage) is not a breadcrumb, so it returns an empty graph instead: valid
+ * JSON-LD that yields no nodes, which keeps every caller's array typed and
+ * renderable without a BreadcrumbList on `/`.
+ */
+export function breadcrumbSchema(
+  items: { name: string; path: string }[],
+): Record<string, unknown> {
+  if (items.length < 2) {
+    return { "@context": "https://schema.org", "@graph": [] };
+  }
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -130,7 +163,8 @@ export function serviceSchema(opts: {
     description: opts.description,
     url: `${siteUrl}${opts.path}`,
     provider: { "@id": ORG_ID },
-    areaServed: AREA_SERVED,
+    // No areaServed: the Service inherits reach from its provider, whose
+    // Organization node says "Worldwide" (a Place named "Worldwide" is not valid).
     serviceType: opts.name,
     // Point answer engines (Google AIO read-aloud) at the H1 + the direct
     // "What is …" answer paragraph when the page renders one.
@@ -182,19 +216,28 @@ export function processSchema(opts: {
   };
 }
 
-/** ItemList of services for the /services overview page (helps AI enumerate offerings). */
+/**
+ * ItemList of services for the /services overview page (helps AI enumerate
+ * offerings). Each item reuses the detail page's Service @id, so the list and
+ * the service pages resolve to the same entities. The name prefers the page H1
+ * (`heading`), matching the detail page's Service node.
+ */
 export function serviceListSchema(
-  items: { name: string; slug: string }[],
+  items: { name: string; heading?: string; slug: string }[],
 ): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "@id": `${siteUrl}/services#list`,
+    name: `${site.name} software development services`,
+    numberOfItems: items.length,
     itemListElement: items.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
         "@type": "Service",
-        name: s.name,
+        "@id": `${siteUrl}/services/${s.slug}#service`,
+        name: s.heading ?? s.name,
         url: `${siteUrl}/services/${s.slug}`,
         provider: { "@id": ORG_ID },
       },
@@ -203,7 +246,7 @@ export function serviceListSchema(
 }
 
 /**
- * CollectionPage for the blog index — gives AI/LLM crawlers a machine-readable
+ * CollectionPage for the blog index: gives AI/LLM crawlers a machine-readable
  * enumeration of the blog catalogue (improves citation completeness).
  */
 export function collectionPageSchema(opts: {
@@ -219,9 +262,13 @@ export function collectionPageSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: `${siteUrl}${opts.path}`,
+    isPartOf: { "@id": WEBSITE_ID },
+    inLanguage: "en",
     publisher: { "@id": ORG_ID },
+    // Same @id as each post's BlogPosting node, so the two resolve together.
     hasPart: opts.items.map((p) => ({
       "@type": "BlogPosting",
+      "@id": `${siteUrl}/blog/${p.slug}#article`,
       url: `${siteUrl}/blog/${p.slug}`,
     })),
   };
@@ -231,43 +278,63 @@ export function aboutPageSchema(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "AboutPage",
+    "@id": `${siteUrl}/about#page`,
     name: `About ${site.name}`,
     url: `${siteUrl}/about`,
+    isPartOf: { "@id": WEBSITE_ID },
     about: { "@id": ORG_ID },
+    mainEntity: { "@id": ORG_ID },
     primaryImageOfPage: LOGO_OBJECT,
   };
 }
 
-/** The founder, as a Person node (E-E-A-T). */
-export function founderSchema(): Record<string, unknown> {
+export function contactPageSchema(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": FOUNDER_ID,
-    name: author.name,
-    jobTitle: author.jobTitle,
-    email: author.email,
-    image: `${siteUrl}${author.image}`,
-    url: author.url,
-    sameAs: author.sameAs,
-    worksFor: { "@id": ORG_ID },
+    "@type": "ContactPage",
+    "@id": `${siteUrl}/contact#page`,
+    name: `Contact ${site.name}`,
+    url: `${siteUrl}/contact`,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
   };
 }
 
-/** ItemList of portfolio projects (CreativeWork) for the /work page. */
+/**
+ * The founder, as a standalone Person node for /about (E-E-A-T). Same values as
+ * the node embedded in Organization.founder, plus the contact email, which is
+ * published on /about only.
+ */
+export function founderSchema(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    ...founderNode(),
+    email: author.email,
+  };
+}
+
+/**
+ * ItemList of portfolio projects (CreativeWork) for the /work page. Each item's
+ * @id is the live project URL, and `image` is the screenshot shown on /work.
+ */
 export function workListSchema(
-  items: { name: string; url: string; blurb: string }[],
+  items: { name: string; url: string; blurb: string; image?: string }[],
 ): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "@id": `${siteUrl}/work#list`,
+    name: `${site.name} client work`,
+    numberOfItems: items.length,
     itemListElement: items.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
         "@type": "CreativeWork",
+        "@id": p.url,
         name: p.name,
         url: p.url,
+        ...(p.image ? { image: `${siteUrl}${p.image}` } : {}),
         description: p.blurb,
         creator: { "@id": ORG_ID },
       },
@@ -276,43 +343,43 @@ export function workListSchema(
 }
 
 export function localBusinessSchema() {
-  const usaPhone = site.phones.find((p) => p.label === "USA")?.href;
-  const bdPhone = site.phones.find((p) => p.label === "Bangladesh")?.href;
+  // Each location's phone is the one labelled with its country.
+  const phoneFor = (countryName: string) =>
+    site.phones.find((p) => countryName.includes(p.label))?.href ?? "";
 
-  return site.offices.map((o) => ({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": `${siteUrl}/#localbusiness-${o.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
-    name: `${site.name} (${o.label})`,
-    image: LOGO_URL,
-    logo: LOGO_URL,
-    url: siteUrl,
-    email: site.email,
-    telephone: e164((o.country === "US" ? usaPhone : bdPhone) ?? ""),
-    priceRange: "$$",
-    sameAs,
-    parentOrganization: { "@id": ORG_ID },
-    address: {
-      "@type": "PostalAddress",
-      ...(o.streetAddress ? { streetAddress: o.streetAddress } : {}),
-      addressLocality: o.city,
-      addressRegion: o.region,
-      postalCode: o.postalCode,
-      addressCountry: o.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: o.geo.lat,
-      longitude: o.geo.lng,
-    },
-    areaServed: [o.countryName, "Worldwide"],
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "18:00",
-    },
-  }));
+  // Only staffed offices are business locations; mailing-only addresses stay
+  // on the Organization as a PostalAddress.
+  return site.offices
+    .filter((o) => !o.mailingOnly)
+    .map((o) => ({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#localbusiness-${o.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      name: `${site.name} (${o.label})`,
+      image: LOGO_URL,
+      logo: LOGO_URL,
+      url: `${siteUrl}/contact`,
+      email: site.email,
+      telephone: e164(phoneFor(o.countryName)),
+      sameAs,
+      parentOrganization: { "@id": ORG_ID },
+      address: {
+        "@type": "PostalAddress",
+        ...(o.streetAddress ? { streetAddress: o.streetAddress } : {}),
+        addressLocality: o.city,
+        addressRegion: o.region,
+        postalCode: o.postalCode,
+        addressCountry: o.country,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: o.geo.lat,
+        longitude: o.geo.lng,
+      },
+      areaServed: [o.countryName, "Worldwide"],
+      // No openingHoursSpecification: office hours are not confirmed or
+      // published on the site. Add them back only once they are (FIX-PLAN D8).
+    }));
 }
 
 export function blogPostingSchema(opts: {
@@ -327,13 +394,16 @@ export function blogPostingSchema(opts: {
   keywords?: string[];
   wordCount?: number;
 }) {
+  const url = `${siteUrl}/blog/${opts.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${url}#article`,
     headline: opts.title,
     description: opts.description,
-    url: `${siteUrl}/blog/${opts.slug}`,
-    mainEntityOfPage: `${siteUrl}/blog/${opts.slug}`,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    isPartOf: { "@id": `${siteUrl}/blog#collection` },
     image: {
       "@type": "ImageObject",
       url: `${siteUrl}/blog/${opts.slug}/opengraph-image`,
@@ -350,17 +420,16 @@ export function blogPostingSchema(opts: {
       cssSelector: opts.hasTldr ? ["h1", "#tldr"] : ["h1"],
     },
     datePublished: opts.datePublished,
+    // Callers pass the post's `updated` date (falling back to `date`).
     dateModified: opts.dateModified ?? opts.datePublished,
-    // Author resolves to the global founder Person node via @id; full details
-    // (jobTitle/email) live there to avoid exposing the email on every post.
-    author: {
-      "@type": "Person",
-      "@id": FOUNDER_ID,
-      name: opts.author,
-      image: `${siteUrl}${author.image}`,
-      url: author.url,
-      sameAs: author.sameAs,
-    },
+    // Self-contained author (name, jobTitle, worksFor, url, sameAs) from the
+    // shared founder node, so it carries the same values as Organization.founder.
+    // No email here: that is published on /about only. Any other byline gets a
+    // plain Person so it never merges into the founder's @id.
+    author:
+      opts.author === author.name
+        ? founderNode()
+        : { "@type": "Person", name: opts.author },
     publisher: { "@id": ORG_ID },
     copyrightYear: Number(opts.datePublished.slice(0, 4)),
     copyrightHolder: { "@id": ORG_ID },

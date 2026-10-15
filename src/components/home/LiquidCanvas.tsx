@@ -72,9 +72,10 @@ void main(){
 export function LiquidCanvas({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
-  // Shader compile + first frame run in idle time, so they never block the
-  // page from becoming interactive; the CSS gradient behind covers the gap and
-  // the canvas fades in once it has drawn.
+  // Shader compile + first frame run in idle time (the compile itself off the
+  // main thread where supported), so they never block the page from becoming
+  // interactive; the CSS gradient behind covers the gap and the canvas fades in
+  // once it has drawn.
   useIdleEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
@@ -92,7 +93,7 @@ export function LiquidCanvas({ className = "" }: { className?: string }) {
       if (!s) return null;
       gl.shaderSource(s, src);
       gl.compileShader(s);
-      return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+      return s;
     };
     const vs = compile(gl.VERTEX_SHADER, VERT);
     const fs = compile(gl.FRAGMENT_SHADER, FRAG);
@@ -104,82 +105,37 @@ export function LiquidCanvas({ className = "" }: { className?: string }) {
     gl.attachShader(prog, vs);
     gl.attachShader(prog, fs);
     gl.linkProgram(prog);
-    // biome-ignore lint/correctness/useHookAtTopLevel: WebGL API, not a React hook.
-    gl.useProgram(prog);
-    const buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(
-      gl.ARRAY_BUFFER,
-      new Float32Array([-1, -1, 3, -1, -1, 3]),
-      gl.STATIC_DRAW,
-    );
-    const loc = gl.getAttribLocation(prog, "p");
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    const uRes = gl.getUniformLocation(prog, "uRes");
-    const uTime = gl.getUniformLocation(prog, "uTime");
-    const uMouse = gl.getUniformLocation(prog, "uMouse");
-    const uMobile = gl.getUniformLocation(prog, "uMobile");
 
-    const reduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    const mouse = { x: 0.7, y: 0.55, tx: 0.7, ty: 0.55 };
-    let raf = 0;
-    let visible = true;
-    const start = performance.now();
-
-    const resize = () => {
-      const scale =
-        Math.min(window.devicePixelRatio, 1.5) *
-        (canvas.clientWidth < 768 ? 0.55 : 0.85);
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      canvas.width = Math.max(1, Math.round(w * scale));
-      canvas.height = Math.max(1, Math.round(h * scale));
-      gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.uniform1f(uMobile, w < 1024 ? 1 : 0);
-    };
-    // Phones render the (slow-moving) liquid at 30fps to spare GPU and battery.
-    const lowPower = window.matchMedia("(pointer: coarse)").matches;
-    let odd = false;
-    const frame = (now: number) => {
-      odd = !odd;
-      if (lowPower && odd && !reduced) {
-        if (visible) raf = requestAnimationFrame(frame);
+    // Compiling this shader takes the GPU process 100+ ms. Asking for the
+    // compile/link status right away blocks the main thread for all of it (one
+    // long task during load), so with KHR_parallel_shader_compile we poll once a
+    // frame until the program is ready and only then read the status. A failed
+    // shader fails the link, so LINK_STATUS covers both.
+    const parallel = gl.getExtension("KHR_parallel_shader_compile");
+    let dead = false;
+    let poll = 0;
+    let stop: undefined | (() => void);
+    const whenLinked = () => {
+      if (dead) return;
+      if (
+        parallel &&
+        !gl.getProgramParameter(prog, parallel.COMPLETION_STATUS_KHR)
+      ) {
+        poll = requestAnimationFrame(whenLinked);
         return;
       }
-      mouse.x += (mouse.tx - mouse.x) * 0.05;
-      mouse.y += (mouse.ty - mouse.y) * 0.05;
-      gl.uniform1f(uTime, (now - start) / 1000 + 12);
-      gl.uniform2f(uMouse, mouse.x, mouse.y);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-      if (!reduced && visible) raf = requestAnimationFrame(frame);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+        canvas.style.display = "none";
+        return;
+      }
+      stop = run(gl, canvas, prog);
     };
-    const onMove = (e: PointerEvent) => {
-      const r = canvas.getBoundingClientRect();
-      mouse.tx = (e.clientX - r.left) / r.width;
-      mouse.ty = 1 - (e.clientY - r.top) / r.height;
-    };
-    const io = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      cancelAnimationFrame(raf);
-      if (visible && !reduced) raf = requestAnimationFrame(frame);
-    });
-
-    resize();
-    frame(start);
-    canvas.style.opacity = "1";
-    io.observe(canvas);
-    window.addEventListener("resize", resize);
-    window.addEventListener("pointermove", onMove, { passive: true });
+    whenLinked();
     return () => {
-      cancelAnimationFrame(raf);
-      io.disconnect();
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("pointermove", onMove);
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      dead = true;
+      cancelAnimationFrame(poll);
+      if (stop) stop();
+      else gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
   });
 
@@ -189,4 +145,87 @@ export function LiquidCanvas({ className = "" }: { className?: string }) {
       className={`opacity-0 transition-opacity duration-700 ${className}`}
     />
   );
+}
+
+/** Starts the render loop for a linked program; returns its teardown. */
+function run(
+  gl: WebGLRenderingContext,
+  canvas: HTMLCanvasElement,
+  prog: WebGLProgram,
+) {
+  // biome-ignore lint/correctness/useHookAtTopLevel: WebGL API, not a React hook.
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array([-1, -1, 3, -1, -1, 3]),
+    gl.STATIC_DRAW,
+  );
+  const loc = gl.getAttribLocation(prog, "p");
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const uRes = gl.getUniformLocation(prog, "uRes");
+  const uTime = gl.getUniformLocation(prog, "uTime");
+  const uMouse = gl.getUniformLocation(prog, "uMouse");
+  const uMobile = gl.getUniformLocation(prog, "uMobile");
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mouse = { x: 0.7, y: 0.55, tx: 0.7, ty: 0.55 };
+  let raf = 0;
+  let visible = true;
+  const start = performance.now();
+
+  const resize = () => {
+    const scale =
+      Math.min(window.devicePixelRatio, 1.5) *
+      (canvas.clientWidth < 768 ? 0.55 : 0.85);
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    canvas.width = Math.max(1, Math.round(w * scale));
+    canvas.height = Math.max(1, Math.round(h * scale));
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.uniform1f(uMobile, w < 1024 ? 1 : 0);
+  };
+  // Phones render the (slow-moving) liquid at 30fps to spare GPU and battery.
+  const lowPower = window.matchMedia("(pointer: coarse)").matches;
+  let odd = false;
+  const frame = (now: number) => {
+    odd = !odd;
+    if (lowPower && odd && !reduced) {
+      if (visible) raf = requestAnimationFrame(frame);
+      return;
+    }
+    mouse.x += (mouse.tx - mouse.x) * 0.05;
+    mouse.y += (mouse.ty - mouse.y) * 0.05;
+    gl.uniform1f(uTime, (now - start) / 1000 + 12);
+    gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    if (!reduced && visible) raf = requestAnimationFrame(frame);
+  };
+  const onMove = (e: PointerEvent) => {
+    const r = canvas.getBoundingClientRect();
+    mouse.tx = (e.clientX - r.left) / r.width;
+    mouse.ty = 1 - (e.clientY - r.top) / r.height;
+  };
+  const io = new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    cancelAnimationFrame(raf);
+    if (visible && !reduced) raf = requestAnimationFrame(frame);
+  });
+
+  resize();
+  frame(start);
+  canvas.style.opacity = "1";
+  io.observe(canvas);
+  window.addEventListener("resize", resize);
+  window.addEventListener("pointermove", onMove, { passive: true });
+  return () => {
+    cancelAnimationFrame(raf);
+    io.disconnect();
+    window.removeEventListener("resize", resize);
+    window.removeEventListener("pointermove", onMove);
+    gl.getExtension("WEBGL_lose_context")?.loseContext();
+  };
 }

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Seven questions to ask every firm</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Ask each shortlisted company the same set, then compare the answers</text>
+
+  <!-- row backgrounds -->
+  <g fill="#f1f2f7">
+    <rect x="80" y="152" width="1120" height="58" rx="14"/>
+    <rect x="80" y="220" width="1120" height="58" rx="14"/>
+    <rect x="80" y="288" width="1120" height="58" rx="14"/>
+    <rect x="80" y="356" width="1120" height="58" rx="14"/>
+    <rect x="80" y="424" width="1120" height="58" rx="14"/>
+    <rect x="80" y="492" width="1120" height="58" rx="14"/>
+    <rect x="80" y="560" width="1120" height="58" rx="14"/>
+  </g>
+
+  <!-- ticked boxes -->
+  <g fill="#3b2bff">
+    <rect x="100" y="164" width="34" height="34" rx="8"/>
+    <rect x="100" y="232" width="34" height="34" rx="8"/>
+    <rect x="100" y="300" width="34" height="34" rx="8"/>
+    <rect x="100" y="368" width="34" height="34" rx="8"/>
+    <rect x="100" y="436" width="34" height="34" rx="8"/>
+    <rect x="100" y="504" width="34" height="34" rx="8" fill="#ff4da6"/>
+    <rect x="100" y="572" width="34" height="34" rx="8"/>
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M109 181 l6 6 l11 -12"/>
+    <path d="M109 249 l6 6 l11 -12"/>
+    <path d="M109 317 l6 6 l11 -12"/>
+    <path d="M109 385 l6 6 l11 -12"/>
+    <path d="M109 453 l6 6 l11 -12"/>
+    <path d="M109 521 l6 6 l11 -12" stroke="#0e0b24"/>
+    <path d="M109 589 l6 6 l11 -12"/>
+  </g>
+
+  <g font-size="23" fill="#0e0b24">
+    <text x="156" y="189">Can I see and use products you have built, live in production?</text>
+    <text x="156" y="257">Who exactly will work on my project, and how senior are they?</text>
+    <text x="156" y="325">How do you communicate progress, and how often will I hear from you?</text>
+    <text x="156" y="393">What is your process for testing, code review and security?</text>
+    <text x="156" y="461">Do I own the source code, accounts and infrastructure?</text>
+    <text x="156" y="529">What happens after launch? Do you offer maintenance and support?</text>
+    <text x="156" y="597">How do you handle scope changes and disagreements?</text>
+  </g>
+
+  <text x="80" y="672" font-size="18" fill="#4a4766">Vague or evasive answers to any of these are worth more attention than the price on the quote.</text>
+</svg>

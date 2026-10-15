@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Yearly maintenance budget at 15–20% of build cost</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Arrowbin estimate, using the build cost ranges from our cost guide</text>
+
+  <!-- grid: $0 to $40,000, x 440 to 1180 (18.5 px per $1,000) -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="440" y1="180" x2="440" y2="590"/>
+    <line x1="625" y1="180" x2="625" y2="590"/>
+    <line x1="810" y1="180" x2="810" y2="590"/>
+    <line x1="995" y1="180" x2="995" y2="590"/>
+    <line x1="1180" y1="180" x2="1180" y2="590"/>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="440" y="620">$0</text>
+    <text x="625" y="620">$10k</text>
+    <text x="810" y="620">$20k</text>
+    <text x="995" y="620">$30k</text>
+    <text x="1180" y="620">$40k</text>
+  </g>
+
+  <!-- row labels -->
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="80" y="226">Internal tool or simple MVP</text>
+    <text x="80" y="326">Mid-size web or mobile app</text>
+    <text x="80" y="426">Full SaaS platform</text>
+    <text x="80" y="526">Worked example: SaaS MVP</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="80" y="252">Build: $5,000–$30,000</text>
+    <text x="80" y="352">Build: $30,000–$90,000</text>
+    <text x="80" y="452">Build: $80,000–$200,000</text>
+    <text x="80" y="552">Build: $60,000</text>
+  </g>
+
+  <!-- range bars -->
+  <rect x="454" y="214" width="97" height="40" rx="8" fill="#3b2bff"/>
+  <rect x="523" y="314" width="250" height="40" rx="8" fill="#3b2bff"/>
+  <rect x="662" y="414" width="518" height="40" rx="8" fill="#3b2bff"/>
+  <rect x="606" y="514" width="56" height="40" rx="8" fill="#ff4da6"/>
+
+  <!-- values -->
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="567" y="241">$750–$6,000</text>
+    <text x="789" y="341">$4,500–$18,000</text>
+    <text x="678" y="541">$9,000–$12,000</text>
+  </g>
+  <text x="684" y="441" font-size="22" font-weight="700" fill="#ffffff">$12,000–$40,000</text>
+
+  <text x="80" y="680" font-size="18" fill="#4a4766">Arrowbin planning estimate, not an industry statistic. Divide by 12 for a monthly figure.</text>
+</svg>

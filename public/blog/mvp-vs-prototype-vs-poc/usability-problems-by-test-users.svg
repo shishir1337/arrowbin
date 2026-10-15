@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">Five test users find most of the problems</text>
+  <text x="60" y="126" font-size="24" fill="#4a4766">Share of usability problems found, by number of prototype test users</text>
+  <rect x="150.0" y="176" width="350.0" height="410" fill="#F1F2F7"/>
+  <line x1="150" y1="586.0" x2="1200" y2="586.0" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="136" y="593" font-size="18" text-anchor="end" fill="#4a4766">0%</text>
+  <line x1="150" y1="483.5" x2="1200" y2="483.5" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="136" y="490" font-size="18" text-anchor="end" fill="#4a4766">25%</text>
+  <line x1="150" y1="381.0" x2="1200" y2="381.0" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="136" y="388" font-size="18" text-anchor="end" fill="#4a4766">50%</text>
+  <line x1="150" y1="278.5" x2="1200" y2="278.5" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="136" y="286" font-size="18" text-anchor="end" fill="#4a4766">75%</text>
+  <line x1="150" y1="176.0" x2="1200" y2="176.0" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="136" y="183" font-size="18" text-anchor="end" fill="#4a4766">100%</text>
+  <text x="150" y="618" font-size="18" text-anchor="middle" fill="#4a4766">0</text>
+  <text x="220" y="618" font-size="18" text-anchor="middle" fill="#4a4766">1</text>
+  <text x="290" y="618" font-size="18" text-anchor="middle" fill="#4a4766">2</text>
+  <text x="360" y="618" font-size="18" text-anchor="middle" fill="#4a4766">3</text>
+  <text x="430" y="618" font-size="18" text-anchor="middle" fill="#4a4766">4</text>
+  <text x="500" y="618" font-size="18" text-anchor="middle" fill="#4a4766">5</text>
+  <text x="570" y="618" font-size="18" text-anchor="middle" fill="#4a4766">6</text>
+  <text x="640" y="618" font-size="18" text-anchor="middle" fill="#4a4766">7</text>
+  <text x="710" y="618" font-size="18" text-anchor="middle" fill="#4a4766">8</text>
+  <text x="780" y="618" font-size="18" text-anchor="middle" fill="#4a4766">9</text>
+  <text x="850" y="618" font-size="18" text-anchor="middle" fill="#4a4766">10</text>
+  <text x="920" y="618" font-size="18" text-anchor="middle" fill="#4a4766">11</text>
+  <text x="990" y="618" font-size="18" text-anchor="middle" fill="#4a4766">12</text>
+  <text x="1060" y="618" font-size="18" text-anchor="middle" fill="#4a4766">13</text>
+  <text x="1130" y="618" font-size="18" text-anchor="middle" fill="#4a4766">14</text>
+  <text x="1200" y="618" font-size="18" text-anchor="middle" fill="#4a4766">15</text>
+  <text x="675" y="652" font-size="20" font-weight="700" text-anchor="middle" fill="#0e0b24">Number of test users</text>
+  <path d="M150.0 586.0 L220.0 458.9 L290.0 371.2 L360.0 310.7 L430.0 268.9 L500.0 240.1 L570.0 220.2 L640.0 206.5 L710.0 197.1 L780.0 190.5 L850.0 186.0 L920.0 182.9 L990.0 180.8 L1060.0 179.3 L1130.0 178.3 L1200.0 177.6" fill="none" stroke="#3b2bff" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="220.0" cy="458.9" r="9" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="290.0" cy="371.2" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="360.0" cy="310.7" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="430.0" cy="268.9" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="500.0" cy="240.1" r="9" fill="#ff4da6" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="570.0" cy="220.2" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="640.0" cy="206.5" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="710.0" cy="197.1" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="780.0" cy="190.5" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="850.0" cy="186.0" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="920.0" cy="182.9" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="990.0" cy="180.8" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="1060.0" cy="179.3" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="1130.0" cy="178.3" r="5" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="1200.0" cy="177.6" r="9" fill="#3b2bff" stroke="#ffffff" stroke-width="2.5"/>
+  <text x="236" y="467" font-size="20" font-weight="700" fill="#0e0b24">1 user: about 31%</text>
+  <text x="518" y="280" font-size="22" font-weight="700" fill="#ff4da6">5 users: about 85%</text>
+  <text x="518" y="308" font-size="18" fill="#4a4766">Fix what you found, then test 5 more</text>
+  <text x="1200" y="158" font-size="20" font-weight="700" text-anchor="end" fill="#0e0b24">15 users: nearly all</text>
+  <text x="325" y="206" font-size="18" font-weight="700" text-anchor="middle" fill="#4a4766">First five users</text>
+  <text x="60" y="700" font-size="18" fill="#4a4766">Source: Jakob Nielsen, Why You Only Need to Test with 5 Users, NN/g (2000). Model: found = 1 - (1 - 31%)^n.</text>
+</svg>

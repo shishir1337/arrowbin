@@ -36,8 +36,20 @@ export function ServiceValue({
               className="display mt-5 text-[clamp(2.2rem,4.6vw,4.6rem)] text-ink"
               style={{ ["--wdth" as string]: 100 }}
             >
-              {/* Non-breaking hyphens so "E-commerce" never splits across lines. */}
-              What is {service.name.replaceAll("-", "‑")}?
+              {/* Hyphenated words sit in a no-wrap span so "E-commerce" never
+                  splits across lines, while the text keeps a normal "-" (a
+                  U+2011 hyphen broke the "e-commerce" keyword match). */}
+              What is{" "}
+              {service.name.split(/(\S+-\S+)/).map((part, i) =>
+                i % 2 === 1 ? (
+                  <span key={part} className="whitespace-nowrap">
+                    {part}
+                  </span>
+                ) : (
+                  part
+                ),
+              )}
+              ?
             </h2>
             {extras?.answer ? (
               <p
@@ -92,7 +104,7 @@ export function ServiceValue({
                 Is this for you?
               </h3>
               <p className="mt-4 max-w-sm text-base leading-relaxed text-ink-2">
-                If one of these sounds like you, we should talk.
+                {extras.copy.fit}
               </p>
             </div>
             <ul data-inview className="border-t-2 border-ink lg:col-span-8">

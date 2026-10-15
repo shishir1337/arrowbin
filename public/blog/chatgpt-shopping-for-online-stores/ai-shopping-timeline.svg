@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">AI shopping, September 2025 to October 2026</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">The dated changes that matter to an online store</text>
+
+  <!-- axis -->
+  <line x1="90" y1="400" x2="1190" y2="400" stroke="#e4e4e7" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1186 388 L1206 400 L1186 412 Z" fill="#e4e4e7"/>
+
+  <!-- connectors -->
+  <g stroke="#e4e4e7" stroke-width="3">
+    <line x1="170" y1="352" x2="170" y2="384"/>
+    <line x1="358" y1="416" x2="358" y2="452"/>
+    <line x1="546" y1="352" x2="546" y2="384"/>
+    <line x1="734" y1="422" x2="734" y2="452"/>
+    <line x1="922" y1="352" x2="922" y2="384"/>
+    <line x1="1110" y1="416" x2="1110" y2="452"/>
+  </g>
+
+  <!-- nodes -->
+  <circle cx="170" cy="400" r="14" fill="#3b2bff"/>
+  <circle cx="358" cy="400" r="14" fill="#ff6b3d"/>
+  <circle cx="546" cy="400" r="14" fill="#3b2bff"/>
+  <circle cx="734" cy="400" r="22" fill="#ff4da6"/>
+  <circle cx="922" cy="400" r="14" fill="#ffd23f" stroke="#0e0b24" stroke-width="2"/>
+  <circle cx="1110" cy="400" r="14" fill="#cfc4ff" stroke="#3b2bff" stroke-width="2"/>
+
+  <!-- labels above -->
+  <g text-anchor="middle" font-size="20">
+    <text x="170" y="270" font-weight="700" fill="#3b2bff">Sep 2025</text>
+    <text x="170" y="300" fill="#0e0b24">ChatGPT Instant</text>
+    <text x="170" y="326" fill="#0e0b24">Checkout launches</text>
+
+    <text x="546" y="244" font-weight="700" fill="#3b2bff">Jan 11, 2026</text>
+    <text x="546" y="274" fill="#0e0b24">Google launches the</text>
+    <text x="546" y="300" fill="#0e0b24">Universal Commerce</text>
+    <text x="546" y="326" fill="#0e0b24">Protocol (UCP)</text>
+
+    <text x="922" y="244" font-weight="700" fill="#3b2bff">Jul 10, 2026</text>
+    <text x="922" y="274" fill="#0e0b24">Feed-sourced ChatGPT</text>
+    <text x="922" y="300" fill="#0e0b24">picks jump from 8%</text>
+    <text x="922" y="326" fill="#0e0b24">to 62% (Profound)</text>
+  </g>
+
+  <!-- labels below -->
+  <g text-anchor="middle" font-size="20">
+    <text x="358" y="484" font-weight="700" fill="#ff6b3d">Nov 25, 2025</text>
+    <text x="358" y="514" fill="#0e0b24">PayPal store sync</text>
+    <text x="358" y="540" fill="#0e0b24">reaches Perplexity</text>
+
+    <text x="734" y="484" font-weight="700" fill="#ff4da6">Mar 24, 2026</text>
+    <text x="734" y="514" fill="#0e0b24">OpenAI: merchants use</text>
+    <text x="734" y="540" fill="#0e0b24">their own checkout.</text>
+    <text x="734" y="566" fill="#0e0b24">Shopify Agentic</text>
+    <text x="734" y="592" fill="#0e0b24">Storefronts launch</text>
+
+    <text x="1110" y="484" font-weight="700" fill="#3b2bff">Sep 15, 2026</text>
+    <text x="1110" y="514" fill="#0e0b24">Cloudflare's new AI</text>
+    <text x="1110" y="540" fill="#0e0b24">bot defaults for</text>
+    <text x="1110" y="566" fill="#0e0b24">new domains</text>
+  </g>
+
+  <text x="80" y="668" font-size="18" fill="#4a4766">Sources: TechCrunch, PayPal, Google, Shopify, Search Engine Journal (Profound data), Cloudflare docs.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="60" y="88" font-size="40" font-weight="700" fill="#0e0b24">How long each one takes, on one scale</text>
+  <text x="60" y="126" font-size="24" fill="#4a4766">Weeks from kickoff to a result you can act on</text>
+  <line x1="400.0" y1="168" x2="400.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="400" y="578" font-size="18" text-anchor="middle" fill="#4a4766">0</text>
+  <line x1="480.0" y1="168" x2="480.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="480" y="578" font-size="18" text-anchor="middle" fill="#4a4766">2</text>
+  <line x1="560.0" y1="168" x2="560.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="560" y="578" font-size="18" text-anchor="middle" fill="#4a4766">4</text>
+  <line x1="640.0" y1="168" x2="640.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="640" y="578" font-size="18" text-anchor="middle" fill="#4a4766">6</text>
+  <line x1="720.0" y1="168" x2="720.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="720" y="578" font-size="18" text-anchor="middle" fill="#4a4766">8</text>
+  <line x1="800.0" y1="168" x2="800.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="800" y="578" font-size="18" text-anchor="middle" fill="#4a4766">10</text>
+  <line x1="880.0" y1="168" x2="880.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="880" y="578" font-size="18" text-anchor="middle" fill="#4a4766">12</text>
+  <line x1="960.0" y1="168" x2="960.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="960" y="578" font-size="18" text-anchor="middle" fill="#4a4766">14</text>
+  <line x1="1040.0" y1="168" x2="1040.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="1040" y="578" font-size="18" text-anchor="middle" fill="#4a4766">16</text>
+  <line x1="1120.0" y1="168" x2="1120.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="1120" y="578" font-size="18" text-anchor="middle" fill="#4a4766">18</text>
+  <line x1="1200.0" y1="168" x2="1200.0" y2="548" stroke="#e4e4e7" stroke-width="1.5"/>
+  <text x="1200" y="578" font-size="18" text-anchor="middle" fill="#4a4766">20</text>
+  <text x="800" y="612" font-size="20" font-weight="700" text-anchor="middle" fill="#0e0b24">Weeks</text>
+  <text x="60" y="220" font-size="24" font-weight="700" fill="#0e0b24">Clickable prototype</text>
+  <text x="60" y="248" font-size="18" fill="#4a4766">Who: a designer</text>
+  <text x="60" y="346" font-size="24" font-weight="700" fill="#0e0b24">Proof of concept</text>
+  <text x="60" y="374" font-size="18" fill="#4a4766">Who: 1 or 2 engineers</text>
+  <text x="60" y="472" font-size="24" font-weight="700" fill="#0e0b24">MVP</text>
+  <text x="60" y="500" font-size="18" fill="#4a4766">Who: a full product team</text>
+  <rect x="408.0" y="190" width="72.0" height="64" rx="10" fill="#ff4da6"/>
+  <text x="496" y="230" font-size="21" font-weight="700" fill="#0e0b24">Days to 2 weeks</text>
+  <rect x="408.0" y="316" width="152.0" height="64" rx="10" fill="#cfc4ff" stroke="#3b2bff" stroke-width="2.5" stroke-dasharray="9 7"/>
+  <text x="576" y="346" font-size="21" font-weight="700" fill="#0e0b24">Days to a few weeks</text>
+  <text x="576" y="372" font-size="18" fill="#4a4766">Our view: sized to one question</text>
+  <rect x="950.0" y="442" width="250.0" height="64" rx="10" fill="#e6e2ff"/>
+  <rect x="640.0" y="442" width="320.0" height="64" rx="10" fill="#3b2bff"/>
+  <text x="800" y="483" font-size="22" font-weight="700" text-anchor="middle" fill="#ffffff">6–14 weeks</text>
+  <text x="1080" y="472" font-size="18" font-weight="700" text-anchor="middle" fill="#0e0b24">Complex SaaS</text>
+  <text x="1080" y="496" font-size="18" text-anchor="middle" fill="#0e0b24">up to 20</text>
+  <text x="60" y="690" font-size="18" fill="#4a4766">Prototype and MVP ranges: Arrowbin estimates from our MVP timeline guide. POC range: Arrowbin view.</text>
+</svg>

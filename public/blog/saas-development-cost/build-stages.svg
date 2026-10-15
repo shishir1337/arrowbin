@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="90" font-size="40" font-weight="700" fill="#0e0b24">Where a SaaS build lands on our price map</text>
+  <text x="80" y="130" font-size="24" fill="#4a4766">Build cost in US dollars, Arrowbin estimates for 2026</text>
+
+  <!-- grid: $0 at x=120, 5px per $1,000, $200,000 at x=1120 -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="120" y1="170" x2="120" y2="580"/>
+    <line x1="370" y1="170" x2="370" y2="580"/>
+    <line x1="620" y1="170" x2="620" y2="580"/>
+    <line x1="870" y1="170" x2="870" y2="580"/>
+    <line x1="1120" y1="170" x2="1120" y2="580"/>
+  </g>
+  <line x1="120" y1="580" x2="1160" y2="580" stroke="#4a4766" stroke-width="2"/>
+  <g font-size="20" fill="#4a4766" text-anchor="middle">
+    <text x="120" y="612">$0</text>
+    <text x="370" y="612">$50k</text>
+    <text x="620" y="612">$100k</text>
+    <text x="870" y="612">$150k</text>
+    <text x="1120" y="612">$200k</text>
+  </g>
+
+  <!-- $60k marker line -->
+  <line x1="420" y1="408" x2="420" y2="580" stroke="#3b2bff" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- row 1: polished MVP band $40k to $120k -->
+  <text x="140" y="214" font-size="22" font-weight="600" fill="#0e0b24">Polished, launch-ready MVP or app</text>
+  <rect x="320" y="230" width="400" height="48" rx="24" fill="#cfc4ff"/>
+  <text x="520" y="262" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">$40,000–$120,000</text>
+
+  <!-- row 2: illustrative SaaS MVP -->
+  <text x="140" y="344" font-size="22" font-weight="600" fill="#0e0b24">SaaS MVP, our illustrative example</text>
+  <circle cx="420" cy="384" r="24" fill="#3b2bff"/>
+  <text x="460" y="392" font-size="22" font-weight="700" fill="#0e0b24">$60,000, roughly 14 weeks</text>
+
+  <!-- row 3: full platform band $80k to $200k -->
+  <text x="530" y="474" font-size="22" font-weight="600" fill="#0e0b24">Full multi-tenant SaaS platform</text>
+  <rect x="520" y="490" width="600" height="48" rx="24" fill="#ff4da6"/>
+  <text x="820" y="522" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">$80,000–$200,000 over 5–9 months</text>
+
+  <text x="80" y="662" font-size="18" fill="#4a4766">Focused SaaS MVPs take 8–14 weeks; complex multi-tenant MVPs 14–20 weeks. Running costs and maintenance are extra.</text>
+  <text x="80" y="690" font-size="18" fill="#4a4766">Source: Arrowbin estimates from our custom software cost guide. Planning figures, not quotes.</text>
+</svg>
