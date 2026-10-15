@@ -1,0 +1,70 @@
+# Arrowbin
+
+> Arrowbin is a software development company for startups and SMBs. Founded in 2020 by Md. Shishir Ahmed, it designs, builds and supports custom software, web and mobile apps, SaaS products and online stores, plus AI automation and cloud hosting, for clients worldwide.
+
+Arrowbin (Arrowbin LLC) is founder-led: Md. Shishir Ahmed is the founder and lead engineer, so clients talk to the people who build their product. Clients own all of their source code. To start a project, book a free 30-minute call or send a short project brief (see "Start a project" below).
+
+Key facts:
+
+- Company: Arrowbin LLC, a founder-led software development company for startups and SMBs
+- Founder: Md. Shishir Ahmed, founder and lead engineer ([about](https://arrowbin.com/about))
+- Founded: 2020
+- Clients: startups and SMBs worldwide
+- Services (8): [Custom Software Development](https://arrowbin.com/services/custom-software-development), [E-commerce Development](https://arrowbin.com/services/ecommerce-development), [Mobile App Development](https://arrowbin.com/services/mobile-app-development), [SaaS / Product Engineering](https://arrowbin.com/services/saas-product-engineering), [UI/UX Design](https://arrowbin.com/services/ui-ux-design), [AI Automation](https://arrowbin.com/services/ai-automation), [Cloud, DevOps & Hosting](https://arrowbin.com/services/cloud-devops-hosting), [Maintenance & Support](https://arrowbin.com/services/maintenance-support)
+- How an engagement works: a free discovery call, then a written scope and a fixed, itemised estimate before any work starts. The build runs in short sprints with a working demo every week. After launch, an optional care plan covers monitoring, security updates and fixes. Products that ship continuously can instead work with a product team (design, engineering and QA) month to month.
+- Typical timeline: a usable first version in 6–12 weeks; larger platforms are delivered in phases. Most well-scoped MVPs take 6–14 weeks ([MVP timeline guide](https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp)).
+- Ownership: clients own the source code, designs and infrastructure, with no lock-in
+- Response time: a person replies to every project brief within one business day
+- Email: hello@arrowbin.com
+
+## Start a project
+
+- [Book a free 30-minute call](https://cal.com/arrowbin/30min): pick a time on Arrowbin's Cal.com booking page.
+- [Send a project brief](https://arrowbin.com/contact#brief): a short form. Name, email and a few lines about the project are required; the services needed, rough budget, timeline and company are optional. A person replies within one business day.
+- [Email Arrowbin](mailto:hello@arrowbin.com): for anything that does not fit the form.
+
+## Services
+
+- [Custom Software Development](https://arrowbin.com/services/custom-software-development): Software built around your exact workflows, from internal tools to the platforms your business runs on.
+- [E-commerce Development](https://arrowbin.com/services/ecommerce-development): Online stores and headless commerce that load fast and turn more browsers into buyers.
+- [Mobile App Development](https://arrowbin.com/services/mobile-app-development): Native-quality iOS and Android apps from a single codebase, built to feel fast.
+- [SaaS / Product Engineering](https://arrowbin.com/services/saas-product-engineering): From MVP to scale, we engineer SaaS products with multi-tenancy, billing and analytics built in.
+- [UI/UX Design](https://arrowbin.com/services/ui-ux-design): Research-driven product design that looks sharp, stays accessible and is built to convert.
+- [AI Automation](https://arrowbin.com/services/ai-automation): Put AI to work with custom assistants, agents and automations that save your team hours.
+- [Cloud, DevOps & Hosting](https://arrowbin.com/services/cloud-devops-hosting): Reliable, secure cloud infrastructure with automated deployments and uptime you can count on.
+- [Maintenance & Support](https://arrowbin.com/services/maintenance-support): Keep your software fast, secure and improving with proactive maintenance and support.
+
+## Explore the site
+
+- [Services](https://arrowbin.com/services): all 8 services, the three ways to work together (project, product team, care plan) and common questions.
+- [Work](https://arrowbin.com/work): live client sites, from online stores to agency and corporate websites.
+- [About](https://arrowbin.com/about): the founder, how Arrowbin started in 2020 and how it works.
+- [Contact](https://arrowbin.com/contact): the project brief form, email and booking link.
+- [Blog](https://arrowbin.com/blog): practical guides on software, MVP, SaaS, AI agent and maintenance costs, WordPress to Next.js migration, Bangladesh payment and courier integrations, selling through AI shopping assistants, and choosing a development partner.
+- [Blog RSS feed](https://arrowbin.com/blog/rss.xml): new guides as they are published.
+
+## Guides
+
+- [Is Your Vibe-Coded App Production Ready? A 2026 Checklist](https://arrowbin.com/blog/vibe-coded-app-production-ready): Built your app with Lovable, Bolt or Cursor? Use this engineer's checklist to find the security and payment gaps, then decide whether to fix or rebuild.
+- [WordPress to Next.js Migration: Steps, SEO and Cost Drivers](https://arrowbin.com/blog/wordpress-to-nextjs-migration): WordPress to Next.js migration, step by step: how to keep Google rankings with 308 redirects and 410s, what drives cost, and when WordPress still wins.
+- [Bangladesh Payment Gateway Integration: bKash vs SSLCommerz](https://arrowbin.com/blog/payment-gateway-integration-bangladesh): SSLCommerz, direct bKash or Nagad for your online store? Compare published fees, setup and integration steps, and avoid the payment bugs that cost orders.
+- [How Much Does an AI Agent Cost for a Small Business in 2026?](https://arrowbin.com/blog/ai-agent-cost-small-business): What an AI agent really costs a small business: setup, monthly model fees worked out from official price lists, upkeep, and when buying beats building.
+- [MVP Development Cost in 2026: How to Work Out Your Budget](https://arrowbin.com/blog/mvp-development-cost): What an MVP costs in 2026 and why: the formula behind the number, what to cut, what it costs to run, and when a prototype is the smarter first step.
+- [Shopify vs Custom Ecommerce Website: Which Wins in 2026?](https://arrowbin.com/blog/shopify-vs-custom-ecommerce): Shopify vs a custom ecommerce website in 2026: real monthly and per-order fees, a 3-year cost comparison, Bangladesh payment limits and when to switch.
+- [How to Get Your Products on ChatGPT Shopping (Any Platform)](https://arrowbin.com/blog/chatgpt-shopping-for-online-stores): How to get your products into ChatGPT, Gemini or Copilot shopping answers on any platform: what changed in 2026, plus the crawler and data fixes.
+- [SaaS Development Cost in 2026: From MVP to Full Platform](https://arrowbin.com/blog/saas-development-cost): What a SaaS product costs to build and run in 2026: our ranges from MVP to full platform, what multi-tenancy and billing add, and monthly running costs.
+- [Bangladesh Courier API Integration: Steadfast, Pathao, RedX](https://arrowbin.com/blog/courier-api-integration-bangladesh): Stop copying orders into courier panels. What a Steadfast, Pathao or RedX integration automates, how to choose, and how to keep parcels and COD in sync.
+- [How Much Does Software Maintenance Cost Per Year in 2026?](https://arrowbin.com/blog/software-maintenance-cost): Software maintenance costs roughly 15–20% of the build cost a year. See what it buys, the 2026 deadlines that force updates, and how to choose a plan.
+- [How Much Does Custom Software Development Cost in 2026?](https://arrowbin.com/blog/how-much-does-custom-software-development-cost): Custom software development costs in 2026: price ranges by project type, what drives the number, regional rates, hidden costs, and how to spend smart.
+- [How to Choose a Software Development Company in 2026](https://arrowbin.com/blog/how-to-choose-a-software-development-company): A practical 2026 guide to choosing a software development company: the criteria that matter, the questions to ask, and the red flags to avoid.
+- [How Long Does It Take to Build an MVP in 2026?](https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp): How long it takes to build an MVP in 2026: typical timelines by type, the week-by-week build, what affects the schedule, and how to launch faster.
+
+## Partnerships
+
+- Arrowbin is a verified Hostinger Partner. Clients hosting with Hostinger can use the coupon code ARROWBIN at checkout. See [Cloud, DevOps & Hosting](https://arrowbin.com/services/cloud-devops-hosting).
+
+## Optional
+
+- [Full digest](https://arrowbin.com/llms-full.txt): every service with its process and FAQs, the portfolio, and each guide's summary, takeaways and FAQs in one Markdown file.
+- [Privacy Policy](https://arrowbin.com/privacy)
+- [Terms of Service](https://arrowbin.com/terms)

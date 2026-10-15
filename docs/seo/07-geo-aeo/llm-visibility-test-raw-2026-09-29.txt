@@ -1,0 +1,2231 @@
+LLM visibility test for https://arrowbin.com: Arrowbin is mentioned in 0 of 5 buyer-intent prompts (0%). Interpret the per-provider breakdown, competing brands, citations and recommendations below.
+
+{
+  "websiteUrl": "https://arrowbin.com",
+  "brandName": "Arrowbin",
+  "visibility": {
+    "promptCount": 5,
+    "promptsMentioningBrand": 0,
+    "mentionRatePercent": 0,
+    "byProvider": [
+      {
+        "provider": "openai",
+        "answers": 5,
+        "brandMentions": 0
+      },
+      {
+        "provider": "anthropic",
+        "answers": 5,
+        "brandMentions": 0
+      },
+      {
+        "provider": "google",
+        "answers": 5,
+        "brandMentions": 0
+      },
+      {
+        "provider": "perplexity",
+        "answers": 5,
+        "brandMentions": 0
+      }
+    ]
+  },
+  "topMentionedBrands": [
+    {
+      "brandName": "Simform",
+      "brandUrl": "",
+      "mentions": 8
+    },
+    {
+      "brandName": "BairesDev",
+      "brandUrl": "",
+      "mentions": 7
+    },
+    {
+      "brandName": "Fingent",
+      "brandUrl": "",
+      "mentions": 6
+    },
+    {
+      "brandName": "ScienceSoft",
+      "brandUrl": "",
+      "mentions": 5
+    },
+    {
+      "brandName": "eSparkBiz",
+      "brandUrl": "",
+      "mentions": 4
+    },
+    {
+      "brandName": "Goji Labs",
+      "brandUrl": "",
+      "mentions": 4
+    },
+    {
+      "brandName": "Vention",
+      "brandUrl": "",
+      "mentions": 4
+    },
+    {
+      "brandName": "Intellectsoft",
+      "brandUrl": "",
+      "mentions": 3
+    },
+    {
+      "brandName": "ELEKS",
+      "brandUrl": "",
+      "mentions": 3
+    },
+    {
+      "brandName": "Uinno",
+      "brandUrl": "",
+      "mentions": 3
+    }
+  ],
+  "domainStats": {
+    "organicKeywords": 0,
+    "estimatedMonthlyOrganicTraffic": 0,
+    "top10Keywords": 0,
+    "googleAiOverviewReferences": 0,
+    "locationCode": null,
+    "languageCode": null,
+    "topKeywords": [],
+    "collectedAt": "2026-09-29T11:12:07.539Z"
+  },
+  "prompts": [
+    {
+      "prompt": "What are the best custom software development companies in 2026?",
+      "intent": "bofu",
+      "answers": [
+        {
+          "llmProvider": "openai",
+          "llmModel": "gpt-4o-mini",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Here are some of the top custom software development companies in 2026, based on recent evaluations and market insights:\n\n1. **eSparkBiz** - Recognized for delivering AI-powered custom software and cloud-native solutions, eSparkBiz is often praised for its scalability and business growth potential. [eSparkbiz](https://www.esparkinfo.com/software-development/custom/top-companies)\n\n2. **Goji Labs** …",
+          "citations": [
+            {
+              "url": "https://gojilabs.com/blog/best-custom-software-development-companies-2026/",
+              "domain": "gojilabs.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.lowcode.agency/blog/best-custom-software-development-companies",
+              "domain": "lowcode.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.esparkinfo.com/software-development/custom/top-companies",
+              "domain": "esparkinfo.com",
+              "sourceType": "other"
+            },
+            {
+              "url": "https://thectoclub.com/services/best-custom-software-development-company/",
+              "domain": "thectoclub.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://techradiant.co/agencies/custom-software-developers/",
+              "domain": "techradiant.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://mymanagementguide.com/buyers-guide-top-custom-software-development-companies/",
+              "domain": "mymanagementguide.com",
+              "sourceType": "resource_page"
+            },
+            {
+              "url": "https://techfundingnews.com/best-custom-software-development-companies-in-2026/",
+              "domain": "techfundingnews.com",
+              "sourceType": "resource_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "eSparkBiz",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Goji Labs",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Chetu",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Intellectsoft",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "BairesDev",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "MobiDev",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Simform",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Softeq",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Fingent",
+              "position": 9,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Atomic Object",
+              "position": 10,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "anthropic",
+          "llmModel": "claude-haiku-4-5-20251001",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Based on the latest 2026 rankings, here are some of the best custom software development companies:\n\n## Highly Reviewed Companies\n\nHighly reviewed software development companies include Simform, Kingsmen Digital Ventures, Closeloop Technologies LLC, BairesDev, Goji Labs, Fingent, AppMakers USA, MOBIKASA, Swovo, and AgileEngine.\n\n## Notable Companies by Specialty\n\n**Fingent** - Fingent has been a g…",
+          "citations": [
+            {
+              "url": "https://www.fingent.com/blog/top-custom-software-development-companies-in-the-usa/",
+              "domain": "fingent.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://wtt-solutions.com/blog/best-custom-software-development-companies-in-usa",
+              "domain": "wtt-solutions.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.freshcodeit.com/blog/custom-software-development-companies",
+              "domain": "freshcodeit.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://clutch.co/developers",
+              "domain": "clutch.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.cloudgeometry.com/roundups/best-custom-software-development-company-in-usa",
+              "domain": "cloudgeometry.com",
+              "sourceType": "blog"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Simform",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Kingsmen Digital Ventures",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Closeloop Technologies LLC",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "BairesDev",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Goji Labs",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Fingent",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "AppMakers USA",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "MOBIKASA",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Swovo",
+              "position": 9,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "AgileEngine",
+              "position": 10,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "WTT Solutions",
+              "position": 11,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "CloudGeometry",
+              "position": 12,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "EPAM Systems",
+              "position": 13,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Cognizant",
+              "position": 14,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Toptal",
+              "position": 15,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "google",
+          "llmModel": "gemini-3.1-flash-lite",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "In 2026, the landscape for custom software development is heavily influenced by the integration of AI into core business systems and a shift toward high-velocity, production-grade delivery. Because \"best\" is subjective and dependent on your specific project needs—such as industry compliance, scale, or budget—the industry is moving away from generic rankings toward specialized partners.\n\nBelow are …",
+          "citations": [
+            {
+              "url": "https://www.fullstack.com/labs/resources/blog/5-best-custom-software-development-companies-2025",
+              "domain": "fullstack.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.companieshistory.com/insights/6-custom-software-development-companies-to-know-in-2026/",
+              "domain": "companieshistory.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://deployflow.co/blog/top-custom-software-development-companies-worldwide/",
+              "domain": "deployflow.co",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://closeloop.com/blog/best-custom-software-development-companies-usa/",
+              "domain": "closeloop.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://devoxsoftware.com/blog/top-10-custom-software-development-companies-for-manufacturing-in-2026/",
+              "domain": "devoxsoftware.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.stratagem-systems.com/blog/how-to-choose-software-development-company-2026",
+              "domain": "stratagem-systems.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://techfundingnews.com/best-custom-software-development-companies-in-2026/",
+              "domain": "techfundingnews.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://clutch.co/developers",
+              "domain": "clutch.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://devcom.com/tech-blog/bespoke-software-development-companies/",
+              "domain": "devcom.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.esparkinfo.com/software-development/custom/top-companies",
+              "domain": "esparkinfo.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://keyholesoftware.com/best-software-development-companies-usa/",
+              "domain": "keyholesoftware.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://keyholesoftware.com/best-software-development-companies/",
+              "domain": "keyholesoftware.com",
+              "sourceType": "blog"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "BairesDev",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ScienceSoft",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Active Logic",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Simform",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "eSparkBiz",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Fingent",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Deployflow",
+              "position": 7,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "perplexity",
+          "llmModel": "sonar",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Here are some of the strongest custom software development companies highlighted in 2026 lists: Accenture, Saritasa, CloudGeometry, EPAM Systems, Globant, ThoughtWorks, Vervali Systems, 7T, Slalom, Intellectsoft, CodeScience, STX Next, BairesDev, Iflexion, and ScienceSoft.[1][2][3][4][5]\n\nA practical short list by use case is:\n- **Best for enterprise scale:** Accenture, EPAM Systems, Globant, Thou…",
+          "citations": [
+            {
+              "url": "https://www.saritasa.com/insights/the-top-10-custom-software-development-companies",
+              "domain": "saritasa.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.vervali.com/blog/best-custom-software-development-companies-in-2026-evaluation-framework-reviews-and-selection-guide/",
+              "domain": "vervali.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://7t.ai/blog/best-custom-software-development-companies-7tt/",
+              "domain": "7t.ai",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.lowcode.agency/blog/best-custom-software-development-companies",
+              "domain": "lowcode.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://news.designrush.com/top-software-app-dev-agencies-hire-2026",
+              "domain": "news.designrush.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://decode.agency/article/custom-software-development-companies/",
+              "domain": "decode.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://hyscaler.com/insights/top-custom-software-development-companies/",
+              "domain": "hyscaler.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.cloudgeometry.com/roundups/best-custom-software-development-companies",
+              "domain": "cloudgeometry.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://keyholesoftware.com/best-software-development-companies/",
+              "domain": "keyholesoftware.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://pctechmag.com/2026/09/top-custom-software-development-companies-in-2026/",
+              "domain": "pctechmag.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.linkedin.com/pulse/best-custom-software-development-companies-2026-anton-kuchyk-5wjic",
+              "domain": "linkedin.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.elsner.com/top-software-development-companies/",
+              "domain": "elsner.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.scnsoft.com/software-development/top-software-development-companies",
+              "domain": "scnsoft.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://thesource.com/2026/09/13/top-10-companies-to-hire-dedicated-developers-in-2026/",
+              "domain": "thesource.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.linkedin.com/pulse/top-10-custom-software-development-companies-2026-akanchha-khettry-ry1hf",
+              "domain": "linkedin.com",
+              "sourceType": "blog"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Accenture",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Saritasa",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "CloudGeometry",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "EPAM Systems",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Globant",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ThoughtWorks",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Vervali Systems",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "7T",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Slalom",
+              "position": 9,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Intellectsoft",
+              "position": 10,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "CodeScience",
+              "position": 11,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "STX Next",
+              "position": 12,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "BairesDev",
+              "position": 13,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Iflexion",
+              "position": 14,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ScienceSoft",
+              "position": 15,
+              "brandUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "Which software development agency should I hire for a tailored business platform?",
+      "intent": "bofu",
+      "answers": [
+        {
+          "llmProvider": "anthropic",
+          "llmModel": "claude-haiku-4-5-20251001",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Based on current rankings and reviews, here are several top software development agencies that specialize in creating tailored business platforms:\n\n## Highly Recommended Agencies:\n\n**Mercury Development is a U.S.-based agency that creates high-performance digital products and builds scalable software tailored to complex business needs**. It's well-suited for startups and enterprises needing custom…",
+          "citations": [
+            {
+              "url": "https://www.lowcode.agency/blog/top-software-development-agencies",
+              "domain": "lowcode.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://andersenlab.com/blueprint/top-custom-software-development-companies",
+              "domain": "andersenlab.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://clutch.co/developers",
+              "domain": "clutch.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.designrush.com/agency/software-development",
+              "domain": "designrush.com",
+              "sourceType": "category_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Mercury Development",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Simform",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Kingsmen Digital Ventures",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Suffescom",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "NBCUniversal",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Humana",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Stripe",
+              "position": 7,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "google",
+          "llmModel": "gemini-3.1-flash-lite",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Choosing the right software development agency for a tailored business platform is a significant strategic decision that goes beyond just comparing price tags or portfolios. Because there is no single \"best\" agency for every business, the right choice depends on your specific industry, project complexity, and technical requirements.\n\n### How to Evaluate and Choose a Partner\nRather than relying on …",
+          "citations": [
+            {
+              "url": "https://deviniti.com/blog/digital-workplace/choosing-a-custom-software-development-company/",
+              "domain": "deviniti.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.happyfuncorp.com/blog/how-to-choose-software-development-partner",
+              "domain": "happyfuncorp.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://vecto.digital/blog/how-to-choose-a-software-development-company/",
+              "domain": "vecto.digital",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://wtt-solutions.com/blog/best-custom-software-development-companies-in-usa",
+              "domain": "wtt-solutions.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.hungrybytes.co/blog/choosing-the-right-software-development-partner-4-things-to-keep-in-mind",
+              "domain": "hungrybytes.co",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://ainovaq.com/blog/software-development-agency/",
+              "domain": "ainovaq.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://deployflow.co/blog/top-custom-software-development-companies-worldwide/",
+              "domain": "deployflow.co",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.nehachaudhary.com/post/hiring-a-software-agency-ask-these-15-questions-before-you-sign-anything",
+              "domain": "nehachaudhary.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://webcodegenie.com/blog/how-to-choose-a-software-development-partner/",
+              "domain": "webcodegenie.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.reddit.com/r/webdev/comments/lkhdbb/questions_for_hiring_a_software_development_agency/",
+              "domain": "reddit.com",
+              "sourceType": "reddit"
+            },
+            {
+              "url": "https://www.hst.ie/blog/9-essential-questions-to-ask-before-hiring-a-custom-software-development-partner/",
+              "domain": "hst.ie",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://nervico.com/en/blog/how-to-choose-software-development-partner/",
+              "domain": "nervico.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.oursky.com/blogs/5-questions-to-ask-agencies-before-outsourcing-software-development/",
+              "domain": "oursky.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://closeloop.com/blog/best-custom-software-development-companies-usa/",
+              "domain": "closeloop.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://ltsgroup.tech/blog/hire-a-software-development-company/",
+              "domain": "ltsgroup.tech",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://keyholesoftware.com/best-software-development-companies-usa/",
+              "domain": "keyholesoftware.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.designrush.com/agency/software-development/trends/questions-to-ask-a-software-development-company",
+              "domain": "designrush.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.fastcompany.com/91521703/3-things-to-consider-when-choosing-a-software-development-partner",
+              "domain": "fastcompany.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.esparkinfo.com/software-development/custom/top-companies",
+              "domain": "esparkinfo.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://clutch.co/developers",
+              "domain": "clutch.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.designrush.com/agency/software-development/us",
+              "domain": "designrush.com",
+              "sourceType": "category_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "WTT Solutions",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Deployflow",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "eSparkBiz",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Fingent",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "BairesDev",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Clutch",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "DesignRush",
+              "position": 7,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "openai",
+          "llmModel": "gpt-4o-mini",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Here are some top-rated software development agencies you might consider for a tailored business platform:\n\n1. **Imaginary Cloud**: Known for its innovative solutions and quick turnaround times, Imaginary Cloud specializes in custom development, UI/UX design, and technology integration. They focus on creating efficient, scalable solutions tailored to business needs. [Source](https://www.makeuseof.…",
+          "citations": [
+            {
+              "url": "https://www.makeuseof.com/the-10-best-software-development-companies-in-2023/",
+              "domain": "makeuseof.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.designrush.com/agency/software-development/us",
+              "domain": "designrush.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.pixelcrayons.com/services/software-development",
+              "domain": "pixelcrayons.com",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://clutch.co/us/developers",
+              "domain": "clutch.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.devx.com/development/top-10-custom-software-development-companies/",
+              "domain": "devx.com",
+              "sourceType": "blog"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Imaginary Cloud",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ELEKS",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "PixelCrayons",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Goji Labs",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "10Pearls",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Innowise Group",
+              "position": 6,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "perplexity",
+          "llmModel": "sonar",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "For a tailored business platform, **247 Labs** and **bizz** look like the strongest short-list options from the results gathered.[1][9] 247 Labs emphasizes secure, scalable custom platforms, ERP development, and full-lifecycle delivery, while bizz specifically highlights tailored ERP and CRM workflows, analytics, and business systems built around operations.[1][9]\n\nIf the platform is primarily an …",
+          "citations": [
+            {
+              "url": "https://www.bizz.ai/",
+              "domain": "bizz.ai",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://devclutch.com/",
+              "domain": "devclutch.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.ayautomate.com/blog/best-software-development-agencies",
+              "domain": "ayautomate.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://adevs.com/blog/custom-software-development-companies-north-america/",
+              "domain": "adevs.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.lowcode.agency/blog/best-custom-software-development-companies",
+              "domain": "lowcode.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://afternow.co/services/development/",
+              "domain": "afternow.co",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://yournextagency.com/what-we-do/custom-platforms",
+              "domain": "yournextagency.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.infoworks-tn.com/services/digital-products/custom-software-development/",
+              "domain": "infoworks-tn.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://skyward-agency.com/en/service/software-development/",
+              "domain": "skyward-agency.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.mintstatelabs.com/software-development/custom-software-development",
+              "domain": "mintstatelabs.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://247labs.com/services/custom-software-development/",
+              "domain": "247labs.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.50pros.com/hire/custom-software-development",
+              "domain": "50pros.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.designrush.com/agency/software-development/enterprise?page=78",
+              "domain": "designrush.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://agencyreview.dev/trending/top-software-agencies-custom-development-2026",
+              "domain": "agencyreview.dev",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://andersenlab.com/blueprint/top-custom-software-development-companies",
+              "domain": "andersenlab.com",
+              "sourceType": "resource_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "247 Labs",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "bizz",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Fingent",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ELEKS",
+              "position": 4,
+              "brandUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "Alternatives to UINNO for SaaS product engineering",
+      "intent": "mofu",
+      "answers": [
+        {
+          "llmProvider": "google",
+          "llmModel": "gemini-3.1-flash-lite",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "When looking for alternatives to Uinno for SaaS product engineering, you are essentially seeking firms that provide **end-to-end product development**, typically characterized by a combination of **product discovery, UX/UI design, cloud-native architecture, and AI-assisted development**.\n\nSince Uinno is known for its focus on startups and SMBs with an \"AI-first\" and \"ownership-driven\" approach, th…",
+          "citations": [
+            {
+              "url": "https://www.zygobit.com/blogs/top-20-saas-development-companies",
+              "domain": "zygobit.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.classicinformatics.com/blog/top-saas-application-development-companies",
+              "domain": "classicinformatics.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.nerdheadz.com/blog/saas-product-development-companies",
+              "domain": "nerdheadz.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.ditstek.com/blog/top-10-product-engineering-services-companies-in-usa",
+              "domain": "ditstek.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.rorixtech.com/blogs/saas/top-saas-development-companies",
+              "domain": "rorixtech.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://viitorcloud.medium.com/saaswhy-product-engineering-is-the-heart-of-saas-development-b7316e4123c7",
+              "domain": "viitorcloud.medium.com",
+              "sourceType": "medium"
+            },
+            {
+              "url": "https://medium.com/@abhishekpdev/10-leading-saas-product-development-companies-9687ae6bc66a",
+              "domain": "medium.com",
+              "sourceType": "medium"
+            },
+            {
+              "url": "https://uinno.io/product-development",
+              "domain": "uinno.io",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://uinno.io/product-development/custom-development-services",
+              "domain": "uinno.io",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.clariontech.com/saas-product-engineering-services",
+              "domain": "clariontech.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://uinno.io/product-development/no-code-development-services",
+              "domain": "uinno.io",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://anyleads.com/10-best-end-to-end-product-development-services",
+              "domain": "anyleads.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://cieden.com/best-saas-development-companies-usa",
+              "domain": "cieden.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://uinno.io/product-discovery-services",
+              "domain": "uinno.io",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://digitalcharter.com/product-development/saas-engineering",
+              "domain": "digitalcharter.com",
+              "sourceType": "landing_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Uinno",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Intent",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "DevSquad",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Cieden",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Simform",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Zygobit",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Fingent",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Bytes Technolab",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "eSparkBiz",
+              "position": 9,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Vention",
+              "position": 10,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ScienceSoft",
+              "position": 11,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "openai",
+          "llmModel": "gpt-4o-mini",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Here are some notable alternatives to UINNO for SaaS product engineering:\n\n1. **Bricx**  \n   - Specializes in embedded teams for B2B SaaS, focusing on measurable product outcomes. Recommended for teams needing depth in SaaS UX.  \n   [Learn more](https://bricxlabs.com/blogs/ueno-alternatives)\n\n2. **MetaLab**  \n   - Best for flagship product launches, offering comprehensive design and development se…",
+          "citations": [
+            {
+              "url": "https://bricxlabs.com/blogs/ueno-alternatives",
+              "domain": "bricxlabs.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://softonix.org/blog/best-product-engineering-services-companies/",
+              "domain": "softonix.org",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://vizologi.com/best-product-engineering-services-companies/",
+              "domain": "vizologi.com",
+              "sourceType": "blog"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Bricx",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "MetaLab",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Ramotion",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Softonix",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ScienceSoft",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "N-iX",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Thoughtbot",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "DataArt",
+              "position": 8,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "perplexity",
+          "llmModel": "sonar",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Here are strong alternatives to UINNO for SaaS product engineering, based on current agency listings and recent SaaS engineering roundups:[1][2][4][12]\n\n- **Apptunix** — currently ranked highly for product engineering (SaaS) agencies in the USA and positioned as a top option for end-to-end product engineering.[1][2]\n- **ArcTouch** — a well-known product engineering agency listed among the top SaaS…",
+          "citations": [
+            {
+              "url": "https://reverbico.com/blog/top-saas-product-development-agencies/",
+              "domain": "reverbico.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://musemind.agency/blog/top-saas-product-development-companies",
+              "domain": "musemind.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.technource.com/blog/top-saas-development-companies/",
+              "domain": "technource.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.lowcode.agency/blog/best-saas-development-companies",
+              "domain": "lowcode.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://reverbico.com/blog/top-end-to-end-saas-agencies/",
+              "domain": "reverbico.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://techlusion.io/insights/techlusion-named-an-openai-select-partner",
+              "domain": "techlusion.io",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.agencycluster.com/top-25/product-engineering-agencies",
+              "domain": "agencycluster.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.agencycluster.com/top-50/product-engineering-agencies",
+              "domain": "agencycluster.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.agencycluster.com/product-engineering-agencies",
+              "domain": "agencycluster.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://powergatesoftware.com/tech-blog/top-software-agencies-experienced-in-ai-driven-saas-product-engineering/",
+              "domain": "powergatesoftware.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://lenaxstudio.com/en/",
+              "domain": "lenaxstudio.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://402.studio/custom-software-saas/saas-ux-ui-design/",
+              "domain": "402.studio",
+              "sourceType": "feature_page"
+            },
+            {
+              "url": "https://www.monarch-innovation.com/services/saas-product-development",
+              "domain": "monarch-innovation.com",
+              "sourceType": "solution_page"
+            },
+            {
+              "url": "https://www.matechco.com/saas-development/",
+              "domain": "matechco.com",
+              "sourceType": "solution_page"
+            },
+            {
+              "url": "https://digitalheroesco.com/services/saas-development/",
+              "domain": "digitalheroesco.com",
+              "sourceType": "solution_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "UINNO",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Apptunix",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ArcTouch",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "BairesDev",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Blue Label Labs",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Codal",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Cubix",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Netguru",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Simform",
+              "position": 9,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "ScienceSoft",
+              "position": 10,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "PowerGate Software",
+              "position": 11,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Itransition",
+              "position": 12,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Vention",
+              "position": 13,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Techlusion",
+              "position": 14,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Digital Heroes",
+              "position": 15,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "anthropic",
+          "llmModel": "claude-haiku-4-5-20251001",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Based on the search results, here are some solid alternatives to UINNO for SaaS product engineering:\n\n## Product Engineering & Development Partners\n\n**Divami** provides UX UI design and AI-led product engineering services in the deep tech and SaaS sectors, offering services including MVP development, product launch preparation, product expansion strategies, and product transformation.\n\n**MindInven…",
+          "citations": [
+            {
+              "url": "https://www.classicinformatics.com/blog/top-saas-product-development-companies",
+              "domain": "classicinformatics.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://scalevista.com/blog/top-saas-development-companies-us/",
+              "domain": "scalevista.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://softonix.org/blog/best-product-engineering-services-companies/",
+              "domain": "softonix.org",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.cbinsights.com/company/unoiatech/alternatives-competitors",
+              "domain": "cbinsights.com",
+              "sourceType": "comparison_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "UINNO",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Divami",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "MindInventory",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Blackthorn Vision",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Microsoft",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Brocoders",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Taazaa",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "N‑iX",
+              "position": 8,
+              "brandUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "Is there anything better than Digiteum for AI automation projects?",
+      "intent": "mofu",
+      "answers": [
+        {
+          "llmProvider": "perplexity",
+          "llmModel": "sonar",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Yes—if the goal is **enterprise-grade AI automation**, there are stronger options than Digiteum in the search results, especially if you need broader automation scope, compliance, or larger-scale delivery.[3][5][15]\n\n- **Intuz** looks like a strong alternative for enterprise automation because it explicitly positions itself as a USA-based AI automation agency with **16 years of enterprise engineer…",
+          "citations": [
+            {
+              "url": "https://latenode.com/blog/industry-use-cases-solutions/enterprise-automation/17-top-ai-automation-agencies-in-2025-complete-service-comparison-pricing-guide",
+              "domain": "latenode.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.aigentcy.com/",
+              "domain": "aigentcy.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.digiteum.com/portfolio/ai-sales-agent-for-travel-inquiries/",
+              "domain": "digiteum.com",
+              "sourceType": "other"
+            },
+            {
+              "url": "https://www.digiteum.com/logistics-and-supply-chain-with-ai/",
+              "domain": "digiteum.com",
+              "sourceType": "solution_page"
+            },
+            {
+              "url": "https://www.intuz.com/ai-automation-services/",
+              "domain": "intuz.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.pixelbrainy.com/ai-automation-company",
+              "domain": "pixelbrainy.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://aristeksystems.com/services/ai-automation/",
+              "domain": "aristeksystems.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://techreviewer.co/ai-automation-agencies",
+              "domain": "techreviewer.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.apptunix.com/ai-automation-services/",
+              "domain": "apptunix.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://innowise.com/ai/automation/",
+              "domain": "innowise.com",
+              "sourceType": "solution_page"
+            },
+            {
+              "url": "https://artkai.io/services/ai-automation-agency",
+              "domain": "artkai.io",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.ticomix.com/ai-automation/",
+              "domain": "ticomix.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://arcitech.ai/ai-automation-agency/",
+              "domain": "arcitech.ai",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://www.digiteum.com/ai-ready-operations-in-healthcare-pharma-biotech/",
+              "domain": "digiteum.com",
+              "sourceType": "solution_page"
+            },
+            {
+              "url": "https://www.azilen.com/ai-automation-services/",
+              "domain": "azilen.com",
+              "sourceType": "landing_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Digiteum",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Intuz",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Aristek Systems",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Aigentcy",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Azilen",
+              "position": 5,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "openai",
+          "llmModel": "gpt-4o-mini",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Here are some notable companies that are recognized for their work in AI automation projects, potentially surpassing Digiteum in specific areas:\n\n1. **Automation Anywhere**: Specializes in robotic process automation (RPA) and offers a comprehensive suite of intelligent automation applications. Their cloud-native platform is designed to enhance business efficiency across various sectors, including …",
+          "citations": [
+            {
+              "url": "https://www.analyticsinsight.net/latest-news/top-10-robotic-process-automation-companies-for-2023",
+              "domain": "analyticsinsight.net",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.wire19.com/top-artificial-intelligence-companies/",
+              "domain": "wire19.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.fastcompany.com/90846670/most-innovative-companies-artificial-intelligence-2023",
+              "domain": "fastcompany.com",
+              "sourceType": "blog"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Automation Anywhere",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Microsoft Power Automate",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "UiPath",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Blue Prism",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "AWS",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Amazon Web Services",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Amazon Lex",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Amazon SageMaker",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "OpenAI",
+              "position": 9,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "google",
+          "llmModel": "gemini-3.1-flash-lite",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Whether a company is \"better\" than Digiteum for AI automation depends entirely on your specific project requirements, such as your industry, technical stack, and whether you need a full-service development partner or a platform to build on yourself.\n\nDigiteum is well-regarded for custom digital solutions, including AI and machine learning integration, particularly in sectors like healthcare and fi…",
+          "citations": [
+            {
+              "url": "https://www.abtosoftware.com/blog/top-ai-automation-companies",
+              "domain": "abtosoftware.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.effectivesoft.com/blog/top-ai-automation-companies.html",
+              "domain": "effectivesoft.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.creatio.com/company/news/23261",
+              "domain": "creatio.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://pixflow.net/blog/top-ai-automation-agencies-reviewed-2026-comparison-guide/",
+              "domain": "pixflow.net",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.codebridge.tech/articles/top-ai-automation-companies-for-complex-workflows-and-production-ready-ai-agents",
+              "domain": "codebridge.tech",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://scopicsoftware.com/blog/ai-development-companies/",
+              "domain": "scopicsoftware.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.ayautomate.com/blog/choosing-generative-ai-development-company",
+              "domain": "ayautomate.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.vellum.ai/blog/guide-to-enterprise-ai-automation-platforms",
+              "domain": "vellum.ai",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.ayautomate.com/blog/best-ai-workflow-automation-platforms",
+              "domain": "ayautomate.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://codiant.com/blog/right-ai-agent-development-company/",
+              "domain": "codiant.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.domo.com/learn/article/ai-automation-platforms",
+              "domain": "domo.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.telliant.com/selecting-an-ai-development-company-a-practical-guide/",
+              "domain": "telliant.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://appdevelopmentcompanies.co/firms/digiteum",
+              "domain": "appdevelopmentcompanies.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.vegaitglobal.com/media-center/business-insights/how-to-choose-an-ai-software-development-company",
+              "domain": "vegaitglobal.com",
+              "sourceType": "blog"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Digiteum",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Codebridge",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "EffectiveSoft",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Artkai",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "RTS Labs",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Master of Code Global",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "LeewayHertz",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "n8n",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Vertex AI Agent Builder",
+              "position": 9,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Google",
+              "position": 10,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "AWS Bedrock AgentCore",
+              "position": 11,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "AWS",
+              "position": 12,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "anthropic",
+          "llmModel": "claude-haiku-4-5-20251001",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Based on the search results, the best Digiteum alternatives are Capital Numbers, Trigma, and Weseeble.\n\nFor broader AI automation needs, there are several options to consider:\n\n**For Service-Based Solutions:**\nTavant focuses on digital transformation across various industries and offers AI and machine learning solutions to enhance operational efficiency. IBOTIX provides AI consulting and automatio…",
+          "citations": [
+            {
+              "url": "https://www.g2.com/products/digiteum/competitors/alternatives",
+              "domain": "g2.com",
+              "sourceType": "comparison_page"
+            },
+            {
+              "url": "https://www.cbinsights.com/company/digitium-it-services/alternatives-competitors",
+              "domain": "cbinsights.com",
+              "sourceType": "comparison_page"
+            },
+            {
+              "url": "https://www.startuphub.ai/startups/digital-business-services/alternatives",
+              "domain": "startuphub.ai",
+              "sourceType": "comparison_page"
+            },
+            {
+              "url": "https://fast.io/resources/best-ai-automation-platforms-business/",
+              "domain": "fast.io",
+              "sourceType": "resource_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Digiteum",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Capital Numbers",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Trigma",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Weseeble",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Tavant",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "IBOTIX",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Zapier",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Prism",
+              "position": 8,
+              "brandUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What are the best software development agencies for weekly releases?",
+      "intent": "bofu",
+      "answers": [
+        {
+          "llmProvider": "perplexity",
+          "llmModel": "sonar",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "For weekly releases, the strongest matches in the search results are DEVEDANOS, Managed Code, and Deliverables Agency, because each explicitly mentions weekly production deployments, weekly shipping, or weekly demos tied to CI/CD and agile delivery[2][13][3].\n\n## Best fits\n- DEVEDANOS — explicitly advertises **weekly production deployments** and a Continuous Delivery approach[2].\n- Managed Code — …",
+          "citations": [
+            {
+              "url": "https://www.companionlink.com/blog/2026/05/top-product-consultancies-integrating-ai-into-software-development-in-2026/",
+              "domain": "companionlink.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://keylogic.com/what-we-do/capabilities/digital-transformation/software-development/",
+              "domain": "keylogic.com",
+              "sourceType": "feature_page"
+            },
+            {
+              "url": "https://devedanos.com/en/",
+              "domain": "devedanos.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://deliverable.agency/services/software-development",
+              "domain": "deliverable.agency",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://axonactive.com/services/",
+              "domain": "axonactive.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://gitnux.org/service/agile-development/",
+              "domain": "gitnux.org",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://codewave.com/service/agile-software-development-services/",
+              "domain": "codewave.com",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://deliverable.agency/services/mvp-development",
+              "domain": "deliverable.agency",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://www.accompio.com/en/service/dev-ops/",
+              "domain": "accompio.com",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://www.woltrio.com/en-us/mvp-development",
+              "domain": "woltrio.com",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://lengreo.com/agile-web-development-companies-usa/",
+              "domain": "lengreo.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://infinum.com/software-development-agency/",
+              "domain": "infinum.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://managed-code.com/services/ai-dev-team",
+              "domain": "managed-code.com",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://www.agencycluster.com/devops-ci-cd-agencies",
+              "domain": "agencycluster.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.tdginc.com/solutions/software-development",
+              "domain": "tdginc.com",
+              "sourceType": "solution_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "DEVEDANOS",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Managed Code",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Deliverables Agency",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Codewave",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Infinum",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "KeyLogic",
+              "position": 6,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "google",
+          "llmModel": "gemini-3.1-flash-lite",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "To achieve weekly releases, you need a partner that doesn't just offer \"software development\" but specializes in **DevOps-integrated Agile delivery**. The best agencies for this model prioritize automation, CI/CD pipelines, and structured sprint cycles.\n\n### Top Agencies for Rapid Release Cycles\nThe following firms are recognized for their expertise in balancing speed, quality, and continuous deli…",
+          "citations": [
+            {
+              "url": "https://apprecode.com/blog/top-5-ci-cd-companies-for-cloud-deployment-and-pipeline-automation",
+              "domain": "apprecode.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.wildnetedge.com/blogs/best-ci-cd-pipeline-development-companies-in-usa",
+              "domain": "wildnetedge.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://news.designrush.com/top-software-app-dev-agencies-hire-2026",
+              "domain": "news.designrush.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.aziro.com/blog/top-7-ci-cd-services-providers-for-seamless-software-deployment",
+              "domain": "aziro.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://ainovaq.com/blog/software-development-agency/",
+              "domain": "ainovaq.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://horizon.dev/blog/choose-software-development-agency/",
+              "domain": "horizon.dev",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://hexxen.com/development/agile-development/",
+              "domain": "hexxen.com",
+              "sourceType": "solution_page"
+            },
+            {
+              "url": "https://www.ditstek.com/agile-software-development-company",
+              "domain": "ditstek.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://octopus.com/devops/ci-cd/ci-cd-providers/",
+              "domain": "octopus.com",
+              "sourceType": "resource_page"
+            },
+            {
+              "url": "https://www.sataware.com/ci-cd-pipelines/",
+              "domain": "sataware.com",
+              "sourceType": "solution_page"
+            },
+            {
+              "url": "https://www.esparkinfo.com/devops/ci-cd/top-companies",
+              "domain": "esparkinfo.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://grayphite.com/services/ci-cd",
+              "domain": "grayphite.com",
+              "sourceType": "landing_page"
+            },
+            {
+              "url": "https://wavect.io/software-development-guide/how-to-choose-a-software-agency/",
+              "domain": "wavect.io",
+              "sourceType": "resource_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Vention",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Simform",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Rootstrap",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Hunt.io",
+              "position": 4,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "openai",
+          "llmModel": "gpt-4o-mini",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Here are some of the best software development agencies known for their ability to deliver weekly releases:\n\n1. **ELEKS**\n   - Specializes in custom software development and mobile app development. They have over 1,000 completed projects and a strong focus on quality and transparency. Their engagement model supports agile release cycles, making them a good fit for frequent updates.\n   - [More Abou…",
+          "citations": [
+            {
+              "url": "https://www.designrush.com/agency/software-development",
+              "domain": "designrush.com",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://clutch.co/us/developers",
+              "domain": "clutch.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://itprofiles.com/services/software-development",
+              "domain": "itprofiles.com",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://www.itprofiles.com/services/software-development",
+              "domain": "itprofiles.com",
+              "sourceType": "product_page"
+            },
+            {
+              "url": "https://clutch.co/developers",
+              "domain": "clutch.co",
+              "sourceType": "category_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "ELEKS",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Vention",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Goji Labs",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Intellectsoft",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "BairesDev",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Simform",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Toptal",
+              "position": 7,
+              "brandUrl": ""
+            }
+          ]
+        },
+        {
+          "llmProvider": "anthropic",
+          "llmModel": "claude-haiku-4-5-20251001",
+          "orgWebsiteMentioned": false,
+          "answerSnippet": "Based on the search results, I found general information about top software development agencies, but the results don't specifically highlight agencies known for weekly release cycles. Here's what I found about highly-regarded agencies:\n\n**Top-Ranked Agencies:**\n\nInstinctools is the top-ranked firm with 4.9 stars and 27 verified reviews, and Flyaps builds AI, data, and cloud-native software with e…",
+          "citations": [
+            {
+              "url": "https://devsquad.com/blog/software-development-agencies",
+              "domain": "devsquad.com",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.lowcode.agency/blog/top-software-development-agencies",
+              "domain": "lowcode.agency",
+              "sourceType": "blog"
+            },
+            {
+              "url": "https://www.goodfirms.co/directory/languages/top-software-development-companies",
+              "domain": "goodfirms.co",
+              "sourceType": "category_page"
+            },
+            {
+              "url": "https://www.designrush.com/agency/software-development",
+              "domain": "designrush.com",
+              "sourceType": "category_page"
+            }
+          ],
+          "mentionedBrands": [
+            {
+              "brandName": "Instinctools",
+              "position": 1,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Flyaps",
+              "position": 2,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "AppMakers USA",
+              "position": 3,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "React",
+              "position": 4,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Node.js",
+              "position": 5,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Flutter",
+              "position": 6,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Bubble",
+              "position": 7,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Glide",
+              "position": 8,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "FlutterFlow",
+              "position": 9,
+              "brandUrl": ""
+            },
+            {
+              "brandName": "Webflow",
+              "position": 10,
+              "brandUrl": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "recommendations": {
+    "technical": [
+      {
+        "id": 77246,
+        "type": "meta_description_length",
+        "title": "Meta description length not optimal",
+        "description": "Your meta description is 162 characters. For best LLM visibility, aim for 120-160 characters that clearly convey your value proposition.",
+        "priority": "MEDIUM",
+        "action": {
+          "fix": "Arrowbin is a senior software studio building custom web, mobile, SaaS, AI and cloud solutions. Start your project with us today.",
+          "before": "Arrowbin is a software development company. We build custom software, web and mobile apps, SaaS products, AI automation and cloud solutions for clients worldwide.",
+          "message": "Adjust meta description to 120-160 characters for optimal LLM and search engine visibility."
+        },
+        "createdAt": "2026-09-29T11:12:11.137Z"
+      }
+    ],
+    "content": [
+      {
+        "id": 77249,
+        "type": "free_tool",
+        "topic": "technology stack checker",
+        "description": "An easy-to-use tool that assesses and suggests optimal technology stacks for different types of custom software projects, showcasing Arrowbin’s expertise and guiding clients in decision-making.",
+        "priority": "MEDIUM",
+        "reasoning": null,
+        "createdAt": "2026-09-29T11:12:25.808Z"
+      },
+      {
+        "id": 77250,
+        "type": "blog_post",
+        "topic": "what is AI automation",
+        "description": "An explainer article on AI automation, its benefits for various industries like logistics and fintech, and how Arrowbin integrates AI solutions into custom software development.",
+        "priority": "MEDIUM",
+        "reasoning": null,
+        "createdAt": "2026-09-29T11:12:25.807Z"
+      },
+      {
+        "id": 77251,
+        "type": "free_tool",
+        "topic": "cost estimator for software projects",
+        "description": "An interactive calculator allowing users to input project parameters and receive rough estimates, helping potential clients understand budgeting and Arrowbin’s transparent pricing model.",
+        "priority": "HIGH",
+        "reasoning": null,
+        "createdAt": "2026-09-29T11:12:25.808Z"
+      },
+      {
+        "id": 77247,
+        "type": "blog_post",
+        "topic": "how-to choose software partners",
+        "description": "A step-by-step guide for ambitious companies to select reliable software development partners, emphasizing quality, scalability, and strategic fit, positioning Arrowbin as a trusted advisor.",
+        "priority": "HIGH",
+        "reasoning": null,
+        "createdAt": "2026-09-29T11:12:25.807Z"
+      },
+      {
+        "id": 77248,
+        "type": "blog_post",
+        "topic": "top e-commerce development tools",
+        "description": "An educational listicle detailing the best tools for building scalable and user-friendly e-commerce platforms, attracting retail and SaaS clients seeking proven solutions.",
+        "priority": "HIGH",
+        "reasoning": null,
+        "createdAt": "2026-09-29T11:12:25.807Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+# Content-Signal: search=yes, ai-input=yes, ai-train=yes
+# Search engines and AI assistants are welcome to index, quote and learn from
+# these pages. Please link back to the page you use.
+
+User-Agent: *
+Disallow: /api
+Allow: /
+
+User-Agent: GPTBot
+Disallow: /api
+Allow: /
+
+User-Agent: OAI-SearchBot
+Disallow: /api
+Allow: /
+
+User-Agent: ChatGPT-User
+Disallow: /api
+Allow: /
+
+User-Agent: Google-Extended
+Disallow: /api
+Allow: /
+
+User-Agent: PerplexityBot
+Disallow: /api
+Allow: /
+
+User-Agent: Perplexity-User
+Disallow: /api
+Allow: /
+
+User-Agent: ClaudeBot
+Disallow: /api
+Allow: /
+
+User-Agent: Claude-SearchBot
+Disallow: /api
+Allow: /
+
+User-Agent: Claude-User
+Disallow: /api
+Allow: /
+
+User-Agent: Applebot-Extended
+Disallow: /api
+Allow: /
+
+User-Agent: CCBot
+Disallow: /api
+Allow: /
+
+Sitemap: https://arrowbin.com/sitemap.xml

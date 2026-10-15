@@ -1,0 +1,125 @@
+{
+  "summary": {
+    "health_score": 84,
+    "health_score_live": 63,
+    "measured": "local production build http://localhost:3117 (not deployed)",
+    "business_type": "agency (software development company)",
+    "top_findings": [
+      "Sprint not deployed: live still scores 63",
+      "Cloudflare 403s GPTBot, ClaudeBot, CCBot while robots.txt welcomes them",
+      "Off-site entity empty (no LinkedIn page, unclaimed Clutch, GitHub org outdated)",
+      "Price and timeline conflicts F1-F5 quoted side by side in llms-full.txt",
+      "10 posts share one publish date (scaled-content risk): consider waves"
+    ],
+    "quick_wins": [
+      "Deploy and run verify-live.sh + scripts/indexnow.mjs",
+      "Allow AI crawlers in Cloudflare AI Crawl Control",
+      "Fix GitHub org description and email",
+      "Resubmit sitemap and request indexing for new posts",
+      "Decide one price band per service (F1-F5)"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 93,
+      "source": "findings/technical.md",
+      "what_works": [],
+      "findings": []
+    },
+    {
+      "name": "Content Quality",
+      "score": 76,
+      "source": "findings/content.md",
+      "what_works": [],
+      "findings": []
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 88,
+      "source": "lead estimate",
+      "what_works": [],
+      "findings": []
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 94,
+      "source": "findings/schema.md",
+      "what_works": [],
+      "findings": []
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 76,
+      "source": "findings/performance.md",
+      "what_works": [],
+      "findings": []
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 69,
+      "source": "findings/geo.md",
+      "what_works": [],
+      "findings": []
+    },
+    {
+      "name": "Images",
+      "score": 82,
+      "source": "findings/visual.md",
+      "what_works": [],
+      "findings": []
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Review and deploy",
+          "IndexNow + GSC resubmission",
+          "Cloudflare AI crawler allow list",
+          "GitHub org fix",
+          "Decide F1-F5 and F4"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Publishing cadence decision",
+          "Off-page kit days 1-14",
+          "Confirm offers F8",
+          "Regenerate green photos",
+          "Invisible performance work (next/dynamic, CSS split)"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Next posts from clusters.md",
+          "Migration and audit service pages",
+          "Bangladesh path and page",
+          "AI cost calculator",
+          "Founder bio box"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "verify-live.sh weekly",
+          "GSC and GA4 key events",
+          "Day-30 re-audit"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "report": "FULL-AUDIT-REPORT.md",
+    "plan": "ACTION-PLAN.md"
+  }
+}

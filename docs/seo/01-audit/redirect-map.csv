@@ -1,0 +1,54 @@
+old_url,new_url,reason
+https://arrowbin.com/,https://arrowbin.com/,Unchanged: live sitemap URL exists in new build (src/app/page.tsx). Keep 200; no redirect.
+https://arrowbin.com/services,https://arrowbin.com/services,Unchanged: route exists in new build. Keep 200.
+https://arrowbin.com/work,https://arrowbin.com/work,Unchanged: route exists in new build. Keep 200.
+https://arrowbin.com/about,https://arrowbin.com/about,Unchanged: route exists in new build. Keep 200.
+https://arrowbin.com/blog,https://arrowbin.com/blog,Unchanged: route exists in new build. Keep 200.
+https://arrowbin.com/contact,https://arrowbin.com/contact,Unchanged: route exists in new build. Keep 200.
+https://arrowbin.com/privacy,https://arrowbin.com/privacy,Unchanged: route exists in new build. Keep 200.
+https://arrowbin.com/terms,https://arrowbin.com/terms,Unchanged: route exists in new build. Keep 200.
+https://arrowbin.com/services/custom-software-development,https://arrowbin.com/services/custom-software-development,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/services/ecommerce-development,https://arrowbin.com/services/ecommerce-development,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/services/mobile-app-development,https://arrowbin.com/services/mobile-app-development,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/services/saas-product-engineering,https://arrowbin.com/services/saas-product-engineering,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/services/ui-ux-design,https://arrowbin.com/services/ui-ux-design,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/services/ai-automation,https://arrowbin.com/services/ai-automation,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/services/cloud-devops-hosting,https://arrowbin.com/services/cloud-devops-hosting,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/services/maintenance-support,https://arrowbin.com/services/maintenance-support,Unchanged: slug present in src/lib/services.ts. Keep 200.
+https://arrowbin.com/blog/how-much-does-custom-software-development-cost,https://arrowbin.com/blog/how-much-does-custom-software-development-cost,Unchanged: slug present in src/lib/blog.ts. Keep 200.
+https://arrowbin.com/blog/how-to-choose-a-software-development-company,https://arrowbin.com/blog/how-to-choose-a-software-development-company,Unchanged: slug present in src/lib/blog.ts. Keep 200.
+https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp,https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp,Unchanged: slug present in src/lib/blog.ts. Keep 200.
+https://arrowbin.com/blog/rss.xml,https://arrowbin.com/blog/rss.xml,Unchanged: feed route exists in new build. Keep 200.
+https://arrowbin.com/llms.txt,https://arrowbin.com/llms.txt,Unchanged: route exists in new build. Keep 200.
+http://arrowbin.com/*,https://arrowbin.com/*,Protocol: already 301 at Cloudflare (verified 2026-09-29). Keep single hop.
+http://www.arrowbin.com/*,https://arrowbin.com/*,Host + protocol: currently a 2-hop chain (http://www -> https://www -> https://arrowbin.com). Collapse to one 301 via a Cloudflare redirect rule.
+https://www.arrowbin.com/*,https://arrowbin.com/*,Host: already 301 (verified). Keep.
+https://arrowbin.com/<path>/,https://arrowbin.com/<path>,Trailing slash: Next.js default 308 (verified /about/ -> /about). Keep trailingSlash unset.
+https://arrowbin.com/contact-us,https://arrowbin.com/contact,Legacy 2024 marketplace URL archived in Wayback (20241004). Currently 404. 301 to equivalent page.
+https://arrowbin.com/help,https://arrowbin.com/contact,Legacy 2024 marketplace URL (Wayback 20241004). Currently 404. 301 to nearest equivalent.
+https://arrowbin.com/refund,https://arrowbin.com/terms,Legacy 2024 marketplace policy page (Wayback 20241004). Currently 404. 301 to terms.
+https://arrowbin.com/feed,https://arrowbin.com/blog/rss.xml,Legacy feed URL (Wayback 20241004). Currently 404. 301 so old feed subscribers and crawlers land on the RSS feed.
+https://arrowbin.com/authors,https://arrowbin.com/about,Legacy marketplace author index (Wayback 20241005). Currently 404. 301 to About.
+https://arrowbin.com/authors/arrowbin-llc,https://arrowbin.com/about,Legacy marketplace author profile (Wayback 20241004). Currently 404. 301 to About.
+https://arrowbin.com/products/tags/blog,https://arrowbin.com/blog,Legacy marketplace tag page (Wayback 20241004). Currently 404. 301 to Blog.
+https://www.arrowbin.com/sitemaps.xml,https://arrowbin.com/sitemap.xml,Legacy WordPress sitemap URL (Wayback 20230723). Currently 404 after host redirect. 301 to current sitemap.
+https://arrowbin.com/explore,410 Gone,Legacy marketplace listing (Wayback 20241004). No equivalent content; 410 is cleaner than a soft-404 redirect to the homepage.
+https://arrowbin.com/popular-products,410 Gone,Legacy marketplace listing (Wayback 20241004). No equivalent content.
+https://arrowbin.com/become-seller,410 Gone,Legacy marketplace seller signup (Wayback 20241004). No equivalent content.
+https://arrowbin.com/profile,410 Gone,Legacy marketplace account page (Wayback 20241004). No equivalent content.
+https://arrowbin.com/products/ultimate-seo-optimizer,410 Gone,Legacy digital product page (Wayback 20241004). No equivalent. If Search Console shows backlinks to it switch to 301 -> /services.
+https://arrowbin.com/products/advanced-notification-bar-plugin,410 Gone,Legacy digital product page (Wayback 20241005). No equivalent. Same backlink caveat.
+https://arrowbin.com/products/custom-countdown-timer-plugin,410 Gone,Legacy digital product page (Wayback 20241004). No equivalent. Same backlink caveat.
+https://arrowbin.com/products/apexx-esports-gaming-wordpress-theme,410 Gone,Legacy digital product page (Wayback 20241004). No equivalent. Same backlink caveat.
+https://arrowbin.com/products/*,410 Gone,Catch-all for any other legacy marketplace product URL.
+https://arrowbin.com/backend/*,410 Gone,Legacy marketplace API endpoints archived in Wayback (20241004). Should never be indexed.
+https://www.arrowbin.com/products5070048.html,410 Gone,Spam URL indexed under the brand (seen in site:arrowbin.com results 2026-09-29). Now 404; return 410 and request removal in Search Console.
+https://arrowbin.com/?channel=*,https://arrowbin.com/,Spam query-string URL indexed under the brand (site: results 2026-09-29). Currently 200 with canonical to home. Optional: 301 to the clean homepage (strip query) via Cloudflare rule.
+https://www.arrowbin.com/wp-login.php,404 (leave),Legacy WordPress admin (Wayback 2023/2025). Do not redirect admin/probe paths.
+https://www.arrowbin.com/wp-admin/*,404 (leave),Legacy WordPress admin. Currently 308 /wp-admin/ -> /wp-admin then 404. Acceptable.
+https://www.arrowbin.com/wp-json/*,404 (leave),Legacy WordPress REST API. Acceptable as 404.
+https://www.arrowbin.com/xmlrpc.php,404 (leave),Legacy WordPress endpoint. Acceptable as 404.
+https://arrowbin.com/portfolio,https://arrowbin.com/work,Defensive: common guess URL (currently 404). 301 to Work.
+https://arrowbin.com/about-us,https://arrowbin.com/about,Defensive: common guess URL. 301 to About.
+https://arrowbin.com/services/web-development,https://arrowbin.com/services/custom-software-development,Defensive: common guess URL (currently 404). 301 to closest service.
+https://arrowbin.com/blog/feed,https://arrowbin.com/blog/rss.xml,Defensive: WordPress-style feed path (currently 404). 301 to RSS feed.

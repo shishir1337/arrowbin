@@ -1,0 +1,993 @@
+# Arrowbin: full site digest
+
+> Arrowbin is a software development company for startups and SMBs. Founded in 2020 by Md. Shishir Ahmed, it designs, builds and supports custom software, web and mobile apps, SaaS products and online stores, plus AI automation and cloud hosting, for clients worldwide.
+
+Arrowbin (Arrowbin LLC) is founder-led: Md. Shishir Ahmed is the founder and lead engineer, so clients talk to the people who build their product. Clients own all of their source code. To start a project, book a free 30-minute call or send a short project brief (see "Start a project" below).
+
+This is the long version of [llms.txt](https://arrowbin.com/llms.txt), generated from the same content as the website, so every service, project and guide below matches its page.
+
+Key facts:
+
+- Company: Arrowbin LLC, a founder-led software development company for startups and SMBs
+- Founder: Md. Shishir Ahmed, founder and lead engineer ([about](https://arrowbin.com/about))
+- Founded: 2020
+- Clients: startups and SMBs worldwide
+- Services (8): [Custom Software Development](https://arrowbin.com/services/custom-software-development), [E-commerce Development](https://arrowbin.com/services/ecommerce-development), [Mobile App Development](https://arrowbin.com/services/mobile-app-development), [SaaS / Product Engineering](https://arrowbin.com/services/saas-product-engineering), [UI/UX Design](https://arrowbin.com/services/ui-ux-design), [AI Automation](https://arrowbin.com/services/ai-automation), [Cloud, DevOps & Hosting](https://arrowbin.com/services/cloud-devops-hosting), [Maintenance & Support](https://arrowbin.com/services/maintenance-support)
+- How an engagement works: a free discovery call, then a written scope and a fixed, itemised estimate before any work starts. The build runs in short sprints with a working demo every week. After launch, an optional care plan covers monitoring, security updates and fixes. Products that ship continuously can instead work with a product team (design, engineering and QA) month to month.
+- Typical timeline: a usable first version in 6–12 weeks; larger platforms are delivered in phases. Most well-scoped MVPs take 6–14 weeks ([MVP timeline guide](https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp)).
+- Ownership: clients own the source code, designs and infrastructure, with no lock-in
+- Response time: a person replies to every project brief within one business day
+- Email: hello@arrowbin.com
+
+## Start a project
+
+- [Book a free 30-minute call](https://cal.com/arrowbin/30min): pick a time on Arrowbin's Cal.com booking page.
+- [Send a project brief](https://arrowbin.com/contact#brief): a short form. Name, email and a few lines about the project are required; the services needed, rough budget, timeline and company are optional. A person replies within one business day.
+- [Email Arrowbin](mailto:hello@arrowbin.com): for anything that does not fit the form.
+
+## Services
+
+### Custom Software Development
+
+Page: https://arrowbin.com/services/custom-software-development
+
+Software built around your exact workflows, from internal tools to the platforms your business runs on.
+
+Custom software development means designing and building software around your exact business: your workflows, your data, your users. Arrowbin builds web platforms, internal tools and system integrations for startups and growing businesses, and a usable first version usually takes 6–12 weeks, with you owning all the code.
+
+Arrowbin is a custom software development company for teams that have outgrown off-the-shelf tools. We build software that fits the way you work: cutting out manual steps, connecting the systems you already use, and giving you a platform that grows as you do.
+
+What we build:
+- Web platforms & dashboards
+- Internal & admin tools
+- Workflow automation systems
+- API & system integrations
+- Legacy software modernization
+- Enterprise & B2B portals
+
+Technologies: TypeScript, React, Next.js, Node.js, Python, PostgreSQL, AWS
+
+Process:
+1. Discovery: We map your workflows and constraints, then turn them into a clear scope you can sign off on.
+2. Architecture: We design the data model and the stack the system will run on.
+3. Agile build: We ship in short sprints, with a working demo and a feedback loop at the end of each one.
+4. Launch & support: We deploy, watch it in production, and keep improving after go-live.
+
+Questions and answers:
+
+**How much does custom software development cost?**
+Most custom software projects run from $8,000 for a focused tool to $75,000+ for a full platform. What moves the number is scope, the integrations involved and how complex the logic gets. After a short discovery call we give you a fixed estimate, so there are no surprises later.
+
+**How long does it take to build custom software?**
+A minimum viable version usually takes 6–12 weeks. We deliver larger platforms in phases, so you get something usable early and we refine the rest based on real feedback.
+
+**Do I own the source code?**
+Yes. You get full ownership of the source code, the documentation and the infrastructure. There's no vendor lock-in.
+
+**Can you work with the systems we already use?**
+Usually, yes. We integrate with CRMs, ERPs, accounting, payment and shipping tools through their APIs, and we can import data from spreadsheets and older databases. If a system has no API, we'll find the safest workaround during discovery.
+
+**Should we build custom software or buy an off-the-shelf tool?**
+Buy when an existing product fits your workflow well and per-seat costs stay reasonable. Build when your process is a competitive advantage, when you're stitching several tools together, or when licence fees keep growing. We'll tell you which on the discovery call, even if the answer is to buy.
+
+**What happens after launch?**
+We monitor the system, fix issues fast and keep improving it through a monthly care plan. You can also take it in-house at any time: everything is documented and you own all of it.
+
+### E-commerce Development
+
+Page: https://arrowbin.com/services/ecommerce-development
+
+Online stores and headless commerce that load fast and turn more browsers into buyers.
+
+E-commerce development is building a fast, conversion-focused online store, from storefront and checkout through to payments, inventory and the integrations behind them. Arrowbin builds headless, Shopify and custom stores for brands and retailers: a Shopify store typically launches in 3–6 weeks, and a headless storefront in about 8–12.
+
+Arrowbin is an e-commerce development company that builds fast, conversion-focused online stores: headless storefronts, Shopify stores and fully custom commerce platforms. Every decision comes back to one thing: turning visitors into customers.
+
+What we build:
+- Custom Shopify storefronts
+- Headless commerce (Next.js)
+- Subscription & membership stores
+- Payment gateway integration
+- Inventory & ERP integration
+- Conversion rate optimization
+
+Technologies: Shopify, Next.js, Stripe, Medusa, Sanity, Tailwind CSS
+
+Process:
+1. Strategy: We map out your catalog, your funnel and the conversion goals that matter.
+2. Design: We design a storefront that sells, with the looks to match.
+3. Build & integrate: We wire up payments, shipping and inventory so the whole thing runs.
+4. Optimize: After launch we measure what's working, test changes and lift conversion.
+
+Questions and answers:
+
+**Which e-commerce platform is best for my business?**
+For most stores, Shopify is the fastest way to launch. If you need full design control, a complex catalog or top-end performance, a headless storefront on Next.js usually wins. We'll point you to the right one once we understand your catalog and goals.
+
+**Can you migrate my existing store without losing SEO?**
+Yes. We move your products, content and customers across, with 301 redirects and careful URL mapping so your search rankings hold.
+
+**Will my store be fast and mobile-friendly?**
+Yes. We build mobile-first storefronts that pass Core Web Vitals, and that speed helps both your conversions and your Google rankings.
+
+**Can you add bKash, Nagad or cash on delivery?**
+Yes. We integrate local gateways like bKash, Nagad, Rocket and SSLCommerz, plus cash on delivery with order confirmation, alongside Stripe, PayPal and card payments for international buyers.
+
+**How long does it take to build an online store?**
+A Shopify store typically launches in 3–6 weeks. A headless storefront takes around 8–12 weeks, and a fully custom platform 12 weeks or more. We can launch a focused first version sooner and add features after.
+
+**Will I be able to manage products and orders myself?**
+Yes. Your team gets an easy admin for products, prices, stock, orders and content, and we train you on it before launch. No developer needed for day-to-day changes.
+
+### Mobile App Development
+
+Page: https://arrowbin.com/services/mobile-app-development
+
+Native-quality iOS and Android apps from a single codebase, built to feel fast.
+
+Mobile app development is designing and building native or cross-platform apps for iOS and Android that are fast, intuitive and ready to scale as your user base grows. Arrowbin builds them for startups and businesses taking a product to mobile, and a focused MVP usually reaches the stores in 10–16 weeks.
+
+As a mobile app development company, we design and build apps people want to open: fast, intuitive and reliable across devices. With cross-platform tools we ship native-quality iOS and Android apps from one codebase, which keeps your cost and time to market down.
+
+What we build:
+- iOS & Android apps
+- Cross-platform (React Native / Flutter)
+- App UI/UX design
+- Backend & API development
+- Push notifications & analytics
+- App store deployment
+
+Technologies: React Native, Flutter, Swift, Kotlin, Firebase, Expo
+
+Process:
+1. Define: We agree on the feature set, the platforms and what the MVP needs to do.
+2. Design: We prototype the flows and the interface before any code.
+3. Develop: We build, integrate and test on real devices, where the bugs show up.
+4. Ship & iterate: We launch to the stores, then improve the app based on how people use it.
+
+Questions and answers:
+
+**Should I build a native or cross-platform app?**
+For most products, cross-platform (React Native or Flutter) gives you native-quality results from one codebase and saves 30–40% versus building each platform separately. We only push for fully native when an app is heavy on performance or hardware.
+
+**How much does it cost to build a mobile app?**
+A polished MVP usually lands between $12,000 and $40,000, depending on the features and integrations. We give you a fixed estimate once the core feature set is defined.
+
+**Do you handle App Store and Google Play submission?**
+Yes. We handle the whole release: store listings, review compliance, builds and updates, so your app goes live without the usual headaches.
+
+**How long does it take to build a mobile app?**
+A focused MVP usually takes 10–16 weeks from kickoff to the stores: about 1–2 weeks defining scope, 2–3 weeks of design and 6–10 weeks of development and testing. Store review then takes anywhere from a day to a week.
+
+**Can the app work offline?**
+Yes. We cache the data people need most, queue their actions while they're offline, and sync everything when the connection returns, so the app stays usable on a poor network.
+
+**Who owns the app and the store accounts?**
+You do. The source code, the App Store and Google Play developer accounts and all app data belong to you. We work inside your accounts, never ours.
+
+### SaaS / Product Engineering
+
+Page: https://arrowbin.com/services/saas-product-engineering
+
+From MVP to scale, we engineer SaaS products with multi-tenancy, billing and analytics built in.
+
+SaaS product engineering is building a multi-tenant software-as-a-service product end to end: accounts, subscription billing, dashboards and the reliability customers expect from something they pay for every month. Arrowbin builds SaaS MVPs for founders and for teams turning an internal tool into a product; a focused MVP usually launches in 8–14 weeks.
+
+We're a SaaS development company that works as your product engineering team through a long run of decisions, most of them easy to get wrong. We validate an MVP quickly, then scale it with the multi-tenancy, billing, security and observability a real SaaS business depends on.
+
+What we build:
+- MVP development
+- Multi-tenant SaaS architecture
+- Subscription & billing (Stripe)
+- Admin & analytics dashboards
+- Role-based access & teams
+- Scaling & performance engineering
+
+Technologies: Next.js, Node.js, PostgreSQL, Stripe, Redis, AWS, Vercel
+
+Process:
+1. Validate: We pin down the smallest product that proves your idea works.
+2. Build MVP: We ship a focused first version you can start selling.
+3. Scale: We harden the architecture, billing and security for real traffic.
+4. Grow: We keep adding features, guided by how customers really use the product.
+
+Questions and answers:
+
+**How long does it take to build a SaaS MVP?**
+A focused SaaS MVP usually takes 8–14 weeks to launch. We build the core workflow that proves value first, then expand once you have paying users and their feedback to work from.
+
+**Can you take over an existing SaaS codebase?**
+Yes. We regularly audit, refactor and scale products other teams started. In most cases we can improve performance and reliability without a full rewrite.
+
+**Do you help with subscriptions and billing?**
+Yes. We set up plans, trials, metered usage and the full Stripe billing lifecycle, including invoicing and dunning.
+
+**What goes into a SaaS MVP, and what should wait?**
+Your core workflow, sign-up and login, and billing go in from day one, usually with a simple onboarding flow and an admin view. Teams and roles, public APIs, SSO, white-labelling and native apps can usually wait until paying customers ask for them.
+
+**Which tech stack do you use for SaaS products?**
+Usually Next.js and Node.js with PostgreSQL, Redis for caching and queues, Stripe for billing, and AWS or Vercel for hosting. It's a proven, well-supported stack that's easy to hire for later. If you already have a stack, we work with it.
+
+**Is the product secure and ready for bigger customers?**
+Yes. We build in tenant isolation, role-based access, encryption, 2FA and audit logs, and add SSO when enterprise buyers need it. We also set up monitoring, alerts and daily backups so issues are caught early.
+
+**Do we own the code and the product?**
+Yes. You own 100% of the source code, accounts and infrastructure from day one. There's no lock-in, and we document everything so your own team can take over at any point.
+
+### UI/UX Design
+
+Page: https://arrowbin.com/services/ui-ux-design
+
+Research-driven product design that looks sharp, stays accessible and is built to convert.
+
+UI/UX design is shaping how a product looks and works, through research, user flows, wireframes and a polished interface, so it's intuitive, on-brand and built to convert. Arrowbin designs web and mobile apps for founders and product teams, and a focused product or website usually takes 4–8 weeks from research to dev-ready designs.
+
+As a UI/UX design agency, we aim for design users never notice because it just works. We combine user research, clean visual design and UX patterns that have earned their keep to create interfaces that feel effortless, build trust and turn visitors into customers.
+
+What we build:
+- UX research & user flows
+- Wireframes & prototypes
+- High-fidelity UI design
+- Design systems & component libraries
+- Web & mobile app design
+- Usability testing & audits
+
+Technologies: Figma, Design Systems, Prototyping, WCAG 2.2, User Research
+
+Process:
+1. Research: We get to know your users, your goals and who you're up against.
+2. Wireframe: We work out the flows and layouts before anyone touches visuals.
+3. Design: We turn the wireframes into polished, on-brand interfaces.
+4. Handoff: We hand over dev-ready files and a design system your team can build on.
+
+Questions and answers:
+
+**What's the difference between UI and UX design?**
+UX (user experience) design is about how a product works: the flows, the structure, whether people can get things done. UI (user interface) design is about how it looks, from visual style to typography and components. We do both as one process rather than handing them off between teams.
+
+**Do you provide developer-ready design files?**
+Yes. You get organized Figma files with components, tokens and specs, plus a design system your developers can build from directly.
+
+**Can you redesign my existing product?**
+Yes. We start with a UX audit to find where users get stuck, then redesign against measurable goals like higher conversion and better retention.
+
+**How long does a UI/UX design project take?**
+A focused product or website usually takes 4–8 weeks from research to dev-ready designs. A UX audit of an existing product takes 1–2 weeks. Larger platforms with a full design system take longer, and we agree the timeline up front.
+
+**Do you design for accessibility?**
+Yes, always. We design to WCAG 2.2 AA: readable contrast, clear focus states, large enough tap targets, proper labels and error messages. It makes the product better for everyone, not only people using assistive tech.
+
+**Can your team also build what you design?**
+Yes. Designers and engineers work on the same team, so designs are made to be built and nothing gets lost in handoff. You can also take the Figma files and design system to your own developers.
+
+**What will we receive?**
+User flows, wireframes, a clickable prototype, final screens for every state and breakpoint, and a design system with components and tokens in Figma. You own all of it.
+
+### AI Automation
+
+Page: https://arrowbin.com/services/ai-automation
+
+Put AI to work with custom assistants, agents and automations that save your team hours.
+
+AI automation uses AI and workflow automation to take manual, repetitive work off your team, from data entry and document processing to chat and decision support. Arrowbin builds it for small and growing businesses: a working prototype on your real data usually takes 2–3 weeks, and taking it into production another 3–6.
+
+Arrowbin is an AI automation agency for small businesses, and we only build AI that solves a real problem: assistants, agents, document processing and LLM integrations that take repetitive work off your team's plate.
+
+What we build:
+- Custom AI chatbots & assistants
+- AI agents & workflow automation
+- RAG & knowledge-base search
+- Document & data processing
+- LLM API integration
+- AI-powered features in your app
+
+Technologies: OpenAI, Anthropic Claude, LangChain, Vector DBs, Python, Node.js
+
+Process:
+1. Identify: We find the automation with the biggest payback and start there.
+2. Prototype: We build a proof of concept to check the value is real before going further.
+3. Integrate: We connect the AI to your tools and data, with security handled properly.
+4. Refine: We watch the output quality and tighten accuracy as the system runs.
+
+Questions and answers:
+
+**What can AI automation do for my business?**
+Some of the highest-value uses we see are customer support chatbots, automated document and data processing, content generation, lead qualification and internal knowledge assistants. We focus on the ones with a clear, measurable return rather than novelty.
+
+**Is my data safe when using AI?**
+Yes. We use enterprise AI APIs that don't train on your data, keep sensitive information isolated, and can run private or on-prem models when a project calls for it.
+
+**Will AI give accurate answers about my business?**
+We use retrieval-augmented generation (RAG), so the AI answers from your verified content and documents. That cuts down sharply on incorrect or made-up responses.
+
+**How much does an AI automation project cost?**
+A focused first automation, such as invoice processing or support triage, typically starts around $10,000–$15,000 including a year of running costs. Larger agent systems cost more. We size it against the time it saves, so you can see the payback before you commit.
+
+**How long does it take to build?**
+A working prototype on your real data usually takes 2–3 weeks. Taking it into production with integrations, security and monitoring adds another 3–6 weeks.
+
+**Which AI models do you use?**
+We pick the model for the job: Anthropic Claude and OpenAI for most language tasks, and open-source or private models when data must stay in-house. We design it so you can switch models later without a rebuild.
+
+**Will AI replace my team?**
+That isn't how we design it. AI takes the repetitive part of the work, and anything uncertain or high-stakes goes to a person with a summary ready. Teams usually spend the time they get back on customers and harder problems.
+
+### Cloud, DevOps & Hosting
+
+Page: https://arrowbin.com/services/cloud-devops-hosting
+
+Reliable, secure cloud infrastructure with automated deployments and uptime you can count on.
+
+Cloud, DevOps and hosting is setting up reliable, scalable infrastructure and automated deployment pipelines, so your software ships faster, stays online and scales without nasty surprises. Arrowbin does this for teams with slow or fragile deployments: a typical setup takes 4–7 weeks from first review to automated deploys, then we keep it running.
+
+Our DevOps consulting services fix the slow deploys and fragile servers that hold good products back. We build secure, automated cloud infrastructure that's ready to scale, with CI/CD, monitoring and managed hosting that keep your product online.
+
+What we build:
+- Cloud architecture (AWS / GCP)
+- CI/CD pipeline setup
+- Managed hosting & deployment
+- Containerization (Docker / K8s)
+- Monitoring, logging & alerting
+- Infrastructure as code
+
+Technologies: AWS, Google Cloud, Vercel, Docker, Kubernetes, Terraform, GitHub Actions
+
+Process:
+1. Assess: We review your current setup and work out what it needs.
+2. Design: We architect a cloud setup that's secure and ready to scale.
+3. Automate: We put CI/CD, monitoring and infrastructure as code in place.
+4. Manage: We keep it running, with monitoring and support on hand.
+
+Questions and answers:
+
+**Which cloud provider should I use?**
+It depends on your stack and your team. AWS and Google Cloud suit complex systems that need to scale, while Vercel is excellent for fast, modern web apps. We'll recommend the right mix based on your product and budget.
+
+**Can you reduce my cloud bill?**
+Often, yes. We audit usage, right-size resources, add auto-scaling and clear out waste. That frequently cuts cloud costs by 20–40% while improving reliability at the same time.
+
+**Do you offer ongoing infrastructure management?**
+Yes. We offer managed DevOps with monitoring, security updates and on-call support, so your team can stay focused on the product.
+
+**Can you migrate us without downtime?**
+In almost all cases, yes. We run the new setup alongside the old one, sync the data, test it with real traffic and switch over in a planned window, with a rollback plan ready. Most migrations finish with no visible downtime.
+
+**What is CI/CD, and do we need it?**
+CI/CD automatically builds, tests and deploys every change. If you ship updates more than occasionally, yes: releases become routine instead of risky, bugs are caught before customers see them, and a bad release can be rolled back in seconds.
+
+**Do you work with our existing hosting provider?**
+Yes. We work with AWS, Google Cloud, Vercel, Hostinger, DigitalOcean and others. We only suggest moving if it clearly saves money or solves a real problem.
+
+**Will we own the infrastructure and accounts?**
+Yes. Everything runs in accounts you own, and it's defined as code (Terraform), so it's documented and reproducible. There's no lock-in to us.
+
+### Maintenance & Support
+
+Page: https://arrowbin.com/services/maintenance-support
+
+Keep your software fast, secure and improving with proactive maintenance and support.
+
+Software maintenance and support is keeping your product fast, secure and reliable after launch, through bug fixes, security patches, monitoring and ongoing improvements. Arrowbin runs it as a monthly plan for teams without in-house engineers or with inherited software: onboarding takes about a week, then the plan runs month to month.
+
+Because software is never finished, our software maintenance and support services keep your applications secure, fast and reliable: applying updates, fixing issues, watching performance and shipping a steady stream of improvements so your product keeps getting better long after launch.
+
+What we build:
+- Bug fixes & issue resolution
+- Security & dependency updates
+- Performance optimization
+- Uptime & error monitoring
+- Feature enhancements
+- Dedicated support with SLAs
+
+Technologies: Monitoring, Sentry, GitHub, Automated Testing, CI/CD
+
+Process:
+1. Onboard: We get to know your codebase, your stack and what matters most to you.
+2. Stabilize: We clear the urgent issues and harden the system against the next ones.
+3. Maintain: We monitor, update and support the product against an agreed SLA.
+4. Evolve: We keep shipping improvements and new features as you need them.
+
+Questions and answers:
+
+**Do you maintain software you didn't originally build?**
+Yes. We start with a code and infrastructure audit to understand the system, then take over maintenance with a clear plan to stabilize it and move it forward.
+
+**How does your support pricing work?**
+We work on monthly retainers sized to what you need, from essential security and uptime cover through to dedicated ongoing development. You get a predictable cost and a defined response SLA.
+
+**What's your response time for critical issues?**
+Critical, production-down issues get our attention immediately under the SLA, with response and resolution targets agreed in your plan.
+
+**What's included in a maintenance plan?**
+Every plan covers monitoring, security and dependency updates, backups, bug fixes and a monthly health report. Higher plans add faster response targets, 24/7 cover for critical issues and more development hours for improvements and new features.
+
+**Can we use the hours for new features?**
+Yes. Hours not needed for upkeep go into improvements and new features from a shared list we agree with you, so maintenance also moves the product forward.
+
+**Is there a minimum contract length?**
+Plans run month to month after a short onboarding period. You can change plan as your needs change, and if you ever leave, we hand over documentation and access cleanly.
+
+**What if our software is old or in bad shape?**
+That's common, and it's where we help most. We start with an audit, fix the urgent risks first, then modernise step by step, so there's no need for a risky big-bang rewrite.
+
+## Work
+
+Live client sites Arrowbin has built. Each was rebuilt from WordPress on Next.js. See [Work](https://arrowbin.com/work).
+
+- [Silent Lifestyle BD](https://silentlifestylebd.com/): A men's and women's fashion storefront for Bangladesh, built around cash-on-delivery ordering with phone confirmation, alongside bKash, Nagad and card payments. Tags: E-commerce, Fashion, Storefront.
+- [FlexOver BD](https://www.flexoverbd.com/): A multi-category online store covering fashion, gadgets, home and beauty, with cash on delivery, easy returns and nationwide delivery. Tags: E-commerce, Retail, UI/UX.
+- [North Bengal Agro Farms](https://nbafl.net/): Corporate and product website for an organic agro-export company, combining its brand story with online ordering. Tags: Corporate, E-commerce.
+- [Maneel Club](https://maneelclub.com/): An e-commerce storefront for a men's fashion brand, built mobile-first so shoppers can browse and check out quickly on a phone. Tags: E-commerce, Fashion.
+- [Brandingly](https://brandingly.agency/): A website for a full-service branding and marketing agency, tuned for fast load times and steady lead generation. Tags: Agency, Web Design, SEO.
+- [গ তে গয়না](https://gtegoyna.com.bd/): A handcrafted-jewelry storefront for traditional Bangladeshi pieces, with a mobile-first checkout flow. Tags: E-commerce, Storefront.
+- [YT Shop India](https://ytshopindia.com/): An online marketplace for buying and selling YouTube channels. Listings are verified and payments run through a secure transaction flow. Tags: Marketplace, E-commerce.
+- [OutNet](https://outnet.it.com/): A marketing site for a full-service digital agency that also works as its portfolio and main source of leads. Tags: Agency, Web Design.
+
+## Guides
+
+Practical guides by Md. Shishir Ahmed, newest first. Full articles are at each page link.
+
+### Is Your Vibe-Coded App Production Ready? A 2026 Checklist
+
+Page: https://arrowbin.com/blog/vibe-coded-app-production-ready
+
+Published October 15, 2026, by Md. Shishir Ahmed. 13 min read.
+
+TL;DR: A vibe-coded app is production ready when strangers can't read or change other users' data, secret keys never reach the browser, payments are verified and processed once, errors alert a person, and a backup has actually been restored. Database access rules and leaked keys are behind the public incidents so far, so check those first. Fix the app in place when its data model is sound; rebuild only the part whose data model, auth or payment flow is wrong at the root.
+
+Key takeaways:
+- A vibe-coded app is production ready once someone has checked its data access rules and secret keys, its payment handling, and whether a backup can actually be restored.
+- Missing database access rules are the most serious common gap; the public Lovable and Moltbook incidents both came down to Row Level Security.
+- The Supabase publishable key is meant to be public, while the secret key must never reach a browser, a shipped app or Git.
+- Payment webhooks need a signature check and a record of processed event IDs, because providers resend events.
+- Fix in place when the data model is sound; rebuild only the module whose data model, auth or payment flow is wrong at the root.
+- Bring in an engineer before you charge money or store sensitive data, and keep AI tools for drafts that go through review.
+- Restore a backup at least once before launch. Until you do, you don't know your recovery time.
+
+Questions and answers:
+
+**Is Lovable safe for production?**
+It can be, but safety depends on configuration rather than the platform. Every table needs correct Row Level Security, secrets have to stay server-side, and auth settings should allow only your real domain. Lovable's own documentation says its scanners cannot guarantee complete security, so get a human review before you handle payments or personal data.
+
+**Can I keep using AI coding tools after a developer cleans up my app?**
+Yes. Keep them for prototyping new screens and small changes. The rule is that every change gets reviewed and tested before it goes out through the deploy pipeline.
+
+**How long does it take to make a vibe-coded app production ready?**
+It depends on what the audit finds. Missing guards like RLS policies or webhook checks can take days, while a wrong data model or auth flow can take weeks. Get a written audit before you agree a timeline.
+
+**What is the biggest security risk in AI-built apps?**
+Data access rules. Public keys are designed to sit in the browser, so the real risk is a database that trusts them without row-level rules. That is what the reported Lovable and Moltbook exposures had in common.
+
+**Do I need to switch frameworks to fix an AI-built app?**
+Usually not. Most fixes happen inside the existing stack, especially if it's React or Next.js on Postgres. Change frameworks only when the current one blocks a hard requirement you can name.
+
+**What should I prepare before hiring someone to fix my app?**
+Repository access, a list of the user flows that must keep working, admin access to your hosting and database accounts, and any errors users have reported. With those, an audit can start on day one.
+
+**What is a vibe coding cleanup specialist?**
+A developer or team that takes over AI-generated code and makes it fit for production, starting with an audit. The job title is new, but the work is ordinary senior engineering. It means security review and access rules first, then tests and a deploy pipeline.
+
+**Is building an MVP with AI tools a waste of money?**
+No. It's a cheap way to test whether anyone wants the product. The cost comes later, if the app handles payments or personal data without anyone reviewing it.
+
+### WordPress to Next.js Migration: Steps, SEO and Cost Drivers
+
+Page: https://arrowbin.com/blog/wordpress-to-nextjs-migration
+
+Published October 15, 2026, by Md. Shishir Ahmed. 15 min read.
+
+TL;DR: A WordPress to Next.js migration pays off when slow pages, plugin upkeep or custom features are costing you money, and it's rarely worth it when editors publish daily on a site that already works. Most of the risk sits in the URLs: map every old address, give each one a permanent 308 redirect to its closest new page or a 410 Gone if you removed it on purpose, and keep those redirects for at least a year. Google says to expect temporary ranking movement during any site move, so settle the redirect map and the plan for plugins and store data before anyone writes code.
+
+Key takeaways:
+- Move to Next.js when speed, plugin upkeep or custom features cost you money; stay on WordPress when editors publish daily and the site works.
+- The redirect map is the migration: every old URL gets a 308 to its closest new page, or a 410 if it was removed on purpose.
+- Next.js returns 308 for permanent redirects, and Google treats 308 the same as 301.
+- Keep redirects for at least a year, and expect rankings to move for a few weeks even when the move is done right.
+- List what every plugin actually does before you start; SEO and form plugins often carry hidden jobs like redirects and stored leads.
+- For a WooCommerce store, decide how order history and customer logins will move before choosing a storefront.
+- Next.js removes the public admin and plugin layer, but its dependencies and API routes still need patching and care.
+
+Questions and answers:
+
+**Will I lose my Google rankings if I move to Next.js?**
+Some movement is normal, and Google's own site-move guide says to expect temporary fluctuation. What protects rankings over time is a complete set of permanent redirects to the closest matching pages, kept for at least a year, plus canonical tags and internal links that point at the new URLs.
+
+**Can my team keep editing in WordPress after the move?**
+Yes, with a headless setup. Editors keep the WordPress admin and its revision history, and Next.js renders the public site. Preview and instant publishing need extra wiring through draft mode and on-demand revalidation, so budget time for them.
+
+**Should I use 301 or 308 redirects?**
+Either is fine for Google, which treats a 308 as equivalent to a 301. Next.js sends a 308 when a redirect is marked permanent in next.config, and there's no reason to change it.
+
+**What should happen to old pages I'm deleting?**
+If a close equivalent exists, redirect to it. If the page is gone on purpose and nothing replaces it, return 410 Gone. Don't point hundreds of dead URLs at the homepage, which Google's site-move guide specifically warns against.
+
+**Is Next.js faster than WordPress?**
+It can be, because pages can be pre-rendered and served from a CDN with little JavaScript. A badly built Next.js site can still be slow, so measure Core Web Vitals before and after the move instead of assuming.
+
+**Can a WooCommerce store move to Next.js?**
+Yes. You can keep WooCommerce as the back end and build a Next.js storefront on its Store API, or move products and checkout to another system entirely. Plan order history and customer accounts before you pick a route.
+
+**Do I need Vercel to host a Next.js site?**
+No. Next.js runs on any Node.js server or in a Docker container with full feature support. Check your platform's limits, though: Vercel, for example, caps redirects defined in next.config at 1,024.
+
+**How many redirects can Next.js handle?**
+The redirects list in next.config works well for a map known in advance, and one pattern rule can cover thousands of WordPress date-based post URLs. For more than about a thousand individual rows, the Next.js docs suggest a lookup in Proxy instead.
+
+### Bangladesh Payment Gateway Integration: bKash vs SSLCommerz
+
+Page: https://arrowbin.com/blog/payment-gateway-integration-bangladesh
+
+Published October 15, 2026, by Md. Shishir Ahmed. 15 min read.
+
+TL;DR: For most Bangladeshi online stores, the right setup is cash on delivery plus one aggregator such as SSLCommerz, which takes cards and the main mobile wallets through a single integration. SSLCommerz lists a Tk 25,500 Basic plan (non-refundable) and 2.5% per successful transaction, 3.5% for AMEX, as of October 15, 2026. Add a direct bKash integration once bKash carries most of your online payments. Whichever you pick, mark an order paid only after your server has validated the payment with the gateway.
+
+Key takeaways:
+- Most Bangladeshi stores need cash on delivery plus bKash and Nagad at checkout, with cards for shoppers who want them.
+- An aggregator such as SSLCommerz gives you cards and wallets through one contract and one integration.
+- SSLCommerz lists a Tk 25,500 non-refundable Basic plan and 2.5% per successful transaction (3.5% for AMEX), as of October 15, 2026.
+- Go direct with bKash when it carries most of your online payments and you want saved wallets or auth-and-capture.
+- Never mark an order paid from the redirect; validate the payment on your server and check the amount against your database.
+- On bKash, never retry Execute after a timeout; call Query Payment first and act on its status.
+- Reconcile every paid order against the gateway's settlement report each day.
+
+Questions and answers:
+
+**Which is the best payment gateway in Bangladesh for an ecommerce website?**
+There isn't one best gateway for every store. An aggregator such as SSLCommerz covers cards and the main mobile wallets with one integration, which suits most new stores. A direct bKash integration makes sense once bKash carries most of your online payments.
+
+**Can I accept bKash on my website without a payment gateway?**
+You can ask customers to send money to a bKash number, but that isn't an integrated payment. Your store can't verify it, match it to an order or refund it automatically, so someone has to check every payment by hand. A merchant integration, direct or through an aggregator, does that work for you.
+
+**Does Shopify Payments work in Bangladesh?**
+No. Bangladesh isn't on Shopify Payments' supported-countries list, and Shopify says stores in unlisted countries need a third-party payment provider. SSLCOMMERZ has a free app on the Shopify App Store for this.
+
+**How much does SSLCommerz charge per transaction?**
+SSLCommerz's pricing page lists 2.5% per successful transaction and 3.5% for AMEX, plus a Tk 25,500 Basic plan marked non-refundable, as of October 15, 2026. On a Tk 2,000 order, 2.5% is Tk 50. Check the page again before you sign, because fees change.
+
+**Can I test bKash or SSLCommerz payments before going live?**
+Yes for SSLCommerz, which runs a public sandbox with test cards and OTPs that you can sign up for yourself. For bKash and Nagad, ask for test credentials during onboarding. Either way, test a success, a failure, a cancellation plus a timeout before you switch to live keys.
+
+**Why does a paid order sometimes show as unpaid?**
+Usually the shopper paid, then closed the tab or lost signal before the redirect back to your store. If only the redirect updates your orders, that payment never gets recorded. Listen for the gateway's server notification (IPN) and query the payment status of stuck orders.
+
+**Should a new Bangladeshi online store still offer cash on delivery?**
+Yes, for most stores. Keep it next to your online options, confirm COD orders before dispatch, and give shoppers a reason to pay online, such as a small discount where margins allow.
+
+**Can I use SSLCommerz and a direct bKash integration together?**
+Yes. SSLCommerz already includes bKash, so a separate direct bKash button is optional. Running both means two merchant accounts and two settlement reports to reconcile, so do it only when direct features such as saved wallets are worth the extra work.
+
+### How Much Does an AI Agent Cost for a Small Business in 2026?
+
+Page: https://arrowbin.com/blog/ai-agent-cost-small-business
+
+Published October 15, 2026, by Md. Shishir Ahmed. 15 min read.
+
+TL;DR: A small business can switch on an off-the-shelf AI agent for a subscription or a per-outcome fee (Intercom lists its Fin agent at $0.99 per outcome), while Arrowbin's published starting point for a focused custom automation is around $10,000–$15,000 including a year of running costs. The model fees themselves are usually small: for 3,000 conversations a month we worked out about $5 to $216 a month from the providers' price lists on October 15, 2026. What sets the real budget is how many systems the agent connects to, how much it may do without a person checking, and who keeps it accurate after launch.
+
+Key takeaways:
+- An AI agent's cost splits into setup or build, monthly running costs, and upkeep after launch.
+- Model fees are usually the smallest line: about $5 to $216 a month for 3,000 conversations in our worked example, at prices listed on October 15, 2026.
+- Integrations, and how much the agent may do without approval, drive build cost far more than the choice of model.
+- Off-the-shelf tools win when they already cover your channel; per-outcome pricing only gets expensive at volume.
+- Arrowbin's published starting point for a focused first custom automation is around $10,000–$15,000 including a year of running costs.
+- Model prices change on published dates, so recheck them and keep an evaluation set ready for every switch.
+- Start with one read-only workflow, measure it for a month on real traffic, then widen.
+
+Questions and answers:
+
+**What is the cheapest way for a small business to try an AI agent?**
+Switch on the AI agent inside a tool you already use, such as your helpdesk's website chat, and point it at your existing help content. Measure it for a month before paying for custom work. If it handles your common questions well, you may never need more.
+
+**Are AI model fees the biggest cost of running an agent?**
+Usually not at small-business volumes. In our worked example of 3,000 conversations a month, model fees ranged from about $5 to about $216 a month depending on the model. The build and the upkeep tend to cost far more.
+
+**Can an AI agent take payments or issue refunds?**
+It can be connected to do both, but we don't recommend letting it act alone on money. Keep a person approving anything that moves money or commits you legally, and let the agent prepare the case so approval takes seconds.
+
+**Will an AI agent replace my staff?**
+For most small businesses it takes repetitive questions and data entry off people's plates. Someone still has to handle exceptions, check its work and keep its knowledge current, so plan for changed roles rather than an empty desk.
+
+**Is customer data safe with an AI agent?**
+It depends on the provider's data terms and how the agent is built. Check where conversation data is stored, whether the provider uses it for training, how long logs are kept and who on your team can read them. Get those answers in writing before launch.
+
+**How quickly can a custom AI agent go live?**
+It depends on integrations and how much the agent may do on its own. Arrowbin's published estimate is 2–3 weeks for a working prototype on your real data, then another 3–6 weeks to take it into production with integrations, security and monitoring.
+
+**Which AI model should a small business pick for an agent?**
+Start with the smallest model that passes your evaluation set, because it's the cheapest to run and usually the fastest. Move a specific step to a larger model only where the small one keeps failing, and recheck prices before you commit.
+
+**Do AI model prices go up or down over time?**
+Both happen. Google's pricing page lists Gemini 3.6 Flash prices doubling on January 1, 2027, while Anthropic's page says Claude Sonnet 5 kept its $2 / $10 introductory price instead of rising as first scheduled. Date any price you rely on and check it again before signing a contract.
+
+### MVP Development Cost in 2026: How to Work Out Your Budget
+
+Page: https://arrowbin.com/blog/mvp-development-cost
+
+Published October 15, 2026, by Md. Shishir Ahmed. 12 min read.
+
+TL;DR: By Arrowbin's estimate, a lean MVP that does one workflow well costs $5,000–$30,000 to build in 2026, and a polished, launch-ready MVP for most businesses costs $40,000–$120,000. The number is mostly build weeks times team size times rate, so scope drives it, with integrations and extra platforms close behind. Set aside roughly 15–20% of the build cost each year to run it, and test demand with a cheap prototype first when you can.
+
+Key takeaways:
+- By Arrowbin's estimate, a lean MVP costs $5,000–$30,000 in 2026 and a polished, launch-ready MVP or app costs $40,000–$120,000.
+- MVP budget = build weeks × team size × weekly rate, plus launch costs and year-one running costs. The build term is almost all of it.
+- On a $60,000, 14-week SaaS MVP, each week of scope is worth about $4,300, so cutting scope is the most direct way to cut cost.
+- About half of an MVP budget is development. The rest pays for discovery and design up front, then QA and project management during the build.
+- Keep the core workflow, fake expensive back-office features by hand, and cut extra roles and second platforms from version one.
+- A no-code or AI-built prototype can test demand for a monthly subscription, but it needs hardening before it handles payments or personal data.
+- After launch, set aside roughly 15–20% of the build cost a year to run the product, plus a separate budget for version two.
+
+Questions and answers:
+
+**Can I build an MVP for under $10,000?**
+Sometimes. A narrow single-workflow tool built on a reused design system with hosted login can land there, and so can a no-code or AI-built prototype. Expect one platform and few integrations. Be ready to rebuild parts of it if it takes off.
+
+**Is a very cheap MVP quote a red flag?**
+Not on its own, but check what it leaves out. Divide the total by the number of weeks and ask how many people are on the team. Then check that discovery and QA show up as their own lines. A low quote with none of those usually means the cost turns up later as rework.
+
+**Should my MVP be a web app or a mobile app?**
+Web first, in most cases. A responsive web app works on phones, ships from one codebase and skips app store review. Go mobile first only when the product depends on phone features such as the camera, location or push notifications.
+
+**What does it cost to put an MVP on the App Store and Google Play?**
+Apple's Developer Program is 99 USD per membership year, and prices can vary by region. Google Play charges a one-time US$25 registration fee. Those are only the account fees; the bigger cost of a mobile MVP is building and testing for each platform.
+
+**Are freelancers cheaper for building an MVP?**
+Often per hour, not always per project. With freelancers you become the project manager and the QA lead, and you're the one who joins design to code. If someone leaves mid-build, continuity is your problem too.
+
+**Do I need a technical co-founder before paying for an MVP?**
+Not to get it built. You do need someone who can make technical decisions after launch, read a quote critically and hold the code and accounts. That can be a co-founder, a fractional CTO or a development partner you trust.
+
+**How do I stop an MVP budget from growing during the build?**
+Lock the feature list after discovery and keep a written list of what's out of scope. Put new ideas on a version-two list instead of into the current sprint, and ask for a price before you approve any change. Weekly demos help because you see drift early.
+
+**How much money should I keep back after the MVP launches?**
+As a rule of thumb, roughly 15–20% of the build cost per year to run and maintain it (an Arrowbin estimate), plus a separate budget for the features users ask for. On a $60,000 build that's about $9,000–$12,000 a year before any new features.
+
+### Shopify vs Custom Ecommerce Website: Which Wins in 2026?
+
+Page: https://arrowbin.com/blog/shopify-vs-custom-ecommerce
+
+Published October 15, 2026, by Md. Shishir Ahmed. 14 min read.
+
+TL;DR: Choose Shopify if you want to launch fast with a standard catalog and checkout: for most stores it's the cheaper option, and where Shopify Payments is available its platform cost is just the subscription. Choose a custom store when your checkout, pricing, integrations or local payment flows don't fit Shopify. On fees alone, a custom build (our estimate: $30,000 to $90,000, plus 15–20% a year to run) only catches the best Shopify plan at about $142,000 a month in gateway-paid sales. In Bangladesh, where Shopify Payments isn't available, Shopify adds 2% on Basic or 1% on Grow to every gateway-paid order, on top of the gateway's own fee.
+
+Key takeaways:
+- Shopify is the right start for most new stores: it launches fast, runs a hosted checkout and leaves you no servers to patch.
+- Shopify's third-party fee (2% Basic, 1% Grow, 0.6% Advanced, 0.2% Plus) only applies when Shopify Payments doesn't process the order.
+- Card processing is paid on every platform, so don't count it as a Shopify cost when you compare.
+- On fees alone, the cheapest custom build in our estimate only catches the best Shopify plan at about $142,000 a month in gateway-paid sales.
+- Go custom for capability: checkout changes, complex pricing, deep integrations or local payment flows Shopify handles poorly.
+- In Bangladesh, gateway-paid orders on Shopify carry its fee plus the gateway's, while cash on delivery orders carry no Shopify fee.
+- Shopify leads on AI shopping channels today; a custom store needs server-rendered pages and a product feed, plus structured data, to match it.
+
+Questions and answers:
+
+**Is Shopify cheaper than a custom website?**
+Usually yes, and by a wide margin in the first few years. With Shopify Payments, Shopify's platform cost is just the subscription. Without it, the third-party fee grows with your sales, but by our estimate a custom build only catches up at around $142,000 a month in gateway-paid sales.
+
+**Does Shopify charge a fee if I use my own payment gateway?**
+Yes. Shopify's pricing page on October 15, 2026 listed a third-party transaction fee of 2% on Basic, 1% on Grow, 0.6% on Advanced and 0.2% on Plus. It's charged on top of your gateway's own processing fee.
+
+**Can I use bKash or Nagad on Shopify?**
+Only through a third-party payment provider with a Shopify payments app, because Shopify Payments isn't available in Bangladesh. SSLCommerz's pricing page covers bKash and Nagad at its 2.5% standard rate, but confirm that the provider's Shopify app offers the wallets you need before you build around it.
+
+**Does Shopify take its extra fee on cash on delivery orders?**
+No. Shopify's help center says you aren't charged third-party transaction fees for manual payments, and cash on delivery is a manual payment method. The extra fee applies to orders paid through a third-party gateway.
+
+**Will a custom store load faster than a Shopify one?**
+It can be, because you control every script and how each page renders. It's only faster if it's built and maintained well. A heavy custom build can easily be slower than a lean Shopify theme.
+
+**Can I move from Shopify to a custom store later?**
+Yes. Products and customers export as CSV files, and the real work is in URL redirects and customer accounts, then app data and order history. Plan the redirects first, because they protect your search rankings.
+
+**Should I pick WooCommerce instead of Shopify or custom?**
+Pick it if you already run WordPress and someone on your team will keep plugins patched. It has no monthly platform fee, but plugins account for most new WordPress security issues, so budget for maintenance.
+
+**Which platform is better for selling through ChatGPT?**
+Shopify, if you want it working this week, because Agentic Storefronts connect your catalog from the admin. A custom store gets there with server-rendered product pages and a product feed backed by structured data, or by using Shopify's Agentic plan next to your own site.
+
+### How to Get Your Products on ChatGPT Shopping (Any Platform)
+
+Page: https://arrowbin.com/blog/chatgpt-shopping-for-online-stores
+
+Published October 15, 2026, by Md. Shishir Ahmed. 15 min read.
+
+TL;DR: To get your products into ChatGPT shopping answers, make your product pages readable to OpenAI's search crawler, OAI-SearchBot, and get your catalog into a feed ChatGPT uses: directly through OpenAI's merchant program (approved partners only as of October 15, 2026) or through a platform such as Shopify Catalog. You don't need Shopify. Server-rendered product pages with complete Product and Offer markup work for WooCommerce and custom stores too, as do a clean Google Merchant Center feed and sensible crawler rules. Since OpenAI's March 2026 change, merchants can use their own checkout, so the job is to be found and to be right about price and stock.
+
+Key takeaways:
+- Since March 2026, OpenAI lets merchants use their own checkout and focuses ChatGPT on product discovery, so being found and being accurate matter more than in-chat buying.
+- Products reach AI assistants through crawled product pages, through product feeds, or through platform catalogs such as Shopify Catalog.
+- You don't need Shopify, but you do need server-rendered product pages: in Vercel's 2024 crawler study, ChatGPT's and Claude's crawlers didn't run JavaScript.
+- Complete Product and Offer markup (a price above zero with its currency, stock status, shipping, returns) helps in Google and mirrors what OpenAI's feed asks for.
+- Allow OAI-SearchBot in robots.txt, then check your CDN, because the edge can block crawlers that robots.txt invites.
+- OpenAI's direct feed is approval-only as of October 2026, so a clean Google Merchant Center feed is the best first step for most stores.
+- Track the GA4 AI Assistant channel and expect it to undercount sales that started in an AI chat.
+
+Questions and answers:
+
+**Can I sell in ChatGPT without a Shopify store?**
+Yes. Products from any platform can appear in ChatGPT shopping answers if OAI-SearchBot can read accurate, server-rendered product pages. A direct product feed needs approval through OpenAI's merchant program, and Shopify's Agentic plan is another route that lets you keep your current platform.
+
+**Does ChatGPT charge merchants to list products?**
+OpenAI's commerce docs, as we read them, list no listing fee, and they treat ads as a separate program with its own requirements. Shopify says ChatGPT sales through Agentic Storefronts carry no transaction fees beyond standard processing rates. If OpenAI accepts you into its feed program, read the terms you're offered.
+
+**Should I block GPTBot to protect my product content?**
+Blocking GPTBot is a content-licensing decision. It tells OpenAI not to use your content for model training, while ChatGPT search relies on a different crawler, OAI-SearchBot. You can block GPTBot and still appear in ChatGPT search, as long as OAI-SearchBot stays allowed.
+
+**If my product pages have structured data, do I still need a feed?**
+You don't need a feed to be crawled, but a feed gives assistants fresher price and stock data. Third-party tracking published in September 2026 suggests feeds now supply most of the ChatGPT Shopping picks it follows. Keep the feed and the page saying exactly the same thing.
+
+**Why don't my products show up in AI shopping results?**
+Usually it's prices that only render in the browser, crawlers blocked by robots.txt or a CDN rule, missing or conflicting Product markup, and missing shipping or return details. For ChatGPT, not having a connected feed is increasingly a cause too. Check them in that order.
+
+**What's the difference between ACP and UCP?**
+Both are open protocols under Apache 2.0 for checkouts run by AI agents. ACP was developed by Stripe and OpenAI and is used in ChatGPT. UCP was launched by Google with retailers including Shopify and Walmart, powers checkout in AI Mode and Gemini, and Microsoft asks for UCP-ready feeds for Copilot Checkout.
+
+**Does any of this matter for stores in Bangladesh?**
+The crawlability and product data steps apply in any market, because readable pages and open crawler access help everywhere. Checkout programs, though, are limited to certain markets, such as US buyers for Copilot Checkout and products eligible in the US, Canada or Australia for Google's UCP checkout. Check availability for your country before planning around them.
+
+**How long do robots.txt changes take to reach ChatGPT?**
+OpenAI says it can take about 24 hours from a robots.txt update for its systems to adjust. If you also changed CDN or firewall rules, those apply straight away, so test with the crawler's user agent after both changes.
+
+### SaaS Development Cost in 2026: From MVP to Full Platform
+
+Page: https://arrowbin.com/blog/saas-development-cost
+
+Published October 15, 2026, by Md. Shishir Ahmed. 13 min read.
+
+TL;DR: A focused SaaS MVP comes to around $60,000 in Arrowbin's illustrative 14-week example, and a full multi-tenant SaaS platform costs $80,000–$200,000 over 5–9 months on our estimates. The jump comes from SaaS-only work such as tenant isolation and subscription billing, and later from enterprise extras like SSO and audit logs. After launch, plan on 15–20% of the build cost a year for maintenance plus hosting and tool plans, and give payment fees their own line because they grow with revenue: on published US prices, Stripe takes about 4.2% of a $50 monthly plan.
+
+Key takeaways:
+- On Arrowbin's estimates, a full multi-tenant SaaS platform costs $80,000–$200,000 over 5–9 months, and our illustrative SaaS MVP is $60,000 over roughly 14 weeks.
+- SaaS-only work is what moves a budget from MVP toward platform: tenant isolation and billing first, enterprise extras such as SSO and audit logs later.
+- Tenant isolation and billing belong in the first version; most other SaaS features can wait until paying customers ask for them.
+- On US cards, Stripe processing plus Stripe Billing takes 4.2% of a $50 monthly charge, more on cheap plans and international cards.
+- A small SaaS stack (two Vercel Pro seats, Supabase Pro, Resend Pro, Sentry Team) starts around $111 a month in plan fees, before usage.
+- Budget 15–20% of the build cost a year for maintenance plus hosting and tool plans (Arrowbin estimate), and give payment fees and new features their own lines.
+- If Stripe doesn't support your country, settle the payment provider and company setup before any billing work starts.
+
+Questions and answers:
+
+**Is $50,000 enough to build a SaaS?**
+Possibly, if the first version is one core workflow plus sign-up and billing, and very little else. Our illustrative SaaS MVP example is $60,000, and our band for a polished, launch-ready MVP or app is $40,000–$120,000, so going under $50,000 means a tight scope. Our custom software cost guide covers the smaller tiers.
+
+**Is 8–14 weeks realistic for a SaaS MVP?**
+Yes, for a focused one: that's our usual range when the first version is one core workflow with sign-up and billing. A complex, multi-tenant SaaS MVP takes 14–20 weeks, and a full SaaS platform is a 5–9 month build on our estimates.
+
+**What does Stripe cost for a SaaS business?**
+For US domestic cards, Stripe lists 2.9% + 30¢ per successful charge, and Stripe Billing on pay-as-you-go adds 0.7% of Billing volume, per its pricing pages on October 15, 2026. International cards add 1.5%, and currency conversion adds another 1%.
+
+**Do I need multi-tenancy from day one?**
+You need tenant isolation from day one if customers' data shares one system, because adding it later means migrating every table that holds customer data. Team management and roles can come later, once customers ask.
+
+**When should a SaaS add single sign-on?**
+When an enterprise buyer asks for it, usually during a security review. Before that it's cost without revenue. If you buy rather than build it, WorkOS lists $125 per connection a month for the first 15 connections.
+
+**What are the biggest hidden costs of running a SaaS?**
+Maintenance is the big one. After that come payment and billing fees, usage-based hosting and disputes, then the features customers ask for after launch. Fees and usage grow with revenue, so model them at your expected customer count rather than your launch count.
+
+**Can I use Stripe from Bangladesh?**
+Bangladesh isn't on Stripe's global availability list as of October 15, 2026. Many founders use a company in a supported country, and Stripe Atlas offers a US company, or they pick another provider. Get legal and tax advice before you decide.
+
+**What do I own at the end of an Arrowbin SaaS build?**
+All of it. You own 100% of the source code from day one, along with the accounts and infrastructure it runs on. There's no lock-in, and we document the system so your own team can take over at any point.
+
+### Bangladesh Courier API Integration: Steadfast, Pathao, RedX
+
+Page: https://arrowbin.com/blog/courier-api-integration-bangladesh
+
+Published October 15, 2026, by Md. Shishir Ahmed. 14 min read.
+
+TL;DR: A courier API integration books a parcel with Steadfast, Pathao or RedX straight from each confirmed order, saves the tracking ID on the order and brings delivery status and cash-on-delivery data back into your admin, so nobody retypes addresses into a merchant panel. RedX publishes its full API openly with a sandbox and webhooks, Steadfast offers API keys and an official WooCommerce plugin, and Pathao's API docs sit behind its merchant login. A plugin is enough for one courier on WooCommerce or Shopify; build custom when you run several couriers or need your own status and COD reconciliation logic. Either way, confirm each webhook through the courier's API before you mark an order delivered or paid.
+
+Key takeaways:
+- A courier integration books parcels from confirmed orders, saves the tracking ID and brings delivery status and COD data back into your admin.
+- RedX publishes its full API with a sandbox and webhooks; Steadfast offers API keys and an official WooCommerce plugin; Pathao's docs need a merchant login.
+- Address mapping is the hardest part: collect district and area from a list and keep one mapping table per courier.
+- Treat every webhook as a hint, and confirm delivered or paid through the courier's API before you change the order.
+- Book once per order number, and never blindly retry a create call that timed out.
+- Reconcile COD payouts line by line against tracking IDs, using the charges you saved at booking.
+- One courier on WooCommerce or Shopify suits a plugin; several couriers or a custom storefront justify a custom build.
+
+Questions and answers:
+
+**Do Steadfast, Pathao and RedX have APIs?**
+Yes. RedX publishes its API documentation openly, including a sandbox and webhooks. Steadfast offers API keys and an official WooCommerce plugin, and Pathao provides API access to merchants through its merchant panel, where the docs sit behind a login.
+
+**Is there a sandbox for testing a courier integration?**
+RedX publishes a sandbox base URL, sandbox.redx.com.bd/v1.0.0-beta, where operations are simulated and don't touch real data. For Steadfast and Pathao, ask for test credentials before development starts. If there's no sandbox, agree a small test plan with the courier before you book real parcels.
+
+**Can I connect a courier to a Shopify store in Bangladesh?**
+Yes. RedX lists an official Shopify app, RedX Delivery, which its App Store listing shows as free. For other couriers, search the Shopify App Store and check who publishes each app before you install it, because some are made by third parties.
+
+**Where do I get courier API credentials?**
+From your merchant account with each courier. RedX's developer page has a token request option. Steadfast's plugin asks for an API key and a secret key, which its listing says come from your merchant dashboard or Steadfast support.
+
+**What does Steadfast charge for cash on delivery?**
+Steadfast's pricing page lists a 1% cash on delivery and risk management charge. Delivery charges depend on route and weight, its pick and drop service has a ৳80 minimum, and charges exclude VAT and tax. Merchants on negotiated rates pay those instead, so confirm your own rate in writing.
+
+**Can one store use two couriers at the same time?**
+Yes. A custom integration can route each parcel by area, price or courier health and still show your team one status view. Single-courier plugins handle one courier each, so running two through plugins means two places to check.
+
+**Do webhooks replace tracking checks?**
+Not fully. Use webhooks for speed, then confirm important changes such as delivered or paid through the courier's own API before you update the order. A daily polling sweep also catches parcels whose webhooks never arrived.
+
+**Why does the courier ask for the parcel's declared value?**
+RedX's create-parcel call requires a value field, which its docs describe as the declared value of the parcel for compensation calculation. Declare what the goods are actually worth, and get each courier's compensation terms in writing before you rely on them.
+
+### How Much Does Software Maintenance Cost Per Year in 2026?
+
+Page: https://arrowbin.com/blog/software-maintenance-cost
+
+Published October 15, 2026, by Md. Shishir Ahmed. 14 min read.
+
+TL;DR: Budget roughly 15–20% of the original build cost every year to keep custom software running, which comes to $9,000–$12,000 a year for a $60,000 SaaS MVP (an Arrowbin planning estimate, not an industry statistic). The money pays for four kinds of work: fixing bugs, adapting to platform and dependency changes, improving features people rely on, and preventive work like backups and security patches. Skipping it isn't a real option, because platforms set fixed deadlines: Google Play requires API level 36 for app updates from August 31, 2026; PostgreSQL 14 gets its final release on November 12, 2026.
+
+Key takeaways:
+- Budget roughly 15–20% of the build cost per year to own custom software (Arrowbin estimate), which is $9,000–$12,000 a year for a $60,000 SaaS MVP.
+- Maintenance is four kinds of work: fixing bugs, adapting to platform changes, improving existing features, and preventive work like backups and patches.
+- Platform deadlines make upkeep non-optional: Google Play requires API level 36 for app updates from August 31, 2026, and PostgreSQL 14's final release is on November 12, 2026.
+- Patchstack's 2025 data puts the weighted median time to first exploit for WordPress-ecosystem flaws at 5 hours, so patching can't wait for a quarterly check.
+- A retainer suits most live products and pay as you go suits stable internal tools; an in-house hire makes sense once there's full-time product work.
+- A good plan spells out monitoring, updates, tested backups, bug fixes, a monthly report and a written response time for critical issues.
+- Upgrade one major version at a time; three at once turns routine upkeep into a project.
+
+Questions and answers:
+
+**Is 15–20% a year normal for software maintenance?**
+It's our planning estimate for custom software, not an industry statistic. Simple, stable tools can need less, while products with regulated data or many integrations usually need more. Check it each year against what you actually spent.
+
+**Does a maintenance plan include hosting?**
+Usually not. A maintenance plan pays for engineering work such as monitoring, updates and fixes, while bills from your host, domain registrar or API providers go to those companies directly. Our 15–20% planning band still counts them, because they're part of owning the software.
+
+**Can I stop maintenance once the software is stable?**
+You can pause new features, but you can't pause the platforms underneath. Security patches, runtime end-of-life dates and app store requirements keep arriving on dates you don't control, so a minimum level of upkeep has to continue.
+
+**What happens if my Android app isn't updated for Google Play's requirements?**
+From August 31, 2026, Google Play requires new apps and app updates to target Android 16 (API level 36), so you can't ship even a bug fix until the target is raised. Existing apps that target Android 14 (API level 34) or lower are only available on devices running that version or older, which hides them from new users on newer phones.
+
+**Is a maintenance retainer worth it for a small business?**
+If your software takes payments, stores customer data or runs daily operations, yes, because someone has to watch it and patch it on a schedule. A very simple internal tool that rarely changes can be fine on pay as you go.
+
+**Can unused retainer hours go toward new features?**
+On our plans, yes: hours not needed for upkeep go into improvements from a list we agree with you. Policies differ between providers, so ask how unused hours are handled before you sign.
+
+**Will you maintain software another team built?**
+Yes. We start with an audit of the code and infrastructure, fix the urgent risks first, then take over routine maintenance with a plan to move the product forward.
+
+**Do mobile apps cost more to maintain than web apps?**
+Usually, if you ship on both iOS and Android. Start from the same 15–20% of build cost a year and lean toward the top of it, because each store sets its own yearly requirements. In 2026 Apple required builds with Xcode 26 from April 28, and Google Play required API level 36 for updates from August 31.
+
+### How Much Does Custom Software Development Cost in 2026?
+
+Page: https://arrowbin.com/blog/how-much-does-custom-software-development-cost
+
+Published May 12, 2026, updated October 15, 2026, by Md. Shishir Ahmed. 14 min read.
+
+TL;DR: Custom software development usually costs $5,000 to $250,000+ in 2026, and most business products land between $30,000 and $120,000. The number tracks your scope, the technical complexity, the depth of design, the platforms you ship on, and how senior your team is and where they sit. To keep it under control, start with a tightly scoped MVP and lock in a fixed estimate after discovery.
+
+Key takeaways:
+- By Arrowbin's estimate, most custom software costs $5,000–$250,000+, and most first products land in the $40,000–$120,000 range.
+- Cost tracks scope, technical complexity, design depth, the number of platforms, and how senior and where based your team is.
+- In our typical budget split, development is only about 50% of the cost. Discovery, design, QA and PM make up the rest.
+- Regional rates vary 3–5x (Arrowbin estimate), but the cheapest rate rarely produces the cheapest project.
+- As a rule of thumb, budget roughly 15–20% of the build cost per year for hosting, maintenance and ongoing ownership (Arrowbin estimate).
+- Control cost by starting with a tightly scoped MVP and getting a fixed estimate after discovery.
+
+Questions and answers:
+
+**Is custom software cheaper than off-the-shelf?**
+Upfront, off-the-shelf is usually cheaper. Over time, custom software often wins. There are no per-seat fees, you don't pay for features you never use, and it fits your workflow exactly, which saves hours of manual work. In our experience, growing teams often reach the break-even point within 2–3 years.
+
+**Can I build custom software in phases to spread the cost?**
+Yes, and we strongly recommend it. Launch a focused MVP first, then expand in phases funded by the value (and revenue) the product creates. This lowers upfront risk and lets real user feedback guide where you spend next.
+
+**Why are two quotes for the same app so different?**
+Usually because of team seniority, location and what's included. A low quote may leave out discovery, design or QA, or lean on junior developers. Compare what each quote actually covers, not just the bottom-line number.
+
+**How much does it cost to maintain custom software?**
+As a rule of thumb, plan for roughly 15–20% of the original build cost per year (an Arrowbin estimate). That covers hosting, third-party services, security patches, bug fixes and small improvements. It's the cost of keeping the product reliable and current.
+
+**Does location really change the price that much?**
+Yes. By our 2026 estimate, senior team rates range from around $120–180/hour in North America to $25–60/hour in South Asia. The same product can cost three to five times more depending on where your team is based.
+
+**Should I get a fixed price or pay hourly?**
+Use a fixed price for a well-defined MVP so you have budget certainty, then move to time & materials for ongoing development once the product is live and evolving. Running a short paid discovery first makes a fixed price far more accurate.
+
+**How accurate is an estimate before discovery?**
+A pre-discovery estimate is a planning range, not a commitment. A short discovery phase covering requirements, user flows and architecture lets a team give you a tight, reliable fixed price, which is why we always recommend it before the main build.
+
+### How to Choose a Software Development Company in 2026
+
+Page: https://arrowbin.com/blog/how-to-choose-a-software-development-company
+
+Published April 28, 2026, updated June 18, 2026, by Md. Shishir Ahmed. 13 min read.
+
+TL;DR: To choose the right software development company, weight proven track record, communication and process far above price. Shortlist three to five firms, review live work, ask who builds your project and who owns the code, and watch for red flags such as suspiciously low quotes and vague timelines.
+
+Key takeaways:
+- Weight proven track record, communication, technical depth and process above price.
+- Shortlist 3–5 firms and review live products you can actually open and use.
+- Ask every firm the same questions, especially who builds it and who owns the code.
+- Choose an agency for end-to-end products, freelancers for small tasks, in-house when software is your core.
+- Treat too-good-to-be-true quotes, vague timelines and weak communication as red flags.
+- Score candidates against consistent criteria and decide on overall fit, not the lowest number.
+
+Questions and answers:
+
+**Should I hire freelancers or an agency?**
+Freelancers can be great for small, well-defined tasks. For anything ongoing or complex, an agency gives you a full team across design, engineering, QA and project management, plus continuity if one person is unavailable.
+
+**How important is location and time zone?**
+Less than it used to be. What matters is overlap for real-time communication and clear, reliable processes. Arrowbin works with clients worldwide, across time zones.
+
+**What questions should I ask a software development company?**
+Ask to see and use their live work, who exactly will build your project and how senior they are, how they communicate progress, what their testing and security process is, whether you own the code, and what post-launch support looks like.
+
+**How do I know if a development company is reliable?**
+Reliability shows up as live, usable products, references who'd hire them again, a clear process for testing and communication, and honest, responsive behaviour during the sales conversation. Vagueness and slow replies are the warning signs.
+
+**Should I always choose the cheapest quote?**
+No. The cheapest quote often leaves out discovery, design or QA, or relies on junior developers, which leads to rework that costs more overall. Compare what's included and who's building it, then treat price as a tiebreaker.
+
+**Do I own the source code if an agency builds my software?**
+You should. Confirm in writing that you own the source code, accounts and infrastructure outright. A trustworthy partner has no problem with this; reluctance here is a serious red flag.
+
+### How Long Does It Take to Build an MVP in 2026?
+
+Page: https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp
+
+Published April 10, 2026, updated June 16, 2026, by Md. Shishir Ahmed. 12 min read.
+
+TL;DR: Most well-scoped MVPs take 6–14 weeks from kickoff to launch in 2026: a simple tool in 6–8 weeks, a standard MVP in 10–14, and a complex SaaS MVP in 14–20. The timeline tracks scope, clarity, integrations and how fast you make decisions. The fastest path is ruthless prioritization.
+
+Key takeaways:
+- Most well-scoped MVPs launch in 6–14 weeks: simple tools in 6–8, complex SaaS in 14–20.
+- Scope is the biggest lever. The fewer features in v1, the faster you ship and learn.
+- An MVP is a complete, working product for one core workflow, not a rough prototype.
+- Modern MVPs overlap phases, running design, build and QA in parallel to stay fast.
+- Scope creep, unclear requirements and slow decisions are the top causes of delay.
+- Launch faster by locking scope, reusing components and making decisions quickly.
+
+Questions and answers:
+
+**What's the difference between an MVP and a prototype?**
+A prototype demonstrates an idea (often clickable mockups), while an MVP is a real, working product that users can actually use and pay for. The MVP is what you launch to learn from the market.
+
+**Should I build an MVP if I have funding for the full product?**
+Usually yes. An MVP tests your assumptions with real users before you invest heavily, which sharply cuts the risk of building the wrong thing. It also gets you to market months sooner.
+
+**How long does it take to build an MVP?**
+Most well-scoped MVPs take 6–14 weeks from kickoff to launch. A simple single-workflow tool can ship in 6–8 weeks, while a complex multi-tenant SaaS MVP usually takes 14–20 weeks.
+
+**Can an MVP be built in 4 weeks?**
+Sometimes, for a very narrow, single-feature tool with a reused design system and no complex integrations. Most genuinely useful MVPs need at least 6–8 weeks to be stable and usable.
+
+**What's the most common reason MVPs take longer than planned?**
+Scope creep. Adding 'just one more feature' during the build is the single biggest cause of slipped MVP timelines. Locking scope before development starts is the best protection.
+
+**How many features should an MVP have?**
+As few as possible while still delivering your core value end to end. Often that means one primary workflow plus the minimum around it, such as sign-in and basic data. Everything else can wait for v2.
+
+**What happens after the MVP launches?**
+You gather real usage data and feedback, then iterate. That usually means fixing the rough edges users hit first, leaning into whatever is clearly working, and adding the features people keep asking for. The MVP is the start of the product, not the end.
+
+**How much does it cost to build an MVP?**
+A simple MVP typically costs $5,000 to $30,000, while a standard MVP with accounts, a database and a few integrations usually runs $30,000 to $90,000. The figure tracks scope, technical complexity and how senior your team is. Our custom software cost guide breaks the ranges down in detail.
+
+## Explore the site
+
+- [Services](https://arrowbin.com/services): all 8 services, the three ways to work together (project, product team, care plan) and common questions.
+- [Work](https://arrowbin.com/work): live client sites, from online stores to agency and corporate websites.
+- [About](https://arrowbin.com/about): the founder, how Arrowbin started in 2020 and how it works.
+- [Contact](https://arrowbin.com/contact): the project brief form, email and booking link.
+- [Blog](https://arrowbin.com/blog): practical guides on software, MVP, SaaS, AI agent and maintenance costs, WordPress to Next.js migration, Bangladesh payment and courier integrations, selling through AI shopping assistants, and choosing a development partner.
+- [Blog RSS feed](https://arrowbin.com/blog/rss.xml): new guides as they are published.
+
+## Partnerships
+
+- Arrowbin is a verified Hostinger Partner. Clients hosting with Hostinger can use the coupon code ARROWBIN at checkout. See [Cloud, DevOps & Hosting](https://arrowbin.com/services/cloud-devops-hosting).
+
+## Policies
+
+- [Privacy Policy](https://arrowbin.com/privacy)
+- [Terms of Service](https://arrowbin.com/terms)

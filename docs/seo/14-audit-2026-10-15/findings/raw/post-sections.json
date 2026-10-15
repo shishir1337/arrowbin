@@ -1,0 +1,765 @@
+[
+ [
+  "vibe-coded-app-production-ready",
+  "What does 'production ready' mean for a vibe-coded app?",
+  "A production-ready app keeps each user's data private and takes payments correctly. It also survives errors and traffic spikes, and you can change it without breaking it. A demo only has to work on the happy path, once, while you watch.",
+  231,
+  0
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "What usually breaks when an AI-built app gets real users?",
+  "The usual failures are data that anyone can read, secret keys shipped to the browser, payment events processed twice, and no way to see or undo errors. The first two are behind the public incidents so far.",
+  283,
+  0
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "How do you check whether your database is exposed?",
+  "If you use Supabase, every table in an exposed schema needs Row Level Security switched on and a policy that matches who should see each row. Supabase's own RLS guide is blunt about the alternative: 'A table in an exposed schema without RLS is readable and writable by any role with a grant on it.'",
+  489,
+  0
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "What's on a production-readiness checklist for a vibe-coded app?",
+  "Start with who can see what (access rules, secrets, auth), then money (payments, validation), then everything that keeps the app running once it's live. The table follows roughly that order of risk. It's the list we work through before launch.",
+  1261,
+  1
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "Should you fix the vibe-coded app or rebuild it?",
+  "Fix it when the data model is sound and the problems are missing guards. Rebuild the affected part when the data model, auth or payment flow is wrong at the root, because patches on a wrong model keep breaking.",
+  573,
+  1
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "When should a founder stop prompting and hire an engineer?",
+  "Bring in an engineer before you charge money or store sensitive data, and any time each new feature breaks an old one. Prompting your way out of a security gap is slow, because the tool that left the gap doesn't know it's there, and you may not either.",
+  282,
+  0
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "What does a production hardening project look like?",
+  "A sensible hardening project starts with a short, read-only audit and fixes launch blockers first. Then it adds the tests and deploy pipeline that keep later changes safe. Nobody should be rewriting your app on day one.",
+  318,
+  0
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "How do you keep a vibe-coded app safe after launch?",
+  "Treat every AI-written change like any other pull request: someone reviews it, tests run on it, and it deploys through the pipeline, never straight from a chat window to production. Then keep dependencies patched and test your backups on a schedule.",
+  164,
+  0
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "What can you check in your app today?",
+  "Run the five database checks from earlier, today. Most take minutes, and together they cover the failures that have actually made the news. Then clear the checklist's 'Yes' rows before you take another payment.",
+  79,
+  0
+ ],
+ [
+  "vibe-coded-app-production-ready",
+  "Key takeaways",
+  "Share",
+  289,
+  0
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "Should you move from WordPress to Next.js?",
+  "Move when speed, security upkeep or custom features are costing you money. Stay on WordPress when non-technical editors publish every day, the site works and the budget is tight.",
+  602,
+  1
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "What are the steps in a WordPress to Next.js migration?",
+  "Inventory every URL and plugin, decide where content will live, map old URLs to new ones, rebuild the templates as components, port the SEO metadata, test on staging, then switch DNS and watch Search Console. People tend to skip the inventory and the redirect map. Those two steps are what protect your rankings.",
+  370,
+  0
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "Should you keep WordPress as a headless CMS or move the content out?",
+  "Keep WordPress headless if your editors rely on its admin and revision history every week. Move the content out when the site is mostly static, or when the plugins are the very thing you're trying to escape.",
+  299,
+  0
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "How do you keep your Google rankings during the move?",
+  "Give every old URL a server-side permanent redirect to its closest new page, return 410 Gone for pages you're deleting on purpose, and keep the redirects for at least a year. Even when you do all of that, expect some ranking movement for a few weeks.",
+  793,
+  1
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "What happens to plugins, forms and WooCommerce?",
+  "Each plugin's job gets rebuilt as code, replaced with a service, or dropped. Write down what every plugin actually does before you start, because some do more than their name suggests.",
+  715,
+  1
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "How long does a WordPress to Next.js migration take?",
+  "It depends mostly on how many distinct page templates you have, how many plugins need replacing, and whether there's a store. A brochure site with a handful of templates is a small project. A WooCommerce store with local payment gateways and years of order history is a big one.",
+  322,
+  1
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "What does a WordPress to Next.js migration cost, and what drives it?",
+  "Cost follows the same drivers as the timeline: templates, plugin replacements, e-commerce and the redirect work. After launch, hosting can cost less or more than your WordPress hosting did, depending on traffic and how many pages are rendered for each visitor instead of served from a cache.",
+  395,
+  1
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "Is Next.js more secure than WordPress?",
+  "A Next.js site has a smaller public attack surface, because by default there's no public admin login and no plugin code running on every request. It still needs patched dependencies, careful handling of secrets and secure hosting.",
+  314,
+  0
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "What should you check in the first 30 days after launch?",
+  "Watch Search Console's Page indexing report daily for the first two weeks, especially its 'Not found (404)' list, re-crawl your full list of old URLs against the live site, and fix any redirect that lands on the wrong page. Then test the money paths again, from forms to checkout to analytics tags.",
+  243,
+  0
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "What can you do now if the move is a year away?",
+  "Start with the inventory, even if you don't move for a year. Export every URL, list every plugin with what it does, and mark the pages that bring in leads or sales. That one spreadsheet tells you if this is a small rebuild or a store migration, and it's what any honest quote should be built on.",
+  94,
+  0
+ ],
+ [
+  "wordpress-to-nextjs-migration",
+  "Key takeaways",
+  "Share",
+  295,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "Which payment methods do online shoppers in Bangladesh expect?",
+  "Plan for cash on delivery plus bKash and Nagad as the minimum, then add cards and Rocket for shoppers who prefer them. We wouldn't launch a Bangladeshi store without cash on delivery, and we wouldn't launch one without a wallet option either.",
+  265,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "Should you use an aggregator like SSLCommerz or integrate bKash and Nagad directly?",
+  "Use an aggregator when you want one contract and one integration that covers cards and wallets together. Integrate bKash directly when most of your online payments are bKash and you want features such as saved wallets or auth-and-capture through bKash's own API.",
+  561,
+  1
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "How does an SSLCommerz integration work?",
+  "Your server creates a payment session, the shopper pays on SSLCommerz's hosted page or popup, SSLCommerz notifies your server through an IPN, and your server calls the Order Validation API before it marks the order paid. Skip that last call and your store will believe anything that looks like a successful redirect.",
+  415,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "How does a direct bKash integration work?",
+  "Your server gets a grant token, creates a payment, and sends the shopper to bKash to confirm with an OTP and their PIN. When bKash calls you back with a success status, your server executes the payment. If Execute doesn't answer within 30 seconds, query the payment before you try anything else.",
+  533,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "How do you add local payments to WooCommerce, Shopify or a custom Next.js store?",
+  "WooCommerce uses gateway plugins. Shopify needs a third-party provider, because Shopify Payments isn't offered in Bangladesh. A custom store calls the gateway APIs from server-side code, such as Next.js route handlers.",
+  284,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "What goes wrong with payments in production, and how do you prevent it?",
+  "The common failures are orders marked paid without validation, duplicate callbacks that create duplicate orders, payments lost when the shopper closes the tab, and gateway timeouts. Each one has a standard fix. None of them shows up when you test only the happy path.",
+  693,
+  1
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "How much do payment gateways cost in Bangladesh?",
+  "SSLCommerz publishes its price: a Tk 25,500 Basic plan, marked non-refundable, plus 2.5% per successful transaction and 3.5% for AMEX, as listed on October 15, 2026. bKash, Nagad and the other aggregators don't publish e-commerce merchant rates on the pages we checked, so ask for the current rate in writing.",
+  498,
+  1
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "How should cash on delivery work alongside online payments?",
+  "Keep cash on delivery for trust, and use order confirmation and clear online payment options to cut the orders that fail at the door. A refused COD parcel has already cost you the packing, the courier run and days with that stock off your shelf.",
+  237,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "What do you need before you apply for a merchant account?",
+  "You need a live site on your own domain with HTTPS, clear prices and policies, and the business documents the provider asks for. Check each provider's current list before you start, because the lists differ by business type.",
+  212,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "Which payment setup should you launch with?",
+  "Start with cash on delivery plus one aggregator, and get server-side validation right before you add anything else. Run the checklist above in sandbox. After a couple of months of real orders, look at which methods people actually pay with, then decide whether a direct bKash integration earns its keep.",
+  119,
+  0
+ ],
+ [
+  "payment-gateway-integration-bangladesh",
+  "Key takeaways",
+  "Share",
+  275,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "How much does an AI agent cost for a small business?",
+  "An AI agent costs a small business three separate things: setting it up, running it each month, and keeping it accurate after launch. Setup runs from a subscription you switch on today to a custom build, and the monthly model fees are usually the smallest line: about $5 to $216 a month for 3,000 conversations in our worked example below.",
+  577,
+  1
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "What can an AI agent do for a small business today?",
+  "An AI agent today is dependable at answering questions from your own documents, collecting customer details, booking appointments, looking up order status and drafting replies. It still needs a human for exceptions, and for anything that moves money or commits you legally.",
+  345,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "Should you buy an agent, build one with a no-code tool, or commission a custom one?",
+  "Buy when a tool already covers your channel, such as website chat in the helpdesk you use. Use a workflow tool like n8n or Zapier when the job is a few steps between apps you already have, and commission a custom agent when it has to work inside your own systems or handle sensitive data.",
+  695,
+  1
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "What does it cost to run an AI agent each month?",
+  "For one example workload of 3,000 conversations a month, AI model fees come to between $5.04 and $216.00 a month depending on the model, at prices listed on October 15, 2026. Add hosting, a vector database and monitoring, and a lean setup lands around $17 a month; a managed one lands around $162 plus \u20ac50.",
+  1032,
+  2
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "What drives the cost of building an AI agent?",
+  "The number of systems an AI agent connects to, and how much it's allowed to do without a person checking, drive build cost far more than the choice of model. A read-only agent that answers from your help pages is a small job; one that updates orders and emails customers is a much bigger one.",
+  281,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "What hidden costs come with an AI agent after launch?",
+  "The hidden costs of an AI agent are mostly people time: checking its answers, fixing integrations when a connected app changes, reviewing hand-offs, and re-testing when a model is repriced or retired. None of it appears on the model provider's invoice.",
+  259,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "Will an AI agent pay for itself?",
+  "An AI agent pays for itself when the hours it saves, times what those hours cost you, outweigh its full monthly cost (upkeep and a share of the build included). If the sums only work at a volume you don't have yet, start smaller.",
+  258,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "How do you start an AI agent project without wasting money?",
+  "Start an AI agent project with one workflow, run it read-only with a person approving anything it sends, and measure it for a month on real traffic. Only then let it act on its own or add a second job.",
+  228,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "Do you need MCP or a custom integration for an AI agent?",
+  "You need MCP only if you want an AI assistant such as Claude or ChatGPT to work directly with your own systems. Many small businesses can start without it, using a tool's built-in connectors or a workflow tool.",
+  220,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "Which job should your first AI agent take on?",
+  "Pick the one job that eats the most staff hours and has a clear right answer. If a tool you already pay for can do it, switch it on and measure it for a month. If not, a read-only custom pilot is the cheapest way to find out whether an agent is worth building. The model fees will be the smallest number on the invoice.",
+  120,
+  0
+ ],
+ [
+  "ai-agent-cost-small-business",
+  "Key takeaways",
+  "Share",
+  291,
+  0
+ ],
+ [
+  "mvp-development-cost",
+  "How much does MVP development cost in 2026?",
+  "A lean MVP that does one workflow well usually costs $5,000\u2013$30,000, and a polished, launch-ready MVP or app for most businesses lands at $40,000\u2013$120,000. Both are Arrowbin estimates, and they're the same ranges you'll find in our full custom software cost guide , which also covers bigger platforms and enterprise systems.",
+  279,
+  1
+ ],
+ [
+  "mvp-development-cost",
+  "How do you work out an MVP budget yourself?",
+  "Multiply the build weeks by the size of the team and its weekly rate per person, then add launch costs and the first year of running costs. Written out: MVP budget = (weeks \u00d7 team size \u00d7 weekly rate) + launch costs + year-one running costs.",
+  325,
+  0
+ ],
+ [
+  "mvp-development-cost",
+  "What does each phase of an MVP budget pay for?",
+  "About half of an MVP budget pays for development. The other half pays for discovery and design before the build, then QA and project management during it. That's the work that makes the code usable and keeps the launch date real. It's our typical split, and it's the one behind the $60,000 example.",
+  429,
+  1
+ ],
+ [
+  "mvp-development-cost",
+  "Is hiring an in-house developer cheaper than outsourcing an MVP?",
+  "For a first version, usually not. The Bureau of Labor Statistics counts software developers together with QA analysts and testers, and their US median pay was $134,040 a year ($64.44 an hour) in May 2025. That buys one person with one skill set, before benefits or recruiting.",
+  233,
+  0
+ ],
+ [
+  "mvp-development-cost",
+  "What can you cut from an MVP without making it useless?",
+  "Cut anything that doesn't test your riskiest assumption. Keep the core workflow end to end, fake the expensive back-office parts with manual work, and leave extra roles and second platforms for later.",
+  607,
+  1
+ ],
+ [
+  "mvp-development-cost",
+  "Is a no-code or AI-built MVP cheaper than custom code?",
+  "Yes, for testing whether anyone wants the product. A no-code or AI-built prototype costs a monthly subscription plus your time, against thousands for custom work. Plan for hardening or a rebuild before it takes payments or stores personal data, though.",
+  559,
+  1
+ ],
+ [
+  "mvp-development-cost",
+  "Should an MVP be fixed price or time and materials?",
+  "Fixed price, after a short paid discovery, for a clearly scoped MVP. Switch to time and materials once it's live and you're changing it based on what users actually do.",
+  221,
+  0
+ ],
+ [
+  "mvp-development-cost",
+  "What does an MVP cost to run in its first year?",
+  "Plan on roughly 15\u201320% of the build cost per year for hosting and services, plus security patches and small fixes. On a $60,000 MVP that's $9,000\u2013$12,000 (Arrowbin estimate), and the next round of features is a separate budget on top.",
+  308,
+  0
+ ],
+ [
+  "mvp-development-cost",
+  "How do you get an MVP quote you can trust?",
+  "Send a one-page brief that names your users, the one core workflow, the integrations you can't launch without and a target launch window. Then ask every team for weeks and team size, not only a total, so you can check the sum yourself.",
+  251,
+  0
+ ],
+ [
+  "mvp-development-cost",
+  "Where should your first MVP dollar go?",
+  "Write down the one assumption that would sink the product if it turned out wrong. If a $25-a-month prototype can test it, start there. Spend the build money once you have evidence. If it can't, because the product handles payments or personal data or the hard part is technical, scope a lean custom MVP and run every quote through the formula above.",
+  111,
+  0
+ ],
+ [
+  "mvp-development-cost",
+  "Key takeaways",
+  "Share",
+  310,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "Shopify or a custom ecommerce website: which should you choose?",
+  "Choose Shopify if you want to launch fast with standard products and a standard checkout. Choose a custom store when your checkout, pricing, integrations or local payment needs don't fit Shopify, or when Shopify's fees start to cost more than running your own platform would.",
+  774,
+  1
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "What does Shopify really cost per month and per order?",
+  "Shopify costs a monthly subscription, plus an extra 2% (Basic), 1% (Grow), 0.6% (Advanced) or 0.2% (Plus) of each order if a third-party provider takes the payment instead of Shopify Payments. That fee sits on top of whatever your payment provider charges.",
+  357,
+  1
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "What does a custom store cost to build and run?",
+  "A custom store has no platform fee and no cut of your sales, but you pay to build it and then pay to keep it running. Our published estimate for a store of this size is $30,000 to $90,000 to build, plus roughly 15\u201320% of that each year for hosting and maintenance.",
+  618,
+  1
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "Where does Shopify clearly win?",
+  "Shopify wins on speed to launch, on a hosted checkout you never have to secure yourself, on its app ecosystem, and on built-in sales channels that now include AI assistants. For a store with a normal catalog and a normal checkout, that's a lot of work you never do.",
+  214,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "Where does a custom store win?",
+  "A custom store wins when your business needs something Shopify can't express cleanly: unusual product logic, wholesale pricing beyond Shopify's plans, deep integration with your own systems, or full control of checkout and page speed. It also wins where Shopify's payment options are limited.",
+  333,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "What about WooCommerce?",
+  "WooCommerce sits in between. It's open source and flexible with no monthly platform fee, but you own the hosting and the updates, plus plugin security. It suits teams already on WordPress who have someone to keep it patched.",
+  188,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "Does the answer change for stores in Bangladesh?",
+  "Yes. Shopify Payments isn't available in Bangladesh, so every order paid through a gateway carries Shopify's third-party fee on top of the gateway's own fee, and local wallets and cash on delivery need extra setup.",
+  337,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "Which works better with AI shopping assistants in 2026?",
+  "Shopify does, out of the box. Shopify connects products to ChatGPT, Microsoft Copilot, AI Mode in Google Search and the Gemini app from its admin; a custom store can be found by the same assistants, but you do the product data and crawler work yourself.",
+  259,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "How hard is it to switch later?",
+  "Moderately hard, and very manageable with a plan. Products and customers export reasonably well in either direction. URLs and app data take planning, as does order history, and permanent (301 or 308) redirects are what protect your search rankings.",
+  202,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "What do we recommend for most startups and small brands?",
+  "Start on Shopify unless a specific requirement rules it out. Plan a custom build when fees, checkout limits or integrations cost you more than running your own store would.",
+  241,
+  0
+ ],
+ [
+  "shopify-vs-custom-ecommerce",
+  "Key takeaways",
+  "Share",
+  277,
+  0
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "What is agentic commerce, and what changed in 2026?",
+  "Agentic commerce is when an AI assistant finds, compares and sometimes buys products for a shopper. The big change in 2026 came in March, when OpenAI stepped back from checkout inside ChatGPT to focus on product discovery. For most stores, the practical goal is now to be found by the assistant and to receive the buyer on their own checkout.",
+  262,
+  0
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "How do products get into ChatGPT and other AI shopping answers?",
+  "Products get in three ways: an AI search crawler reads your product pages, you send the assistant a structured product feed, or a platform you already use passes your catalog along. Each assistant mixes the three differently, and none of them publishes how it ranks products.",
+  610,
+  1
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "Do you need Shopify to sell through AI assistants?",
+  "No. Shopify makes it easiest, because Agentic Storefronts already wire Shopify stores into ChatGPT and Copilot as well as Google's AI Mode and Gemini. A WooCommerce or custom store can reach the same assistants through crawlable pages, Merchant Center feeds for Google and Microsoft, and OpenAI's feed program once it's accepted.",
+  648,
+  1
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "What does an AI assistant need to read on your product pages?",
+  "An assistant needs a product page that arrives complete in the first HTML response. That means the name, the price and its currency, stock status, images, brand, identifiers, shipping cost and the return policy. The Product and Offer structured data on that page has to say the same thing as the visible text.",
+  596,
+  1
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "Is your robots.txt blocking AI shopping assistants?",
+  "Check that OAI-SearchBot is allowed, because it's the crawler ChatGPT search uses to surface sites. GPTBot is a separate crawler for model training, and you can block it without dropping out of ChatGPT search. Then check your CDN and security plugins, because robots.txt is only half the gate.",
+  577,
+  1
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "What are ACP and UCP, and does a small store need them?",
+  "ACP and UCP are open protocols that let an AI agent run a checkout with a merchant. ACP comes from Stripe and OpenAI; Google launched UCP with Shopify and other retailers. Most small stores will get them through their platform or payment provider rather than by building them.",
+  407,
+  0
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "What should a WooCommerce or custom store do this quarter?",
+  "Make product pages server-rendered, complete your Product and Offer markup and let the right crawlers in at robots.txt and the CDN. Then get a clean feed into Google Merchant Center, apply to OpenAI's merchant program, and keep price and stock right everywhere.",
+  883,
+  1
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "How do you measure sales from AI assistants?",
+  "Use the AI Assistant channel in Google Analytics 4, which groups visits from assistants such as ChatGPT or Gemini, and compare its conversion rate with your other channels. Expect it to undercount.",
+  202,
+  0
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "What are the risks of selling through AI assistants?",
+  "The main risks are wrong prices or stock reaching shoppers through stale data, fraud on orders an agent starts, and rules that change under you, as OpenAI's March 2026 reversal showed.",
+  211,
+  0
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "Which of these fixes pays off first?",
+  "Start with what you control. View the source of a few product pages, run the user-agent test against your CDN, and fill the gaps in your Product and Offer markup. That work pays off in Google whatever happens to ChatGPT's merchant program.",
+  127,
+  0
+ ],
+ [
+  "chatgpt-shopping-for-online-stores",
+  "Key takeaways",
+  "Share",
+  301,
+  0
+ ],
+ [
+  "saas-development-cost",
+  "How much does SaaS development cost in 2026?",
+  "Using Arrowbin's published estimates, a focused SaaS MVP comes to around $60,000 in our illustrative 14-week example, and a full multi-tenant SaaS platform runs $80,000\u2013$200,000 over 5\u20139 months. Maintenance and running costs come on top of both build numbers.",
+  407,
+  1
+ ],
+ [
+  "saas-development-cost",
+  "Why does SaaS cost more than a regular web app?",
+  "A SaaS costs more because many customers share one system and pay for it every month. That setup needs tenant isolation and subscription billing from the start. Later it needs roles and admin tooling, plus the reliability people expect from something they pay for. Almost none of it shows up in a demo.",
+  1008,
+  1
+ ],
+ [
+  "saas-development-cost",
+  "What goes into the first version, and what can wait?",
+  "Your core workflow, sign-up and login, and billing go in from day one, usually with a simple onboarding flow and an admin view. Teams and roles, public APIs, SSO, white-labelling and native apps can usually wait until paying customers ask for them.",
+  301,
+  0
+ ],
+ [
+  "saas-development-cost",
+  "What does it cost to run a SaaS product each month?",
+  "Expect two kinds of running cost: payment and billing fees that grow with revenue, and monthly plans for hosting and tools that start small and grow with usage. For a SaaS with 200 customers on a $50 plan, the published prices below add up to about $531 a month before usage-based charges.",
+  711,
+  1
+ ],
+ [
+  "saas-development-cost",
+  "How much of your SaaS revenue goes to Stripe?",
+  "On US cards with Stripe Billing's pay-as-you-go plan, Stripe takes 3.6% of each charge plus 30\u00a2. That works out to 4.2% of a $50 monthly plan, and more on cheaper plans or international cards.",
+  311,
+  1
+ ],
+ [
+  "saas-development-cost",
+  "What pushes a SaaS budget from MVP toward the platform range?",
+  "Mostly two things: more roles and integrations, and enterprise requirements such as SSO and audit logs. Deeper reporting and compliance work for regulated data push it further. Each one adds build and test time, and they tend to arrive together once you start selling to bigger companies.",
+  356,
+  0
+ ],
+ [
+  "saas-development-cost",
+  "How much should you budget after launch?",
+  "Plan roughly 15\u201320% of the build cost a year to own the product (an Arrowbin estimate). That band covers maintenance plus the hosting and tool plans; payment fees, heavy usage and the features paying customers ask for get their own lines. On the $60,000 example, the band is $9,000\u2013$12,000 a year.",
+  286,
+  0
+ ],
+ [
+  "saas-development-cost",
+  "Which tech stack keeps SaaS costs predictable?",
+  "A widely used stack keeps hiring and hosting predictable. For us that's usually Next.js and Node.js with PostgreSQL, Redis for caching and queues, Stripe for billing, and AWS or Vercel for hosting. The stack matters less than keeping the architecture simple early.",
+  211,
+  0
+ ],
+ [
+  "saas-development-cost",
+  "What if you're building a SaaS from outside Stripe's supported countries?",
+  "Check payment availability before you write any billing code. Bangladesh isn't on Stripe's supported list, so founders there often form a company in a supported country (Stripe Atlas offers a US company) or use another billing provider.",
+  178,
+  0
+ ],
+ [
+  "saas-development-cost",
+  "How do you get an accurate SaaS quote?",
+  "Bring your core workflow, your pricing model (per seat, usage-based or flat), the integrations you can't launch without, and who your first customers are. A short paid discovery turns that into a fixed price for the MVP.",
+  186,
+  0
+ ],
+ [
+  "saas-development-cost",
+  "Key takeaways",
+  "Share",
+  306,
+  0
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "What does a courier API integration do for an online store?",
+  "A courier API integration books a parcel with the courier as soon as an order is confirmed, saves the courier's tracking ID on that order and pulls status updates back into your admin. It also gives you the data to match cash-on-delivery payouts to orders, which is where manual setups quietly lose money.",
+  338,
+  1
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "Which Bangladeshi couriers have APIs, and where are the docs?",
+  "RedX, Steadfast and Pathao all give merchants API access, but only RedX publishes its full API documentation openly. Steadfast offers API keys and an official WooCommerce plugin without a public API reference. Pathao keeps its developer docs behind the merchant login.",
+  482,
+  1
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "How do you choose a courier, and should you use more than one?",
+  "Pick on how well the courier delivers where your customers live, what it charges for your parcel sizes, how fast COD money reaches you, how it handles returns and how good its API is. Running two couriers, a main one plus a second for areas where the first is weaker, is sensible. Only if the integration was built for it, though.",
+  297,
+  0
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "How does an order become a courier consignment, step by step?",
+  "Map the customer's address to the courier's own area ID, work out the cash to collect, create the parcel with the order's details and save the tracking ID the courier sends back. With RedX that means a lookup on the areas endpoint, an optional charge check, and a POST to /parcel that returns a tracking_id.",
+  568,
+  0
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "How do you keep order status in sync with the courier?",
+  "Receive the courier's webhook, confirm the new status through the courier's API, map it to your own order state, and run a sweep for parcels that go quiet. A webhook tells you something changed. It shouldn't be your only proof.",
+  638,
+  1
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "How do you handle returns, exchanges and partial deliveries?",
+  "Treat each one as its own parcel type with its own rules, because the couriers do. RedX's docs list six delivery types: regular, reverse, exchange-delivery, exchange-return, partial-delivery and partial-return.",
+  194,
+  0
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "How do you reconcile cash on delivery payouts?",
+  "Match every line of a courier payout to a tracking ID and an order, check the amount against what you expected after the courier's charges, and chase any parcel marked delivered that hasn't been paid by your cut-off date.",
+  299,
+  0
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "Should you use a plugin or build a custom courier integration?",
+  "A plugin is fine for a WooCommerce or Shopify store with one courier and standard flows. Build custom when you use more than one courier, run a custom storefront, or need your own status logic and COD reports.",
+  333,
+  0
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "What goes wrong with courier integrations, and how do you prevent it?",
+  "The failures we design against are wrong area mapping, duplicate bookings after retries, missed or spoofed status callbacks, wrong COD amounts and payouts that don't match orders. None needs clever code. Each needs a rule someone wrote down before launch.",
+  474,
+  1
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "What should you settle before anyone writes courier code?",
+  "Start with the money and the addresses, then the code. Get each courier's rates and API access in writing. Fix your checkout so it collects district and area from a list. Write down your status mapping and who handles returned parcels. With those settled, the choice between a plugin and a custom build is usually obvious.",
+  105,
+  0
+ ],
+ [
+  "courier-api-integration-bangladesh",
+  "Key takeaways",
+  "Share",
+  296,
+  0
+ ],
+ [
+  "software-maintenance-cost",
+  "How much does software maintenance cost per year?",
+  "Budget roughly 15\u201320% of the original build cost each year. That's an Arrowbin planning estimate, the same band we use in our guide to what the original build costs , and it isn't an industry statistic.",
+  357,
+  1
+ ],
+ [
+  "software-maintenance-cost",
+  "What does software maintenance actually include?",
+  "Software maintenance is four kinds of work: fixing bugs, adapting to platform and dependency changes, improving features people already use, and preventive work (monitoring, backups, security patches). Engineers call them corrective, adaptive, perfective and preventive maintenance.",
+  504,
+  1
+ ],
+ [
+  "software-maintenance-cost",
+  "Why can't you just skip software maintenance?",
+  "Because the platforms under your software change on fixed dates, and attackers move within hours once a flaw is public. Software nobody updates eventually gets rejected by the app stores, stops receiving security fixes, or gets broken into.",
+  1114,
+  1
+ ],
+ [
+  "software-maintenance-cost",
+  "What drives software maintenance cost up or down?",
+  "Five things move the number most: the number of integrations, the number of platforms you ship on, how much of the code has automated tests, how old the dependencies are, and how fast the product is still changing. Sensitive data adds a sixth.",
+  276,
+  0
+ ],
+ [
+  "software-maintenance-cost",
+  "Retainer, pay as you go, or an in-house developer: which costs less?",
+  "For most products after launch, a monthly retainer gives the most cover per dollar, because the routine work never stops. Pay as you go suits stable tools that rarely change. An in-house developer makes sense once you have a full-time stream of product work, not just upkeep.",
+  580,
+  1
+ ],
+ [
+  "software-maintenance-cost",
+  "What should a software maintenance plan include?",
+  "A maintenance plan should cover six things: monitoring with alerts, regular security patching, backups with tested restores, bug fixes, a monthly report, and a written response time for critical issues. If a plan you're quoted leaves one out, ask why.",
+  331,
+  0
+ ],
+ [
+  "software-maintenance-cost",
+  "How does the maintenance budget change over the first few years?",
+  "Year one usually carries more bug fixes, because real users find the edge cases testing missed. Later years shift toward updates and improvements, with a heavier year whenever a framework, runtime or database major version comes due. Keep 15\u201320% as the planning band and check it each year against what you actually spent.",
+  296,
+  0
+ ],
+ [
+  "software-maintenance-cost",
+  "What if the software is old or built by someone else?",
+  "Start with an audit of the code and infrastructure, fix the urgent risks first, then modernize step by step. A full rewrite is rarely the right first move.",
+  247,
+  0
+ ],
+ [
+  "software-maintenance-cost",
+  "How can you lower maintenance costs without adding risk?",
+  "Keep dependencies current in small, regular steps. Automate tests and deploys, remove what you don't use, and document the system so any engineer can pick it up.",
+  207,
+  0
+ ],
+ [
+  "software-maintenance-cost",
+  "How do you work out your own maintenance budget?",
+  "Take your build cost and multiply it by 0.15 and 0.20. That's your yearly range, and dividing by 12 gives the monthly figure to hold any quote against. Then check the deadline table against what your software runs on. Anything that appears on it is your first job.",
+  109,
+  0
+ ],
+ [
+  "software-maintenance-cost",
+  "Key takeaways",
+  "Share",
+  304,
+  0
+ ]
+]
