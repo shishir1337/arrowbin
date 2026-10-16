@@ -25,8 +25,8 @@ const crumbs = [
   { name: "Privacy Policy", path: "/privacy" },
 ];
 
-const UPDATED = "29 September 2026";
-const UPDATED_ISO = "2026-09-29";
+const UPDATED = "17 October 2026";
+const UPDATED_ISO = "2026-10-17";
 
 const link =
   "font-semibold text-ultra underline decoration-2 underline-offset-4";
@@ -66,6 +66,7 @@ const sections: LegalSection[] = [
         type: "ul",
         items: [
           "Usage data through Google Analytics: pages viewed, how you arrived, approximate location (city or country), and device, browser and screen type.",
+          "How you use our pages, through Microsoft Clarity: clicks, taps, scrolling and mouse movement, shown to us as heatmaps and session replays so we can see where the site is hard to use. Anything you type into a form is masked and never sent to Clarity.",
           "Technical data handled by Cloudflare, which delivers and protects the site: your IP address, browser details and the pages requested, used for security, performance and anonymous visit counts.",
           "Your IP address, kept briefly in memory to limit repeated form submissions and stop spam. It is not stored with your enquiry.",
         ],
@@ -138,6 +139,11 @@ const sections: LegalSection[] = [
             "Usage and device data, via cookies",
           ],
           [
+            "Microsoft Clarity (Microsoft)",
+            "Shows how pages are used, as heatmaps and session replays",
+            "Usage and device data, via cookies",
+          ],
+          [
             "Cloudflare",
             "Delivers and secures the website, and counts visits",
             "IP address and request data",
@@ -161,7 +167,7 @@ const sections: LegalSection[] = [
     blocks: [
       {
         type: "p",
-        text: "The website itself doesn't set cookies or store anything in your browser. Google Analytics sets cookies (named _ga and _ga_*) to tell visits apart; they last up to two years. Cloudflare may set a short-lived security cookie to filter out bots, and its visit counting doesn't use cookies.",
+        text: "The website itself doesn't set cookies or store anything in your browser. Google Analytics sets cookies (named _ga and _ga_*) to tell visits apart; they last up to two years. Microsoft Clarity sets cookies (named _clck and _clsk) to link the pages you view into one visit; they last up to a year, and Microsoft may set its own cookies, such as MUID, on its domains. Cloudflare may set a short-lived security cookie to filter out bots, and its visit counting doesn't use cookies.",
       },
       {
         type: "p",
@@ -193,6 +199,7 @@ const sections: LegalSection[] = [
           "Enquiries: for as long as we need them to reply and follow up, then deleted, unless they turn into a project.",
           "Client information: for the length of the engagement, then as long as our agreement and legal obligations require.",
           "Analytics data: for a limited period set in Google Analytics, no longer than 14 months.",
+          "Microsoft Clarity data: session replays for 30 days, and heatmaps and other usage data for up to 13 months.",
         ],
       },
     ],

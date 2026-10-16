@@ -7,8 +7,10 @@ const isDev = process.env.NODE_ENV === "development";
  * GA bootstrap) require 'unsafe-inline'; the GA/GTM hosts are allowlisted so analytics
  * works when NEXT_PUBLIC_GA_ID is set. Cloudflare Web Analytics is allowlisted too:
  * Cloudflare injects its beacon into every page at the edge, and it reports back to
- * cloudflareinsights.com. 'unsafe-eval' is added in development only (React's dev
- * tooling needs it; production never does). Everything else is same-origin.
+ * cloudflareinsights.com. Microsoft Clarity's hosts are allowlisted per its CSP guide
+ * (learn.microsoft.com/clarity/setup-and-installation/clarity-csp). 'unsafe-eval' is
+ * added in development only (React's dev tooling needs it; production never does).
+ * Everything else is same-origin.
  */
 const GA_HOSTS = [
   "https://www.googletagmanager.com",
@@ -20,16 +22,18 @@ const GA_HOSTS = [
   "https://*.g.doubleclick.net",
 ].join(" ");
 
+const CLARITY_HOSTS = "https://*.clarity.ms https://c.bing.com";
+
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com https://static.cloudflareinsights.com`,
+  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com https://static.cloudflareinsights.com ${CLARITY_HOSTS}`,
   "style-src 'self' 'unsafe-inline'",
   // GA4 endpoints per Google's CSP guide (developers.google.com/tag-platform/security/guides/csp):
   // besides google-analytics.com, gtag also sends hits to www.google.com/g/collect
   // (and a country domain such as google.com.bd), which the old list blocked.
-  `img-src 'self' data: blob: ${GA_HOSTS}`,
+  `img-src 'self' data: blob: ${GA_HOSTS} ${CLARITY_HOSTS}`,
   "font-src 'self' data:",
-  `connect-src 'self' ${GA_HOSTS} https://cloudflareinsights.com`,
+  `connect-src 'self' ${GA_HOSTS} https://cloudflareinsights.com ${CLARITY_HOSTS}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

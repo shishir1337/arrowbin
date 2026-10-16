@@ -43,6 +43,9 @@ export function enableTracking() {
 
 export function track(name: string, params: Params = {}) {
   if (typeof window === "undefined") return;
+  // Lead actions also go to Clarity as custom events, so its recordings can be
+  // filtered by them. Web vitals (non_interaction) stay in GA only.
+  if (!params.non_interaction) window.clarity?.("event", name);
   if (window.gtag) {
     flush();
     window.gtag("event", name, params);

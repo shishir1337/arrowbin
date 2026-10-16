@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Anybody, Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Cursor } from "@/components/motion/Cursor";
@@ -22,6 +23,12 @@ import "./globals.css";
 const gaId =
   process.env.NODE_ENV === "production"
     ? process.env.NEXT_PUBLIC_GA_ID || "G-ZZ3NJCZVMZ"
+    : "";
+// Microsoft Clarity project (heatmaps and session recordings), hard-coded as a
+// fallback like the GA id. Production builds only.
+const clarityId =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_CLARITY_ID || "yyrhxyezh5"
     : "";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
@@ -188,6 +195,7 @@ export default function RootLayout({
         </main>
         <Footer />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+        {clarityId ? <MicrosoftClarity clarityId={clarityId} /> : null}
       </body>
     </html>
   );
