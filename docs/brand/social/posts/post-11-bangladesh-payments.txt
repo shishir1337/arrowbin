@@ -1,0 +1,11 @@
+For most online stores in Bangladesh, we recommend cash on delivery plus one aggregator such as SSLCommerz, which takes cards and the main mobile wallets through a single integration.
+
+SSLCommerz lists a Tk 25,500 non-refundable Basic plan and 2.5% per successful transaction (3.5% for AMEX), as of October 15, 2026.
+
+Add a direct bKash integration once bKash carries most of your online payments.
+
+One rule for any gateway: mark an order paid only after your server has validated the payment with the gateway. The redirect back to your site isn't proof of payment.
+
+Full guide: https://arrowbin.com/blog/payment-gateway-integration-bangladesh?utm_source=facebook&utm_medium=social&utm_campaign=social_2026_10
+
+#bKash #SSLCommerz #Ecommerce #Bangladesh #OnlinePayments

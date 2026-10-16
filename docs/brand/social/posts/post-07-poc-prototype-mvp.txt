@@ -1,0 +1,11 @@
+POC, prototype and MVP get mixed up a lot, but each one tests something different.
+
+A proof of concept tests whether it can be built.
+A prototype tests whether people understand it and can use it.
+An MVP tests whether they'll use it for real, and pay.
+
+Build first whichever one tests the risk most likely to sink the idea. Most web and SaaS ideas can skip the POC, because accounts, payments and dashboards are solved problems. By our estimates, a clickable prototype takes days to 2 weeks and an MVP 6 to 14 weeks.
+
+How to choose: https://arrowbin.com/blog/mvp-vs-prototype-vs-poc?utm_source=facebook&utm_medium=social&utm_campaign=social_2026_10
+
+#MVP #Prototype #StartupTips #ProductDevelopment

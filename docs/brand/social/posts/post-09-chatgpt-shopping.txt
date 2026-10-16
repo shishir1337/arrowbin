@@ -1,0 +1,11 @@
+ChatGPT now answers shopping questions with product picks. Since March 2026, OpenAI lets merchants keep their own checkout, so the job is getting found and being right about price and stock.
+
+You don't need Shopify for this. You need:
+1. Product pages that load without JavaScript. In Vercel's 2024 crawler study, ChatGPT's and Claude's crawlers didn't run it.
+2. Complete Product and Offer markup: price, currency, stock, shipping and returns.
+3. OAI-SearchBot allowed in robots.txt, and a CDN that doesn't block it anyway.
+4. A clean Google Merchant Center feed. OpenAI's own feed is approval-only as of October 2026.
+
+Full guide for any platform: https://arrowbin.com/blog/chatgpt-shopping-for-online-stores?utm_source=facebook&utm_medium=social&utm_campaign=social_2026_10
+
+#Ecommerce #ChatGPT #AISearch #OnlineStore

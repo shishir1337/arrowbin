@@ -120,7 +120,7 @@ Goal (FIX-PLAN P4.2): 3 reviews by week 6, 7 by day 90.
 | Maneel Club | live portfolio | [FOUNDER] |
 | Brandingly | live portfolio | [FOUNDER] |
 | গ তে গয়না | live portfolio | [FOUNDER] |
-| YT Shop India | live portfolio | [FOUNDER] |
+| YT Shop India | removed from the site 16 Oct 2026 (founder request); footer credit only | [FOUNDER] |
 | OutNet | live portfolio | [FOUNDER] |
 | Sikkhon, Dizishore, Rize Capital, Vellio Properties, Khaza Confectionery, ABC Tiles, Hatch Apps | past clients listed on /work | [FOUNDER: who is still reachable?] |
 

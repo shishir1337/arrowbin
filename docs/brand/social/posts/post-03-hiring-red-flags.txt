@@ -1,0 +1,14 @@
+Six red flags when you're hiring a software company:
+
+1. A quote that seems too good to be true. It usually leaves out design, QA or discovery.
+2. Vague timelines, no clear process and hand-wavy answers about how they work.
+3. They won't share references or let you use their live work.
+4. No mention of testing, security or maintenance.
+5. They won't confirm you'll own the code and infrastructure.
+6. Slow, unclear replies during the sales process. It only gets worse after you sign.
+
+Weigh track record, communication and process far above price. Shortlist three to five firms and ask each one the same questions.
+
+The full guide, with the questions to ask: https://arrowbin.com/blog/how-to-choose-a-software-development-company?utm_source=facebook&utm_medium=social&utm_campaign=social_2026_10
+
+#SoftwareDevelopment #HiringTips #Outsourcing #Startups

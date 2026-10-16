@@ -1,0 +1,9 @@
+Plan to spend roughly 15–20% of the build cost every year to keep custom software running. For a $60,000 SaaS MVP, that's $9,000 to $12,000 a year (our planning estimate, not an industry statistic).
+
+The money covers four kinds of work: fixing bugs, adapting to platform and dependency changes, improving features people rely on, and preventive work such as backups and security patches.
+
+Platforms also set fixed deadlines. PostgreSQL 14 got its final release on November 12, 2026, so it receives no more fixes.
+
+Full breakdown: https://arrowbin.com/blog/software-maintenance-cost?utm_source=facebook&utm_medium=social&utm_campaign=social_2026_10
+
+#SoftwareMaintenance #SaaS #TechDebt #Startups

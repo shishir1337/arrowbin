@@ -1,5 +1,6 @@
 # Service page: WordPress to Next.js migration services
 
+**Correction (16 Oct 2026):** the premise below that every portfolio site is a WordPress to Next.js rebuild is wrong. Only North Bengal Agro Farms and Maneel Club (plus arrowbin.com) are; see `docs/seo/00-brief/portfolio-facts.md`. Rewrite the proof lines, FAQ 6 and relatedWork before building.
 **Status:** draft copy, ready for founder review. Documents only; nothing is built.
 **Item:** #4 in `docs/seo/14-audit-2026-10-15/findings/clusters.md` section 4, and SXO finding N4 (`findings/sxo.md`).
 **Template:** A (service page) from `docs/seo/06-content-plan/content-plan.md`, mapped onto the fields in `src/lib/services.ts` (`Service` plus `ServiceExtras`).
@@ -192,7 +193,7 @@ Voice: the founder, plain and specific. No em dashes. Placeholders are `[FOUNDER
    We decide that before choosing a storefront. You can keep WooCommerce as the back end behind a Next.js storefront, or move products, customers and orders to another system. Payment gateway callbacks move with the checkout, and that's the part we test hardest.
 
 6. **Which sites have you moved from WordPress?**
-   All of the live sites on our work page: Silent Lifestyle BD, FlexOver BD, North Bengal Agro Farms, Maneel Club, Brandingly, গ তে গয়না, YT Shop India and OutNet started on WordPress and now run on Next.js. So does arrowbin.com, which returns 410 Gone for old WordPress URLs that have no equivalent.
+   Maneel Club and North Bengal Agro Farms, both on our work page, moved from WordPress to Next.js with us. So did arrowbin.com, which returns 410 Gone for old WordPress URLs that have no equivalent.
 
 7. **Where will the new site be hosted?**
    Anywhere that runs Node.js, including a VPS you already pay for. You don't need Vercel. We can set up hosting and deploys for you, and we're a Hostinger partner if you need a VPS. You keep every account in your own name. `[FOUNDER: confirm "every account in your own name" is how you work]`

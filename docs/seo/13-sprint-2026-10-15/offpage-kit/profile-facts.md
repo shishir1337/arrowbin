@@ -41,7 +41,7 @@ We work across eight services: custom software development, e-commerce developme
 
 Every project starts with a free 30-minute call. [FOUNDER: discovery free or paid? (decision F4) Describe the discovery step here once decided.] Then comes a written scope and a fixed, itemised estimate before any work begins. We build in short sprints with a working demo along the way, and clients get a written update every Friday: what's done, what's next and anything in the way. After launch, an optional care plan covers monitoring, security updates and fixes. Clients own the source code, designs and infrastructure, with no lock-in.
 
-Arrowbin is a verified Hostinger Partner. Live client work includes Silent Lifestyle BD, FlexOver BD, North Bengal Agro Farms, Maneel Club, Brandingly, গ তে গয়না, YT Shop India and OutNet. We also publish practical guides on software costs, MVP timelines, payment and courier integrations, and AI agents at arrowbin.com/blog.
+Arrowbin is a verified Hostinger Partner. Live client work includes Silent Lifestyle BD, FlexOver BD, North Bengal Agro Farms, Maneel Club, Brandingly, গ তে গয়না and OutNet. We also publish practical guides on software costs, MVP timelines, payment and courier integrations, and AI agents at arrowbin.com/blog.
 
 ### Google Business Profile description (under 750 characters, no URLs or phone numbers; only if the Dhaka GBP goes ahead, see directories.md)
 
@@ -151,12 +151,11 @@ Use these exact descriptions. Do not add numbers or results unless the client ha
 | Project | URL | Description |
 |---|---|---|
 | Silent Lifestyle BD | https://silentlifestylebd.com/ | A men's and women's fashion storefront for Bangladesh, built around cash-on-delivery ordering and phone confirmation rather than card checkout. |
-| FlexOver BD | https://www.flexoverbd.com/ | A multi-category online store covering fashion, gadgets, home and beauty, rebuilt from WordPress as a Next.js store. |
-| North Bengal Agro Farms | https://nbafl.net/ | Corporate and product website for an organic agro-export company, rebuilt from WordPress with online ordering built in. |
-| Maneel Club | https://maneelclub.com/ | A mobile-first e-commerce storefront for a men's fashion brand, rebuilt from WordPress on Next.js. |
-| Brandingly | https://brandingly.agency/ | A website for a full-service branding and marketing agency, rebuilt from WordPress on Next.js for fast page loads. |
-| গ তে গয়না | https://gtegoyna.com.bd/ | A handcrafted-jewelry storefront for traditional Bangladeshi pieces, with a mobile-first checkout flow. |
-| YT Shop India | https://ytshopindia.com/ | An online marketplace for buying and selling YouTube channels, with verified listings and a secure payment flow. |
+| FlexOver BD | https://www.flexoverbd.com/ | A brand-new business with no website. We built its multi-category store from scratch on Next.js, with a custom admin. |
+| North Bengal Agro Farms | https://nbafl.net/ | An organic farm in Rajshahi that had a basic WordPress site, rebuilt on Next.js with a shop, payment checks, a blog and a custom admin. |
+| Maneel Club | https://maneelclub.com/ | An online men's fashion brand, rebuilt from a basic WordPress store onto Next.js with a custom admin. 10,000+ orders since February 2026. |
+| Brandingly | https://brandingly.agency/ | A branding and marketing agency in Dhaka. Its WordPress site redesigned with a new UI/UX, still on WordPress. |
+| গ তে গয়না | https://gtegoyna.com.bd/ | A well-known Bangladeshi jewellery brand. Its first online store, built on Shopify; a Next.js rebuild with Android and iOS apps is in progress. |
 | OutNet | https://outnet.it.com/ | A marketing site for a full-service digital agency, rebuilt from WordPress on Next.js as its portfolio and main source of leads. |
 
 ## 9. Category choices per directory

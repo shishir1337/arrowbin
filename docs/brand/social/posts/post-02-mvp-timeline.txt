@@ -1,0 +1,12 @@
+Most well-scoped MVPs launch in 6 to 14 weeks.
+
+Our estimates for 2026:
+• Simple tool: 6–8 weeks
+• Standard MVP: 10–14 weeks
+• Complex SaaS MVP: 14–20 weeks
+
+Scope moves the timeline more than anything else. Every feature you move to version two buys you time. The next biggest delays are unclear requirements and slow decisions, and you can fix both before anyone writes code.
+
+Full guide, with a worked example: https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp?utm_source=facebook&utm_medium=social&utm_campaign=social_2026_10
+
+#MVP #StartupTips #ProductDevelopment #SoftwareDevelopment

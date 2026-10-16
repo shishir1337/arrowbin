@@ -145,7 +145,7 @@ Everything here is conditional on Q1. Placeholders are `[FOUNDER: ...]`.
 
   (These are the "get a human in now" triggers from the post, so the page and the post agree.)
 
-- **relatedWork:** `["Silent Lifestyle BD", "YT Shop India", "OutNet"]` with `title="Production sites by the same team"`, unless Q6 supplies a real AI-built app case.
+- **relatedWork:** `["Silent Lifestyle BD", "FlexOver BD", "OutNet"]` with `title="Production sites by the same team"`, unless Q6 supplies a real AI-built app case.
 - **relatedPosts:** `["vibe-coded-app-production-ready", "mvp-vs-prototype-vs-poc", "software-maintenance-cost"]`
 
 - **copy.form:**

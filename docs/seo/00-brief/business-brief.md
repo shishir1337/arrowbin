@@ -9,7 +9,7 @@ Shared context for every research workstream. Facts only; nothing here is a clai
 - **Offices:** Dhaka, Bangladesh (Mohammadpur) and St. Petersburg, Florida, USA (7901 4th St N, 33702). The founder does not want the offices emphasised in site copy ("clients worldwide"), but they can still power local SEO (Google Business Profiles, citations).
 - **Phones:** +8801843596038 (BD), +1 813-421-5874 (US). Email: hello@arrowbin.com. Booking: cal.com/arrowbin/30min
 - **Partnerships:** verified Hostinger partner.
-- **Proof on site:** 8 live portfolio projects (Silent Lifestyle BD, FlexOver BD, North Bengal Agro Farms, Maneel Club, Brandingly, গ তে গয়না (gtegoyna.com.bd), YT Shop India, OutNet), plus client names Sikkhon, Dizishore, Rize Capital, Vellio Properties, Khaza Confectionery, ABC Tiles, Hatch Apps. Mostly e-commerce / Bangladesh clients so far. "15+ brands shipped for".
+- **Proof on site:** 7 live portfolio projects (facts per project in `portfolio-facts.md`: Silent Lifestyle BD, FlexOver BD, North Bengal Agro Farms, Maneel Club, Brandingly, গ তে গয়না (gtegoyna.com.bd), OutNet; YT Shop India removed 16 Oct 2026 at the founder's request, do not showcase it), plus client names Sikkhon, Dizishore, Rize Capital, Vellio Properties, Khaza Confectionery, ABC Tiles, Hatch Apps. Mostly e-commerce / Bangladesh clients so far. "15+ brands shipped for".
 - **Tech:** Next.js 16 (App Router), fully static/SSR pages, JSON-LD (Organization, LocalBusiness, BreadcrumbList, BlogPosting, FAQPage, Service), llms.txt, sitemap, RSS, OG images.
 
 ## Services (each has a dedicated page at /services/<slug>)
