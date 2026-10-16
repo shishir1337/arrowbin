@@ -70,7 +70,7 @@ export const site = {
   socials: [
     {
       label: "Facebook",
-      href: "https://www.facebook.com/arrowbinllc/",
+      href: "https://www.facebook.com/arrowbinhq",
       icon: "facebook",
     },
     {
@@ -133,7 +133,7 @@ export const mainNav = [
  */
 export const sameAs = [
   "https://github.com/Arrowbin-LLC",
-  "https://www.facebook.com/arrowbinllc/",
+  "https://www.facebook.com/arrowbinhq",
   "https://www.instagram.com/arrowbinllc",
   "https://x.com/Arrowbinllc",
 ];

@@ -125,7 +125,7 @@ Verified profiles from `src/lib/site.ts` only:
 |---|---|
 | Website | https://arrowbin.com |
 | GitHub | https://github.com/Arrowbin-LLC |
-| Facebook | https://www.facebook.com/arrowbinllc/ |
+| Facebook | https://www.facebook.com/arrowbinhq |
 | Instagram | https://www.instagram.com/arrowbinllc |
 | X | https://x.com/Arrowbinllc |
 | Founder on LinkedIn | https://www.linkedin.com/in/md-shishir-ahmed |

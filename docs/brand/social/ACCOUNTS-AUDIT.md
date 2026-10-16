@@ -80,7 +80,7 @@ After recovery:
 - [ ] Post the calendar posts here too (short version), and pin the first one
 - [ ] Tell me, for the Google refresh request
 
-### 3. Facebook: facebook.com/arrowbinllc (fixed today, a few items left)
+### 3. Facebook: facebook.com/arrowbinhq (fixed today, a few items left; username changed from arrowbinllc on 16 Oct)
 
 Done: picture, cover, bio, categories, specialities, email, address removed, Contact us button, privacy and legal text, offer.
 
@@ -211,7 +211,7 @@ Dribbble "arrowbin" is already registered but not public. If it isn't yours, use
 |---|---|---|---|---|
 | Instagram | yes, locked | | | https://www.instagram.com/arrowbinllc |
 | X | yes, locked | | | https://x.com/Arrowbinllc |
-| Facebook | yes | mostly (16 Oct) | | https://www.facebook.com/arrowbinllc/ |
+| Facebook | yes | mostly, username now arrowbinhq (16 Oct) | 16 Oct | https://www.facebook.com/arrowbinhq |
 | YouTube | yes | | | https://www.youtube.com/@arrowbinllc |
 | GitHub org | yes | | | https://github.com/Arrowbin-LLC |
 | Founder GitHub / X / LinkedIn | yes | | | |
