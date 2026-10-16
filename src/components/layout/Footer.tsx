@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 import { LogoMark } from "@/components/brand/LogoMark";
 import { HostingerBadge } from "@/components/ui/HostingerBadge";
 import { Icon, type IconName } from "@/components/ui/Icon";
@@ -76,6 +77,12 @@ export function Footer() {
                   <span className="h-1.5 w-1.5 scale-0 rounded-full bg-plasma transition-transform group-hover:scale-100" />
                   Terms
                 </Link>
+              </li>
+              <li>
+                <CookieSettingsButton className={`${linkCls} cursor-pointer`}>
+                  <span className="h-1.5 w-1.5 scale-0 rounded-full bg-plasma transition-transform group-hover:scale-100" />
+                  Cookie settings
+                </CookieSettingsButton>
               </li>
             </ul>
           </nav>

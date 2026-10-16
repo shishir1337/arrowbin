@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anybody, Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { Footer } from "@/components/layout/Footer";
@@ -196,6 +197,7 @@ export default function RootLayout({
         <Footer />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
         {clarityId ? <MicrosoftClarity clarityId={clarityId} /> : null}
+        <CookieConsent />
       </body>
     </html>
   );

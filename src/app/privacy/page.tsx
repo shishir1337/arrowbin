@@ -167,7 +167,11 @@ const sections: LegalSection[] = [
     blocks: [
       {
         type: "p",
-        text: "The website itself doesn't set cookies or store anything in your browser. Google Analytics sets cookies (named _ga and _ga_*) to tell visits apart; they last up to two years. Microsoft Clarity sets cookies (named _clck and _clsk) to link the pages you view into one visit; they last up to a year, and Microsoft may set its own cookies, such as MUID, on its domains. Cloudflare may set a short-lived security cookie to filter out bots, and its visit counting doesn't use cookies.",
+        text: "The website itself doesn't set cookies. It only remembers your cookie choice in your browser's storage, if you make one. Google Analytics sets cookies (named _ga and _ga_*) to tell visits apart; they last up to two years. Microsoft Clarity sets cookies (named _clck and _clsk) to link the pages you view into one visit; they last up to a year, and Microsoft may set its own cookies, such as MUID, on its domains. Cloudflare may set a short-lived security cookie to filter out bots, and its visit counting doesn't use cookies.",
+      },
+      {
+        type: "p",
+        text: "If you visit from the EU, the EEA, the UK or Switzerland, we ask first. Until you accept, Google Analytics and Microsoft Clarity run without cookies and only count visits anonymously. Anyone can change their choice at any time with Cookie settings at the bottom of every page.",
       },
       {
         type: "p",

@@ -1,5 +1,5 @@
 /**
- * Sends a GA4 event through gtag. GA loads `lazyOnload` (after the window load
+ * Sends a GA4 event through gtag. GA loads late (after the window load
  * event, see GoogleAnalytics.tsx), so `window.gtag` does not exist for the first
  * moments of a visit. Events fired before then (FCP and TTFB, or a quick quote
  * submit on a slow connection) wait in a small queue and flush once gtag exists.
