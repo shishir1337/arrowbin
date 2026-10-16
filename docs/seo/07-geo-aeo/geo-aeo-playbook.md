@@ -49,7 +49,7 @@ Goal: every engine should resolve "Arrowbin" to one entity: *Arrowbin LLC, a sof
 | The Manifest | https://themanifest.com | Clutch sister site; cited for Tampa. |
 | Crunchbase | https://www.crunchbase.com | Organization + Person (founder). |
 | Upwork agency profile | https://www.upwork.com | Cited for "hire developers in Bangladesh". |
-| GitHub org | https://github.com/Arrowbin-LLC (exists) | Add website + description. |
+| GitHub org | https://github.com/arrowbinhq (exists) | Add website + description. |
 | Facebook | https://www.facebook.com/arrowbinllc/ (exists) | Match description. |
 | YouTube channel | new | YouTube mentions are the strongest AI-visibility correlate in Ahrefs' 2026 report ([Business Wire](https://www.businesswire.com/news/home/20260526119691/en/Across-75000-Brands-YouTube-Mentions-Are-the-Strongest-Signal-of-AI-Visibility-New-Ahrefs-Report-Reveals)). |
 | Dribbble / Behance | new | UI/UX listicles draw on these. |
@@ -58,7 +58,7 @@ Goal: every engine should resolve "Arrowbin" to one entity: *Arrowbin LLC, a sof
 
 ### 1.3 Wikidata (do this after Crunchbase, LinkedIn and 2+ directories exist)
 Wikidata items must be backed by serious, publicly available references or fill a structural need ([Wikidata:Notability](https://www.wikidata.org/wiki/Wikidata:Notability)). Do not create it on the strength of arrowbin.com alone.
-- Item "Arrowbin" : instance of (P31) business (Q4830453); industry (P452) software development; country (P17) United States; inception (P571) 2020; founded by (P112) → founder item (only if referenceable); official website (P856) https://arrowbin.com; LinkedIn company ID (P4264); Crunchbase organization ID (P2088); GitHub username (P2037) Arrowbin-LLC; Facebook username (P2013) arrowbinllc.
+- Item "Arrowbin" : instance of (P31) business (Q4830453); industry (P452) software development; country (P17) United States; inception (P571) 2020; founded by (P112) → founder item (only if referenceable); official website (P856) https://arrowbin.com; LinkedIn company ID (P4264); Crunchbase organization ID (P2088); GitHub username (P2037) arrowbinhq; Facebook username (P2013) arrowbinhq.
 - Every statement gets a reference URL (Crunchbase, Florida Division of Corporations record at sunbiz.org, directory profiles).
 - Then add the Wikidata URL to Organization `sameAs`.
 

@@ -230,7 +230,7 @@ What the requirements page says, in short:
 
 ## 9. GitHub organization (FIX-PLAN P0.1)
 
-**Start here:** https://github.com/organizations/Arrowbin-LLC/settings/profile (needs an owner login, so we could not open it). The public org page is https://github.com/Arrowbin-LLC.
+**Start here:** https://github.com/organizations/arrowbinhq/settings/profile (needs an owner login, so we could not open it). The public org page is https://github.com/arrowbinhq (renamed from Arrowbin-LLC on 16 Oct 2026).
 
 **What it shows now** (GitHub API, 15 Oct 2026): description "At Arrowbin Digital Agency, we're dedicated to turning your concepts into captivating digital realities."; email `info@arrowbin.com`; location "United States of America"; URL `https://www.arrowbin.com/`; 0 public repositories. The site already lists this org in `sameAs`, so fix it **before** the next deploy.
 
@@ -306,6 +306,6 @@ Google may ask for video verification showing the signage, workspace and staff. 
 | TechBehemoths | | | | |
 | The Manifest | | | | |
 | Hostinger Agency Directory | | | | |
-| GitHub org (fixed) | | https://github.com/Arrowbin-LLC | | already in |
+| GitHub org (fixed) | | https://github.com/arrowbinhq | | already in |
 | Google Business Profile (if D8 yes) | | | | (`hasMap`) |
 | Bing Places (if D8 yes) | | | | no |

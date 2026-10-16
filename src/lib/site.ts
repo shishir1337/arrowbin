@@ -132,7 +132,7 @@ export const mainNav = [
  * and corrected (FIX-PLAN P1.3, P1.4).
  */
 export const sameAs = [
-  "https://github.com/Arrowbin-LLC",
+  "https://github.com/arrowbinhq",
   "https://www.facebook.com/arrowbinhq",
   "https://www.instagram.com/arrowbinllc",
   "https://x.com/Arrowbinllc",

@@ -18,7 +18,7 @@ BD,Infoisinfo Bangladesh (Mohammadpur),https://mohammadpur-dhaka.infoisinfo.com.
 BD,Facebook Page (location details),https://www.facebook.com/arrowbinhq,Free,P1,"Existing. Align name, address, phone, website with NAP standard."
 GLOBAL,LinkedIn company page,https://www.linkedin.com/company/,Free,P1,"Brief/site links linkedin.com/in/arrowbinllc which is a personal-profile URL pattern; create or confirm a proper /company/ page."
 GLOBAL,Crunchbase,https://www.crunchbase.com/,Free basic profile,P1,"Entity signal used by AI answer engines."
-GLOBAL,GitHub organization,https://github.com/Arrowbin-LLC,Free,P1,"Existing. Update email (info@ to hello@), bio text, and add public repos or a README."
+GLOBAL,GitHub organization,https://github.com/arrowbinhq,Free,P1,"Existing. Update email (info@ to hello@), bio text, and add public repos or a README."
 GLOBAL,Hostinger Agency Directory,https://www.hostinger.com/agency-directory,Free for Hostinger partners,P1,"Arrowbin is a verified Hostinger partner. Profile must pass content review. Link type not confirmed."
 GLOBAL,DesignRush,https://www.designrush.com/agency/software-development/florida/tampa,Free listing (paid placement optional),P2,"Ranks for 'software company tampa bay'."
 GLOBAL,The Manifest,https://themanifest.com/web-development/companies/tampa,Free (fed by Clutch profile),P2,"Clutch sister site; profile syncs from Clutch."

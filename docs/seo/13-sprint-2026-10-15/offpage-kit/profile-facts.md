@@ -124,7 +124,7 @@ Verified profiles from `src/lib/site.ts` only:
 | Profile | URL |
 |---|---|
 | Website | https://arrowbin.com |
-| GitHub | https://github.com/Arrowbin-LLC |
+| GitHub | https://github.com/arrowbinhq |
 | Facebook | https://www.facebook.com/arrowbinhq |
 | Instagram | https://www.instagram.com/arrowbinllc |
 | X | https://x.com/Arrowbinllc |

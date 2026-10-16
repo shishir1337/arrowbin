@@ -25,7 +25,7 @@ Do it in one sitting, in this order, so the links never point to a dead username
 
 1. **Facebook** (you can do this now): Settings → Page setup → Name: `Arrowbin`. Username: `arrowbin` if Facebook says it's available, otherwise `arrowbinhq`. Also edit the "Privacy and legal info" description to start "Arrowbin is a software development company…" (it currently starts "Arrowbin LLC is…"). Facebook reviews name changes, which can take a few days.
 2. **YouTube** (you can do this now): YouTube Studio → Customisation → Basic info → Handle: `@arrowbinhq`.
-3. **GitHub**: rename the organisation `Arrowbin-LLC` to `arrowbinhq` (Settings → Rename organisation) and set the display name to `Arrowbin`.
+3. **GitHub**: done 16 Oct. The organisation `Arrowbin-LLC` is now `arrowbinhq`, display name `Arrowbin`.
 4. **Discord**: rename the server to `Arrowbin`.
 5. **Instagram and X** (after recovery): name `Arrowbin`, username `arrowbinhq`. Threads follows Instagram.
 6. **New accounts** (LinkedIn page, TikTok, Pinterest and the rest): create them as `Arrowbin` / `arrowbinhq` from the start.
@@ -110,7 +110,7 @@ If it becomes the company channel:
 - [ ] Keep the links (website, X, Facebook, Instagram, Discord); add LinkedIn once the page exists
 - [ ] Then I add it to the website's social links
 
-### 5. GitHub organisation: github.com/Arrowbin-LLC (the website already lists it, so fix it first)
+### 5. GitHub organisation: github.com/arrowbinhq (renamed from Arrowbin-LLC on 16 Oct; name and description done)
 
 Now: name "Arrowbin LLC"; description "At Arrowbin Digital Agency, we're dedicated to…"; email `info@arrowbin.com`; location "United States of America"; website `https://www.arrowbin.com/`; 0 public repositories; domain not verified.
 
@@ -213,7 +213,7 @@ Dribbble "arrowbin" is already registered but not public. If it isn't yours, use
 | X | yes, locked | | | https://x.com/Arrowbinllc |
 | Facebook | yes | mostly, username now arrowbinhq (16 Oct) | 16 Oct | https://www.facebook.com/arrowbinhq |
 | YouTube | yes | | | https://www.youtube.com/@arrowbinllc |
-| GitHub org | yes | | | https://github.com/Arrowbin-LLC |
+| GitHub org | yes | renamed to arrowbinhq, name and description (16 Oct) | 16 Oct | https://github.com/arrowbinhq |
 | Founder GitHub / X / LinkedIn | yes | | | |
 | Discord | yes | | | |
 | Cal.com | yes | | | https://cal.com/arrowbin/30min |
