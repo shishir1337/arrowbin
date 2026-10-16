@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { type KeyboardEvent, type PointerEvent, useRef, useState } from "react";
+import {
+  type KeyboardEvent,
+  type PointerEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { reducedMotion } from "@/lib/gsap";
 
 type Img = {
   src: string;
@@ -16,12 +23,22 @@ const clamp = (n: number) => Math.min(100, Math.max(0, n));
 const blurProps = (blur?: string) =>
   blur ? { placeholder: "blur" as const, blurDataURL: blur } : {};
 
+/** The hint sweep: [handle position %, duration ms] for each leg. */
+const HINT: [number, number][] = [
+  [32, 650],
+  [68, 1000],
+  [50, 650],
+];
+const easeInOut = (t: number) =>
+  t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
+
 /**
  * Drag-to-compare: the old site underneath, the new one on top, clipped at the
  * handle (before on the left, after on the right). Drag anywhere on the image
  * with a mouse or pen, or swipe sideways on touch (vertical swipes still
  * scroll the page). The handle is a keyboard slider: arrow keys, Shift for
- * bigger steps, Home and End.
+ * bigger steps, Home and End. The first time it is mostly in view, the handle
+ * sweeps left, right and back once, so visitors see that it moves.
  */
 export function BeforeAfterSlider({
   before,
@@ -35,6 +52,50 @@ export function BeforeAfterSlider({
   const [pos, setPos] = useState(50);
   const box = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+  /** Set by any click, touch or key press: the hint stops for good. */
+  const touched = useRef(false);
+
+  // One hint sweep, the first time the slider is mostly in view. Skipped for
+  // reduced motion; the visitor's own input always wins.
+  useEffect(() => {
+    const el = box.current;
+    if (!el || reducedMotion()) return;
+    let raf = 0;
+    let timer = 0;
+    const play = () => {
+      let leg = 0;
+      let from = 50;
+      let t0 = performance.now();
+      const step = (now: number) => {
+        if (touched.current) return;
+        const [to, ms] = HINT[leg];
+        const p = Math.min(1, (now - t0) / ms);
+        setPos(from + (to - from) * easeInOut(p));
+        if (p === 1) {
+          leg += 1;
+          if (leg === HINT.length) return;
+          from = to;
+          t0 = now;
+        }
+        raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        timer = window.setTimeout(play, 300);
+      },
+      { threshold: 0.6 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(timer);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const moveTo = (clientX: number) => {
     const r = box.current?.getBoundingClientRect();
@@ -42,6 +103,7 @@ export function BeforeAfterSlider({
   };
 
   const down = (e: PointerEvent<HTMLDivElement>) => {
+    touched.current = true;
     dragging.current = true;
     e.currentTarget.setPointerCapture(e.pointerId);
     // A touch may turn out to be a page scroll, so it only moves the handle
@@ -67,6 +129,7 @@ export function BeforeAfterSlider({
     };
     if (!(e.key in next)) return;
     e.preventDefault();
+    touched.current = true;
     setPos(clamp(next[e.key]));
   };
 
