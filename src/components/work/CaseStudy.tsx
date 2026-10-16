@@ -4,6 +4,7 @@ import { SectionLabel } from "@/components/home/SectionLabel";
 import { Crumbs } from "@/components/ui/Crumbs";
 import { getBlurDataURL } from "@/lib/blur";
 import type { CaseStudy, Shot } from "@/lib/case-studies";
+import { BeforeAfterSlider } from "./BeforeAfterSlider";
 
 const host = (url: string) =>
   url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
@@ -219,7 +220,8 @@ export function CaseStats({ cs, label }: { cs: CaseStudy; label: string }) {
   );
 }
 
-export function CaseBeforeAfter({
+/** The old site and the new one in one browser frame, with a drag handle. */
+export async function CaseBeforeAfter({
   cs,
   label,
 }: {
@@ -228,36 +230,51 @@ export function CaseBeforeAfter({
 }) {
   const pair = cs.shots.beforeAfter;
   if (!pair) return null;
+  const [beforeBlur, afterBlur] = await Promise.all([
+    getBlurDataURL(pair.before.src),
+    getBlurDataURL(pair.after.src),
+  ]);
   return (
     <section className="relative bg-white py-20 sm:py-28">
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
-        <SectionLabel index={label} title="Before and after" />
-        <h2
-          className="display mt-5 max-w-[18ch] text-[clamp(2.2rem,4.6vw,4.6rem)] text-ink"
-          style={{ ["--wdth" as string]: 100 }}
-        >
-          Same brand, a new store
-        </h2>
-        <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-8">
-          {[
-            { shot: pair.before, tone: "bg-frost" },
-            { shot: pair.after, tone: "bg-plasma" },
-          ].map(({ shot, tone }) => (
-            <figure key={shot.src}>
-              <BrowserFrame
-                shot={shot}
-                site={host(cs.url)}
-                tone={tone}
-                sizes="(min-width: 1024px) 46vw, 94vw"
-              />
-              {shot.caption ? (
-                <figcaption className="label mt-4 px-1 text-ink-2">
-                  {shot.caption}
-                </figcaption>
-              ) : null}
-            </figure>
-          ))}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <SectionLabel index={label} title="Before and after" />
+            <h2
+              className="display mt-5 max-w-[18ch] text-[clamp(2.2rem,4.6vw,4.6rem)] text-ink"
+              style={{ ["--wdth" as string]: 100 }}
+            >
+              Same brand, a new store
+            </h2>
+          </div>
+          <p className="max-w-xs text-ink-2">
+            Drag the handle to compare the old store with the new one.
+          </p>
         </div>
+        {/* Capped so the whole frame fits on a laptop screen while dragging. */}
+        <figure className="mx-auto mt-12 max-w-[1180px]">
+          <div className="rounded-[1.75rem] bg-plasma p-3 sm:p-4">
+            <div className="overflow-hidden rounded-[1.2rem] bg-white shadow-[0_20px_40px_-24px_rgba(14,11,36,0.6)]">
+              <div className="flex h-7 items-center gap-1.5 border-b border-ink/10 px-3">
+                <span className="h-2 w-2 rounded-full bg-plasma" />
+                <span className="h-2 w-2 rounded-full bg-sun" />
+                <span className="h-2 w-2 rounded-full bg-ultra" />
+                <span className="ml-2 truncate font-mono text-[10px] text-ink-2">
+                  {host(cs.url)}
+                </span>
+              </div>
+              <BeforeAfterSlider
+                before={{ ...pair.before, blur: beforeBlur }}
+                after={{ ...pair.after, blur: afterBlur }}
+                sizes="(min-width: 1280px) 1150px, 94vw"
+              />
+            </div>
+          </div>
+          <figcaption className="label mt-4 grid gap-1 px-1 text-ink-2 md:flex md:justify-between md:gap-6">
+            <span>{pair.before.caption}</span>
+            <span>{pair.after.caption}</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
