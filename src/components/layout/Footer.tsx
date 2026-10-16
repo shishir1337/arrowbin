@@ -105,7 +105,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-3 py-6 text-sm text-ink-2 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.legalName}. All rights reserved.
+            © {year} {site.name}. All rights reserved.
           </p>
           <p className="label">Designed &amp; engineered in-house</p>
         </div>

@@ -1,7 +1,9 @@
 /**
  * Portfolio projects (linked to live sites) and the secondary client list.
- * Used by the /work page and the home-page portfolio preview. No screenshots were
- * provided, so cards render styled letter-mark/gradient placeholders that link out.
+ * Used by the /work page and the home-page portfolio preview. Each card shows a
+ * 1280×800 screenshot of the live site (retake it when the site changes, then
+ * run `node scripts/generate-blur.mjs`); the letter mark and gradient show while
+ * it loads. Facts per project: docs/seo/00-brief/portfolio-facts.md.
  */
 
 export type Project = {
@@ -31,8 +33,8 @@ export const projects: Project[] = [
     url: "https://silentlifestylebd.com/",
     image: "/portfolio/silent-lifestyle-bd.jpg",
     blurb:
-      "A men's and women's fashion storefront for Bangladesh, built around cash-on-delivery ordering with phone confirmation, alongside bKash, Nagad and card payments.",
-    result: "Cash-on-delivery ordering live nationwide",
+      "A Dhaka fashion brand with physical showrooms and no website. We built its first online store from scratch on Next.js, with a custom admin and phone-confirmed cash on delivery.",
+    result: "First online store, built from scratch with its own admin",
     tags: ["E-commerce", "Fashion", "Storefront"],
     mark: "Sl",
     gradient: "from-slate-500 to-stone-700",
@@ -42,8 +44,8 @@ export const projects: Project[] = [
     url: "https://www.flexoverbd.com/",
     image: "/portfolio/flexover-bd.jpg",
     blurb:
-      "A multi-category online store covering fashion, gadgets, home and beauty, with cash on delivery, easy returns and nationwide delivery.",
-    result: "Rebuilt from WordPress as a multi-category Next.js store",
+      "A brand-new business with no website. We built its multi-category store from scratch on Next.js, with a custom admin for orders, stock alerts, coupons and flash sales.",
+    result: "Built from scratch: storefront plus custom admin",
     tags: ["E-commerce", "Retail", "UI/UX"],
     mark: "Fo",
     gradient: "from-orange-500 to-red-600",
@@ -53,8 +55,8 @@ export const projects: Project[] = [
     url: "https://nbafl.net/",
     image: "/portfolio/north-bengal-agro-farms.jpg",
     blurb:
-      "Corporate and product website for an organic agro-export company, combining its brand story with online ordering.",
-    result: "Rebuilt from WordPress with online ordering built in",
+      "An organic farm in Rajshahi that had a basic WordPress site. We rebuilt it on Next.js with a shop, bKash, Nagad and Rocket payment checks, a blog and a custom admin.",
+    result: "Rebuilt from WordPress with online ordering and payment checks",
     tags: ["Corporate", "E-commerce"],
     mark: "Nb",
     gradient: "from-indigo-500 to-fuchsia-500",
@@ -64,8 +66,8 @@ export const projects: Project[] = [
     url: "https://maneelclub.com/",
     image: "/portfolio/maneel-club.jpg",
     blurb:
-      "An e-commerce storefront for a men's fashion brand, built mobile-first so shoppers can browse and check out quickly on a phone.",
-    result: "Rebuilt from WordPress as a mobile-first Next.js store",
+      "An online men's fashion brand that had a basic WordPress store. We rebuilt it on Next.js with a custom admin: stock audits, coupons, delivery cities and fake-order blocking.",
+    result: "10,000+ orders through the new store since February 2026",
     tags: ["E-commerce", "Fashion"],
     mark: "Mc",
     gradient: "from-amber-500 to-orange-600",
@@ -75,9 +77,9 @@ export const projects: Project[] = [
     url: "https://brandingly.agency/",
     image: "/portfolio/brandingly.jpg",
     blurb:
-      "A website for a full-service branding and marketing agency, tuned for fast load times and steady lead generation.",
-    result: "Rebuilt from WordPress on Next.js for fast page loads",
-    tags: ["Agency", "Web Design", "SEO"],
+      "A full-service branding and marketing agency in Dhaka. We redesigned its basic WordPress site with a new UI/UX, and kept it on WordPress.",
+    result: "Redesigned with a new UI/UX on WordPress",
+    tags: ["Agency", "Web Design", "WordPress"],
     mark: "Br",
     gradient: "from-rose-500 to-pink-600",
   },
@@ -86,22 +88,11 @@ export const projects: Project[] = [
     url: "https://gtegoyna.com.bd/",
     image: "/portfolio/gtegoyna.jpg",
     blurb:
-      "A handcrafted-jewelry storefront for traditional Bangladeshi pieces, with a mobile-first checkout flow.",
-    result: "Mobile-first Next.js store with a streamlined checkout",
-    tags: ["E-commerce", "Storefront"],
+      "A well-known Bangladeshi jewellery brand with no website. We built its first online store on Shopify, and we're now rebuilding it on Next.js with Android and iOS apps.",
+    result: "First online store, launched on Shopify",
+    tags: ["E-commerce", "Storefront", "Shopify"],
     mark: "গ",
     gradient: "from-yellow-500 to-amber-600",
-  },
-  {
-    name: "YT Shop India",
-    url: "https://ytshopindia.com/",
-    image: "/portfolio/yt-shop-india.jpg",
-    blurb:
-      "An online marketplace for buying and selling YouTube channels. Listings are verified and payments run through a secure transaction flow.",
-    result: "Marketplace with verified listings and secure payments",
-    tags: ["Marketplace", "E-commerce"],
-    mark: "Yt",
-    gradient: "from-red-500 to-rose-600",
   },
   {
     name: "OutNet",

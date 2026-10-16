@@ -106,7 +106,7 @@ ${services.map(serviceSection).join("\n\n")}
 
 ## Work
 
-Live client sites ${site.name} has built. Each was rebuilt from WordPress on Next.js. See [Work](${siteUrl}/work).
+Live client sites ${site.name} has built, from first online stores to rebuilds and redesigns of older sites. See [Work](${siteUrl}/work).
 
 ${workLines}
 

@@ -1015,7 +1015,11 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Companies that need their systems to talk to each other",
       "Founders building a platform they want to own outright",
     ],
-    relatedWork: ["North Bengal Agro Farms", "YT Shop India", "FlexOver BD"],
+    relatedWork: [
+      "North Bengal Agro Farms",
+      "Silent Lifestyle BD",
+      "FlexOver BD",
+    ],
     relatedPosts: [
       "vibe-coded-app-production-ready",
       "how-much-does-custom-software-development-cost",
@@ -1077,7 +1081,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Sellers who need custom checkout, pricing or subscriptions",
       "Businesses scaling catalog, traffic or fulfilment",
     ],
-    relatedWork: ["Maneel Club", "গ তে গয়না", "YT Shop India"],
+    relatedWork: ["Maneel Club", "গ তে গয়না", "Silent Lifestyle BD"],
     relatedPosts: [
       "shopify-vs-custom-ecommerce",
       "payment-gateway-integration-bangladesh",
@@ -1139,7 +1143,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Teams that need offline, push or device features",
       "Founders validating a mobile-first MVP",
     ],
-    relatedWork: ["Silent Lifestyle BD", "Maneel Club", "YT Shop India"],
+    relatedWork: ["Silent Lifestyle BD", "Maneel Club", "গ তে গয়না"],
     relatedPosts: [
       "mvp-development-cost",
       "how-long-does-it-take-to-build-an-mvp",
@@ -1200,7 +1204,11 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Products scaling from their first users to many",
       "Companies turning an internal tool into a product",
     ],
-    relatedWork: ["YT Shop India", "FlexOver BD", "North Bengal Agro Farms"],
+    relatedWork: [
+      "Silent Lifestyle BD",
+      "FlexOver BD",
+      "North Bengal Agro Farms",
+    ],
     relatedPosts: [
       "saas-development-cost",
       "mvp-development-cost",
@@ -1323,7 +1331,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
       "Companies adding AI features to a product",
       "Operations leaders chasing efficiency gains",
     ],
-    relatedWork: ["OutNet", "FlexOver BD", "YT Shop India"],
+    relatedWork: ["OutNet", "FlexOver BD", "Silent Lifestyle BD"],
     relatedPosts: [
       "ai-automation-for-small-business",
       "ai-agent-cost-small-business",
@@ -1387,7 +1395,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     relatedWork: [
       "North Bengal Agro Farms",
       "Silent Lifestyle BD",
-      "YT Shop India",
+      "Brandingly",
     ],
     relatedPosts: [
       "wordpress-to-nextjs-migration",

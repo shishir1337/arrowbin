@@ -164,9 +164,7 @@ export function Hero() {
               />
             </svg>
           </HeroScrollButton>
-          <span className="label max-sm:hidden">
-            © Arrowbin LLC · Worldwide
-          </span>
+          <span className="label max-sm:hidden">© Arrowbin · Worldwide</span>
         </div>
       </div>
     </section>

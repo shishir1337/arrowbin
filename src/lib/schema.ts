@@ -103,8 +103,9 @@ export function websiteSchema() {
     "@id": WEBSITE_ID,
     url: siteUrl,
     name: site.name,
-    // Google's site-name guidance: other names the site is known by.
-    alternateName: site.legalName,
+    // Google's site-name guidance: a fallback if it can't use `name`. The domain
+    // (lowercase), not the legal name, so Google never titles the site "Arrowbin LLC".
+    alternateName: "arrowbin.com",
     description: site.description,
     inLanguage: "en",
     publisher: { "@id": ORG_ID },

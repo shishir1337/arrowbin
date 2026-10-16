@@ -19,7 +19,7 @@ export const summary = `${site.name} is a software development company for start
 
 // Founder-led and "you talk to the people building it": /about hero and home
 // page description. 100% code ownership: home "Numbers" band.
-export const intro = `${site.name} (${site.legalName}) is founder-led: ${author.name} is the founder and lead engineer, so clients talk to the people who build their product. Clients own all of their source code. To start a project, book a free 30-minute call or send a short project brief (see "Start a project" below).`;
+export const intro = `${site.name} is founder-led: ${author.name} is the founder and lead engineer, so clients talk to the people who build their product. Clients own all of their source code. To start a project, book a free 30-minute call or send a short project brief (see "Start a project" below).`;
 
 /** Markdown links to every service page, in site order. */
 const serviceLinks = services
@@ -39,7 +39,7 @@ export function keyFacts(): string {
   return [
     "Key facts:",
     "",
-    `- Company: ${site.legalName}, a founder-led software development company for startups and SMBs`,
+    `- Company: ${site.name}, a founder-led software development company for startups and SMBs`,
     `- Founder: ${author.name}, founder and lead engineer ([about](${siteUrl}/about))`,
     `- Founded: ${FOUNDED}`,
     "- Clients: startups and SMBs worldwide",

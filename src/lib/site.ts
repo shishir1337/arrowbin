@@ -7,7 +7,10 @@
 export const siteUrl = "https://arrowbin.com";
 
 export const site = {
+  /** The public name, everywhere: titles, footer, schema `name`, profiles. */
   name: "Arrowbin",
+  /** The legal entity. Only where the law needs it (Terms, Privacy, schema
+   * `legalName`); never as a display name. Change it here if the entity changes. */
   legalName: "Arrowbin LLC",
   tagline: "Software Development Company",
   /** The brand line used on the homepage hero and in the footer. */

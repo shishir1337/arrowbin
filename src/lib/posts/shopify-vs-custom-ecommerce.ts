@@ -38,7 +38,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Some context on where I'm coming from. At Arrowbin we build custom stores, mostly WordPress or WooCommerce sites rebuilt on Next.js, such as FlexOver BD and Maneel Club. We don't have a Shopify store in our public portfolio. So you'd expect me to push custom.",
+      text: "Some context on where I'm coming from. At Arrowbin we've built both. Most of our stores are custom Next.js builds, such as Maneel Club (moved off WordPress) and FlexOver BD (built from scratch), and we built গ তে গয়না's first store on Shopify. Custom is the bigger project for us, so you'd expect me to push it.",
     },
     { type: "p", text: "For most new stores, I won't." },
 

@@ -23,7 +23,7 @@ export const post: Post = {
   readingTime: "15 min read",
   category: "Guides",
   excerpt:
-    "Every live site in our portfolio started on WordPress and now runs on Next.js, and so does arrowbin.com. This is the process we follow, the SEO details that protect rankings, and when a move isn't worth it.",
+    "We've moved client sites like Maneel Club and North Bengal Agro Farms from WordPress to Next.js, and arrowbin.com too. This is the process we follow, the SEO details that protect rankings, and when a move isn't worth it.",
   image: {
     src: `${DIR}/cover.webp`,
     alt: "Mockup of a rebuilt Next.js storefront in a browser, beside a redirect map of old WordPress URLs and a terminal showing 308 and 410 responses",
@@ -38,7 +38,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "We've made this move for every live site in our portfolio (you can browse the [sites we have moved from WordPress to Next.js](/work)), and for arrowbin.com itself, which replaced an older WordPress site. Below is the process we follow, including the cases where I'd tell you to stay put.",
+      text: "We've made this move for client sites such as Maneel Club and North Bengal Agro Farms (both on [our work page](/work)), and for arrowbin.com itself, which replaced an older WordPress site. Below is the process we follow, including the cases where I'd tell you to stay put.",
     },
     {
       type: "p",

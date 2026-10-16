@@ -234,7 +234,7 @@ ${button(site.bookingUrl, "Book a free 30-min call")}
     eyebrow: "Brief received",
     title: `Thanks, <span style="color:${C.ultra};">${esc(first)}.</span>`,
     body,
-    footer: `You're getting this because you sent a brief on <a href="${site.url}" style="color:${C.ink2};">arrowbin.com</a>. Just reply to this email if you want to add anything.<br>${esc(site.legalName)} · <a href="${site.url}/privacy" style="color:${C.ink2};">Privacy policy</a>`,
+    footer: `You're getting this because you sent a brief on <a href="${site.url}" style="color:${C.ink2};">arrowbin.com</a>. Just reply to this email if you want to add anything.<br>${esc(site.name)} · <a href="${site.url}/privacy" style="color:${C.ink2};">Privacy policy</a>`,
   });
 
   const text = [

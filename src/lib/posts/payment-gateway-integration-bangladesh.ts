@@ -105,7 +105,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: 'Stores we\'ve rebuilt show the same mix at checkout. Silent Lifestyle BD\'s footer reads "Pay on delivery • bKash • Nagad • Card". FlexOver BD lists six options under "We accept", with Rocket, Visa and Mastercard among them. গ তে গয়না puts "Cash On Delivery Available" in its header. You can browse them among the [Bangladeshi stores we have rebuilt](/work).',
+      text: 'Stores we\'ve built show the same mix at checkout. Silent Lifestyle BD\'s footer reads "Pay on delivery • bKash • Nagad • Card". FlexOver BD lists six options under "We accept", with Rocket, Visa and Mastercard among them. গ তে গয়না puts "Cash On Delivery Available" in its header. You can browse them among the [Bangladeshi stores we have built](/work).',
     },
 
     {

@@ -100,9 +100,9 @@ export const metadata: Metadata = {
     "ai automation",
     "Arrowbin",
   ],
-  authors: [{ name: site.legalName, url: siteUrl }],
-  creator: site.legalName,
-  publisher: site.legalName,
+  authors: [{ name: site.name, url: siteUrl }],
+  creator: site.name,
+  publisher: site.name,
   // RSS auto-discovery only. No canonical here: a page without its own
   // `alternates` (the 404) would inherit the homepage canonical. Every
   // indexable page sets its canonical itself (see `pageShare` in lib/metadata).
