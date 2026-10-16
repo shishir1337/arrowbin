@@ -436,3 +436,42 @@ export function blogPostingSchema(opts: {
     copyrightHolder: { "@id": ORG_ID },
   };
 }
+
+/** A client case study at /work/[slug]: an Article about the client's project. */
+export function caseStudySchema(opts: {
+  slug: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  image: string;
+  client: string;
+  clientUrl: string;
+}) {
+  const url = `${siteUrl}/work/${opts.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: opts.title,
+    description: opts.description,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: {
+      "@type": "ImageObject",
+      url: `${siteUrl}${opts.image}`,
+      width: 1200,
+      height: 630,
+    },
+    inLanguage: "en",
+    articleSection: "Case study",
+    about: {
+      "@type": "Organization",
+      name: opts.client,
+      url: opts.clientUrl,
+    },
+    datePublished: opts.datePublished,
+    dateModified: opts.datePublished,
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+  };
+}

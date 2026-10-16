@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { finePointer, reducedMotion } from "@/lib/gsap";
@@ -13,6 +14,8 @@ export type WorkItem = {
   tags: string[];
   image: string;
   blur?: string;
+  /** Slug of the project's case study at /work/[slug], when there is one. */
+  caseStudy?: string;
 };
 
 type View = "grid" | "index";
@@ -284,6 +287,17 @@ export function WorkExplorer({
                     </ul>
                   </div>
                 </a>
+                {p.caseStudy ? (
+                  <Link
+                    href={`/work/${p.caseStudy}`}
+                    className="group/cs mx-1 mt-5 inline-flex h-11 items-center gap-3 rounded-full bg-ink py-1 pl-5 pr-1 text-sm font-semibold text-white transition-colors duration-500 hover:bg-ultra"
+                  >
+                    Read the case study
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-sun text-ink transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover/cs:rotate-45">
+                      <Arrow />
+                    </span>
+                  </Link>
+                ) : null}
               </li>
             ))}
           </ul>

@@ -29,8 +29,10 @@ What each live project really is, so site copy, posts and directory profiles say
 
 ## Numbers: what may be published
 
-- Maneel Club "10,000+ orders since February 2026": the founder asked to show it. Get the client's OK in writing (see the comment in `src/lib/portfolio.ts`).
-- North Bengal Agro Farms ranks in Google's top 3 for its main mango variety searches (Search Console, last 6 months). Exact figures stay in the founder's Search Console; ask the client before publishing them.
+Both clients approved their case studies on 16 October 2026: the numbers, the screenshots and the quote, as written in `src/lib/case-studies.ts` (pages at /work/maneel-club and /work/north-bengal-agro-farms). Only those figures are approved; anything new needs a fresh OK.
+
+- **Maneel Club** (approved by Md. Omar Faruk, founder and owner): 10,000+ orders and 17,000+ items sold since February 2026, orders from 70+ cities and towns, monthly sales up about 84% from March to September 2026, about 99% cash on delivery, 65 phone numbers blocked for fake orders.
+- **North Bengal Agro Farms** (approved by Shahin Alam, manager): Google impressions in the same mango-season weeks went from 48 (old site, 2025) to 26,353 (new site, 2026); 63,800 impressions in the first 20 weeks; average position 2 for "amrapali mango" and 1 for "amrapali aam"; 7 of 7 products eligible for Google's product rich results.
 - Never publish revenue, order values or customer details for any client.
 
 ## Notes for the founder (client sites)

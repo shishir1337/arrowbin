@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { postModified, posts } from "@/lib/blog";
+import { caseStudies } from "@/lib/case-studies";
 import { services } from "@/lib/services";
 import { siteUrl } from "@/lib/site";
 
@@ -47,5 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(postModified(p)),
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  // Only case studies the client has approved; drafts never reach the sitemap.
+  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies
+    .filter((c) => c.approved)
+    .map((c) => ({
+      url: `${siteUrl}/work/${c.slug}`,
+      lastModified: new Date(c.date),
+    }));
+
+  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes, ...blogRoutes];
 }

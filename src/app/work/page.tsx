@@ -6,6 +6,7 @@ import { WorkExplorer } from "@/components/work/WorkExplorer";
 import { WorkHero } from "@/components/work/WorkHero";
 import { WorkPartners } from "@/components/work/WorkPartners";
 import { getBlurDataURL } from "@/lib/blur";
+import { caseStudyFor } from "@/lib/case-studies";
 import { pageShare } from "@/lib/metadata";
 import { clients, projects } from "@/lib/portfolio";
 import { breadcrumbSchema, workListSchema } from "@/lib/schema";
@@ -37,6 +38,7 @@ export default async function WorkPage() {
       tags: p.tags,
       image: p.image,
       blur: await getBlurDataURL(p.image),
+      caseStudy: caseStudyFor(p.name)?.slug,
     })),
   );
 
