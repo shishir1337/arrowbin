@@ -114,7 +114,7 @@ Local lastmod `2026-10-01T00:00:00.000Z` for 16 URLs. Content changed after that
 | /?channel=5f1f69&name=LARRY | 301 to / | **200, indexable** | 308 to / |
 | /wp-login.php, /xmlrpc.php, /wp-admin, /wp-json | leave 404 | 404 (wp-admin and wp-json 308 to slashless then 404) | same |
 
-Wildcard `/?channel=` redirect works locally; `/?utm_source=x` stays 200 on both (fine, canonical handles it). All sitemap pages verified live; pre-deploy action: also submit Removals in Search Console for the two known spam URLs.
+Wildcard `/?channel=` redirect works locally; `/?utm_source=x` stays 200 on both (fine, canonical handles it). All sitemap pages verified live; pre-deploy action: also submit a Removal in Search Console for `/products5070048.html` (never for `?channel=` URLs: Search Console reads that prefix as the whole site and offers "Remove entire site?").
 
 ### 3. Security headers
 Live and local identical: HSTS (63072000, includeSubDomains, preload), CSP (default-src 'self', frame-ancestors 'none', object-src 'none', base-uri, form-action, upgrade-insecure-requests; script/style 'unsafe-inline' remains), X-Content-Type-Options nosniff, X-Frame-Options DENY, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy. X-Powered-By: live present, local removed. No security.txt (404 both, optional). Cloudflare Web Analytics host is allowlisted in CSP.
@@ -156,7 +156,7 @@ Live: only `/icon.svg` and `/apple-icon` declared; `/favicon.ico` 404. Local: `/
 - No internal links point at 404 or redirected URLs on either env.
 
 ## Priority list for the deploy release
-1. Deploy the local build (fixes H-1, H-2, H-3, H-4, M-6, M-7, M-9, M-13, L-3, L-4, N-1). Then resubmit the sitemap, Request Indexing for `/`, `/services` and the 8 service URLs, and file Removals for `/products5070048.html` and the `?channel=` URL.
+1. Deploy the local build (fixes H-1, H-2, H-3, H-4, M-6, M-7, M-9, M-13, L-3, L-4, N-1). Then resubmit the sitemap, Request Indexing for `/`, `/services` and the 8 service URLs, and file Removals for `/products5070048.html` only (never for `?channel=` URLs: Search Console reads that prefix as the whole site and offers "Remove entire site?").
 2. Set `STATIC_BASELINE` to the deploy date (N-5).
 3. Fix canonical inheritance and double robots meta on 404 (M-1), og:url on `/privacy` and `/terms` (L-2), `/privacy` and `/terms` titles and `/terms` description (M-3).
 4. Add blog-to-service contextual links for the six unlinked services (N-4), alt text on `/work` and `/about` (M-10).

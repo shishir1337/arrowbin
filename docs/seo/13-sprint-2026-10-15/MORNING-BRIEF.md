@@ -137,7 +137,7 @@ node scripts/indexnow.mjs                                  # tells Bing (and Cha
 Then in Google Search Console:
 - resubmit `sitemap.xml`;
 - request indexing for `/`, `/blog` and the 10 new posts;
-- file Removals for `/products5070048.html` and `/?channel=5f1f69&name=LARRY` (P0.4).
+- file Removals for `/products5070048.html` only (P0.4; filed 17 Oct 2026). Never for `?channel=` URLs: Search Console reads that prefix as the whole site and offers "Remove entire site?".
 
 Do the same sitemap step in Bing Webmaster Tools.
 

@@ -177,7 +177,7 @@ Add a calendar reminder; an expired file is treated as stale by scanners.
 
 1. Rebuild from the current source (blog.ts and sitemap.ts changed after the :3117 build) and re-run `verify-live.sh http://localhost:3117`.
 2. Deploy, then `verify-live.sh https://arrowbin.com` (expect sections 7 and 8 to flag the AI-bot 403s and `http://www` 2 hops until the founder changes Cloudflare).
-3. `node scripts/indexnow.mjs`; resubmit the sitemap in Search Console; Request Indexing for `/`, `/services`, the 8 service URLs and the 10 new posts; file Removals for `/products5070048.html` and the `?channel=5f1f69&name=LARRY` URL.
+3. `node scripts/indexnow.mjs`; resubmit the sitemap in Search Console; Request Indexing for `/`, `/services`, the 8 service URLs and the 10 new posts; file Removals for `/products5070048.html` only (never for `?channel=` URLs: Search Console reads that prefix as the whole site and offers "Remove entire site?").
 4. Cloudflare: single redirect rule for `http(s)://www` to `https://arrowbin.com` (L-1); decide D2.
 5. Lighthouse mobile x3 on `/`, a service page and the heaviest post (F-5).
 
