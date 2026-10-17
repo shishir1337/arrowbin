@@ -45,3 +45,6 @@ work.txt
 
 # Case-study raw captures (admin screenshots contain client and customer data)
 docs/case-studies/raw/
+
+# graphify knowledge graph (local only)
+graphify-out/
