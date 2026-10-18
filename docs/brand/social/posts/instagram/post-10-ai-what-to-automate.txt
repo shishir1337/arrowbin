@@ -1,0 +1,11 @@
+Most small businesses shouldn't start AI with a customer-facing chatbot.
+
+Start with the job your team repeats most, done the same way every time, where a mistake is cheap to catch and the information is already written down. For most teams that's inbox triage, or invoice and document entry.
+
+A quick way to pick: score each task from 1 to 5 on volume, repetitiveness, error cost and data availability, then multiply. One weak factor sinks a task, which is exactly what you want.
+
+Keep a person approving anything that reaches a customer or moves money until a month of results says otherwise.
+
+The guide, with a worked scoring example, is on our blog. Link in bio.
+
+#AIAutomation #SmallBusiness #AI #Productivity

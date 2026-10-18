@@ -1,0 +1,9 @@
+Custom software usually costs $5,000 to $250,000+ in 2026, and most business products land between $30,000 and $120,000.
+
+The range is wide because five things set the price: scope, technical complexity, design depth, how many platforms you ship on, and the seniority and location of the team.
+
+In our typical budget split, development is only about half the cost. Discovery, design, QA and project management make up the rest.
+
+The best way to keep it under control is a tightly scoped MVP and a fixed estimate after discovery. The full breakdown is on our blog. Link in bio.
+
+#CustomSoftware #SoftwareDevelopment #StartupBudget #MVP

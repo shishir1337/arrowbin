@@ -1,0 +1,13 @@
+Built your app with Lovable, Cursor or another AI tool? Check these five things before you take payments or store personal data:
+
+1. Strangers can't read or change other users' data
+2. Secret keys never reach the browser
+3. Payments are verified and processed only once
+4. Errors alert a real person
+5. Someone has restored a backup as a test
+
+The public incidents so far mostly came down to missing database access rules and leaked keys, so start there. If the data model is sound, fix the app in place, and rebuild only the part that's wrong at the root.
+
+The full checklist is on our blog. Link in bio.
+
+#VibeCoding #AIApps #AppSecurity #Startups

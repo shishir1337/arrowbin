@@ -1,0 +1,9 @@
+For most new online stores, Shopify is the right start. It launches fast, the checkout is hosted and there are no servers to patch.
+
+Go custom when the store needs something Shopify handles poorly: checkout changes, complex pricing, deep integrations or local payment flows.
+
+A note for Bangladesh: Shopify Payments isn't available there, so Shopify adds 2% (Basic) or 1% (Grow) to every gateway-paid order, on top of the gateway's own fee. Cash-on-delivery orders carry no Shopify fee.
+
+The full comparison, with the fee math, is on our blog. Link in bio.
+
+#Shopify #Ecommerce #OnlineStore #Bangladesh
