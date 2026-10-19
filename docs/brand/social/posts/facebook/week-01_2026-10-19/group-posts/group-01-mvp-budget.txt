@@ -1,0 +1,13 @@
+Founders: before you compare quotes for an MVP, ask how many weeks it takes.
+
+The formula we use: build weeks × team size × weekly rate, plus launch costs and the first year of running costs. The first part is nearly all of it.
+
+On a $60,000 SaaS MVP built over about 14 weeks, that's roughly $4,300 a week. So each week of scope you add costs about another $4,300, and each week you cut saves it.
+
+What adds weeks most often: more core workflows, a second user role, each integration, extra platforms, design depth and slow decisions.
+
+If you've built an MVP, how close did the final cost come to the first quote?
+
+----- FIRST COMMENT (post this as a comment right after, if the group allows links) -----
+
+We wrote up the full method, with the budget split by phase: https://arrowbin.com/blog/mvp-development-cost?utm_source=facebook&utm_medium=group&utm_campaign=social_2026_10

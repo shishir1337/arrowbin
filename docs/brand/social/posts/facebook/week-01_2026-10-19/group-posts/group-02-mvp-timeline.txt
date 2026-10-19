@@ -1,0 +1,14 @@
+How long did your MVP take to build?
+
+Our estimates for 2026:
+• Simple tool: 6–8 weeks
+• Standard MVP: 10–14 weeks
+• Complex SaaS MVP: 14–20 weeks
+
+Scope moves the timeline more than anything else. The next biggest delays are unclear requirements and slow decisions, and you can fix both before anyone writes code.
+
+What slowed your build down the most?
+
+----- FIRST COMMENT (post this as a comment right after, if the group allows links) -----
+
+The full guide, with a worked example: https://arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp?utm_source=facebook&utm_medium=group&utm_campaign=social_2026_10

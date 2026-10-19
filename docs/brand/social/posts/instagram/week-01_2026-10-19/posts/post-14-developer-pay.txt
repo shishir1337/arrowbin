@@ -1,0 +1,17 @@
+What does a software developer earn in different countries? We worked it out from Stack Overflow's 2025 and 2026 developer surveys (25,416 developers).
+
+Median yearly pay:
+• United States: $155,000
+• United Kingdom: $95,299
+• Germany: $83,340
+• Poland: $55,040
+• India: $19,761
+• Pakistan: $9,937
+
+The US median is 7.8 times India's. The gap narrows with experience: Indian developers with 10+ years earn about a quarter of what their US peers earn, against about a tenth for those with under five years.
+
+Bangladesh had 92 qualifying respondents, under our threshold of 100, so we don't publish a figure for it.
+
+All 38 countries, plus a free CSV, are on our blog. Link in bio.
+
+#SoftwareDevelopment #DeveloperSalaries #Outsourcing #Startups

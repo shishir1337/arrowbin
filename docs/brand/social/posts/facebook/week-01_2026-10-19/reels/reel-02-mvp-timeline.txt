@@ -1,0 +1,7 @@
+How long does an MVP take? Our 2026 estimates: 6–8 weeks for a simple tool, 10–14 for a standard MVP and 14–20 for a complex SaaS MVP.
+
+Scope moves the timeline more than anything else. Every feature you move to version two buys you time.
+
+Full guide: arrowbin.com/blog/how-long-does-it-take-to-build-an-mvp
+
+#MVP #StartupTips #ProductDevelopment

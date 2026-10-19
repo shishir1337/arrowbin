@@ -1,0 +1,19 @@
+For anyone comparing development teams in different countries: we worked out median developer pay from Stack Overflow's 2025 and 2026 surveys (25,416 developers).
+
+Median yearly pay:
+• United States: $155,000
+• United Kingdom: $95,299
+• Germany: $83,340
+• Poland: $55,040
+• India: $19,761
+• Pakistan: $9,937
+
+Pay varies a lot inside each country too. India's middle half runs from $8,879 to $39,521.
+
+Bangladesh had 92 qualifying respondents, under our threshold of 100, so we don't publish a figure for it.
+
+Does anything here surprise you?
+
+----- FIRST COMMENT (post this as a comment right after, if the group allows links) -----
+
+All 38 countries, the method and a free CSV: https://arrowbin.com/blog/developer-salaries-by-country?utm_source=facebook&utm_medium=group&utm_campaign=social_2026_10
