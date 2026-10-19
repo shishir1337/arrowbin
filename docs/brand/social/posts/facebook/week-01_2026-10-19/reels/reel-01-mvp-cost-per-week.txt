@@ -1,7 +1,0 @@
-One week of MVP build costs about $4,300 on our $60,000 worked example. So count the weeks before you compare hourly rates.
-
-MVP budget = build weeks × team size × weekly rate, plus launch costs and year-one running costs.
-
-Full guide: arrowbin.com/blog/mvp-development-cost
-
-#MVP #StartupBudget #Startups

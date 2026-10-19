@@ -1,7 +1,0 @@
-What developers earn around the world. Median yearly pay from Stack Overflow's 2025 and 2026 surveys:
-
-United States $155,000. United Kingdom $95,299. Germany $83,340. Poland $55,040. India $19,761. Pakistan $9,937.
-
-All 38 countries and a free CSV: arrowbin.com/blog/developer-salaries-by-country
-
-#SoftwareDevelopment #DeveloperSalaries #Outsourcing

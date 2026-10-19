@@ -1,0 +1,12 @@
+Your AI-built app works. That doesn't mean it's safe.
+
+Three checks you can run today, before you take another payment:
+1. Open your app logged out and ask for private data. You should get nothing back.
+2. Sign in as one user and change the ID to another user's record. If it loads, your access rules are wrong.
+3. Search your live site's JavaScript for service_role and sk_live. A secret key should never be there.
+
+The full checklist: arrowbin.com/blog/vibe-coded-app-production-ready
+
+#VibeCoding #AIApps #AppSecurity #Startups
+
+Sound effects via Openverse: "Scratch Speed.wav" by Racche (CC BY 3.0), "Book Closing" by dersuperanton (CC BY 4.0), "Keyboard Typing Sounds" by crz1990 (CC BY 3.0), "Notification Chime" by hykenfreak (CC BY 4.0).

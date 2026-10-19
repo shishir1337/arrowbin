@@ -4,7 +4,7 @@ One folder per week. Open the week's `PLAN.md` for the day-by-day list and how t
 
 | Week | Dates | Meta challenge | Status |
 |---|---|---|---|
-| `week-01_2026-10-19` | 19–25 Oct | 5 posts, 5 reels, 5 stories, 5 group posts | Posts 1–3 scheduled. Posts 13–14, reels, stories and group posts ready to schedule. |
+| `week-01_2026-10-19` | 19–25 Oct | 5 posts, 5 reels, 5 stories, 5 group posts | Posts 1–3 scheduled. Posts 13–14, stories, group posts and reel 1 ready to schedule; reels 2–5 in progress. |
 | `week-02_2026-10-26` | 26 Oct–1 Nov | Not shown yet | Posts 4–6 scheduled |
 | `week-03_2026-11-02` | 2–8 Nov | Not shown yet | Posts 7–9 scheduled |
 | `week-04_2026-11-09` | 9–15 Nov | Not shown yet | Posts 10–12 scheduled. Post 12 must not go out before 13 Nov. |
@@ -14,7 +14,7 @@ One folder per week. Open the week's `PLAN.md` for the day-by-day list and how t
 | Type | File | Size |
 |---|---|---|
 | Post | PNG + caption `.txt` | 1080×1080 |
-| Reel | MP4 (H.264, 30 fps, 17–21 s, silent audio track), `-cover.png`, caption `.txt` | 1080×1920 |
+| Reel | MP4 (H.264, 30 fps, about 40 s, AI voiceover + music, no caption strip), `-cover.png`, caption `.txt` | 1080×1920 |
 | Story | PNG | 1080×1920 |
 | Group post | `.txt` (post text, then the first comment with the link) + PNG | 1080×1080 |
 
