@@ -9,6 +9,8 @@ A 53-second brand video for winning leads. It opens on a progress bar frozen at 
 | `arrowbin-brand-film-16x9.mp4` | Website, YouTube, LinkedIn, the Facebook feed (1920×1080) |
 | `arrowbin-brand-film-16x9-cover.png` | YouTube / LinkedIn thumbnail |
 | `arrowbin-brand-film-caption.txt` | Post caption for both versions. Keep the sound-effects credit line at the end (three effects are CC BY 4.0). |
+| `arrowbin-brand-film.en.srt` | Timed English captions (SRT) for both versions: upload as a caption/subtitle file on YouTube, Facebook or LinkedIn. Same audio timing in 9:16 and 16:9, so one file fits both. |
+| `arrowbin-brand-film-transcript.txt` | Plain-text transcript, for platforms that ask to "upload text transcript" (.txt); they sync it to the audio themselves. |
 
 ## How it was made
 

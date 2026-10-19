@@ -1,0 +1,102 @@
+1
+00:00:00,299 --> 00:00:02,810
+Your app has been 99% done.
+
+2
+00:00:02,901 --> 00:00:04,064
+For six months.
+
+3
+00:00:04,348 --> 00:00:06,034
+Every update is next week.
+
+4
+00:00:06,054 --> 00:00:08,054
+Every invoice is a surprise.
+
+5
+00:00:08,316 --> 00:00:09,855
+And you still haven't seen it working.
+
+6
+00:00:10,189 --> 00:00:12,047
+Let's restart that progress bar.
+
+7
+00:00:12,067 --> 00:00:13,042
+The right way.
+
+8
+00:00:13,091 --> 00:00:14,249
+This is Arrowbin.
+
+9
+00:00:14,536 --> 00:00:18,092
+Day one: a real reply,
+within one business day.
+
+10
+00:00:18,376 --> 00:00:20,481
+Then a free 30-minute call.
+
+11
+00:00:20,779 --> 00:00:24,549
+Within a week: a written proposal,
+with a fixed estimate.
+
+12
+00:00:24,619 --> 00:00:26,030
+No surprise invoices.
+
+13
+00:00:26,317 --> 00:00:29,489
+Then working software,
+every single Friday.
+
+14
+00:00:29,517 --> 00:00:30,419
+You watch it move.
+
+15
+00:00:30,706 --> 00:00:32,504
+Until... launch.
+
+16
+00:00:33,906 --> 00:00:36,225
+And the code is 100% yours.
+
+17
+00:00:36,252 --> 00:00:37,207
+No lock-in.
+
+18
+00:00:37,485 --> 00:00:38,673
+Web platforms.
+
+19
+00:00:38,722 --> 00:00:39,854
+Online stores.
+
+20
+00:00:39,874 --> 00:00:41,788
+Mobile apps. SaaS.
+
+21
+00:00:41,922 --> 00:00:43,132
+AI automation.
+
+22
+00:00:43,202 --> 00:00:45,128
+Founder-led since 2020.
+
+23
+00:00:45,426 --> 00:00:47,105
+Still stuck at 99%?
+
+24
+00:00:47,218 --> 00:00:49,715
+Book a free call at arrowbin.com.
+
+25
+00:00:49,735 --> 00:00:51,745
+Arrowbin. Software that moves.
