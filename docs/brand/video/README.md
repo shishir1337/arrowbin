@@ -24,3 +24,26 @@ The editable HyperFrames projects (frames, audio, storyboard, script) are outsid
 ## Next time
 
 The founder's notes on this one: a punchier first-second hook, and even tighter editing and audio. See the note in Claude's project memory (`video-quality-bar`).
+
+# Service video 1, custom software: "Copy. Paste. Repeat."
+
+A 55-second glassmorphism promo for the custom software service, the first of the one-service-per-video series. It opens on four glass keycaps slamming CTRL+C / CTRL+V on the beat ("That's not a workflow. That's a hostage situation."), shows orders, customers and a spreadsheet typed twice, cracks the windows on "the tools are wrong", then snaps them into one glass dashboard on the music's drop. It closes on what we build, 6 to 12 weeks, zero seat fees, 100% code ownership, "from $8,000" with a fixed estimate, and "Book a free call" at arrowbin.com.
+
+| File | Use it for |
+|---|---|
+| `arrowbin-custom-software-9x16.mp4` | Facebook / Instagram Reels and Stories (1080×1920) |
+| `arrowbin-custom-software-9x16-cover.png` | Reel thumbnail ("NOT A WORKFLOW.") |
+| `arrowbin-custom-software-16x9.mp4` | Website, YouTube, LinkedIn, the Facebook feed (1920×1080) |
+| `arrowbin-custom-software-16x9-cover.png` | YouTube / LinkedIn thumbnail |
+| `arrowbin-custom-software-caption.txt` | Post caption for both versions. The music/SFX credit line is optional (Pixabay Content License). |
+| `arrowbin-custom-software.en_US.srt` | Timed English captions for both versions (same audio timing in 9:16 and 16:9). |
+| `arrowbin-custom-software-transcript.txt` | Plain-text transcript for "upload text transcript" (.txt) fields. |
+
+## How it was made
+
+- HyperFrames, product-launch-video workflow. The edit is locked to the music's 140 BPM grid: the four key slams land on beats, the windows snap into the dashboard on the drop, and the final chord lands on the logo.
+- Voice: Kokoro `af_heart` (Apache 2.0, generated locally). Music: "Energetic Upbeat Future Bass" by BombinSound, and about 34 sound effects, all from Pixabay (Pixabay Content License: commercial use allowed, no attribution required, no YouTube Content ID claim on the track).
+- The music ducks under the voice. The mix is mastered to about -14 LUFS, true peak about -1 dBFS.
+- The end card uses the brand app icon exactly as `src/app/icon.svg` draws it (solid Ultraviolet tile, white arrowhead, Plasma bit).
+
+The editable projects are outside the repo at `C:\tmp\brand\cs-copy-paste` (9:16) and `C:\tmp\brand\cs-copy-paste-16x9` (16:9).
