@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Four ways to go headless: who provides what</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Each layer of the store, by route (simplified)</text>
+
+  <!-- column headers: columns at 330, 550, 770, 990; 210 wide -->
+  <g text-anchor="middle">
+    <text x="435" y="166" font-size="18" fill="#4a4766">Headless</text>
+    <text x="435" y="192" font-size="22" font-weight="700" fill="#0e0b24">Shopify</text>
+    <text x="655" y="166" font-size="18" fill="#4a4766">Headless</text>
+    <text x="655" y="192" font-size="22" font-weight="700" fill="#0e0b24">BigCommerce</text>
+    <text x="875" y="166" font-size="18" fill="#4a4766">Headless</text>
+    <text x="875" y="192" font-size="22" font-weight="700" fill="#0e0b24">WooCommerce</text>
+    <text x="1095" y="166" font-size="18" fill="#4a4766">Composable</text>
+    <text x="1095" y="192" font-size="22" font-weight="700" fill="#0e0b24">MACH</text>
+  </g>
+
+  <!-- row labels -->
+  <g font-size="20" font-weight="600" fill="#0e0b24">
+    <text x="80" y="245">Storefront</text>
+    <text x="80" y="317">Page content</text>
+    <text x="80" y="389">Cart and checkout</text>
+    <text x="80" y="461">Catalog and orders</text>
+    <text x="80" y="533">Front-end hosting</text>
+    <text x="80" y="605">Upkeep you own</text>
+  </g>
+
+  <!-- row 1: storefront (all you) -->
+  <g fill="#3b2bff">
+    <rect x="330" y="208" width="210" height="62" rx="12"/>
+    <rect x="550" y="208" width="210" height="62" rx="12"/>
+    <rect x="770" y="208" width="210" height="62" rx="12"/>
+    <rect x="990" y="208" width="210" height="62" rx="12"/>
+  </g>
+  <g font-size="18" fill="#ffffff" text-anchor="middle">
+    <text x="435" y="234" font-weight="700">You build</text>
+    <text x="435" y="258">Hydrogen or Next.js</text>
+    <text x="655" y="234" font-weight="700">You build</text>
+    <text x="655" y="258">Catalyst (Next.js)</text>
+    <text x="875" y="234" font-weight="700">You build</text>
+    <text x="875" y="258">Next.js + Store API</text>
+    <text x="1095" y="234" font-weight="700">You build</text>
+    <text x="1095" y="258">Any framework</text>
+  </g>
+
+  <!-- row 2: page content -->
+  <rect x="330" y="280" width="210" height="62" rx="12" fill="#3b2bff"/>
+  <rect x="550" y="280" width="210" height="62" rx="12" fill="#ffd23f"/>
+  <rect x="770" y="280" width="210" height="62" rx="12" fill="#cfc4ff"/>
+  <rect x="990" y="280" width="210" height="62" rx="12" fill="#3b2bff"/>
+  <g font-size="18" text-anchor="middle">
+    <text x="435" y="306" font-weight="700" fill="#ffffff">You add</text>
+    <text x="435" y="330" fill="#ffffff">a headless CMS</text>
+    <text x="655" y="306" font-weight="700" fill="#0e0b24">Makeswift editor</text>
+    <text x="655" y="330" fill="#0e0b24">or a CMS</text>
+    <text x="875" y="306" font-weight="700" fill="#0e0b24">WordPress</text>
+    <text x="875" y="330" fill="#0e0b24">editor</text>
+    <text x="1095" y="306" font-weight="700" fill="#ffffff">You pick</text>
+    <text x="1095" y="330" fill="#ffffff">a CMS</text>
+  </g>
+
+  <!-- row 3: cart and checkout -->
+  <g fill="#cfc4ff">
+    <rect x="330" y="352" width="210" height="62" rx="12"/>
+    <rect x="550" y="352" width="210" height="62" rx="12"/>
+    <rect x="770" y="352" width="210" height="62" rx="12"/>
+  </g>
+  <rect x="990" y="352" width="210" height="62" rx="12" fill="#3b2bff"/>
+  <g font-size="18" text-anchor="middle">
+    <text x="435" y="378" font-weight="700" fill="#0e0b24">Shopify</text>
+    <text x="435" y="402" fill="#0e0b24">checkout</text>
+    <text x="655" y="378" font-weight="700" fill="#0e0b24">BigCommerce</text>
+    <text x="655" y="402" fill="#0e0b24">checkout</text>
+    <text x="875" y="378" font-weight="700" fill="#0e0b24">WooCommerce</text>
+    <text x="875" y="402" fill="#0e0b24">checkout</text>
+    <text x="1095" y="378" font-weight="700" fill="#ffffff">You pick</text>
+    <text x="1095" y="402" fill="#ffffff">a service</text>
+  </g>
+
+  <!-- row 4: catalog and orders (all platform) -->
+  <g fill="#cfc4ff">
+    <rect x="330" y="424" width="210" height="62" rx="12"/>
+    <rect x="550" y="424" width="210" height="62" rx="12"/>
+    <rect x="770" y="424" width="210" height="62" rx="12"/>
+    <rect x="990" y="424" width="210" height="62" rx="12"/>
+  </g>
+  <g font-size="18" fill="#0e0b24" text-anchor="middle">
+    <text x="435" y="450" font-weight="700">Shopify</text>
+    <text x="435" y="474">admin</text>
+    <text x="655" y="450" font-weight="700">BigCommerce</text>
+    <text x="655" y="474">control panel</text>
+    <text x="875" y="450" font-weight="700">WooCommerce</text>
+    <text x="875" y="474">in WordPress</text>
+    <text x="1095" y="450" font-weight="700">commercetools</text>
+    <text x="1095" y="474">or similar</text>
+  </g>
+
+  <!-- row 5: hosting -->
+  <rect x="330" y="496" width="210" height="62" rx="12" fill="#ffd23f"/>
+  <g fill="#3b2bff">
+    <rect x="550" y="496" width="210" height="62" rx="12"/>
+    <rect x="770" y="496" width="210" height="62" rx="12"/>
+    <rect x="990" y="496" width="210" height="62" rx="12"/>
+  </g>
+  <g font-size="18" text-anchor="middle">
+    <text x="435" y="522" font-weight="700" fill="#0e0b24">Oxygen (free)</text>
+    <text x="435" y="546" fill="#0e0b24">or your own host</text>
+    <text x="655" y="522" font-weight="700" fill="#ffffff">Your host</text>
+    <text x="655" y="546" fill="#ffffff">any Next.js host</text>
+    <text x="875" y="522" font-weight="700" fill="#ffffff">Your host</text>
+    <text x="875" y="546" fill="#ffffff">plus WordPress host</text>
+    <text x="1095" y="522" font-weight="700" fill="#ffffff">Your host</text>
+    <text x="1095" y="546" fill="#ffffff">for every piece</text>
+  </g>
+
+  <!-- row 6: upkeep -->
+  <g fill="#F1F2F7" stroke="#e4e4e7" stroke-width="2">
+    <rect x="330" y="568" width="210" height="62" rx="12"/>
+    <rect x="550" y="568" width="210" height="62" rx="12"/>
+    <rect x="770" y="568" width="210" height="62" rx="12"/>
+    <rect x="990" y="568" width="210" height="62" rx="12"/>
+  </g>
+  <g font-size="18" fill="#0e0b24" text-anchor="middle">
+    <text x="435" y="605" font-weight="700">The front end</text>
+    <text x="655" y="605" font-weight="700">The front end</text>
+    <text x="875" y="594" font-weight="700">Front end, plus</text>
+    <text x="875" y="618">WordPress patches</text>
+    <text x="1095" y="594" font-weight="700">Every service</text>
+    <text x="1095" y="618">and integration</text>
+  </g>
+
+  <!-- legend -->
+  <rect x="80" y="660" width="24" height="24" rx="6" fill="#cfc4ff"/>
+  <text x="114" y="679" font-size="20" fill="#4a4766">Platform provides</text>
+  <rect x="330" y="660" width="24" height="24" rx="6" fill="#3b2bff"/>
+  <text x="364" y="679" font-size="20" fill="#4a4766">You build, choose or host</text>
+  <rect x="640" y="660" width="24" height="24" rx="6" fill="#ffd23f"/>
+  <text x="674" y="679" font-size="20" fill="#4a4766">Optional platform tool</text>
+</svg>

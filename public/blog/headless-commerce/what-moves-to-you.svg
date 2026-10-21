@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">What moves to your side when you go headless</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Who handles each job on a theme store vs a headless store (Shopify example)</text>
+
+  <!-- column headers -->
+  <text x="80" y="172" font-size="20" font-weight="700" fill="#4a4766">JOB</text>
+  <text x="700" y="172" font-size="20" font-weight="700" fill="#4a4766" text-anchor="middle">THEME STORE</text>
+  <text x="1030" y="172" font-size="20" font-weight="700" fill="#4a4766" text-anchor="middle">HEADLESS STORE</text>
+
+  <!-- row stripes -->
+  <g fill="#F1F2F7">
+    <rect x="64" y="188" width="1152" height="54" rx="10"/>
+    <rect x="64" y="300" width="1152" height="54" rx="10"/>
+    <rect x="64" y="412" width="1152" height="54" rx="10"/>
+    <rect x="64" y="524" width="1152" height="54" rx="10"/>
+  </g>
+
+  <!-- job labels -->
+  <g font-size="21" fill="#0e0b24">
+    <text x="80" y="222">Product catalog and stock</text>
+    <text x="80" y="278">Checkout and payments</text>
+    <text x="80" y="334">Orders and customer accounts</text>
+    <text x="80" y="390">Storefront code</text>
+    <text x="80" y="446">Storefront hosting</text>
+    <text x="80" y="502">Page editing</text>
+    <text x="80" y="558">App widgets (reviews, loyalty)</text>
+    <text x="80" y="614">Sitemap and structured data</text>
+  </g>
+
+  <!-- theme column pills (all platform-side) -->
+  <g fill="#cfc4ff">
+    <rect x="570" y="196" width="260" height="38" rx="19"/>
+    <rect x="570" y="252" width="260" height="38" rx="19"/>
+    <rect x="570" y="308" width="260" height="38" rx="19"/>
+    <rect x="570" y="364" width="260" height="38" rx="19"/>
+    <rect x="570" y="420" width="260" height="38" rx="19"/>
+    <rect x="570" y="476" width="260" height="38" rx="19"/>
+    <rect x="570" y="532" width="260" height="38" rx="19"/>
+    <rect x="570" y="588" width="260" height="38" rx="19"/>
+  </g>
+  <g font-size="18" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <text x="700" y="221">Platform</text>
+    <text x="700" y="277">Platform</text>
+    <text x="700" y="333">Platform</text>
+    <text x="700" y="389">Platform theme</text>
+    <text x="700" y="445">Platform</text>
+    <text x="700" y="501">Theme editor</text>
+    <text x="700" y="557">One-click app install</text>
+    <text x="700" y="613">Theme and apps</text>
+  </g>
+
+  <!-- headless column pills -->
+  <g fill="#cfc4ff">
+    <rect x="900" y="196" width="260" height="38" rx="19"/>
+    <rect x="900" y="252" width="260" height="38" rx="19"/>
+    <rect x="900" y="308" width="260" height="38" rx="19"/>
+  </g>
+  <g fill="#3b2bff">
+    <rect x="900" y="364" width="260" height="38" rx="19"/>
+    <rect x="900" y="420" width="260" height="38" rx="19"/>
+    <rect x="900" y="476" width="260" height="38" rx="19"/>
+    <rect x="900" y="532" width="260" height="38" rx="19"/>
+    <rect x="900" y="588" width="260" height="38" rx="19"/>
+  </g>
+  <g font-size="18" font-weight="600" text-anchor="middle">
+    <text x="1030" y="221" fill="#0e0b24">Platform</text>
+    <text x="1030" y="277" fill="#0e0b24">Platform</text>
+    <text x="1030" y="333" fill="#0e0b24">Platform</text>
+    <text x="1030" y="389" fill="#ffffff">You</text>
+    <text x="1030" y="445" fill="#ffffff">You (or Shopify Oxygen)</text>
+    <text x="1030" y="501" fill="#ffffff">A CMS or a developer</text>
+    <text x="1030" y="557" fill="#ffffff">API work for each app</text>
+    <text x="1030" y="613" fill="#ffffff">You</text>
+  </g>
+
+  <!-- legend -->
+  <rect x="80" y="656" width="26" height="26" rx="6" fill="#cfc4ff"/>
+  <text x="118" y="676" font-size="20" fill="#4a4766">The platform handles it</text>
+  <rect x="400" y="656" width="26" height="26" rx="6" fill="#3b2bff"/>
+  <text x="438" y="676" font-size="20" fill="#4a4766">Your team or developer handles it</text>
+</svg>

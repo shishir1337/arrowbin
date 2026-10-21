@@ -391,7 +391,7 @@ export const post: Post = {
     {
       type: "ul",
       items: [
-        "Keep WooCommerce as the back end and build a Next.js storefront on top. WooCommerce's [Store API](https://developer.woocommerce.com/docs/apis/store-api/) offers public endpoints for cart and checkout. Products and orders stay where they are. You still patch WordPress and WooCommerce, and checkout extensions that inject their own front-end UI won't show up.",
+        "Keep WooCommerce as the back end and build a Next.js storefront on top. WooCommerce's [Store API](https://developer.woocommerce.com/docs/apis/store-api/) offers public endpoints for cart and checkout. Products and orders stay where they are. You still patch WordPress and WooCommerce, and checkout extensions that inject their own front-end UI won't show up. Our [headless commerce guide](/blog/headless-commerce) weighs whether that split pays off.",
         "Move to a custom storefront and checkout. Products and orders move to your own database or a commerce back end, and you own the checkout flow end to end, including local gateways like bKash and Nagad. It's the most work, and it gives you the most control.",
         "Move to Shopify. If you'd rather not run commerce infrastructure at all, a hosted platform is a sensible answer, and it doesn't have to involve Next.js. Our [Shopify vs custom store comparison](/blog/shopify-vs-custom-ecommerce) runs the fee maths for that choice.",
       ],

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="76" font-size="40" font-weight="700" fill="#0e0b24">One unclear requirement, two ways</text>
+  <text x="80" y="114" font-size="24" fill="#4a4766">A question and one follow-up, in New York time (illustrative)</text>
+
+  <!-- lane A: shared hours -->
+  <rect x="60" y="146" width="1160" height="206" rx="18" fill="#F1F2F7"/>
+  <text x="96" y="194" font-size="24" font-weight="700" fill="#0e0b24">With 4 or more shared hours</text>
+  <rect x="984" y="170" width="200" height="38" rx="19" fill="#3b2bff"/>
+  <text x="1084" y="196" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">Total: 2 hours</text>
+
+  <line x1="150" y1="258" x2="1130" y2="258" stroke="#3b2bff" stroke-width="4"/>
+  <g fill="#3b2bff">
+    <circle cx="150" cy="258" r="18"/>
+    <circle cx="395" cy="258" r="18"/>
+    <circle cx="640" cy="258" r="18"/>
+    <circle cx="885" cy="258" r="18"/>
+    <circle cx="1130" cy="258" r="18"/>
+  </g>
+  <g font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <text x="150" y="264">1</text>
+    <text x="395" y="264">2</text>
+    <text x="640" y="264">3</text>
+    <text x="885" y="264">4</text>
+    <text x="1130" y="264">5</text>
+  </g>
+  <g font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="150" y="306">Tue 3:00pm</text>
+    <text x="395" y="306">3:15pm</text>
+    <text x="640" y="306">3:30pm</text>
+    <text x="885" y="306">4:00pm</text>
+    <text x="1130" y="306">5:00pm</text>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="150" y="332">You ask</text>
+    <text x="395" y="332">They ask back</text>
+    <text x="640" y="332">You answer</text>
+    <text x="885" y="332">They build it</text>
+    <text x="1130" y="332">You see it</text>
+  </g>
+
+  <!-- lane B: no shared hours -->
+  <rect x="60" y="376" width="1160" height="252" rx="18" fill="#F1F2F7"/>
+  <text x="96" y="424" font-size="24" font-weight="700" fill="#0e0b24">With no shared hours</text>
+  <rect x="984" y="400" width="200" height="38" rx="19" fill="#ff6b3d"/>
+  <text x="1084" y="426" font-size="18" font-weight="700" fill="#0e0b24" text-anchor="middle">Total: 42 hours</text>
+
+  <line x1="150" y1="508" x2="1130" y2="508" stroke="#ff6b3d" stroke-width="4" stroke-dasharray="10 9"/>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="275" y="490">8 h wait</text>
+    <text x="520" y="490">10 h wait</text>
+    <text x="765" y="490">14 h wait</text>
+    <text x="1010" y="490">10 h wait</text>
+  </g>
+  <g fill="#ff6b3d">
+    <circle cx="150" cy="508" r="18"/>
+    <circle cx="395" cy="508" r="18"/>
+    <circle cx="640" cy="508" r="18"/>
+    <circle cx="885" cy="508" r="18"/>
+    <circle cx="1130" cy="508" r="18"/>
+  </g>
+  <g font-size="18" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="150" y="514">1</text>
+    <text x="395" y="514">2</text>
+    <text x="640" y="514">3</text>
+    <text x="885" y="514">4</text>
+    <text x="1130" y="514">5</text>
+  </g>
+  <g font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="150" y="556">Tue 3pm</text>
+    <text x="395" y="556">Tue 11pm</text>
+    <text x="640" y="556">Wed 9am</text>
+    <text x="885" y="556">Wed 11pm</text>
+    <text x="1130" y="556">Thu 9am</text>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="150" y="582">You ask</text>
+    <text x="150" y="606">(1am for them)</text>
+    <text x="395" y="582">They ask back</text>
+    <text x="640" y="582">You answer</text>
+    <text x="885" y="582">They build it</text>
+    <text x="1130" y="582">You see it</text>
+  </g>
+
+  <text x="80" y="676" font-size="18" fill="#4a4766">Illustrative. The team works 9-to-5, about 10 hours ahead of New York. Each wait is clock time, not working time.</text>
+</svg>

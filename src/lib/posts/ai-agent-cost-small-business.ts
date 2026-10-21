@@ -239,7 +239,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Off-the-shelf wins more often than agencies like to admit. If your support already runs through a helpdesk with a built-in AI agent, switching it on will usually beat building your own in year one. Intercom's [pricing page](https://www.intercom.com/pricing) lists Fin at $0.99 per outcome, charged once per conversation when the customer confirms the issue is solved, stops asking for help, or Fin completes a workflow.",
+      text: "Off-the-shelf wins more often than agencies like to admit. If your support already runs through a helpdesk with a built-in AI agent, switching it on will usually beat building your own in year one. Intercom's [pricing page](https://www.intercom.com/pricing) lists Fin at $0.99 per outcome, charged once per conversation when the customer confirms the issue is solved, stops asking for help, or Fin completes a workflow. The same rule holds for business software in general, as our [build-or-buy comparison for business software](/blog/custom-software-vs-off-the-shelf) shows.",
     },
     {
       type: "p",

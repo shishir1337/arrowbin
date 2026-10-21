@@ -403,7 +403,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "One more opinion. A workflow builder is the right first step for plenty of small businesses, but someone has to own it. A flow built by a freelancer who's since moved on becomes a liability the first time a connected app changes.",
+      text: "One more opinion. A workflow builder is the right first step for plenty of small businesses, but someone has to own it. A flow built by a freelancer who's since moved on becomes a liability the first time a connected app changes. For tools beyond AI, our guide to [when building your own software pays off](/blog/custom-software-vs-off-the-shelf) runs the same decision with five-year numbers.",
     },
 
     {

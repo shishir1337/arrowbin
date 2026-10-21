@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">The monthly software bill for headless Shopify</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Two illustrative setups at list prices, Oct 22, 2026, before usage charges</text>
+
+  <!-- axis guide -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="80" y1="168" x2="80" y2="476"/>
+    <line x1="468" y1="168" x2="468" y2="476" stroke-dasharray="4 6"/>
+    <line x1="857" y1="168" x2="857" y2="476" stroke-dasharray="4 6"/>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="80" y="160" text-anchor="middle">$0</text>
+    <text x="468" y="160" text-anchor="middle">$1,000</text>
+    <text x="857" y="160" text-anchor="middle">$2,000</text>
+  </g>
+
+  <!-- lean setup: scale 0.3883 px per dollar -->
+  <text x="80" y="214" font-size="24" font-weight="700" fill="#0e0b24">Lean setup</text>
+  <text x="80" y="244" font-size="20" fill="#4a4766">Shopify Grow, Hydrogen on Oxygen, Sanity Free, Shopify search</text>
+  <rect x="80" y="262" width="25" height="48" rx="6" fill="#3b2bff"/>
+  <text x="122" y="296" font-size="26" font-weight="700" fill="#0e0b24">$65 a month</text>
+  <text x="300" y="296" font-size="20" fill="#4a4766">Shopify Grow $65; Oxygen, Sanity Free and Shopify search $0</text>
+
+  <!-- larger setup -->
+  <text x="80" y="374" font-size="24" font-weight="700" fill="#0e0b24">Larger setup</text>
+  <text x="80" y="404" font-size="20" fill="#4a4766">Shopify Plus, Next.js on Vercel, Sanity Growth, Algolia</text>
+  <text x="1080" y="404" font-size="26" font-weight="700" fill="#0e0b24" text-anchor="end">$2,575 a month</text>
+  <rect x="80" y="422" width="893" height="48" rx="6" fill="#3b2bff"/>
+  <rect x="973" y="422" width="23" height="48" fill="#ff6b3d"/>
+  <rect x="996" y="422" width="47" height="48" fill="#ff4da6"/>
+  <rect x="1043" y="422" width="37" height="48" rx="6" fill="#ffd23f"/>
+  <text x="104" y="454" font-size="20" font-weight="700" fill="#ffffff">Shopify Plus $2,300</text>
+
+  <!-- legend for larger setup -->
+  <g font-size="20" fill="#0e0b24">
+    <rect x="80" y="498" width="22" height="22" rx="5" fill="#3b2bff"/>
+    <text x="112" y="516">Shopify Plus, 3-year term: $2,300</text>
+    <rect x="640" y="498" width="22" height="22" rx="5" fill="#ff6b3d"/>
+    <text x="672" y="516">Vercel Pro, 3 developer seats: $60</text>
+    <rect x="80" y="538" width="22" height="22" rx="5" fill="#ff4da6"/>
+    <text x="112" y="556">Sanity Growth, 8 editor seats: $120</text>
+    <rect x="640" y="538" width="22" height="22" rx="5" fill="#ffd23f"/>
+    <text x="672" y="556">Algolia Grow, 200,000 searches: $95</text>
+  </g>
+
+  <!-- callout -->
+  <rect x="80" y="592" width="1120" height="88" rx="16" fill="#F1F2F7"/>
+  <rect x="80" y="592" width="8" height="88" rx="4" fill="#ff4da6"/>
+  <text x="112" y="628" font-size="21" font-weight="700" fill="#0e0b24">Not on any pricing page: the developer who keeps it running.</text>
+  <text x="112" y="660" font-size="20" fill="#4a4766">Also excluded: payment processing and apps. Sources: Shopify, Vercel, Sanity and Algolia pricing pages.</text>
+</svg>

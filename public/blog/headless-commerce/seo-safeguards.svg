@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">SEO safeguards for a headless launch</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">What to do at each stage so your search traffic survives the move</text>
+
+  <!-- timeline -->
+  <line x1="211" y1="186" x2="1069" y2="186" stroke="#cfc4ff" stroke-width="6" stroke-linecap="round"/>
+  <g>
+    <circle cx="211" cy="186" r="26" fill="#3b2bff"/>
+    <circle cx="497" cy="186" r="26" fill="#3b2bff"/>
+    <circle cx="783" cy="186" r="26" fill="#3b2bff"/>
+    <circle cx="1069" cy="186" r="26" fill="#ff4da6"/>
+  </g>
+  <g font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <text x="211" y="194">1</text>
+    <text x="497" y="194">2</text>
+    <text x="783" y="194">3</text>
+    <text x="1069" y="194">4</text>
+  </g>
+
+  <!-- cards: x 80, 366, 652, 938; width 262 -->
+  <g fill="#F1F2F7">
+    <rect x="80" y="228" width="262" height="400" rx="18"/>
+    <rect x="366" y="228" width="262" height="400" rx="18"/>
+    <rect x="652" y="228" width="262" height="400" rx="18"/>
+    <rect x="938" y="228" width="262" height="400" rx="18"/>
+  </g>
+  <g font-size="24" font-weight="700" fill="#0e0b24">
+    <text x="104" y="272">Before the build</text>
+    <text x="390" y="272">During the build</text>
+    <text x="676" y="272">Before launch</text>
+    <text x="962" y="272">After launch</text>
+  </g>
+
+  <!-- check marks -->
+  <g fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#3b2bff">
+      <path d="M106 313 l6 6 l11 -13"/>
+      <path d="M106 409 l6 6 l11 -13"/>
+      <path d="M106 505 l6 6 l11 -13"/>
+      <path d="M392 313 l6 6 l11 -13"/>
+      <path d="M392 409 l6 6 l11 -13"/>
+      <path d="M392 505 l6 6 l11 -13"/>
+      <path d="M678 313 l6 6 l11 -13"/>
+      <path d="M678 409 l6 6 l11 -13"/>
+      <path d="M678 505 l6 6 l11 -13"/>
+    </g>
+    <g stroke="#ff4da6">
+      <path d="M964 313 l6 6 l11 -13"/>
+      <path d="M964 409 l6 6 l11 -13"/>
+      <path d="M964 505 l6 6 l11 -13"/>
+    </g>
+  </g>
+
+  <g font-size="19" fill="#0e0b24">
+    <!-- stage 1 -->
+    <text x="134" y="318">Crawl the old site</text>
+    <text x="134" y="342">and save every URL</text>
+    <text x="134" y="414">Note what each</text>
+    <text x="134" y="438">app does on pages</text>
+    <text x="134" y="510">Export Search</text>
+    <text x="134" y="534">Console baselines</text>
+    <!-- stage 2 -->
+    <text x="420" y="318">Server-render</text>
+    <text x="420" y="342">product and</text>
+    <text x="420" y="366">collection pages</text>
+    <text x="420" y="414">Keep URL paths</text>
+    <text x="420" y="438">unless you must</text>
+    <text x="420" y="462">change them</text>
+    <text x="420" y="510">Rebuild structured</text>
+    <text x="420" y="534">data, canonicals</text>
+    <text x="420" y="558">and the sitemap</text>
+    <!-- stage 3 -->
+    <text x="706" y="318">301 or 308</text>
+    <text x="706" y="342">redirect for every</text>
+    <text x="706" y="366">changed URL</text>
+    <text x="706" y="414">Test redirects</text>
+    <text x="706" y="438">on staging</text>
+    <text x="706" y="510">Place a real order;</text>
+    <text x="706" y="534">check every pixel</text>
+    <!-- stage 4 -->
+    <text x="992" y="318">Submit the new</text>
+    <text x="992" y="342">sitemap</text>
+    <text x="992" y="414">Watch Search</text>
+    <text x="992" y="438">Console for 404s</text>
+    <text x="992" y="510">Expect ranking</text>
+    <text x="992" y="534">swings for a few</text>
+    <text x="992" y="558">weeks</text>
+  </g>
+
+  <text x="80" y="672" font-size="18" fill="#4a4766">Sources: Google Search Central, JavaScript SEO basics and site moves with URL changes. Order of work: Arrowbin process.</text>
+</svg>

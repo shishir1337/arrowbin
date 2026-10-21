@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Where a client's 9-to-5 falls on a Dhaka clock</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Roughly November to March. Dhaka is UTC+6 all year, with no daylight saving.</text>
+
+  <!-- Dhaka working day column: 9 am to 5 pm, x = 300 + (hour - 4) * 37.5 -->
+  <rect x="487.5" y="160" width="300" height="364" fill="#F1F2F7"/>
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="300" y1="160" x2="300" y2="524"/>
+    <line x1="450" y1="160" x2="450" y2="524"/>
+    <line x1="600" y1="160" x2="600" y2="524"/>
+    <line x1="750" y1="160" x2="750" y2="524"/>
+    <line x1="900" y1="160" x2="900" y2="524"/>
+    <line x1="1050" y1="160" x2="1050" y2="524"/>
+    <line x1="1200" y1="160" x2="1200" y2="524"/>
+  </g>
+  <g stroke="#3b2bff" stroke-width="2" stroke-dasharray="6 6">
+    <line x1="487.5" y1="160" x2="487.5" y2="524"/>
+    <line x1="787.5" y1="160" x2="787.5" y2="524"/>
+  </g>
+
+  <!-- city labels -->
+  <g font-size="21" font-weight="700" fill="#0e0b24">
+    <text x="80" y="206">Dhaka</text>
+    <text x="80" y="296">Sydney</text>
+    <text x="80" y="386">London</text>
+    <text x="80" y="476">New York</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="80" y="230">UTC+6</text>
+    <text x="80" y="320">UTC+11</text>
+    <text x="80" y="410">UTC+0</text>
+    <text x="80" y="500">UTC-5</text>
+  </g>
+
+  <!-- Dhaka -->
+  <rect x="487.5" y="190" width="300" height="44" rx="8" fill="#3b2bff"/>
+  <text x="637.5" y="219" font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle">9 am–5 pm</text>
+
+  <!-- Sydney: 4 am to noon Dhaka time, overlap 9 am to noon -->
+  <rect x="300" y="280" width="300" height="44" rx="8" fill="#ff4da6"/>
+  <rect x="487.5" y="280" width="112.5" height="44" fill="#ffd23f"/>
+  <path d="M487.5 280 h104.5 a8 8 0 0 1 8 8 v28 a8 8 0 0 1 -8 8 h-104.5 z" fill="#ffd23f"/>
+  <text x="393.75" y="309" font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle">9 am–5 pm</text>
+  <text x="543.75" y="309" font-size="19" font-weight="700" fill="#0e0b24" text-anchor="middle">3 h</text>
+  <text x="616" y="309" font-size="19" font-weight="600" fill="#0e0b24">3 hours shared</text>
+
+  <!-- London: 3 pm to 11 pm Dhaka time, overlap 3 pm to 5 pm -->
+  <rect x="712.5" y="370" width="300" height="44" rx="8" fill="#ff6b3d"/>
+  <path d="M720.5 370 h67 v44 h-67 a8 8 0 0 1 -8 -8 v-28 a8 8 0 0 1 8 -8 z" fill="#ffd23f"/>
+  <text x="750" y="399" font-size="19" font-weight="700" fill="#0e0b24" text-anchor="middle">2 h</text>
+  <text x="900" y="399" font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle">9 am–5 pm</text>
+  <text x="696" y="399" font-size="19" font-weight="600" fill="#0e0b24" text-anchor="end">2 hours shared</text>
+
+  <!-- New York: 8 pm to 4 am Dhaka time, no overlap -->
+  <rect x="900" y="460" width="300" height="44" rx="8" fill="#cfc4ff"/>
+  <text x="1050" y="489" font-size="19" font-weight="600" fill="#0e0b24" text-anchor="middle">9 am–5 pm</text>
+  <text x="888" y="488" font-size="18" font-weight="600" fill="#0e0b24" text-anchor="end">No overlap</text>
+
+  <!-- axis: Dhaka time -->
+  <text x="80" y="556" font-size="19" font-weight="700" fill="#0e0b24">Dhaka time</text>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="300" y="556">4 am</text>
+    <text x="450" y="556">8 am</text>
+    <text x="600" y="556">noon</text>
+    <text x="750" y="556">4 pm</text>
+    <text x="900" y="556">8 pm</text>
+    <text x="1050" y="556">midnight</text>
+    <text x="1200" y="556">4 am</text>
+  </g>
+
+  <text x="80" y="624" font-size="19" fill="#0e0b24">April to October: London shares 3 hours and Sydney 4. New York's day starts at 7 pm in Dhaka.</text>
+  <text x="80" y="658" font-size="18" fill="#4a4766">Bars show each city's 9 am to 5 pm, placed on Dhaka time. Source for Dhaka: Bangladesh Standard Time (UTC+6, no DST).</text>
+</svg>

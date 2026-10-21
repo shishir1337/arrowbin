@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Should your store go headless?</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Three questions that sort most stores. Arrowbin view, not a rule</text>
+
+  <!-- question boxes: columns at x 80, 380, 680; width 260 -->
+  <g fill="#ffffff" stroke="#3b2bff" stroke-width="3">
+    <rect x="80" y="170" width="260" height="168" rx="16"/>
+    <rect x="380" y="170" width="260" height="168" rx="16"/>
+    <rect x="680" y="170" width="260" height="168" rx="16"/>
+  </g>
+  <g font-size="18" font-weight="700" fill="#3b2bff">
+    <text x="102" y="202">QUESTION 1</text>
+    <text x="402" y="202">QUESTION 2</text>
+    <text x="702" y="202">QUESTION 3</text>
+  </g>
+  <g font-size="20" fill="#0e0b24">
+    <text x="102" y="236">Does your theme stop</text>
+    <text x="102" y="262">you doing something</text>
+    <text x="102" y="288">that costs you sales?</text>
+
+    <text x="402" y="236">Will a developer own</text>
+    <text x="402" y="262">the storefront after</text>
+    <text x="402" y="288">launch?</text>
+
+    <text x="702" y="236">Is the platform itself</text>
+    <text x="702" y="262">the limit, not just</text>
+    <text x="702" y="288">the theme?</text>
+  </g>
+
+  <!-- yes arrows (horizontal) -->
+  <g stroke="#4a4766" stroke-width="3" fill="none">
+    <line x1="342" y1="254" x2="376" y2="254" marker-end="url(#ah)"/>
+    <line x1="642" y1="254" x2="676" y2="254" marker-end="url(#ah)"/>
+    <line x1="942" y1="254" x2="976" y2="254" marker-end="url(#ah)"/>
+  </g>
+  <g font-size="18" font-weight="700" fill="#4a4766" text-anchor="middle">
+    <text x="360" y="240">Yes</text>
+    <text x="660" y="240">Yes</text>
+    <text x="960" y="240">Yes</text>
+  </g>
+
+  <!-- no arrows (vertical) -->
+  <g stroke="#4a4766" stroke-width="3" fill="none">
+    <line x1="210" y1="340" x2="210" y2="412" marker-end="url(#ah)"/>
+    <line x1="510" y1="340" x2="510" y2="412" marker-end="url(#ah)"/>
+    <line x1="810" y1="340" x2="810" y2="412" marker-end="url(#ah)"/>
+  </g>
+  <g font-size="18" font-weight="700" fill="#4a4766">
+    <text x="222" y="384">No</text>
+    <text x="522" y="384">No</text>
+    <text x="822" y="384">No</text>
+  </g>
+
+  <!-- outcome: composable (right of Q3) -->
+  <rect x="980" y="170" width="220" height="168" rx="16" fill="#ff4da6"/>
+  <g font-size="20" fill="#0e0b24">
+    <text x="1000" y="210" font-size="22" font-weight="700">Composable</text>
+    <text x="1000" y="238" font-size="22" font-weight="700">(MACH)</text>
+    <text x="1000" y="274">may fit, if you have</text>
+    <text x="1000" y="300">an engineering team</text>
+  </g>
+
+  <!-- outcomes below -->
+  <rect x="80" y="418" width="260" height="196" rx="16" fill="#cfc4ff"/>
+  <rect x="380" y="418" width="260" height="196" rx="16" fill="#ffd23f"/>
+  <rect x="680" y="418" width="520" height="196" rx="16" fill="#3b2bff"/>
+
+  <g font-size="20" fill="#0e0b24">
+    <text x="102" y="458" font-size="22" font-weight="700">Stay on your theme</text>
+    <text x="102" y="494">Trim apps, shrink</text>
+    <text x="102" y="520">images, update the</text>
+    <text x="102" y="546">theme. Ask again</text>
+    <text x="102" y="572">in a year.</text>
+
+    <text x="402" y="458" font-size="22" font-weight="700">Not yet</text>
+    <text x="402" y="494">Line up a developer</text>
+    <text x="402" y="520">or a partner on</text>
+    <text x="402" y="546">retainer before you</text>
+    <text x="402" y="572">build anything.</text>
+  </g>
+  <g font-size="20" fill="#ffffff">
+    <text x="702" y="458" font-size="22" font-weight="700">Go headless on the platform you have</text>
+    <text x="702" y="494">Shopify: Hydrogen, or Next.js on the Storefront API</text>
+    <text x="702" y="526">BigCommerce: the Catalyst storefront</text>
+    <text x="702" y="558">WooCommerce: Next.js on the Store API</text>
+    <text x="702" y="594" font-size="18">Checkout and orders stay where they are</text>
+  </g>
+
+  <text x="80" y="668" font-size="18" fill="#4a4766">A "yes" needs evidence: a feature you can name, or a sales figure it would change.</text>
+</svg>

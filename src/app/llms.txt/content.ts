@@ -71,7 +71,7 @@ export function hubs(): string {
 - [Work](${siteUrl}/work): live client sites, from online stores to agency and corporate websites.
 - [About](${siteUrl}/about): the founder, how ${site.name} started in ${FOUNDED} and how it works.
 - [Contact](${siteUrl}/contact): the project brief form, email and booking link.
-- [Blog](${siteUrl}/blog): practical guides on software, MVP, SaaS, AI agent and maintenance costs, WordPress to Next.js migration, Bangladesh payment and courier integrations, selling through AI shopping assistants, and choosing a development partner.
+- [Blog](${siteUrl}/blog): practical guides on software, MVP, SaaS, AI agent and maintenance costs, custom software vs off-the-shelf tools, offshore vs nearshore vs onshore teams, app development costs in Bangladesh, headless commerce, WordPress to Next.js migration, Bangladesh payment and courier integrations, selling through AI shopping assistants, and choosing a development partner.
 - [Blog RSS feed](${siteUrl}/blog/rss.xml): new guides as they are published.`;
 }
 

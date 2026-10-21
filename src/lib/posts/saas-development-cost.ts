@@ -494,7 +494,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "If you also sell to customers inside Bangladesh, local payments are a separate integration with their own fees and flows. Our guide to [bKash and SSLCommerz integration](/blog/payment-gateway-integration-bangladesh) covers that side.",
+      text: "If you also sell to customers inside Bangladesh, local payments are a separate integration with their own fees and flows. Our guide to [bKash and SSLCommerz integration](/blog/payment-gateway-integration-bangladesh) covers that side. If the product is a mobile app, see [Bangladeshi app prices in Taka and dollars](/blog/app-development-cost-bangladesh).",
     },
 
     { type: "h2", text: "How do you get an accurate SaaS quote?" },

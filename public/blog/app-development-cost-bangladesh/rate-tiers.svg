@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Two price tiers in one market</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Hourly rates for app work in Bangladesh, in US dollars (Taka under the axis)</text>
+
+  <!-- gridlines: $0 at x=440, 7.6px per $1 -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="440" y1="166" x2="440" y2="566"/>
+    <line x1="630" y1="166" x2="630" y2="566"/>
+    <line x1="820" y1="166" x2="820" y2="566"/>
+    <line x1="1010" y1="166" x2="1010" y2="566"/>
+    <line x1="1200" y1="166" x2="1200" y2="566"/>
+  </g>
+  <g font-size="19" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <text x="440" y="594">$0</text>
+    <text x="630" y="594">$25</text>
+    <text x="820" y="594">$50</text>
+    <text x="1010" y="594">$75</text>
+    <text x="1200" y="594">$100</text>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="440" y="618">Tk 0</text>
+    <text x="630" y="618">Tk 3,100</text>
+    <text x="820" y="618">Tk 6,200</text>
+    <text x="1010" y="618">Tk 9,300</text>
+    <text x="1200" y="618">Tk 12,400</text>
+  </g>
+
+  <!-- row A: local vendor estimate -->
+  <text x="80" y="204" font-size="21" font-weight="600" fill="#0e0b24">Local rate, one vendor</text>
+  <text x="80" y="230" font-size="18" fill="#4a4766">Bdtask blog: Tk 1,000–4,000</text>
+  <rect x="502" y="188" width="184" height="38" rx="6" fill="#ff6b3d"/>
+  <text x="700" y="214" font-size="20" font-weight="600" fill="#0e0b24">$8–32 an hour</text>
+
+  <!-- row B: Clutch histogram, baseline y=440, 5.4px per firm -->
+  <text x="80" y="356" font-size="21" font-weight="600" fill="#0e0b24">Clutch listings</text>
+  <text x="80" y="382" font-size="18" fill="#4a4766">49 Bangladeshi app firms,</text>
+  <text x="80" y="406" font-size="18" fill="#4a4766">self-reported bands</text>
+  <rect x="444" y="354" width="182" height="86" rx="6" fill="#3b2bff"/>
+  <rect x="634" y="310" width="178" height="130" rx="6" fill="#3b2bff"/>
+  <rect x="824" y="397" width="368" height="43" rx="6" fill="#3b2bff"/>
+  <line x1="440" y1="440" x2="1200" y2="440" stroke="#0e0b24" stroke-width="2"/>
+  <g font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="535" y="342">16 firms</text>
+    <text x="723" y="298">24 firms</text>
+    <text x="1008" y="385">8 firms</text>
+  </g>
+  <g font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle">
+    <text x="535" y="424">under $25</text>
+    <text x="723" y="424">$25–49</text>
+    <text x="1008" y="426">$50–99</text>
+  </g>
+  <text x="1200" y="468" font-size="18" fill="#4a4766" text-anchor="end">Plus 1 firm at $150–199, off this scale</text>
+
+  <!-- row C: Arrowbin estimate -->
+  <text x="80" y="516" font-size="21" font-weight="600" fill="#0e0b24">Arrowbin estimate</text>
+  <text x="80" y="542" font-size="18" fill="#4a4766">South Asia senior team</text>
+  <rect x="630" y="500" width="266" height="38" rx="6" fill="#ffd23f"/>
+  <text x="910" y="526" font-size="20" font-weight="600" fill="#0e0b24">$25–60 an hour</text>
+
+  <text x="80" y="668" font-size="19" fill="#0e0b24">Clutch bands are what each firm lists; list order includes paid placement. Read Oct 22, 2026.</text>
+  <text x="80" y="696" font-size="18" fill="#4a4766">Sources: bdtask.com blog (updated Jun 28, 2026); clutch.co/bd/app-developers; Arrowbin cost guide. Tk 123.65 per USD.</text>
+</svg>

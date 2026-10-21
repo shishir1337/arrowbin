@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Five-year cost: keep buying, hybrid or custom</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Illustrative company at 40 and 80 staff, at list prices held flat</text>
+
+  <!-- grid: x = 470 + dollars x 0.00355 -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="470" y1="196" x2="470" y2="566"/>
+    <line x1="647.5" y1="196" x2="647.5" y2="566"/>
+    <line x1="825" y1="196" x2="825" y2="566"/>
+    <line x1="1002.5" y1="196" x2="1002.5" y2="566"/>
+    <line x1="1180" y1="196" x2="1180" y2="566"/>
+    <line x1="80" y1="356" x2="1180" y2="356"/>
+  </g>
+  <line x1="470" y1="566" x2="1180" y2="566" stroke="#4a4766" stroke-width="2"/>
+  <g font-size="20" fill="#4a4766" text-anchor="middle">
+    <text x="470" y="594">$0</text>
+    <text x="647.5" y="594">$50k</text>
+    <text x="825" y="594">$100k</text>
+    <text x="1002.5" y="594">$150k</text>
+    <text x="1180" y="594">$200k</text>
+  </g>
+  <text x="825" y="628" font-size="20" font-weight="600" fill="#0e0b24" text-anchor="middle">Total over five years (USD)</text>
+
+  <!-- group headers -->
+  <g font-size="24" font-weight="700" fill="#0e0b24">
+    <text x="80" y="182">40 staff</text>
+    <text x="80" y="392">80 staff</text>
+  </g>
+  <text x="1180" y="182" font-size="20" font-weight="700" fill="#ff6b3d" text-anchor="end">Keep buying is $5,247–$12,747 cheaper</text>
+  <text x="1180" y="392" font-size="20" font-weight="700" fill="#3b2bff" text-anchor="end">Hybrid saves $30,573–$38,073</text>
+
+  <!-- row labels -->
+  <g font-size="20" font-weight="600" fill="#0e0b24">
+    <text x="80" y="229">A. Keep buying SaaS</text>
+    <text x="80" y="277">B. Hybrid (custom ops tool)</text>
+    <text x="80" y="325">C. Replace it all with custom</text>
+    <text x="80" y="439">A. Keep buying SaaS</text>
+    <text x="80" y="487">B. Hybrid (custom ops tool)</text>
+    <text x="80" y="535">C. Replace it all with custom</text>
+  </g>
+
+  <!-- reference lines at option A -->
+  <line x1="761.6" y1="232" x2="761.6" y2="338" stroke="#ff6b3d" stroke-width="2" stroke-dasharray="6 5"/>
+  <line x1="1038.5" y1="442" x2="1038.5" y2="548" stroke="#ff6b3d" stroke-width="2" stroke-dasharray="6 5"/>
+
+  <!-- 40 staff -->
+  <circle cx="761.6" cy="222" r="11" fill="#ff6b3d"/>
+  <text x="782" y="229" font-size="20" font-weight="700" fill="#0e0b24">$82,140</text>
+  <rect x="780.2" y="256" width="26.7" height="28" rx="6" fill="#3b2bff"/>
+  <text x="822" y="277" font-size="20" font-weight="700" fill="#0e0b24">$87,387–$94,887</text>
+  <rect x="685.5" y="304" width="452.7" height="28" rx="6" fill="#cfc4ff" stroke="#3b2bff" stroke-width="2"/>
+  <text x="912" y="325" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">$60,714–$188,214</text>
+
+  <!-- 80 staff -->
+  <circle cx="1038.5" cy="432" r="11" fill="#ff6b3d"/>
+  <text x="1058" y="439" font-size="20" font-weight="700" fill="#0e0b24">$160,140</text>
+  <rect x="903.3" y="466" width="26.7" height="28" rx="6" fill="#3b2bff"/>
+  <text x="888" y="487" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="end">$122,067–$129,567</text>
+  <rect x="713.2" y="514" width="452.7" height="28" rx="6" fill="#cfc4ff" stroke="#3b2bff" stroke-width="2"/>
+  <text x="900" y="535" font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">$68,514–$196,014</text>
+
+  <text x="80" y="680" font-size="18" fill="#4a4766">Upkeep at 15–20% a year for five years. Old tools stay paid while each build runs. No discounts or price rises.</text>
+</svg>

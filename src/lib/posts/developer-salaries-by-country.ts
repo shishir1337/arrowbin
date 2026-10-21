@@ -166,7 +166,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Eastern Europe and Latin America overlap almost completely. Brazil ($32,767) sits next to Ukraine ($31,765), and Poland ($55,040) is above every Latin American country in the data. If you're choosing between those two regions, time zone and the specific team matter more than the regional pay level.",
+      text: "Eastern Europe and Latin America overlap almost completely. Brazil ($32,767) sits next to Ukraine ($31,765), and Poland ($55,040) is above every Latin American country in the data. If you're choosing between those two regions, [time-zone overlap](/blog/offshore-vs-nearshore-vs-onshore) and the specific team matter more than the regional pay level.",
     },
     {
       type: "p",
@@ -267,7 +267,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Be wary of any page that quotes an exact developer salary for these countries without saying how many people it's based on. Until the samples grow, ask vendors there for their salary bands by level. Their answer tells you a lot about who will be writing your code.",
+      text: "Be wary of any page that quotes an exact developer salary for these countries without saying how many people it's based on. Until the samples grow, ask vendors there for their salary bands by level. Their answer tells you a lot about who will be writing your code. For what Bangladeshi teams charge clients, we collected the published figures in [app development rates in Bangladesh](/blog/app-development-cost-bangladesh).",
     },
     {
       type: "p",

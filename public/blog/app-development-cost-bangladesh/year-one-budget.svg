@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Year one for an illustrative Tk 8 lakh app</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">The build, fixed fees and upkeep, in Taka (US dollars in brackets)</text>
+
+  <!-- total bracket: 112px per lakh from x=80 -->
+  <text x="1200" y="186" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="end">Year one: about Tk 9.6–10 lakh ($7,800–8,100)</text>
+  <path d="M80 214 v-10 h1121 v10" fill="none" stroke="#0e0b24" stroke-width="2"/>
+
+  <!-- stacked bar -->
+  <rect x="80" y="226" width="896" height="70" rx="8" fill="#3b2bff"/>
+  <rect x="976" y="226" width="46" height="70" fill="#ffd23f"/>
+  <rect x="1022" y="226" width="134" height="70" fill="#ff4da6"/>
+  <rect x="1156" y="226" width="45" height="70" fill="#ff4da6" opacity="0.35"/>
+  <rect x="1156" y="227" width="44" height="68" fill="none" stroke="#ff4da6" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="104" y="270" font-size="24" font-weight="700" fill="#ffffff">Build: Tk 8 lakh ($6,470)</text>
+
+  <!-- build note -->
+  <text x="80" y="332" font-size="18" fill="#4a4766">Illustrative build: the middle of</text>
+  <text x="80" y="356" font-size="18" fill="#4a4766">Bdtask's medium band (Tk 4–12 lakh)</text>
+
+  <!-- fees label -->
+  <polyline points="999,298 999,320 890,320" fill="none" stroke="#0e0b24" stroke-width="2"/>
+  <g text-anchor="end">
+    <text x="880" y="350" font-size="20" font-weight="700" fill="#0e0b24">Fixed fees: Tk 40,800 ($330)</text>
+    <text x="880" y="376" font-size="18" fill="#0e0b24">SSLCommerz Basic plan: Tk 25,500</text>
+    <text x="880" y="400" font-size="18" fill="#0e0b24">Apple: Tk 12,200 a year ($99)</text>
+    <text x="880" y="424" font-size="18" fill="#0e0b24">Google Play: Tk 3,100 once ($25)</text>
+  </g>
+
+  <!-- upkeep label -->
+  <line x1="1110" y1="298" x2="1110" y2="326" stroke="#0e0b24" stroke-width="2"/>
+  <g text-anchor="end">
+    <text x="1200" y="350" font-size="20" font-weight="700" fill="#0e0b24">Upkeep, 15–20%</text>
+    <text x="1200" y="376" font-size="18" fill="#0e0b24">Tk 1.2–1.6 lakh ($970–1,290)</text>
+    <text x="1200" y="400" font-size="18" fill="#4a4766">Arrowbin estimate</text>
+  </g>
+
+  <!-- what comes on top -->
+  <rect x="80" y="450" width="548" height="182" rx="16" fill="#F1F2F7"/>
+  <text x="108" y="490" font-size="22" font-weight="700" fill="#0e0b24">On top, per order</text>
+  <text x="108" y="528" font-size="19" fill="#0e0b24">SSLCommerz: 2.5% per online payment</text>
+  <text x="108" y="552" font-size="18" fill="#4a4766">3.5% for AMEX cards</text>
+  <text x="108" y="586" font-size="19" fill="#0e0b24">Steadfast: 1% COD and risk charge</text>
+  <text x="108" y="610" font-size="18" fill="#4a4766">before delivery charges and VAT</text>
+  <rect x="652" y="450" width="548" height="182" rx="16" fill="#F1F2F7"/>
+  <text x="680" y="490" font-size="22" font-weight="700" fill="#0e0b24">On top, per month (get quotes in writing)</text>
+  <g font-size="19" fill="#0e0b24">
+    <text x="680" y="528">Servers and hosting</text>
+    <text x="680" y="560">One-time password SMS</text>
+    <text x="680" y="592">Push notifications and email</text>
+  </g>
+
+  <text x="80" y="668" font-size="19" fill="#0e0b24">Illustrative, not a quote. Fees from Apple, Google Play, SSLCommerz and Steadfast, read Oct 22, 2026.</text>
+  <text x="80" y="696" font-size="18" fill="#4a4766">Upkeep is an Arrowbin estimate (Bdtask publishes 15–25%). Tk 123.65 per USD, Bangladesh Bank, Oct 19, 2026.</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">What a fair app quote includes</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Eight things to get in writing before you sign, with any team</text>
+
+  <!-- cards: width 262, gap 24 -->
+  <g fill="#F1F2F7">
+    <rect x="80" y="160" width="262" height="380" rx="18"/>
+    <rect x="366" y="160" width="262" height="380" rx="18"/>
+    <rect x="652" y="160" width="262" height="380" rx="18"/>
+    <rect x="938" y="160" width="262" height="380" rx="18"/>
+  </g>
+  <path d="M80 222 v-44 a18 18 0 0 1 18 -18 h226 a18 18 0 0 1 18 18 v44 z" fill="#3b2bff"/>
+  <path d="M366 222 v-44 a18 18 0 0 1 18 -18 h226 a18 18 0 0 1 18 18 v44 z" fill="#ff4da6"/>
+  <path d="M652 222 v-44 a18 18 0 0 1 18 -18 h226 a18 18 0 0 1 18 18 v44 z" fill="#ff6b3d"/>
+  <path d="M938 222 v-44 a18 18 0 0 1 18 -18 h226 a18 18 0 0 1 18 18 v44 z" fill="#ffd23f"/>
+  <g font-size="24" font-weight="700" text-anchor="middle">
+    <text x="211" y="200" fill="#ffffff">Scope</text>
+    <text x="497" y="200" fill="#ffffff">Ownership</text>
+    <text x="783" y="200" fill="#ffffff">Money</text>
+    <text x="1069" y="200" fill="#0e0b24">After launch</text>
+  </g>
+
+  <!-- dividers -->
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="104" y1="380" x2="318" y2="380"/>
+    <line x1="390" y1="380" x2="604" y2="380"/>
+    <line x1="676" y1="380" x2="890" y2="380"/>
+    <line x1="962" y1="380" x2="1176" y2="380"/>
+  </g>
+
+  <!-- check boxes -->
+  <g fill="#ffffff" stroke-width="3">
+    <rect x="104" y="262" width="30" height="30" rx="7" stroke="#3b2bff"/>
+    <rect x="104" y="412" width="30" height="30" rx="7" stroke="#3b2bff"/>
+    <rect x="390" y="262" width="30" height="30" rx="7" stroke="#ff4da6"/>
+    <rect x="390" y="412" width="30" height="30" rx="7" stroke="#ff4da6"/>
+    <rect x="676" y="262" width="30" height="30" rx="7" stroke="#ff6b3d"/>
+    <rect x="676" y="412" width="30" height="30" rx="7" stroke="#ff6b3d"/>
+    <rect x="962" y="262" width="30" height="30" rx="7" stroke="#0e0b24"/>
+    <rect x="962" y="412" width="30" height="30" rx="7" stroke="#0e0b24"/>
+  </g>
+  <g fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M111 277 l6 6 l11 -13" stroke="#3b2bff"/>
+    <path d="M111 427 l6 6 l11 -13" stroke="#3b2bff"/>
+    <path d="M397 277 l6 6 l11 -13" stroke="#ff4da6"/>
+    <path d="M397 427 l6 6 l11 -13" stroke="#ff4da6"/>
+    <path d="M683 277 l6 6 l11 -13" stroke="#ff6b3d"/>
+    <path d="M683 427 l6 6 l11 -13" stroke="#ff6b3d"/>
+    <path d="M969 277 l6 6 l11 -13" stroke="#0e0b24"/>
+    <path d="M969 427 l6 6 l11 -13" stroke="#0e0b24"/>
+  </g>
+
+  <!-- items -->
+  <g font-size="19" font-weight="600" fill="#0e0b24">
+    <text x="148" y="284">Written scope,</text>
+    <text x="148" y="310">screen by screen</text>
+    <text x="148" y="434">Each part priced</text>
+    <text x="148" y="460">on its own line</text>
+
+    <text x="434" y="284">Store accounts in</text>
+    <text x="434" y="310">your company's</text>
+    <text x="434" y="336">name</text>
+    <text x="434" y="434">Code in a</text>
+    <text x="434" y="460">repository you own</text>
+
+    <text x="720" y="284">Currency fixed,</text>
+    <text x="720" y="310">VAT stated</text>
+    <text x="720" y="434">Milestones paid</text>
+    <text x="720" y="460">on builds you</text>
+    <text x="720" y="486">can install</text>
+
+    <text x="1006" y="284">Bug-fix period</text>
+    <text x="1006" y="310">in writing</text>
+    <text x="1006" y="434">Maintenance price</text>
+    <text x="1006" y="460">before you sign</text>
+  </g>
+
+  <text x="80" y="600" font-size="22" font-weight="600" fill="#0e0b24">If one quote is far below the others, check which of these lines it leaves out.</text>
+  <text x="80" y="680" font-size="18" fill="#4a4766">Arrowbin checklist for app quotes, in Bangladesh or anywhere else</text>
+</svg>

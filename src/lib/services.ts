@@ -163,7 +163,7 @@ export const services: Service[] = [
     keywords: [
       "ecommerce development",
       "ecommerce website development",
-      "headless commerce",
+      "headless commerce development",
       "shopify development agency",
       "online store development",
     ],
@@ -1023,7 +1023,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     relatedPosts: [
       "vibe-coded-app-production-ready",
       "how-much-does-custom-software-development-cost",
-      "how-to-choose-a-software-development-company",
+      "custom-software-vs-off-the-shelf",
     ],
     copy: {
       form: {
@@ -1147,6 +1147,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     relatedPosts: [
       "mvp-development-cost",
       "how-long-does-it-take-to-build-an-mvp",
+      "app-development-cost-bangladesh",
     ],
     copy: {
       form: {

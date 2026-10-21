@@ -102,7 +102,7 @@ const corePosts: Post[] = [
     body: [
       {
         type: "p",
-        text: "If you're planning a custom software project, the first question on your mind is almost certainly how much it will cost. It's also the hardest question to answer in a single number. [Custom software](/services/custom-software-development) is built around your own workflows and users, so the price moves with what you actually need. This guide is for founders, product owners and operations leaders who want a realistic budget before they talk to a single agency. We build custom software for a living, and the numbers below are our best estimate of 2026 market pricing, not a sales pitch.",
+        text: "If you're planning a custom software project, the first question on your mind is almost certainly how much it will cost. It's also the hardest question to answer in a single number. [Custom software](/services/custom-software-development) is built around your own workflows and users, so the price moves with what you actually need. This guide is for founders, product owners and operations leaders who want a realistic budget before they talk to a single agency. We build custom software for a living, and the numbers below are our best estimate of 2026 market pricing, not a sales pitch. If you're still deciding whether to build at all, start with our comparison of [custom software and off-the-shelf tools](/blog/custom-software-vs-off-the-shelf).",
       },
       {
         type: "p",
@@ -324,7 +324,11 @@ const corePosts: Post[] = [
       },
       {
         type: "p",
-        text: "It's tempting to chase the lowest rate. But rate and total cost aren't the same thing. A cheap team that needs three attempts to get something right ends up more expensive than a strong team that gets it right once. The best value is usually a senior team in a lower-cost region: strong engineering at a sustainable rate, with enough time-zone overlap for real collaboration. If you are weighing how to [evaluate a senior team](/blog/how-to-choose-a-software-development-company) rather than just a rate card, that comes down to proof and process more than geography.",
+        text: "It's tempting to chase the lowest rate. But rate and total cost aren't the same thing. A cheap team that needs three attempts to get something right ends up more expensive than a strong team that gets it right once. The best value is usually a senior team in a lower-cost region: strong engineering at a sustainable rate, with [enough time-zone overlap for real collaboration](/blog/offshore-vs-nearshore-vs-onshore). If you are weighing how to [evaluate a senior team](/blog/how-to-choose-a-software-development-company) rather than just a rate card, that comes down to proof and process more than geography.",
+      },
+      {
+        type: "p",
+        text: "If you're weighing a team in Bangladesh, our guide to [what an app costs to build in Bangladesh](/blog/app-development-cost-bangladesh) puts local price lists in Taka and dollars.",
       },
       {
         type: "quote",
@@ -500,7 +504,7 @@ const corePosts: Post[] = [
       {
         question: "Is custom software cheaper than off-the-shelf?",
         answer:
-          "Upfront, off-the-shelf is usually cheaper. Over time, custom software often wins. There are no per-seat fees, you don't pay for features you never use, and it fits your workflow exactly, which saves hours of manual work. In our experience, growing teams often reach the break-even point within 2–3 years.",
+          "Upfront, off-the-shelf is almost always cheaper, and for standard jobs like accounting or payroll it usually stays cheaper. Custom software can cost less over several years when per-seat fees grow with headcount, when you pay for overlapping tools, or when staff lose hours moving data between them. Run a five-year comparison with your own seat counts before deciding; for many small businesses the best answer is to keep the standard tools and build only the missing piece.",
       },
       {
         question: "Can I build custom software in phases to spread the cost?",
@@ -862,7 +866,7 @@ const corePosts: Post[] = [
       },
       {
         type: "p",
-        text: "Ask how often you'll see working software, who your point of contact is, and how they handle disagreements. A clear, repeatable process is the strongest signal that a team can be trusted with your budget and timeline.",
+        text: "Ask how often you'll see working software, who your point of contact is, and how they handle disagreements. A clear, repeatable process is the strongest signal that a team can be trusted with your budget and timeline. If the team works in another time zone, check [how many working hours you'd actually share](/blog/offshore-vs-nearshore-vs-onshore) before you sign.",
       },
       {
         type: "image",

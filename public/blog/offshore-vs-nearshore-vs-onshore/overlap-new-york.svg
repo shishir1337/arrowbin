@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="76" font-size="40" font-weight="700" fill="#0e0b24">Where each team's 9-to-5 lands in New York</text>
+  <text x="80" y="114" font-size="24" fill="#4a4766">Team workdays on a New York clock, October 22, 2026 (EDT)</text>
+  <rect x="617" y="150" width="264" height="470" rx="10" fill="#F1F2F7"/>
+  <text x="749" y="176" font-size="18" font-weight="700" fill="#3b2bff" text-anchor="middle">New York 9am to 5pm</text>
+  <text x="1200" y="176" font-size="18" font-weight="700" fill="#4a4766" text-anchor="middle">Shared</text>
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="320" y1="190" x2="320" y2="616"/>
+    <line x1="419" y1="190" x2="419" y2="616"/>
+    <line x1="518" y1="190" x2="518" y2="616"/>
+    <line x1="617" y1="190" x2="617" y2="616"/>
+    <line x1="716" y1="190" x2="716" y2="616"/>
+    <line x1="815" y1="190" x2="815" y2="616"/>
+    <line x1="914" y1="190" x2="914" y2="616"/>
+    <line x1="1013" y1="190" x2="1013" y2="616"/>
+    <line x1="1112" y1="190" x2="1112" y2="616"/>
+  </g>
+  <g>
+    <rect x="683" y="206" width="264" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="683" y="206" width="198" height="22" rx="4" fill="#3b2bff"/>
+    <rect x="650" y="248" width="264" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="650" y="248" width="231" height="22" rx="4" fill="#3b2bff"/>
+    <rect x="584" y="290" width="264" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="617" y="290" width="231" height="22" rx="4" fill="#3b2bff"/>
+    <rect x="452" y="332" width="264" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="617" y="332" width="99" height="22" rx="4" fill="#3b2bff"/>
+    <rect x="419" y="374" width="264" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="617" y="374" width="66" height="22" rx="4" fill="#3b2bff"/>
+    <rect x="386" y="416" width="264" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="617" y="416" width="33" height="22" rx="4" fill="#3b2bff"/>
+    <rect x="1095.5" y="458" width="16.5" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="320" y="458" width="247.5" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="1079" y="500" width="33" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="320" y="500" width="231" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="1046" y="542" width="66" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="320" y="542" width="198" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="1013" y="584" width="99" height="22" rx="4" fill="#cfc4ff"/>
+    <rect x="320" y="584" width="165" height="22" rx="4" fill="#cfc4ff"/>
+  </g>
+  <g font-size="20" fill="#0e0b24">
+    <text x="80" y="224">Mexico City</text>
+    <text x="1200" y="224" text-anchor="middle" font-weight="700" fill="#3b2bff">6 h</text>
+    <text x="80" y="266">Bogotá</text>
+    <text x="1200" y="266" text-anchor="middle" font-weight="700" fill="#3b2bff">7 h</text>
+    <text x="80" y="308">São Paulo</text>
+    <text x="1200" y="308" text-anchor="middle" font-weight="700" fill="#3b2bff">7 h</text>
+    <text x="80" y="350">Lisbon</text>
+    <text x="1200" y="350" text-anchor="middle" font-weight="700" fill="#3b2bff">3 h</text>
+    <text x="80" y="392">Warsaw</text>
+    <text x="1200" y="392" text-anchor="middle" font-weight="700" fill="#3b2bff">2 h</text>
+    <text x="80" y="434">Bucharest, Kyiv</text>
+    <text x="1200" y="434" text-anchor="middle" font-weight="700" fill="#3b2bff">1 h</text>
+    <text x="80" y="476">Bengaluru</text>
+    <text x="1200" y="476" text-anchor="middle" font-weight="700" fill="#4a4766">0 h</text>
+    <text x="80" y="518">Dhaka</text>
+    <text x="1200" y="518" text-anchor="middle" font-weight="700" fill="#4a4766">0 h</text>
+    <text x="80" y="560">Ho Chi Minh City</text>
+    <text x="1200" y="560" text-anchor="middle" font-weight="700" fill="#4a4766">0 h</text>
+    <text x="80" y="602">Manila</text>
+    <text x="1200" y="602" text-anchor="middle" font-weight="700" fill="#4a4766">0 h</text>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="320" y="642">12am</text>
+    <text x="419" y="642">3am</text>
+    <text x="518" y="642">6am</text>
+    <text x="617" y="642">9am</text>
+    <text x="716" y="642">12pm</text>
+    <text x="815" y="642">3pm</text>
+    <text x="914" y="642">6pm</text>
+    <text x="1013" y="642">9pm</text>
+    <text x="1112" y="642">12am</text>
+  </g>
+  <rect x="80" y="673" width="22" height="22" rx="4" fill="#3b2bff"/>
+  <text x="112" y="690" font-size="18" fill="#0e0b24">Hours you share</text>
+  <rect x="290" y="673" width="22" height="22" rx="4" fill="#cfc4ff"/>
+  <text x="322" y="690" font-size="18" fill="#0e0b24">Team's 9-to-5 outside yours</text>
+  <text x="1200" y="690" font-size="18" fill="#4a4766" text-anchor="end">Offsets: time.is. Arrowbin calculation.</text>
+</svg>

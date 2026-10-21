@@ -571,7 +571,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Our [e-commerce development for Bangladeshi brands](/services/ecommerce-development) covers this work, checkout included, if you'd rather not build it in-house.",
+      text: "Our [e-commerce development for Bangladeshi brands](/services/ecommerce-development) covers this work, checkout included, if you'd rather not build it in-house. Building an app rather than a website? Our [app budget guide for Bangladesh](/blog/app-development-cost-bangladesh) adds store fees and upkeep.",
     },
     {
       type: "p",

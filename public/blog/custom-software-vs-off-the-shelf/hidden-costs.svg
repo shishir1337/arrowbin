@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Costs that rarely make the first quote</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">Add these to each side before you compare build and buy</text>
+
+  <!-- cards -->
+  <rect x="80" y="152" width="545" height="520" rx="20" fill="#F1F2F7"/>
+  <rect x="655" y="152" width="545" height="520" rx="20" fill="#cfc4ff" fill-opacity="0.3"/>
+  <rect x="80" y="152" width="545" height="64" rx="20" fill="#ff6b3d"/>
+  <rect x="80" y="196" width="545" height="20" fill="#ff6b3d"/>
+  <rect x="655" y="152" width="545" height="64" rx="20" fill="#3b2bff"/>
+  <rect x="655" y="196" width="545" height="20" fill="#3b2bff"/>
+  <text x="112" y="194" font-size="26" font-weight="700" fill="#ffffff">Off-the-shelf (SaaS)</text>
+  <text x="687" y="194" font-size="26" font-weight="700" fill="#ffffff">Custom software</text>
+
+  <!-- left items -->
+  <g fill="#ff6b3d">
+    <circle cx="122" cy="252" r="9"/>
+    <circle cx="122" cy="324" r="9"/>
+    <circle cx="122" cy="396" r="9"/>
+    <circle cx="122" cy="468" r="9"/>
+    <circle cx="122" cy="540" r="9"/>
+    <circle cx="122" cy="612" r="9"/>
+  </g>
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="146" y="260">Tier jumps</text>
+    <text x="146" y="332">Setup fees</text>
+    <text x="146" y="404">Price rises</text>
+    <text x="146" y="476">Unused seats</text>
+    <text x="146" y="548">Add-ons and connectors</text>
+    <text x="146" y="620">Workarounds</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="146" y="285">The feature you need is often one plan up</text>
+    <text x="146" y="357">HubSpot Sales Hub Pro: $1,500 onboarding</text>
+    <text x="146" y="429">SaaS inflation 12.7% in Aug 2026 (Vertice)</text>
+    <text x="146" y="501">36% of licenses unused on average (Zylo)</text>
+    <text x="146" y="573">Each one billed on its own</text>
+    <text x="146" y="645">Spreadsheets and re-keying by staff</text>
+  </g>
+
+  <!-- right items -->
+  <g fill="#3b2bff">
+    <circle cx="697" cy="252" r="9"/>
+    <circle cx="697" cy="324" r="9"/>
+    <circle cx="697" cy="396" r="9"/>
+    <circle cx="697" cy="468" r="9"/>
+    <circle cx="697" cy="540" r="9"/>
+  </g>
+  <g font-size="22" font-weight="700" fill="#0e0b24">
+    <text x="721" y="260">Upkeep</text>
+    <text x="721" y="332">Your team's time</text>
+    <text x="721" y="404">Key-person risk</text>
+    <text x="721" y="476">Scope creep</text>
+    <text x="721" y="548">Paying twice for a while</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="721" y="285">15–20% of the build a year (Arrowbin rule)</text>
+    <text x="721" y="357">Hours in planning and testing</text>
+    <text x="721" y="429">One developer holding code and passwords</text>
+    <text x="721" y="501">Budget new features apart from upkeep</text>
+    <text x="721" y="573">Old tools stay on while the build runs</text>
+  </g>
+  <rect x="697" y="598" width="470" height="50" rx="12" fill="#ffffff"/>
+  <text x="717" y="630" font-size="18" fill="#0e0b24">Contract fix: code repo and hosting in your name</text>
+</svg>

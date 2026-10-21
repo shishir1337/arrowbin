@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Buy the core, build the layer</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">A hybrid setup for a small business (simplified Arrowbin view)</text>
+
+  <!-- tier labels -->
+  <g font-size="24" font-weight="700" fill="#0e0b24">
+    <text x="80" y="196">Use</text>
+    <text x="80" y="362" fill="#3b2bff">Build</text>
+    <text x="80" y="562">Buy</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="80" y="222">People, daily</text>
+    <text x="80" y="388">Yours: code</text>
+    <text x="80" y="410">and data</text>
+    <text x="80" y="588">Rented, for</text>
+    <text x="80" y="610">standard jobs</text>
+  </g>
+
+  <!-- people -->
+  <g font-size="20" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <rect x="264" y="166" width="210" height="52" rx="26" fill="#F1F2F7"/>
+    <text x="369" y="199">Office team</text>
+    <rect x="494" y="166" width="210" height="52" rx="26" fill="#F1F2F7"/>
+    <text x="599" y="199">Field staff</text>
+    <rect x="724" y="166" width="210" height="52" rx="26" fill="#F1F2F7"/>
+    <text x="829" y="199">Managers</text>
+    <rect x="954" y="166" width="210" height="52" rx="26" fill="#F1F2F7"/>
+    <text x="1059" y="199">Customers</text>
+  </g>
+  <g stroke="#4a4766" stroke-width="2.5" marker-end="url(#ar)">
+    <line x1="369" y1="222" x2="369" y2="262"/>
+    <line x1="599" y1="222" x2="599" y2="262"/>
+    <line x1="829" y1="222" x2="829" y2="262"/>
+    <line x1="1059" y1="222" x2="1059" y2="262"/>
+  </g>
+
+  <!-- custom layer -->
+  <rect x="240" y="268" width="948" height="208" rx="18" fill="#3b2bff" fill-opacity="0.08" stroke="#3b2bff" stroke-width="2.5"/>
+  <g font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <rect x="264" y="292" width="210" height="84" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+    <text x="369" y="330">Operations</text>
+    <text x="369" y="356">screen</text>
+    <rect x="494" y="292" width="210" height="84" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+    <text x="599" y="330">Quoting</text>
+    <text x="599" y="356">rules</text>
+    <rect x="724" y="292" width="210" height="84" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+    <text x="829" y="330">Reports you</text>
+    <text x="829" y="356">run on</text>
+    <rect x="954" y="292" width="210" height="84" rx="12" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+    <text x="1059" y="330">Customer</text>
+    <text x="1059" y="356">portal</text>
+  </g>
+  <rect x="264" y="396" width="900" height="56" rx="12" fill="#3b2bff"/>
+  <text x="714" y="431" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">Sync service: reads and writes each tool's data through its API, with a log</text>
+
+  <!-- two-way links to tools -->
+  <g stroke="#4a4766" stroke-width="2.5" marker-start="url(#ar)" marker-end="url(#ar)">
+    <line x1="369" y1="458" x2="369" y2="524"/>
+    <line x1="599" y1="458" x2="599" y2="524"/>
+    <line x1="829" y1="458" x2="829" y2="524"/>
+    <line x1="1059" y1="458" x2="1059" y2="524"/>
+  </g>
+
+  <!-- bought tools -->
+  <g font-size="20" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <rect x="264" y="530" width="210" height="84" rx="12" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="369" y="566">Accounting</text>
+    <rect x="494" y="530" width="210" height="84" rx="12" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="599" y="566">CRM</text>
+    <rect x="724" y="530" width="210" height="84" rx="12" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="829" y="566">Payroll</text>
+    <rect x="954" y="530" width="210" height="84" rx="12" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="1059" y="566">Email, calendar</text>
+  </g>
+  <g font-size="18" fill="#4a4766" text-anchor="middle">
+    <text x="369" y="594">Invoices, ledger</text>
+    <text x="599" y="594">Deals, contacts</text>
+    <text x="829" y="594">Pay, tax filings</text>
+    <text x="1059" y="594">Messages</text>
+  </g>
+
+  <text x="80" y="672" font-size="18" fill="#4a4766">Each bought tool stays the record for its job. The layer adds your rules and your screens on top.</text>
+</svg>

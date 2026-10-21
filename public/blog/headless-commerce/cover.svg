@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="gLilac" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#cfc4ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#cfc4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gPlasma" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff4da6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#ff4da6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gSun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd23f" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ffd23f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heroImg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfc4ff"/>
+      <stop offset="1" stop-color="#ff4da6" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="appImg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd23f" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#ff4da6" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b2bff"/>
+      <stop offset="1" stop-color="#ff4da6"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <g id="bottle">
+      <ellipse cx="0" cy="-58" rx="11" ry="13" fill="#ff4da6"/>
+      <rect x="-11" y="-48" width="22" height="16" rx="3" fill="#0e0b24"/>
+      <rect x="-26" y="-34" width="52" height="84" rx="14" fill="#ffffff"/>
+      <rect x="-18" y="-6" width="36" height="30" rx="5" fill="#3b2bff"/>
+      <rect x="-12" y="4" width="24" height="5" rx="2.5" fill="#ffffff"/>
+      <rect x="-12" y="13" width="16" height="4" rx="2" fill="#cfc4ff"/>
+    </g>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="720" fill="#F1F2F7"/>
+  <circle cx="130" cy="650" r="330" fill="url(#gLilac)"/>
+  <circle cx="1210" cy="40" r="270" fill="url(#gPlasma)"/>
+  <circle cx="1160" cy="690" r="220" fill="url(#gSun)"/>
+
+  <!-- connectors to the API badge -->
+  <g fill="none" stroke="#3b2bff" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round">
+    <path d="M360 424 C360 462, 500 474, 576 474"/>
+    <path d="M860 394 C860 440, 760 462, 704 464"/>
+    <path d="M1135 424 C1135 476, 860 478, 704 480"/>
+  </g>
+  <g fill="#3b2bff">
+    <circle cx="360" cy="424" r="6"/>
+    <circle cx="860" cy="394" r="6"/>
+    <circle cx="1135" cy="424" r="6"/>
+  </g>
+
+  <!-- ===== browser storefront ===== -->
+  <rect x="50" y="58" width="640" height="372" rx="18" fill="#0e0b24" opacity="0.10" filter="url(#shadow)"/>
+  <rect x="40" y="40" width="640" height="380" rx="18" fill="#ffffff"/>
+  <path d="M40 58 a18 18 0 0 1 18 -18 h604 a18 18 0 0 1 18 18 v22 h-640 z" fill="#e9e9f1"/>
+  <circle cx="64" cy="60" r="6" fill="#ff6b3d"/>
+  <circle cx="86" cy="60" r="6" fill="#ffd23f"/>
+  <circle cx="108" cy="60" r="6" fill="#cfc4ff"/>
+  <rect x="132" y="48" width="280" height="24" rx="12" fill="#ffffff"/>
+  <path d="M146 59 v-3 a4.5 4.5 0 0 1 9 0 v3" fill="none" stroke="#3b2bff" stroke-width="2"/>
+  <rect x="143" y="59" width="15" height="10" rx="2.5" fill="#3b2bff"/>
+  <text x="166" y="66" font-size="14" fill="#0e0b24">yourbrand.example</text>
+
+  <circle cx="74" cy="104" r="13" fill="url(#logo)"/>
+  <rect x="96" y="98" width="78" height="12" rx="6" fill="#0e0b24"/>
+  <g font-size="15" font-weight="600" fill="#0e0b24">
+    <text x="420" y="109">Shop</text>
+    <text x="470" y="109">Journal</text>
+    <text x="540" y="109">About</text>
+  </g>
+  <path d="M614 96 h6 l4 15 h15 l3 -10 h-19" fill="none" stroke="#0e0b24" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="627" cy="116" r="2.4" fill="#0e0b24"/>
+  <circle cx="637" cy="116" r="2.4" fill="#0e0b24"/>
+  <circle cx="645" cy="95" r="8" fill="#ff4da6"/>
+  <text x="645" y="99" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <line x1="40" y1="130" x2="680" y2="130" stroke="#ececf2" stroke-width="2"/>
+
+  <!-- hero -->
+  <rect x="66" y="160" width="250" height="20" rx="10" fill="#0e0b24"/>
+  <rect x="66" y="190" width="196" height="20" rx="10" fill="#0e0b24"/>
+  <rect x="66" y="226" width="230" height="10" rx="5" fill="#c9c9d6"/>
+  <rect x="66" y="244" width="180" height="10" rx="5" fill="#c9c9d6"/>
+  <rect x="66" y="270" width="132" height="36" rx="18" fill="#3b2bff"/>
+  <text x="132" y="293" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">Shop now</text>
+  <rect x="214" y="270" width="96" height="36" rx="18" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  <text x="262" y="293" font-size="15" font-weight="600" fill="#3b2bff" text-anchor="middle">Journal</text>
+
+  <rect x="350" y="146" width="306" height="166" rx="14" fill="url(#heroImg)"/>
+  <circle cx="600" cy="186" r="26" fill="#ffffff" opacity="0.35"/>
+  <circle cx="420" cy="276" r="40" fill="#ffffff" opacity="0.25"/>
+  <use href="#bottle" transform="translate(503 246)"/>
+
+  <!-- product row -->
+  <g>
+    <rect x="66" y="330" width="186" height="74" rx="12" fill="#F1F2F7"/>
+    <rect x="262" y="330" width="186" height="74" rx="12" fill="#F1F2F7"/>
+    <rect x="458" y="330" width="198" height="74" rx="12" fill="#F1F2F7"/>
+    <rect x="76" y="340" width="54" height="54" rx="10" fill="#cfc4ff"/>
+    <rect x="272" y="340" width="54" height="54" rx="10" fill="#ffd23f" opacity="0.7"/>
+    <rect x="468" y="340" width="54" height="54" rx="10" fill="#ff4da6" opacity="0.45"/>
+    <use href="#bottle" transform="translate(103 372) scale(0.38)"/>
+    <use href="#bottle" transform="translate(299 372) scale(0.38)"/>
+    <use href="#bottle" transform="translate(495 372) scale(0.38)"/>
+    <rect x="142" y="348" width="90" height="10" rx="5" fill="#c9c9d6"/>
+    <rect x="338" y="348" width="90" height="10" rx="5" fill="#c9c9d6"/>
+    <rect x="534" y="348" width="96" height="10" rx="5" fill="#c9c9d6"/>
+  </g>
+  <g font-size="16" font-weight="700" fill="#0e0b24">
+    <text x="142" y="386">$28</text>
+    <text x="338" y="386">$34</text>
+    <text x="534" y="386">$22</text>
+  </g>
+
+  <!-- ===== AI assistant panel ===== -->
+  <rect x="728" y="86" width="280" height="316" rx="18" fill="#0e0b24" opacity="0.10" filter="url(#shadow)"/>
+  <rect x="720" y="70" width="280" height="324" rx="18" fill="#ffffff"/>
+  <path d="M746 82 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="#ff4da6"/>
+  <text x="768" y="101" font-size="15" font-weight="700" fill="#0e0b24">AI assistant</text>
+  <line x1="720" y1="118" x2="1000" y2="118" stroke="#ececf2" stroke-width="2"/>
+
+  <rect x="800" y="132" width="184" height="34" rx="14" fill="#3b2bff"/>
+  <text x="892" y="154" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Gentle serum under $30?</text>
+
+  <rect x="736" y="180" width="200" height="9" rx="4.5" fill="#d6d6e2"/>
+  <rect x="736" y="196" width="150" height="9" rx="4.5" fill="#d6d6e2"/>
+
+  <rect x="736" y="218" width="248" height="112" rx="12" fill="#F1F2F7"/>
+  <rect x="748" y="230" width="74" height="88" rx="10" fill="url(#heroImg)"/>
+  <use href="#bottle" transform="translate(785 278) scale(0.5)"/>
+  <rect x="836" y="236" width="120" height="10" rx="5" fill="#c9c9d6"/>
+  <rect x="836" y="252" width="84" height="8" rx="4" fill="#d6d6e2"/>
+  <text x="836" y="286" font-size="18" font-weight="700" fill="#0e0b24">$28</text>
+  <rect x="836" y="294" width="96" height="26" rx="13" fill="#ff4da6"/>
+  <text x="884" y="312" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Buy</text>
+
+  <rect x="736" y="344" width="248" height="34" rx="17" fill="#F1F2F7"/>
+  <rect x="752" y="357" width="120" height="8" rx="4" fill="#d6d6e2"/>
+  <circle cx="966" cy="361" r="11" fill="#3b2bff"/>
+  <path d="M961 361 h9 m-4 -4 l4 4 l-4 4" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ===== phone app ===== -->
+  <rect x="1050" y="58" width="190" height="372" rx="34" fill="#0e0b24" opacity="0.10" filter="url(#shadow)"/>
+  <rect x="1040" y="40" width="190" height="380" rx="32" fill="#cfc4ff"/>
+  <rect x="1050" y="50" width="170" height="360" rx="24" fill="#ffffff"/>
+  <rect x="1110" y="58" width="50" height="10" rx="5" fill="#cfc4ff"/>
+  <circle cx="1070" cy="92" r="10" fill="url(#logo)"/>
+  <rect x="1086" y="87" width="56" height="10" rx="5" fill="#0e0b24"/>
+  <path d="M1192 84 h14 l-2 16 h-10 z" fill="none" stroke="#0e0b24" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M1195 84 v-3 a4 4 0 0 1 8 0 v3" fill="none" stroke="#0e0b24" stroke-width="2"/>
+
+  <rect x="1062" y="112" width="146" height="150" rx="14" fill="url(#appImg)"/>
+  <use href="#bottle" transform="translate(1135 196) scale(0.8)"/>
+  <rect x="1062" y="276" width="110" height="10" rx="5" fill="#c9c9d6"/>
+  <rect x="1062" y="294" width="74" height="8" rx="4" fill="#d6d6e2"/>
+  <text x="1062" y="330" font-size="18" font-weight="700" fill="#0e0b24">$28</text>
+  <rect x="1062" y="344" width="146" height="34" rx="17" fill="#ff4da6"/>
+  <text x="1135" y="366" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Add to bag</text>
+  <rect x="1110" y="394" width="50" height="5" rx="2.5" fill="#cfc4ff"/>
+
+  <!-- ===== commerce back office ===== -->
+  <rect x="340" y="488" width="620" height="214" rx="18" fill="#0e0b24" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="330" y="470" width="620" height="222" rx="18" fill="#ffffff"/>
+  <path d="M330 488 a18 18 0 0 1 18 -18 h584 a18 18 0 0 1 18 18 v16 h-620 z" fill="#e9e9f1"/>
+  <circle cx="354" cy="488" r="5.5" fill="#ff6b3d"/>
+  <circle cx="374" cy="488" r="5.5" fill="#ffd23f"/>
+  <circle cx="394" cy="488" r="5.5" fill="#cfc4ff"/>
+  <text x="852" y="493" font-size="14" font-weight="600" fill="#4a4766">Commerce admin</text>
+
+  <path d="M330 504 h140 v188 h-122 a18 18 0 0 1 -18 -18 z" fill="#F1F2F7"/>
+  <rect x="342" y="518" width="116" height="30" rx="10" fill="#3b2bff"/>
+  <g font-size="14" font-weight="600">
+    <text x="356" y="538" fill="#ffffff">Orders</text>
+    <text x="356" y="574" fill="#4a4766">Products</text>
+    <text x="356" y="606" fill="#4a4766">Customers</text>
+    <text x="356" y="638" fill="#4a4766">Content</text>
+  </g>
+
+  <text x="492" y="538" font-size="18" font-weight="700" fill="#0e0b24">Orders</text>
+  <rect x="852" y="520" width="80" height="26" rx="13" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  <text x="892" y="538" font-size="13" font-weight="600" fill="#3b2bff" text-anchor="middle">Today</text>
+
+  <g>
+    <line x1="492" y1="558" x2="932" y2="558" stroke="#ececf2" stroke-width="2"/>
+    <line x1="492" y1="592" x2="932" y2="592" stroke="#ececf2" stroke-width="2"/>
+    <line x1="492" y1="626" x2="932" y2="626" stroke="#ececf2" stroke-width="2"/>
+    <line x1="492" y1="660" x2="932" y2="660" stroke="#ececf2" stroke-width="2"/>
+  </g>
+  <g font-size="14" font-weight="600" fill="#0e0b24">
+    <text x="492" y="580">#1048</text>
+    <text x="492" y="614">#1047</text>
+    <text x="492" y="648">#1046</text>
+  </g>
+  <rect x="560" y="571" width="110" height="9" rx="4.5" fill="#d6d6e2"/>
+  <rect x="560" y="605" width="90" height="9" rx="4.5" fill="#d6d6e2"/>
+  <rect x="560" y="639" width="120" height="9" rx="4.5" fill="#d6d6e2"/>
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <rect x="720" y="565" width="72" height="22" rx="11" fill="#cfc4ff"/>
+    <text x="756" y="580" fill="#3b2bff">Paid</text>
+    <rect x="720" y="599" width="72" height="22" rx="11" fill="#ffd23f"/>
+    <text x="756" y="614" fill="#0e0b24">Packed</text>
+    <rect x="720" y="633" width="72" height="22" rx="11" fill="#ff4da6"/>
+    <text x="756" y="648" fill="#ffffff">Shipped</text>
+  </g>
+  <g font-size="14" font-weight="700" fill="#0e0b24" text-anchor="end">
+    <text x="932" y="580">$56.00</text>
+    <text x="932" y="614">$28.00</text>
+    <text x="932" y="648">$62.00</text>
+  </g>
+
+  <!-- API badge -->
+  <rect x="576" y="452" width="128" height="40" rx="20" fill="#3b2bff"/>
+  <path d="M598 466 l-6 6 l6 6 M612 466 l6 6 l-6 6" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="652" y="478" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">API</text>
+
+  <!-- stock chip -->
+  <rect x="84" y="560" width="210" height="64" rx="16" fill="#ffffff"/>
+  <circle cx="116" cy="592" r="16" fill="#cfc4ff"/>
+  <path d="M108 592 l6 6 l10 -12" fill="none" stroke="#3b2bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="142" y="588" font-size="15" font-weight="700" fill="#0e0b24">Stock in sync</text>
+  <rect x="142" y="598" width="100" height="8" rx="4" fill="#d6d6e2"/>
+
+  <!-- price sync chip -->
+  <rect x="990" y="560" width="200" height="64" rx="16" fill="#ffffff"/>
+  <circle cx="1022" cy="592" r="16" fill="#ffd23f"/>
+  <text x="1022" y="598" font-size="15" font-weight="700" fill="#0e0b24" text-anchor="middle">$</text>
+  <text x="1048" y="588" font-size="15" font-weight="700" fill="#0e0b24">One price</text>
+  <rect x="1048" y="598" width="110" height="8" rx="4" fill="#d6d6e2"/>
+</svg>

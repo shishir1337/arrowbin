@@ -468,7 +468,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Headless and custom React storefronts are the opposite case. If the price arrives from an API call in the browser, most AI crawlers never see it, and the fix is server rendering. Arrowbin's own site is served that way, and it's how we build stores.",
+      text: "Headless and custom React storefronts are the opposite case. If the price arrives from an API call in the browser, most AI crawlers never see it, and the fix is server rendering. Arrowbin's own site is served that way, and it's how we build stores. If you're still deciding, [weigh the costs of going headless](/blog/headless-commerce) first.",
     },
     {
       type: "image",

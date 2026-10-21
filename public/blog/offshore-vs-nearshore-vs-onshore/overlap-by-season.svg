@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="76" font-size="40" font-weight="700" fill="#0e0b24">Daylight saving moves the overlap</text>
+  <text x="80" y="114" font-size="24" fill="#4a4766">Hours a 9-to-5 team shares with a 9-to-5 client, 2026 to 2027</text>
+  <g font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">
+    <text x="565" y="170">New York client</text>
+    <text x="975" y="170">San Francisco client</text>
+  </g>
+  <g stroke="#e4e4e7" stroke-width="2">
+    <line x1="380" y1="184" x2="750" y2="184"/>
+    <line x1="790" y1="184" x2="1160" y2="184"/>
+  </g>
+  <g font-size="18" font-weight="600" fill="#4a4766" text-anchor="middle">
+    <text x="439" y="218">Summer</text>
+    <text x="565" y="218">Gap weeks</text>
+    <text x="691" y="218">Winter</text>
+    <text x="849" y="218">Summer</text>
+    <text x="975" y="218">Gap weeks</text>
+    <text x="1101" y="218">Winter</text>
+  </g>
+  <g>
+    <rect x="380" y="240" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.72"/>
+    <text x="439" y="271" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">6 h</text>
+    <rect x="506" y="240" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.72"/>
+    <text x="565" y="271" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">6 h</text>
+    <rect x="632" y="240" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <rect x="634" y="242" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="691" y="271" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">7 h</text>
+    <rect x="790" y="240" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <text x="849" y="271" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">7 h</text>
+    <rect x="916" y="240" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <text x="975" y="271" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">7 h</text>
+    <rect x="1042" y="240" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.72"/>
+    <rect x="1044" y="242" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="1101" y="271" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">6 h</text>
+    <rect x="380" y="296" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <text x="439" y="327" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">7 h</text>
+    <rect x="506" y="296" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <text x="565" y="327" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">7 h</text>
+    <rect x="632" y="296" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <rect x="634" y="298" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="691" y="327" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">8 h</text>
+    <rect x="790" y="296" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.72"/>
+    <text x="849" y="327" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">6 h</text>
+    <rect x="916" y="296" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.72"/>
+    <text x="975" y="327" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">6 h</text>
+    <rect x="1042" y="296" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.72"/>
+    <rect x="1044" y="298" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="1101" y="327" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">5 h</text>
+    <rect x="380" y="352" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <text x="439" y="383" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">7 h</text>
+    <rect x="506" y="352" width="118" height="48" rx="10" fill="#3b2bff"/>
+    <text x="565" y="383" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">7 h</text>
+    <rect x="632" y="352" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.72"/>
+    <rect x="634" y="354" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="691" y="383" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">6 h</text>
+    <rect x="790" y="352" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.38"/>
+    <text x="849" y="383" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">4 h</text>
+    <rect x="916" y="352" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.38"/>
+    <text x="975" y="383" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">4 h</text>
+    <rect x="1042" y="352" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.38"/>
+    <rect x="1044" y="354" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="1101" y="383" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">3 h</text>
+    <rect x="380" y="408" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.38"/>
+    <text x="439" y="439" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">3 h</text>
+    <rect x="506" y="408" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.38"/>
+    <rect x="508" y="410" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="565" y="439" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">4 h</text>
+    <rect x="632" y="408" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.38"/>
+    <text x="691" y="439" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">3 h</text>
+    <rect x="790" y="408" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="849" y="439" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="916" y="408" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.16"/>
+    <rect x="918" y="410" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="975" y="439" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">1 h</text>
+    <rect x="1042" y="408" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="1101" y="439" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="380" y="464" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.16"/>
+    <text x="439" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">2 h</text>
+    <rect x="506" y="464" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.38"/>
+    <rect x="508" y="466" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="565" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">3 h</text>
+    <rect x="632" y="464" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.16"/>
+    <text x="691" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">2 h</text>
+    <rect x="790" y="464" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="849" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="916" y="464" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="975" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="1042" y="464" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="1101" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="380" y="520" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.16"/>
+    <text x="439" y="551" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">1 h</text>
+    <rect x="506" y="520" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.16"/>
+    <rect x="508" y="522" width="114" height="44" rx="9" fill="none" stroke="#ff4da6" stroke-width="4"/>
+    <text x="565" y="551" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">2 h</text>
+    <rect x="632" y="520" width="118" height="48" rx="10" fill="#3b2bff" fill-opacity="0.16"/>
+    <text x="691" y="551" text-anchor="middle" font-size="22" font-weight="700" fill="#0e0b24">1 h</text>
+    <rect x="790" y="520" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="849" y="551" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="916" y="520" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="975" y="551" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="1042" y="520" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="1101" y="551" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="380" y="576" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="439" y="607" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="506" y="576" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="565" y="607" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="632" y="576" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="691" y="607" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="790" y="576" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="849" y="607" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="916" y="576" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="975" y="607" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+    <rect x="1042" y="576" width="118" height="48" rx="10" fill="#F1F2F7"/>
+    <text x="1101" y="607" text-anchor="middle" font-size="22" font-weight="700" fill="#4a4766">0 h</text>
+  </g>
+  <g font-size="20" fill="#0e0b24">
+    <text x="80" y="271">Mexico City</text>
+    <text x="80" y="327">Bogotá</text>
+    <text x="80" y="383">São Paulo</text>
+    <text x="80" y="439">Lisbon</text>
+    <text x="80" y="495">Warsaw</text>
+    <text x="80" y="551">Bucharest, Kyiv</text>
+    <text x="80" y="607">Bengaluru to Manila</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="80" y="662">Summer: to Oct 25, 2026 and from Mar 28, 2027. Gap weeks: Oct 25 to Nov 1, 2026 and Mar 14 to 28, 2027.</text>
+    <text x="80" y="692">Winter: Nov 1, 2026 to Mar 14, 2027.</text>
+  </g>
+  <rect x="460" y="674" width="34" height="24" rx="7" fill="none" stroke="#ff4da6" stroke-width="4"/>
+  <text x="506" y="692" font-size="18" fill="#4a4766">Changed from summer</text>
+  <text x="1200" y="692" font-size="18" fill="#4a4766" text-anchor="end">Offsets: time.is. Rules: NIST, EU.</text>
+</svg>

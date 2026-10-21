@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a4766"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="80" font-size="40" font-weight="700" fill="#0e0b24">Build or buy: where common software lands</text>
+  <text x="80" y="118" font-size="24" fill="#4a4766">How differently you do the job vs how much it shapes revenue (Arrowbin view)</text>
+
+  <!-- quadrants -->
+  <rect x="200" y="160" width="490" height="215" fill="#cfc4ff" fill-opacity="0.28"/>
+  <rect x="690" y="160" width="490" height="215" fill="#3b2bff" fill-opacity="0.10"/>
+  <rect x="200" y="375" width="490" height="215" fill="#F1F2F7"/>
+  <rect x="690" y="375" width="490" height="215" fill="#ffd23f" fill-opacity="0.22"/>
+  <line x1="690" y1="160" x2="690" y2="590" stroke="#ffffff" stroke-width="4"/>
+  <line x1="200" y1="375" x2="1180" y2="375" stroke="#ffffff" stroke-width="4"/>
+
+  <!-- axes -->
+  <line x1="200" y1="590" x2="1192" y2="590" stroke="#4a4766" stroke-width="3" marker-end="url(#ax)"/>
+  <line x1="200" y1="590" x2="200" y2="150" stroke="#4a4766" stroke-width="3" marker-end="url(#ax)"/>
+  <text x="690" y="636" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">How differently you do this job from other companies</text>
+  <text x="200" y="636" font-size="18" fill="#4a4766" text-anchor="middle">Same</text>
+  <text x="1180" y="636" font-size="18" fill="#4a4766" text-anchor="middle">Unique</text>
+  <text transform="translate(146 375) rotate(-90)" font-size="22" font-weight="600" fill="#0e0b24" text-anchor="middle">How much it shapes revenue</text>
+  <text x="186" y="586" font-size="18" fill="#4a4766" text-anchor="end">Low</text>
+  <text x="186" y="178" font-size="18" fill="#4a4766" text-anchor="end">High</text>
+
+  <!-- quadrant titles -->
+  <g font-size="26" font-weight="700" fill="#0e0b24">
+    <text x="228" y="204">Buy and configure</text>
+    <text x="718" y="204" fill="#3b2bff">Build</text>
+    <text x="228" y="419">Buy</text>
+    <text x="718" y="419">Buy the core, build the layer</text>
+  </g>
+  <g font-size="18" fill="#4a4766">
+    <text x="228" y="232">Standard tools, set up your way</text>
+    <text x="718" y="232">Your edge: worth owning</text>
+    <text x="228" y="447">Solved problems; don't rebuild them</text>
+    <text x="718" y="447">Connect what you already pay for</text>
+  </g>
+
+  <!-- pills -->
+  <g font-size="20" font-weight="600" fill="#0e0b24" text-anchor="middle">
+    <!-- buy and configure -->
+    <rect x="228" y="262" width="104" height="44" rx="22" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+    <text x="280" y="291">CRM</text>
+    <rect x="344" y="262" width="142" height="44" rx="22" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+    <text x="415" y="291">Help desk</text>
+    <rect x="228" y="316" width="222" height="44" rx="22" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+    <text x="339" y="345">Online store platform</text>
+
+    <!-- build -->
+    <rect x="718" y="262" width="212" height="44" rx="22" fill="#3b2bff"/>
+    <text x="824" y="291" fill="#ffffff">Quoting and pricing</text>
+    <rect x="942" y="262" width="218" height="44" rx="22" fill="#3b2bff"/>
+    <text x="1051" y="291" fill="#ffffff">Scheduling, dispatch</text>
+    <rect x="718" y="316" width="214" height="44" rx="22" fill="#3b2bff"/>
+    <text x="825" y="345" fill="#ffffff">Your core workflow</text>
+
+    <!-- buy -->
+    <rect x="228" y="477" width="140" height="44" rx="22" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="298" y="506">Accounting</text>
+    <rect x="380" y="477" width="110" height="44" rx="22" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="435" y="506">Payroll</text>
+    <rect x="502" y="477" width="96" height="44" rx="22" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="550" y="506">Email</text>
+    <rect x="228" y="531" width="176" height="44" rx="22" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+    <text x="316" y="560">Video calls, files</text>
+
+    <!-- hybrid -->
+    <rect x="718" y="477" width="150" height="44" rx="22" fill="#ffffff" stroke="#ffd23f" stroke-width="3"/>
+    <text x="793" y="506">Integrations</text>
+    <rect x="880" y="477" width="190" height="44" rx="22" fill="#ffffff" stroke="#ffd23f" stroke-width="3"/>
+    <text x="975" y="506">Customer portal</text>
+    <rect x="718" y="531" width="118" height="44" rx="22" fill="#ffffff" stroke="#ffd23f" stroke-width="3"/>
+    <text x="777" y="560">Reports</text>
+    <rect x="848" y="531" width="168" height="44" rx="22" fill="#ffffff" stroke="#ffd23f" stroke-width="3"/>
+    <text x="932" y="560">Staff screens</text>
+  </g>
+
+  <text x="80" y="690" font-size="18" fill="#4a4766">Placement is typical, not fixed: a CRM moves right if your sales process is how you win.</text>
+</svg>

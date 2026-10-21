@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1280" height="720" rx="24" fill="#ffffff"/>
+  <text x="80" y="76" font-size="40" font-weight="700" fill="#0e0b24">Which model fits your project?</text>
+  <text x="80" y="114" font-size="24" fill="#4a4766">Start with how you'll work, then look at the budget</text>
+
+  <!-- connectors -->
+  <g stroke="#cfc4ff" stroke-width="4" fill="none" stroke-linejoin="round">
+    <path d="M640 222 V252 H330 V290"/>
+    <path d="M640 252 H950 V290"/>
+    <path d="M330 380 V412 H190 V450"/>
+    <path d="M330 412 H470 V450"/>
+    <path d="M950 380 V412 H810 V450"/>
+    <path d="M950 412 H1090 V450"/>
+  </g>
+
+  <!-- question 1 -->
+  <rect x="300" y="150" width="680" height="72" rx="16" fill="#F1F2F7"/>
+  <text x="640" y="194" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">Will you need live decisions with the team most days?</text>
+
+  <!-- questions 2 and 3 -->
+  <rect x="90" y="290" width="480" height="90" rx="16" fill="#F1F2F7"/>
+  <text x="330" y="328" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">Can the budget carry</text>
+  <text x="330" y="358" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">local developer pay?</text>
+  <rect x="710" y="290" width="480" height="90" rx="16" fill="#F1F2F7"/>
+  <text x="950" y="328" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">Is the work written down</text>
+  <text x="950" y="358" font-size="22" font-weight="700" fill="#0e0b24" text-anchor="middle">and fairly stable?</text>
+
+  <!-- yes / no labels -->
+  <g font-size="20" font-weight="700" fill="#3b2bff" text-anchor="middle">
+    <text x="470" y="244">Yes</text>
+    <text x="810" y="244">No</text>
+    <text x="240" y="404">Yes</text>
+    <text x="420" y="404">No</text>
+    <text x="860" y="404">Yes</text>
+    <text x="1040" y="404">No</text>
+  </g>
+
+  <!-- outcomes -->
+  <rect x="65" y="450" width="250" height="120" rx="18" fill="#cfc4ff"/>
+  <rect x="345" y="450" width="250" height="120" rx="18" fill="#ffd23f"/>
+  <rect x="685" y="450" width="250" height="120" rx="18" fill="#3b2bff"/>
+  <rect x="965" y="450" width="250" height="120" rx="18" fill="#ff6b3d"/>
+  <g font-size="26" font-weight="700" text-anchor="middle">
+    <text x="190" y="492" fill="#0e0b24">Onshore</text>
+    <text x="470" y="492" fill="#0e0b24">Nearshore</text>
+    <text x="810" y="492" fill="#ffffff">Offshore</text>
+    <text x="1090" y="492" fill="#0e0b24">Hybrid</text>
+  </g>
+  <g font-size="18" text-anchor="middle">
+    <text x="190" y="524" fill="#0e0b24">Full overlap,</text>
+    <text x="190" y="550" fill="#0e0b24">highest cost</text>
+    <text x="470" y="524" fill="#0e0b24">6+ shared hours,</text>
+    <text x="470" y="550" fill="#0e0b24">lower cost</text>
+    <text x="810" y="524" fill="#ffffff">Agree 2–4 h overlap,</text>
+    <text x="810" y="550" fill="#ffffff">lowest cost</text>
+    <text x="1090" y="524" fill="#0e0b24">Local lead plus</text>
+    <text x="1090" y="550" fill="#0e0b24">a remote team</text>
+  </g>
+
+  <!-- note -->
+  <rect x="65" y="606" width="1150" height="58" rx="16" fill="#ffffff" stroke="#ff4da6" stroke-width="2"/>
+  <text x="640" y="642" font-size="20" fill="#0e0b24" text-anchor="middle">Regulated data, or a rule that the work stays in-country? Check that first: it can decide for you.</text>
+</svg>

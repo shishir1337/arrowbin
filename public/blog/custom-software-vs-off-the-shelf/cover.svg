@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="gLilac" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#cfc4ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#cfc4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gPlasma" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff4da6" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#ff4da6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gSun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd23f" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ffd23f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="#F1F2F7"/>
+  <circle cx="140" cy="660" r="330" fill="url(#gLilac)"/>
+  <circle cx="1180" cy="70" r="280" fill="url(#gPlasma)"/>
+  <circle cx="560" cy="30" r="150" fill="url(#gSun)"/>
+
+  <!-- ===== back window: spreadsheet ===== -->
+  <rect x="68" y="78" width="500" height="390" rx="16" fill="#0e0b24" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="60" y="62" width="500" height="390" rx="16" fill="#ffffff"/>
+  <path d="M60 78 a16 16 0 0 1 16 -16 h468 a16 16 0 0 1 16 16 v22 h-500 z" fill="#e9e9f1"/>
+  <circle cx="84" cy="81" r="5.5" fill="#ff6b3d"/>
+  <circle cx="104" cy="81" r="5.5" fill="#ffd23f"/>
+  <circle cx="124" cy="81" r="5.5" fill="#cfc4ff"/>
+  <text x="310" y="87" font-size="14" fill="#4a4766" text-anchor="middle">jobs_final_v3</text>
+  <!-- grid -->
+  <rect x="60" y="100" width="500" height="26" fill="#f6f6fa"/>
+  <g font-size="13" fill="#4a4766" text-anchor="middle">
+    <text x="128" y="118">A</text><text x="218" y="118">B</text><text x="308" y="118">C</text><text x="398" y="118">D</text><text x="488" y="118">E</text>
+  </g>
+  <g stroke="#e4e4e7" stroke-width="1.5">
+    <line x1="84" y1="100" x2="84" y2="410"/>
+    <line x1="173" y1="100" x2="173" y2="410"/>
+    <line x1="263" y1="100" x2="263" y2="410"/>
+    <line x1="353" y1="100" x2="353" y2="410"/>
+    <line x1="443" y1="100" x2="443" y2="410"/>
+    <line x1="60" y1="126" x2="560" y2="126"/>
+    <line x1="60" y1="152" x2="560" y2="152"/>
+    <line x1="60" y1="178" x2="560" y2="178"/>
+    <line x1="60" y1="204" x2="560" y2="204"/>
+    <line x1="60" y1="230" x2="560" y2="230"/>
+    <line x1="60" y1="256" x2="560" y2="256"/>
+    <line x1="60" y1="282" x2="560" y2="282"/>
+    <line x1="60" y1="308" x2="560" y2="308"/>
+    <line x1="60" y1="334" x2="560" y2="334"/>
+    <line x1="60" y1="360" x2="560" y2="360"/>
+    <line x1="60" y1="386" x2="560" y2="386"/>
+  </g>
+  <!-- highlighted cells -->
+  <rect x="263" y="178" width="90" height="26" fill="#ffd23f" fill-opacity="0.55"/>
+  <rect x="353" y="256" width="90" height="26" fill="#ff6b3d" fill-opacity="0.3"/>
+  <rect x="173" y="308" width="90" height="26" fill="#ffd23f" fill-opacity="0.55"/>
+  <rect x="443" y="334" width="117" height="26" fill="#ff4da6" fill-opacity="0.2"/>
+  <g fill="#c9c9d6">
+    <rect x="94" y="135" width="60" height="8" rx="4"/><rect x="183" y="135" width="70" height="8" rx="4"/><rect x="273" y="135" width="50" height="8" rx="4"/><rect x="363" y="135" width="64" height="8" rx="4"/><rect x="453" y="135" width="44" height="8" rx="4"/>
+    <rect x="94" y="161" width="52" height="8" rx="4"/><rect x="183" y="161" width="62" height="8" rx="4"/><rect x="273" y="161" width="66" height="8" rx="4"/><rect x="363" y="161" width="40" height="8" rx="4"/><rect x="453" y="161" width="58" height="8" rx="4"/>
+    <rect x="94" y="187" width="66" height="8" rx="4"/><rect x="183" y="187" width="48" height="8" rx="4"/><rect x="273" y="187" width="58" height="8" rx="4"/><rect x="363" y="187" width="70" height="8" rx="4"/><rect x="453" y="187" width="50" height="8" rx="4"/>
+    <rect x="94" y="213" width="44" height="8" rx="4"/><rect x="183" y="213" width="70" height="8" rx="4"/><rect x="273" y="213" width="40" height="8" rx="4"/><rect x="363" y="213" width="56" height="8" rx="4"/><rect x="453" y="213" width="66" height="8" rx="4"/>
+    <rect x="94" y="239" width="62" height="8" rx="4"/><rect x="183" y="239" width="54" height="8" rx="4"/><rect x="273" y="239" width="68" height="8" rx="4"/><rect x="363" y="239" width="48" height="8" rx="4"/><rect x="453" y="239" width="40" height="8" rx="4"/>
+    <rect x="94" y="265" width="50" height="8" rx="4"/><rect x="183" y="265" width="66" height="8" rx="4"/><rect x="273" y="265" width="52" height="8" rx="4"/><rect x="363" y="265" width="62" height="8" rx="4"/><rect x="453" y="265" width="60" height="8" rx="4"/>
+    <rect x="94" y="291" width="68" height="8" rx="4"/><rect x="183" y="291" width="44" height="8" rx="4"/><rect x="273" y="291" width="62" height="8" rx="4"/><rect x="363" y="291" width="52" height="8" rx="4"/><rect x="453" y="291" width="48" height="8" rx="4"/>
+    <rect x="94" y="317" width="56" height="8" rx="4"/><rect x="183" y="317" width="60" height="8" rx="4"/><rect x="273" y="317" width="46" height="8" rx="4"/><rect x="363" y="317" width="68" height="8" rx="4"/><rect x="453" y="317" width="62" height="8" rx="4"/>
+    <rect x="94" y="343" width="46" height="8" rx="4"/><rect x="183" y="343" width="68" height="8" rx="4"/><rect x="273" y="343" width="60" height="8" rx="4"/><rect x="363" y="343" width="44" height="8" rx="4"/><rect x="453" y="343" width="52" height="8" rx="4"/>
+    <rect x="94" y="369" width="64" height="8" rx="4"/><rect x="183" y="369" width="50" height="8" rx="4"/><rect x="273" y="369" width="66" height="8" rx="4"/><rect x="363" y="369" width="58" height="8" rx="4"/><rect x="453" y="369" width="46" height="8" rx="4"/>
+  </g>
+  <!-- sheet tabs -->
+  <rect x="60" y="410" width="500" height="42" fill="#f6f6fa"/>
+  <path d="M60 410 h500 v26 a16 16 0 0 1 -16 16 h-468 a16 16 0 0 1 -16 -16 z" fill="#f6f6fa"/>
+  <g font-size="13" fill="#4a4766">
+    <rect x="76" y="418" width="64" height="24" rx="6" fill="#ffffff" stroke="#e4e4e7"/>
+    <text x="88" y="435">Jobs</text>
+    <text x="154" y="435">Jobs (2)</text>
+    <text x="226" y="435">Invoices</text>
+    <text x="298" y="435">Copy of Jobs</text>
+  </g>
+
+  <!-- ===== subscriptions card ===== -->
+  <rect x="78" y="498" width="330" height="190" rx="16" fill="#0e0b24" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="70" y="484" width="330" height="190" rx="16" fill="#ffffff"/>
+  <text x="92" y="516" font-size="15" font-weight="700" fill="#0e0b24">Subscriptions</text>
+  <text x="378" y="516" font-size="13" fill="#4a4766" text-anchor="end">per seat / mo</text>
+  <g>
+    <rect x="92" y="532" width="26" height="26" rx="7" fill="#ff6b3d"/>
+    <rect x="130" y="541" width="110" height="9" rx="4.5" fill="#d6d6e2"/>
+    <rect x="312" y="533" width="66" height="24" rx="12" fill="#F1F2F7"/>
+    <rect x="92" y="566" width="26" height="26" rx="7" fill="#ff4da6"/>
+    <rect x="130" y="575" width="90" height="9" rx="4.5" fill="#d6d6e2"/>
+    <rect x="312" y="567" width="66" height="24" rx="12" fill="#F1F2F7"/>
+    <rect x="92" y="600" width="26" height="26" rx="7" fill="#ffd23f"/>
+    <rect x="130" y="609" width="124" height="9" rx="4.5" fill="#d6d6e2"/>
+    <rect x="312" y="601" width="66" height="24" rx="12" fill="#F1F2F7"/>
+    <rect x="92" y="634" width="26" height="26" rx="7" fill="#cfc4ff"/>
+    <rect x="130" y="643" width="100" height="9" rx="4.5" fill="#d6d6e2"/>
+    <rect x="312" y="635" width="66" height="24" rx="12" fill="#F1F2F7"/>
+  </g>
+  <g font-size="13" font-weight="600" fill="#4a4766" text-anchor="middle">
+    <text x="345" y="550">40 seats</text>
+    <text x="345" y="584">6 seats</text>
+    <text x="345" y="618">40 seats</text>
+    <text x="345" y="652">25 seats</text>
+  </g>
+
+  <!-- ===== front window: custom ops app ===== -->
+  <rect x="452" y="146" width="780" height="540" rx="20" fill="#0e0b24" opacity="0.16" filter="url(#shadow)"/>
+  <rect x="440" y="124" width="780" height="540" rx="20" fill="#ffffff"/>
+  <path d="M440 144 a20 20 0 0 1 20 -20 h740 a20 20 0 0 1 20 20 v26 h-780 z" fill="#F1F2F7"/>
+  <line x1="440" y1="170" x2="1220" y2="170" stroke="#e4e4e7" stroke-width="2"/>
+  <circle cx="466" cy="147" r="6" fill="#ff6b3d"/>
+  <circle cx="488" cy="147" r="6" fill="#ffd23f"/>
+  <circle cx="510" cy="147" r="6" fill="#cfc4ff"/>
+  <rect x="536" y="134" width="330" height="26" rx="13" fill="#ffffff"/>
+  <path d="M552 145 v-3 a5 5 0 0 1 10 0 v3" fill="none" stroke="#3b2bff" stroke-width="2"/>
+  <rect x="549" y="145" width="16" height="11" rx="2.5" fill="#3b2bff"/>
+  <text x="574" y="152" font-size="15" fill="#0e0b24">ops.yourcompany.example</text>
+
+  <!-- sidebar -->
+  <path d="M440 170 h170 v494 h-150 a20 20 0 0 1 -20 -20 z" fill="#F1F2F7"/>
+  <rect x="460" y="188" width="30" height="30" rx="8" fill="#3b2bff"/>
+  <circle cx="475" cy="203" r="7" fill="#ffffff"/>
+  <rect x="500" y="198" width="80" height="11" rx="5.5" fill="#c9c9d6"/>
+  <rect x="452" y="238" width="146" height="40" rx="10" fill="#cfc4ff" fill-opacity="0.7"/>
+  <g font-size="16" font-weight="600">
+    <text x="494" y="264" fill="#0e0b24">Jobs</text>
+    <text x="494" y="310" fill="#4a4766">Quotes</text>
+    <text x="494" y="356" fill="#4a4766">Customers</text>
+    <text x="494" y="402" fill="#4a4766">Reports</text>
+  </g>
+  <g fill="none" stroke-width="2.2" stroke-linecap="round">
+    <rect x="466" y="250" width="16" height="16" rx="3" stroke="#3b2bff"/>
+    <line x1="466" y1="256" x2="482" y2="256" stroke="#3b2bff"/>
+    <path d="M467 296 h14 v16 h-14 z M471 302 h6 M471 307 h6" stroke="#4a4766"/>
+    <circle cx="474" cy="342" r="4.5" stroke="#4a4766"/>
+    <path d="M466 358 a8 8 0 0 1 16 0" stroke="#4a4766"/>
+    <path d="M467 404 v-10 M474 404 v-16 M481 404 v-6" stroke="#4a4766"/>
+  </g>
+
+  <!-- main header -->
+  <text x="636" y="214" font-size="24" font-weight="700" fill="#0e0b24">Jobs this week</text>
+  <rect x="866" y="192" width="168" height="30" rx="15" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  <circle cx="884" cy="207" r="8" fill="#3b2bff"/>
+  <path d="M880 207 l3 3 l5 -6" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="898" y="212" font-size="13" font-weight="600" fill="#0e0b24">Accounting synced</text>
+  <rect x="1044" y="192" width="156" height="30" rx="15" fill="#ffffff" stroke="#cfc4ff" stroke-width="2"/>
+  <circle cx="1062" cy="207" r="8" fill="#3b2bff"/>
+  <path d="M1058 207 l3 3 l5 -6" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1076" y="212" font-size="13" font-weight="600" fill="#0e0b24">CRM synced</text>
+
+  <!-- kanban columns -->
+  <g font-size="14" font-weight="700" fill="#4a4766">
+    <text x="636" y="260">Scheduled</text>
+    <text x="830" y="260">In progress</text>
+    <text x="1024" y="260">Done</text>
+  </g>
+  <g fill="#F1F2F7">
+    <rect x="626" y="272" width="182" height="370" rx="12"/>
+    <rect x="820" y="272" width="182" height="370" rx="12"/>
+    <rect x="1014" y="272" width="182" height="370" rx="12"/>
+  </g>
+
+  <!-- cards: scheduled -->
+  <g>
+    <rect x="636" y="284" width="162" height="92" rx="10" fill="#ffffff"/>
+    <rect x="648" y="296" width="54" height="16" rx="8" fill="#ffd23f"/>
+    <rect x="648" y="322" width="120" height="9" rx="4.5" fill="#b9b9c9"/>
+    <rect x="648" y="339" width="86" height="9" rx="4.5" fill="#d6d6e2"/>
+    <circle cx="776" cy="358" r="9" fill="#cfc4ff"/>
+
+    <rect x="636" y="386" width="162" height="92" rx="10" fill="#ffffff"/>
+    <rect x="648" y="398" width="54" height="16" rx="8" fill="#ff4da6" fill-opacity="0.6"/>
+    <rect x="648" y="424" width="106" height="9" rx="4.5" fill="#b9b9c9"/>
+    <rect x="648" y="441" width="96" height="9" rx="4.5" fill="#d6d6e2"/>
+    <circle cx="776" cy="460" r="9" fill="#ff6b3d" fill-opacity="0.6"/>
+
+    <rect x="636" y="488" width="162" height="92" rx="10" fill="#ffffff"/>
+    <rect x="648" y="500" width="54" height="16" rx="8" fill="#cfc4ff"/>
+    <rect x="648" y="526" width="128" height="9" rx="4.5" fill="#b9b9c9"/>
+    <rect x="648" y="543" width="70" height="9" rx="4.5" fill="#d6d6e2"/>
+    <circle cx="776" cy="562" r="9" fill="#ffd23f"/>
+  </g>
+
+  <!-- cards: in progress -->
+  <g>
+    <rect x="830" y="284" width="162" height="104" rx="10" fill="#ffffff" stroke="#3b2bff" stroke-width="2"/>
+    <rect x="842" y="296" width="54" height="16" rx="8" fill="#ff4da6" fill-opacity="0.6"/>
+    <rect x="842" y="322" width="116" height="9" rx="4.5" fill="#b9b9c9"/>
+    <rect x="842" y="339" width="90" height="9" rx="4.5" fill="#d6d6e2"/>
+    <rect x="842" y="360" width="138" height="8" rx="4" fill="#e9e9f1"/>
+    <rect x="842" y="360" width="92" height="8" rx="4" fill="#3b2bff"/>
+
+    <rect x="830" y="398" width="162" height="92" rx="10" fill="#ffffff"/>
+    <rect x="842" y="410" width="54" height="16" rx="8" fill="#ffd23f"/>
+    <rect x="842" y="436" width="102" height="9" rx="4.5" fill="#b9b9c9"/>
+    <rect x="842" y="453" width="80" height="9" rx="4.5" fill="#d6d6e2"/>
+    <circle cx="970" cy="472" r="9" fill="#cfc4ff"/>
+  </g>
+
+  <!-- cards: done -->
+  <g>
+    <rect x="1024" y="284" width="162" height="92" rx="10" fill="#ffffff"/>
+    <rect x="1036" y="296" width="54" height="16" rx="8" fill="#cfc4ff"/>
+    <rect x="1036" y="322" width="112" height="9" rx="4.5" fill="#b9b9c9"/>
+    <rect x="1036" y="339" width="76" height="9" rx="4.5" fill="#d6d6e2"/>
+    <circle cx="1164" cy="358" r="9" fill="#3b2bff"/>
+    <path d="M1160 358 l3 3 l5 -6" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="1024" y="386" width="162" height="92" rx="10" fill="#ffffff"/>
+    <rect x="1036" y="398" width="54" height="16" rx="8" fill="#ffd23f"/>
+    <rect x="1036" y="424" width="96" height="9" rx="4.5" fill="#b9b9c9"/>
+    <rect x="1036" y="441" width="110" height="9" rx="4.5" fill="#d6d6e2"/>
+    <circle cx="1164" cy="460" r="9" fill="#3b2bff"/>
+    <path d="M1160 460 l3 3 l5 -6" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- toast -->
+  <rect x="868" y="598" width="300" height="58" rx="14" fill="#0e0b24" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="860" y="584" width="300" height="58" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+  <circle cx="888" cy="613" r="12" fill="#3b2bff"/>
+  <path d="M882 613 l4 4 l7 -8" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="910" y="619" font-size="15" font-weight="600" fill="#0e0b24">Invoice sent to accounting</text>
+</svg>

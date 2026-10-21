@@ -39,7 +39,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "If you're about to sign for a build, you want the after-launch number before you commit. If you already own software, maybe built by a team that has since moved on, you're pricing a maintenance plan and want to know what's fair. We build software and run monthly maintenance plans, so we see both ends of it.",
+      text: "If you're about to sign for a build, you want the after-launch number before you commit. If you already own software, maybe built by a team that has since moved on, you're pricing a maintenance plan and want to know what's fair. We build software and run monthly maintenance plans, so we see both ends of it. If you haven't decided to build yet, weigh [per-seat SaaS fees against a custom build](/blog/custom-software-vs-off-the-shelf) first.",
     },
     {
       type: "p",
