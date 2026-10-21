@@ -63,11 +63,12 @@ export const site = {
       mailingOnly: true,
     },
   ],
-  // LinkedIn is left out until the Arrowbin company page exists (FIX-PLAN P1.4).
-  // When it does, add it back as the first entry here
-  // ({ label: "LinkedIn", href: "https://www.linkedin.com/company/<slug>", icon: "linkedin" })
-  // and append the same URL to `sameAs` below.
   socials: [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/arrowbinhq",
+      icon: "linkedin",
+    },
     {
       label: "Facebook",
       href: "https://www.facebook.com/arrowbinhq",
@@ -127,11 +128,11 @@ export const mainNav = [
 /**
  * schema.org `sameAs`: only verified profiles of this company. Kept separate
  * from the footer socials so a placeholder link never becomes an entity claim.
- * Add the LinkedIn company page (linkedin.com/company/...) once it exists, and
- * the Clutch profile (clutch.co/profile/arrowbin-0) once it has been claimed
- * and corrected (FIX-PLAN P1.3, P1.4).
+ * Add the Clutch profile (clutch.co/profile/arrowbin-0) once it has been claimed
+ * and corrected (FIX-PLAN P1.3).
  */
 export const sameAs = [
+  "https://www.linkedin.com/company/arrowbinhq",
   "https://github.com/arrowbinhq",
   "https://www.facebook.com/arrowbinhq",
   "https://www.instagram.com/arrowbinllc",
