@@ -16,18 +16,18 @@ Send ask 1 first. Send ask 2 a few days later, after the Clutch profile is claim
 - **Never write or edit the review for them.** Clutch requires the client to complete it.
 - **Quotes on arrowbin.com need written permission.** If a client agrees, you can swap a placeholder testimonial for their real words (FIX-PLAN P3.9). Never add review stars or rating markup to the site.
 
-## Where each client stands (homepage HTML checked 14 Oct 2026, `docs/seo/12-audit-2026-10-14/backlinks.md`)
+## Where each client stands (homepages re-checked 21 Oct 2026; first check 14 Oct in `docs/seo/12-audit-2026-10-14/backlinks.md`)
 
 | Client | Site | Credit now | Ask |
 |---|---|---|---|
-| Silent Lifestyle BD | silentlifestylebd.com | none | footer credit, then review |
-| FlexOver BD | www.flexoverbd.com | none | footer credit, then review |
-| North Bengal Agro Farms | nbafl.net | yes, followed link "Arrowbin LLC" | thank them; review only |
-| Maneel Club | maneelclub.com | yes, followed link "Arrowbin LLC" | thank them; review only |
-| Brandingly | brandingly.agency | HTML comment and JSON-LD only, no visible link | turn the comment into a visible link, then review |
-| গ তে গয়না | gtegoyna.com.bd | none | footer credit, then review |
+| Silent Lifestyle BD | silentlifestylebd.com | none live yet (founder: deploy due in a few days) | check after deploy, then review |
+| FlexOver BD | www.flexoverbd.com | none live yet (founder: deploy due in a few days) | check after deploy, then review |
+| North Bengal Agro Farms | nbafl.net | yes: "Designed & built by Arrowbin", followed link to arrowbin.com | review only |
+| Maneel Club | maneelclub.com | yes: followed link "Arrowbin" to arrowbin.com | review only |
+| Brandingly | brandingly.agency | still HTML comment and JSON-LD only ("Arrowbin LLC"), no visible link | turn the comment into a visible link, then review |
+| গ তে গয়না | gtegoyna.com.bd | yes: "Designed & built by Arrowbin", link to arrowbin.com | review |
 | YT Shop India | ytshopindia.com | none | footer credit, then review |
-| OutNet | outnet.it.com | none | footer credit, then review |
+| OutNet | outnet.it.com | yes: "Designed & built by Arrowbin", followed link to arrowbin.com (live 21 Oct, in the server HTML) | review |
 
 **If you still maintain a client's code:** ask first, and once they say yes, add the credit yourself (FIX-PLAN P4.1). Don't add it without a clear yes.
 

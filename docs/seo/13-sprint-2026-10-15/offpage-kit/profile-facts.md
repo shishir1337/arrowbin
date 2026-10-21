@@ -78,8 +78,8 @@ Specialties / keywords field (LinkedIn "Specialties", Crunchbase tags): Custom s
 | Ownership | Clients own the source code, designs and infrastructure |
 | Partnership | Verified Hostinger Partner |
 | Team size | **[FOUNDER: pick the honest band, for example 2 to 10 or 11 to 50. Directories ask for it. Do not round up.]** |
-| Minimum project size | **[FOUNDER: minimum project size]** (decision F5; Clutch and GoodFirms ask. The site's published figures conflict, so don't copy one from the site.) |
-| Hourly rate band | **[FOUNDER: hourly rate band]** (Clutch and GoodFirms ask; use your real rate) |
+| Minimum project size | **$1,000+** (founder's choice, 21 Oct 2026; used on Clutch) |
+| Hourly rate band | **$25 to $49 an hour** (founder's choice, 21 Oct 2026; used on Clutch) |
 | Founder email (person profiles only) | shishir@arrowbin.com **[FOUNDER: confirm you want this one public on Crunchbase]** |
 
 ## 5. Address and phone (NAP)
@@ -129,8 +129,9 @@ Verified profiles from `src/lib/site.ts` only:
 | Instagram | https://www.instagram.com/arrowbinllc |
 | X | https://x.com/Arrowbinllc |
 | Founder on LinkedIn | https://www.linkedin.com/in/md-shishir-ahmed |
-| LinkedIn company page | **[pending: create it first, see directories.md, then add it here]** |
-| Clutch | https://clutch.co/profile/arrowbin-0 **[add only after you claim and correct it]** |
+| LinkedIn company page | https://www.linkedin.com/company/arrowbinhq (created 21 Oct 2026; admin: Md. Shishir Ahmed) |
+| LinkedIn Service page | https://www.linkedin.com/services/page/940ba934800460476b (10 services, "Contact for pricing", 3 work samples; published 21 Oct 2026) |
+| Clutch | https://clutch.co/profile/arrowbin-0 (claimed; corrected 21 Oct 2026: Dhaka headquarters, US office with Ste 300, founded 2020, $1,000+ minimum, $25 to $49 an hour, new description, team, Q&A, service mix and focus areas, portfolio started) |
 
 ## 7. Logo and images
 

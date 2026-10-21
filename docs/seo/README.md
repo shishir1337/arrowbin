@@ -57,6 +57,7 @@ Start here. **Latest (15 Oct 2026): `13-sprint-2026-10-15/MORNING-BRIEF.md` (wha
 | `13-sprint-2026-10-15/` | **Overnight sprint:** Release A fixes, 13 new guides (incl. an original salary data post with CSV), off-page kit, writing guide, AI-tells linter, topic research and briefs, editor report, agent log | `MORNING-BRIEF.md`, `offpage-kit/`, `editor-report.md` |
 | `14-audit-2026-10-15/` | **Re-audit after the sprint: local build 84/100 (live 63 until deploy).** 9 specialist findings, screenshots, action plan | `FULL-AUDIT-REPORT.md`, `ACTION-PLAN.md` |
 | `15-next-wave/` | **Prepared, not built:** draft copy for a WordPress to Next.js migration service page and a vibe-code cleanup page (needs F8), briefs for a Bangladesh app-cost post and a fixed-price vs T&M post (needs F4) | `README.md` |
+| `17-gsc-2026-10-20/` | **Search Console check after the deploy:** impressions up about 50x, Bangladesh top 10 vs US page 5, 7 service pages not crawled yet, why not the Indexing API, the traffic plan | `GSC-CHECK.md` |
 
 ## Data sources and limits (read before quoting numbers)
 - **Real data:**

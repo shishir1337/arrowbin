@@ -297,8 +297,8 @@ Google may ask for video verification showing the signage, workspace and staff. 
 
 | Profile | Date created | Public URL | Sent to dev | In `sameAs` |
 |---|---|---|---|---|
-| Clutch | | https://clutch.co/profile/arrowbin-0 | | |
-| LinkedIn company page | | | | |
+| Clutch | claimed; corrected 21 Oct 2026 | https://clutch.co/profile/arrowbin-0 | | |
+| LinkedIn company page | 21 Oct 2026 | https://www.linkedin.com/company/arrowbinhq | yes | in `site.ts`, not deployed yet |
 | GoodFirms | | | | |
 | DesignRush | | | | |
 | Crunchbase organization | | | | |
