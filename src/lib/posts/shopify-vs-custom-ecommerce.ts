@@ -19,6 +19,8 @@ export const post: Post = {
   ],
   date: "2026-10-15",
   dateLabel: "October 15, 2026",
+  updated: "2026-10-22",
+  updatedLabel: "October 22, 2026",
   author: "Md. Shishir Ahmed",
   readingTime: "14 min read",
   category: "E-commerce",
@@ -30,7 +32,7 @@ export const post: Post = {
     width: 1280,
     height: 720,
   },
-  tldr: "Choose Shopify if you want to launch fast with a standard catalog and checkout: for most stores it's the cheaper option, and where Shopify Payments is available its platform cost is just the subscription. Choose a custom store when your checkout, pricing, integrations or local payment flows don't fit Shopify. On fees alone, a custom build (our estimate: $30,000 to $90,000, plus 15–20% a year to run) only catches the best Shopify plan at about $142,000 a month in gateway-paid sales. In Bangladesh, where Shopify Payments isn't available, Shopify adds 2% on Basic or 1% on Grow to every gateway-paid order, on top of the gateway's own fee.",
+  tldr: "Choose Shopify if you want to launch fast with a standard catalog and checkout: for most stores it's the cheaper option, and where Shopify Payments is available its platform cost is just the subscription. Choose a custom store when your checkout, pricing, integrations or local payment flows don't fit Shopify. On fees alone, a custom build (our estimate: $30,000 to $90,000, plus 15–20% a year to run) only catches the best Shopify plan at about $152,000 a month in gateway-paid sales. In Bangladesh, where Shopify Payments isn't available, Shopify adds 2% on Basic or 1% on Grow to every gateway-paid order, on top of the gateway's own fee.",
   body: [
     {
       type: "p",
@@ -147,7 +149,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "These are the prices [Shopify's pricing page](https://www.shopify.com/pricing) showed on October 15, 2026, in US dollars. The same page says pricing and payment options can differ by country, so check it from where your business is registered.",
+      text: "These are the prices [Shopify's pricing page](https://www.shopify.com/pricing) showed on October 22, 2026, in US dollars. The same page says pricing and payment options can differ by country, so check it from where your business is registered.",
     },
     {
       type: "table",
@@ -158,9 +160,9 @@ export const post: Post = {
         "Fee with a third-party gateway",
       ],
       rows: [
-        ["Basic", "$25", "$22", "2%"],
-        ["Grow", "$65", "$58", "1%"],
-        ["Advanced", "$399", "$359", "0.6%"],
+        ["Basic", "$25", "$19", "2%"],
+        ["Grow", "$65", "$49", "1%"],
+        ["Advanced", "$399", "$299", "0.6%"],
         ["Plus", "From $2,300", "Not shown", "0.2%"],
       ],
     },
@@ -174,7 +176,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "You can find your own crossover points with one formula: plan price + (fee rate × monthly sales through the gateway). Set two plans equal and solve. On monthly billing, Grow beats Basic once those sales pass $4,000 a month, and Advanced beats Grow above $83,500. On yearly billing the points drop to $3,600 and $75,250.",
+      text: "You can find your own crossover points with one formula: plan price + (fee rate × monthly sales through the gateway). Set two plans equal and solve. On monthly billing, Grow beats Basic once those sales pass $4,000 a month, and Advanced beats Grow above $83,500. On yearly billing the points drop to $3,000 and $62,500.",
     },
     {
       type: "p",
@@ -202,12 +204,12 @@ export const post: Post = {
     { type: "h3", text: "How do the two compare over three years?" },
     {
       type: "p",
-      text: "Over three years, Shopify costs less unless your gateway-paid sales pass about $142,000 a month. These are the assumptions, so you can swap in your own:",
+      text: "Over three years, Shopify costs less unless your gateway-paid sales pass about $152,000 a month. These are the assumptions, so you can swap in your own:",
     },
     {
       type: "ul",
       items: [
-        "Shopify on yearly billing at the October 15, 2026 prices above, for 36 months.",
+        "Shopify on yearly billing at the October 22, 2026 prices above, for 36 months.",
         "Every online order is paid through a third-party gateway, so Shopify's extra fee applies. That's the Bangladesh case, or any store that can't use Shopify Payments.",
         "Card processing is left out of both columns, because you pay it either way.",
         "Apps and themes are left out too. They'd add to Shopify's side, though some of that cost comes back on the custom side as SaaS bills.",
@@ -223,15 +225,15 @@ export const post: Post = {
         "$150k a month in sales",
       ],
       rows: [
-        ["Shopify Basic, third-party gateway", "$7,992", "$36,792", "$108,792"],
-        ["Shopify Grow, third-party gateway", "$5,688", "$20,088", "$56,088"],
+        ["Shopify Basic, third-party gateway", "$7,884", "$36,684", "$108,684"],
+        ["Shopify Grow, third-party gateway", "$5,364", "$19,764", "$55,764"],
         [
           "Shopify Advanced, third-party gateway",
-          "$15,084",
-          "$23,724",
-          "$45,324",
+          "$12,924",
+          "$21,564",
+          "$43,164",
         ],
-        ["Shopify Grow, with Shopify Payments", "$2,088", "$2,088", "$2,088"],
+        ["Shopify Grow, with Shopify Payments", "$1,764", "$1,764", "$1,764"],
         [
           "Custom store (Arrowbin estimate)",
           "$43,500–$144,000",
@@ -242,7 +244,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Read that table honestly and Shopify wins most cells. With Shopify Payments, the platform costs you the subscription and nothing else, so a custom build never pays for itself on platform fees. Without Shopify Payments, the cheapest custom build only catches the best Shopify plan at about $142,000 a month in gateway-paid sales. That's roughly $1.7 million a year.",
+      text: "Read that table honestly and Shopify wins most cells. With Shopify Payments, the platform costs you the subscription and nothing else, so a custom build never pays for itself on platform fees. Without Shopify Payments, the cheapest custom build only catches the best Shopify plan at about $152,000 a month in gateway-paid sales. That's roughly $1.8 million a year.",
     },
     {
       type: "p",
@@ -252,9 +254,9 @@ export const post: Post = {
       type: "image",
       image: {
         src: `${DIR}/three-year-cost.svg`,
-        alt: "Line chart of 3-year cost against monthly gateway-paid sales: the cost of each Shopify plan with the third-party fee rises with sales, and Advanced only reaches the $43,500 low end of a custom build at about $142,000 a month",
+        alt: "Line chart of 3-year cost against monthly gateway-paid sales: the cost of each Shopify plan with the third-party fee rises with sales, and Advanced only reaches the $43,500 low end of a custom build at about $152,000 a month",
         caption:
-          "Computed from Shopify's pricing page (yearly billing, Oct 15, 2026) and Arrowbin's published build estimate. Excludes card processing and apps.",
+          "Computed from Shopify's pricing page (yearly billing, Oct 22, 2026) and Arrowbin's published build estimate. Excludes card processing and apps.",
         width: 1280,
         height: 720,
       },
@@ -319,7 +321,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "There's also a middle route people forget: headless Shopify. You keep Shopify's back office and checkout and build your own front end on its [Storefront API](https://shopify.dev/docs/storefronts/headless), which Shopify says serves your catalog and the cart, then hands customers off to checkout. You get design freedom without owning payments.",
+      text: "There's also a middle route people forget: headless Shopify. You keep Shopify's back office and checkout and build your own front end on its [Storefront API](https://shopify.dev/docs/storefronts/headless), which Shopify says serves your catalog and the cart, then hands customers off to checkout. You get design freedom without owning payments. Our guide to [whether headless commerce is worth it](/blog/headless-commerce) covers what it costs and who it suits.",
     },
     {
       type: "image",
@@ -478,7 +480,7 @@ export const post: Post = {
     {
       type: "ol",
       items: [
-        "You can't use Shopify Payments, and your gateway-paid sales are heading towards $142,000 a month.",
+        "You can't use Shopify Payments, and your gateway-paid sales are heading towards $152,000 a month.",
         "You need changes inside checkout that Shopify only allows on Plus.",
         "Your pricing logic has outgrown Shopify's B2B tools and the apps you've tried.",
         "The store has to sync in real time with your own ERP, warehouse or courier systems.",
@@ -514,7 +516,7 @@ export const post: Post = {
     "Shopify is the right start for most new stores: it launches fast, runs a hosted checkout and leaves you no servers to patch.",
     "Shopify's third-party fee (2% Basic, 1% Grow, 0.6% Advanced, 0.2% Plus) only applies when Shopify Payments doesn't process the order.",
     "Card processing is paid on every platform, so don't count it as a Shopify cost when you compare.",
-    "On fees alone, the cheapest custom build in our estimate only catches the best Shopify plan at about $142,000 a month in gateway-paid sales.",
+    "On fees alone, the cheapest custom build in our estimate only catches the best Shopify plan at about $152,000 a month in gateway-paid sales.",
     "Go custom for capability: checkout changes, complex pricing, deep integrations or local payment flows Shopify handles poorly.",
     "In Bangladesh, gateway-paid orders on Shopify carry its fee plus the gateway's, while cash on delivery orders carry no Shopify fee.",
     "Shopify leads on AI shopping channels today; a custom store needs server-rendered pages and a product feed, plus structured data, to match it.",
@@ -523,12 +525,12 @@ export const post: Post = {
     {
       question: "Is Shopify cheaper than a custom website?",
       answer:
-        "Usually yes, and by a wide margin in the first few years. With Shopify Payments, Shopify's platform cost is just the subscription. Without it, the third-party fee grows with your sales, but by our estimate a custom build only catches up at around $142,000 a month in gateway-paid sales.",
+        "Usually yes, and by a wide margin in the first few years. With Shopify Payments, Shopify's platform cost is just the subscription. Without it, the third-party fee grows with your sales, but by our estimate a custom build only catches up at around $152,000 a month in gateway-paid sales.",
     },
     {
       question: "Does Shopify charge a fee if I use my own payment gateway?",
       answer:
-        "Yes. Shopify's pricing page on October 15, 2026 listed a third-party transaction fee of 2% on Basic, 1% on Grow, 0.6% on Advanced and 0.2% on Plus. It's charged on top of your gateway's own processing fee.",
+        "Yes. Shopify's pricing page on October 22, 2026 listed a third-party transaction fee of 2% on Basic, 1% on Grow, 0.6% on Advanced and 0.2% on Plus. It's charged on top of your gateway's own processing fee.",
     },
     {
       question: "Can I use bKash or Nagad on Shopify?",
