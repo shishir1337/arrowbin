@@ -5,6 +5,7 @@ How week 1's images and reels were made. For a new week, copy the image script, 
 | Script | Makes |
 |---|---|
 | `week-01-images.py` | Feed posts (1080×1080 for Facebook, 1080×1350 for Instagram) and stories (1080×1920), as PNG. Fails if any text overflows. |
+| `linkedin-carousel-01.py` | LinkedIn carousel 1 (AI agent costs): an 11-page 1080×1350 PDF to upload as a document, plus one PNG per slide. Fails if any text overflows its box or the slide margins. |
 | Reels | Made with the HyperFrames **faceless-explainer** workflow (see below), not a script in this folder. |
 
 ## Reels
@@ -31,6 +32,9 @@ Work in a copy of this folder outside the repo, because the scripts write HTML a
 
 ```
 python -I week-01-images.py out
+python -I linkedin-carousel-01.py out
 ```
+
+If you don't have the fonts saved, the site's own build has them: after `npm run build`, `.next/static/media` holds the Latin variable `.woff2` files for Anybody, Geist and Geist Mono (the largest file of each).
 
 HyperFrames is HeyGen's free, open-source HTML-to-video renderer: <https://github.com/heygen-com/hyperframes>.

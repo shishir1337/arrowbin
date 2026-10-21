@@ -1,0 +1,31 @@
+DOCUMENT TITLE (LinkedIn asks for it when you upload the PDF):
+What an AI agent really costs a small business (2026)
+
+POST TEXT (from the Arrowbin Page):
+
+The AI model is usually the cheapest part of an AI agent.
+
+We priced one workload, 3,000 customer conversations a month, on 8 models using each provider's own price page. Model fees came to between $5 and $216 a month. That's 0.17 to 7.2 cents a conversation.
+
+The real budget is set by three questions:
+1. How many of your systems does the agent connect to?
+2. How much can it do without a person checking?
+3. Who keeps it accurate after launch?
+
+Inside the carousel: where the money actually goes, when buying beats building, a one-minute break-even check, and the 30-day pilot we'd start with.
+
+Prices checked October 21, 2026. The full guide, with every source, is in the first comment.
+
+#AIAgents #SmallBusiness #AIAutomation
+
+FIRST COMMENT (post it from the Page straight after publishing):
+
+The full guide, with the worked sums and every price source: https://arrowbin.com/blog/ai-agent-cost-small-business?utm_source=linkedin&utm_medium=social&utm_campaign=carousel_01
+
+REPOST FROM YOUR PERSONAL PROFILE ("Repost with your thoughts", within the first hour):
+
+Most AI agent quotes I see lead with the model. In our sums it's the smallest line on the invoice.
+
+For 3,000 customer conversations a month, model fees came to $5 to $216, depending on the model. The money really goes on integrations, on how much the agent may do without a person checking, and on keeping it accurate after launch.
+
+If you're budgeting for one, start with a single read-only job and measure it for a month. The carousel has the rest.

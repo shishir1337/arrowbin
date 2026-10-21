@@ -18,12 +18,17 @@ posts/
       posts/
       stories/
     week-02_2026-10-26/ ...
+  linkedin/
+    week-01_2026-10-19/
+      PLAN.md
+      carousels/     PDF carousel, slide PNGs, post text + first comment .txt
 ```
 
 | Folder | Status |
 |---|---|
 | `facebook/` | Posts 1–12 scheduled (19 Oct to 13 Nov 2026). Week 1 challenge items ready to schedule. |
 | `instagram/` | Ready; schedule once the account is recovered. |
+| `linkedin/` | Carousel 1 (AI agent costs) ready for the Page's first post, Thu 22 Oct 2026. |
 
 ## Every week
 
