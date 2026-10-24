@@ -32,6 +32,10 @@ export type ContentBlock =
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "quote"; text: string; cite?: string }
   | { type: "image"; image: PostImage }
+  /** A command or config snippet readers copy. `label` names where it runs
+   * ("Terminal", "php.ini"); the renderer adds a copy button. `wrap` wraps long
+   * lines instead of scrolling, for prose such as a message to send. */
+  | { type: "code"; code: string; label?: string; wrap?: boolean }
   /** One modest in-article call to action: a short pitch and a single link.
    * `href` is a site path ("/contact") or an absolute URL (the booking page). */
   | { type: "cta"; title: string; text: string; href: string; label: string };

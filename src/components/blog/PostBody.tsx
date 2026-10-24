@@ -8,6 +8,7 @@ import {
   postSlugs,
 } from "@/lib/blog";
 import { getBlurDataURL } from "@/lib/blur";
+import { CopyCode } from "./CopyCode";
 
 const INLINE_LINK = /\[([^\]]+)\]\(([^)]+)\)/g;
 const LINK_CLASS =
@@ -30,7 +31,7 @@ function isUnpublishedPostLink(href: string): boolean {
   return m !== null && !PUBLISHED.has(m[1]);
 }
 
-function renderInline(text: string): ReactNode {
+function renderLinks(text: string): ReactNode {
   if (!text.includes("](")) return text;
   const parts: ReactNode[] = [];
   let last = 0;
@@ -65,6 +66,46 @@ function renderInline(text: string): ReactNode {
     match = INLINE_LINK.exec(text);
   }
   if (last < text.length) parts.push(text.slice(last));
+  return parts;
+}
+
+const INLINE_CODE = /`([^`]+)`/g;
+
+/** Renders `code` spans (a command, a setting) in body prose, then the links in
+ * the text around them. Long settings break anywhere so phones never scroll
+ * sideways. */
+function renderInline(text: string): ReactNode {
+  if (!text.includes("`")) return renderLinks(text);
+  const parts: ReactNode[] = [];
+  let last = 0;
+  let i = 0;
+  INLINE_CODE.lastIndex = 0;
+  let match = INLINE_CODE.exec(text);
+  while (match !== null) {
+    if (match.index > last) {
+      parts.push(
+        <Fragment key={`t-${i}`}>
+          {renderLinks(text.slice(last, match.index))}
+        </Fragment>,
+      );
+    }
+    parts.push(
+      <code
+        key={`c-${i}`}
+        className="rounded-md bg-ink/[0.06] px-1.5 py-0.5 font-mono text-[0.88em] text-ink [overflow-wrap:anywhere]"
+      >
+        {match[1]}
+      </code>,
+    );
+    i += 1;
+    last = match.index + match[0].length;
+    match = INLINE_CODE.exec(text);
+  }
+  if (last < text.length) {
+    parts.push(
+      <Fragment key="t-end">{renderLinks(text.slice(last))}</Fragment>,
+    );
+  }
   return parts;
 }
 
@@ -276,7 +317,9 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
                             <dt className="text-ink-2">
                               {block.headers[ci + 1]}
                             </dt>
-                            <dd className="font-medium text-ink">{cell}</dd>
+                            <dd className="min-w-0 font-medium text-ink [overflow-wrap:anywhere]">
+                              {cell}
+                            </dd>
                           </div>
                         ))}
                       </dl>
@@ -340,6 +383,27 @@ export function PostBody({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "image":
             return <BlogFigure key={block.image.src} image={block.image} />;
+          case "code":
+            return (
+              <figure
+                key={block.code}
+                className="my-8 overflow-hidden rounded-[1.5rem] bg-white ring-1 ring-ink/10"
+              >
+                <figcaption className="flex items-center justify-between gap-3 border-b border-ink/10 py-1.5 pl-5 pr-2">
+                  <span className="label min-w-0 text-ink-2 [overflow-wrap:anywhere]">
+                    {block.label ?? "Code"}
+                  </span>
+                  <CopyCode code={block.code} />
+                </figcaption>
+                <pre
+                  // biome-ignore lint/a11y/noNoninteractiveTabindex: scrollable region.
+                  tabIndex={0}
+                  className={`px-5 py-4 font-mono text-[0.85rem] leading-relaxed text-ink focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ultra ${block.wrap ? "whitespace-pre-wrap [overflow-wrap:anywhere]" : "overflow-x-auto"}`}
+                >
+                  <code>{block.code}</code>
+                </pre>
+              </figure>
+            );
           case "cta":
             return (
               <PostCta key={`${block.href}-${block.title}`} block={block} />
