@@ -169,7 +169,7 @@ export const post: Post = {
     { type: "h2", text: "Why can't you just skip software maintenance?" },
     {
       type: "p",
-      text: "Because the platforms under your software change on fixed dates, and attackers move within hours once a flaw is public. Software nobody updates eventually gets rejected by the app stores, stops receiving security fixes, or gets broken into.",
+      text: "Because the platforms under your software change on fixed dates, and attackers move within hours once a flaw is public. In October 2026 PHP had to ship an [emergency fix for two critical bugs](/blog/php2shell-php-vulnerability-check-and-fix), and AWS had already logged an attack attempt four days earlier. Software nobody updates eventually gets rejected by the app stores, stops receiving security fixes, or gets broken into.",
     },
     {
       type: "p",

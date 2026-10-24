@@ -1401,6 +1401,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     relatedPosts: [
       "wordpress-to-nextjs-migration",
       "chatgpt-shopping-for-online-stores",
+      "php2shell-php-vulnerability-check-and-fix",
     ],
     copy: {
       form: {
@@ -1460,6 +1461,7 @@ export const serviceExtras: Record<string, ServiceExtras> = {
     ],
     relatedWork: ["North Bengal Agro Farms", "OutNet", "Brandingly"],
     relatedPosts: [
+      "php2shell-php-vulnerability-check-and-fix",
       "software-maintenance-cost",
       "wordpress-to-nextjs-migration",
     ],

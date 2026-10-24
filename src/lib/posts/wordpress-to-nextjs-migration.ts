@@ -522,7 +522,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Two other figures from that report matter more to a small business. 46% of those vulnerabilities had no fix from the developer by the time they were publicly disclosed, and Patchstack puts the weighted median time to first exploit at 5 hours. If you run 30 plugins and check for updates once a month, that math isn't on your side.",
+      text: "Two other figures from that report matter more to a small business. 46% of those vulnerabilities had no fix from the developer by the time they were publicly disclosed, and Patchstack puts the weighted median time to first exploit at 5 hours. If you run 30 plugins and check for updates once a month, that math isn't on your side. In October 2026 the risk even came from underneath WordPress: the [PHP2Shell bugs](/blog/php2shell-php-vulnerability-check-and-fix) let attackers run code on servers with unpatched PHP before WordPress loaded at all.",
     },
     {
       type: "image",

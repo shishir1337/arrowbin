@@ -11,6 +11,7 @@ import { post as mvpDevelopmentCost } from "./mvp-development-cost";
 import { post as mvpVsPrototypeVsPoc } from "./mvp-vs-prototype-vs-poc";
 import { post as offshoreVsNearshoreVsOnshore } from "./offshore-vs-nearshore-vs-onshore";
 import { post as paymentGatewayIntegrationBangladesh } from "./payment-gateway-integration-bangladesh";
+import { post as php2shellPhpVulnerabilityCheckAndFix } from "./php2shell-php-vulnerability-check-and-fix";
 import { post as saasDevelopmentCost } from "./saas-development-cost";
 import { post as shopifyVsCustomEcommerce } from "./shopify-vs-custom-ecommerce";
 import { post as softwareMaintenanceCost } from "./software-maintenance-cost";
@@ -39,4 +40,5 @@ export const extraPosts: Post[] = [
   headlessCommerce,
   appDevelopmentCostBangladesh,
   offshoreVsNearshoreVsOnshore,
+  php2shellPhpVulnerabilityCheckAndFix,
 ];
