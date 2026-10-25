@@ -170,7 +170,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "Many small firms haven't started. A May 2026 [US Census Bureau analysis](https://census.gov/library/stories/2026/05/ai-use-businesses.html) found business use of AI hovered between 17% and 20% from December 2025 to May 2026, with 37% of firms with 250 or more employees using it and fewer than 20% of firms with four or fewer. In the UK, the [Office for National Statistics reported in July 2026](https://cy.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026) that 28% of businesses with 0 to 9 employees used at least one AI technology, against 49% of those with 250 or more.",
+      text: "Many small firms haven't started. A May 2026 [US Census Bureau analysis](https://census.gov/library/stories/2026/05/ai-use-businesses.html) found business use of AI hovered between 17% and 20% from December 2025 to May 2026, with 37% of firms with 250 or more employees using it and fewer than 20% of firms with four or fewer. In the UK, the [Office for National Statistics reported in July 2026](https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026) that 28% of businesses with 0 to 9 employees used at least one AI technology, against 49% of those with 250 or more.",
     },
     {
       type: "image",

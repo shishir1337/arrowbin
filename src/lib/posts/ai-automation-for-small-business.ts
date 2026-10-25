@@ -466,7 +466,7 @@ export const post: Post = {
     },
     {
       type: "p",
-      text: "In the UK, the [Office for National Statistics reported in July 2026](https://cy.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026) that 28% of businesses with 0 to 9 employees used at least one AI technology, against 49% of those with 250 or more. Among firms with 10 or more employees, large language models were the most used AI technology, at 18%.",
+      text: "In the UK, the [Office for National Statistics reported in July 2026](https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026) that 28% of businesses with 0 to 9 employees used at least one AI technology, against 49% of those with 250 or more. Among firms with 10 or more employees, large language models were the most used AI technology, at 18%.",
     },
     {
       type: "image",
