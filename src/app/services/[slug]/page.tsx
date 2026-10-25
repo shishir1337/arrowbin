@@ -145,6 +145,7 @@ export default async function ServiceDetailPage({
           }),
           processSchema({
             name: `How Arrowbin delivers ${service.heading}`,
+            path,
             steps: service.process,
           }),
           faqSchema(service.faqs),

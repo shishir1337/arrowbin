@@ -196,11 +196,14 @@ export function serviceSchema(opts: {
 /**
  * ItemList of a service's delivery process (step-by-step). Replaces HowTo, whose
  * rich result Google retired in Sept 2023; ItemList stays valid and reads cleanly
- * as a service workflow for answer engines.
+ * as a service workflow for answer engines. Each step's `url` is its anchor on
+ * the page (`#step-1`, set by ServiceProcess): Google's ItemList rules want a
+ * `url` or `item` on every ListItem, and Semrush flags the list without one.
  */
 export function processSchema(opts: {
   name: string;
   description?: string;
+  path: string;
   steps: { title: string; description: string }[];
 }): Record<string, unknown> {
   return {
@@ -211,6 +214,7 @@ export function processSchema(opts: {
     itemListElement: opts.steps.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
+      url: `${siteUrl}${opts.path}#step-${i + 1}`,
       name: s.title,
       description: s.description,
     })),

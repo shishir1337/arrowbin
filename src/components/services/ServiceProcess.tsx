@@ -58,6 +58,8 @@ export function ServiceProcess({
           {service.process.map((step, i) => (
             <li
               key={step.title}
+              // Target of the step's `url` in processSchema (lib/schema.ts).
+              id={`step-${i + 1}`}
               data-rv={i}
               data-inview
               className="relative grid grid-cols-[auto_1fr] gap-5 md:grid-cols-1 md:gap-5 xl:gap-6"
