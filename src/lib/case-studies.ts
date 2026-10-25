@@ -30,7 +30,8 @@ export type CaseStudy = {
   /** ISO date the case study was published (or drafted). */
   date: string;
   category: string;
-  /** Full <title>, without the site suffix added by the layout. */
+  /** Full <title>, without the site suffix added by the layout. Keep it to 59
+   * characters or fewer, so it stays under 70 with " | Arrowbin" added. */
   title: string;
   description: string;
   headline: string;
@@ -63,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
     approved: true,
     date: "2026-10-16",
     category: "E-commerce",
-    title: "Maneel Club case study: 10,000+ orders on a custom Next.js store",
+    title: "Maneel Club: 10,000+ orders on a custom Next.js store",
     description:
       "How we replaced Maneel Club's plugin-heavy WordPress store with a custom Next.js store in 10 days. 10,000+ orders since February 2026.",
     headline: "A new store in 10 days. 10,000+ orders since.",
@@ -166,8 +167,7 @@ export const caseStudies: CaseStudy[] = [
     approved: true,
     date: "2026-10-16",
     category: "Corporate and e-commerce",
-    title:
-      "North Bengal Agro Farms case study: from 48 to 26,000+ Google impressions",
+    title: "North Bengal Agro Farms: 48 to 26,000+ Google impressions",
     description:
       'In about two weeks we rebuilt an organic farm\'s dated WordPress site on Next.js. Within weeks it ranked top 2 on Google for "amrapali mango".',
     headline: "From 48 to 26,353 Google impressions in one mango season",
