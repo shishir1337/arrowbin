@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.3/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -15,8 +15,19 @@
       "!build",
       "!.claude",
       "!.agents",
-      "!src/lib/blur-manifest.json"
+      "!src/lib/blur-manifest.json",
+      "!docs",
+      "!public",
+      "!**/*.html",
+      "!**/*.md",
+      "!**/*.yaml",
+      "!**/*.svg"
     ]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
   },
   "formatter": {
     "enabled": true,
@@ -26,7 +37,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "suspicious": {
         "noUnknownAtRules": "off"
       }

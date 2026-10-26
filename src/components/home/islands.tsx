@@ -35,6 +35,9 @@ function island<P extends object>(key: string, load: Load<P>) {
   };
   loaders.set(key, start);
   const Lazy = lazy(start);
+  // island() runs once per export at module load, so each Island is a stable
+  // module-level component, not one re-created on every render.
+  // biome-ignore lint/correctness/noComponentHookFactories: see above.
   function Island(props: P) {
     return createElement(Lazy as ComponentType<P>, props);
   }
