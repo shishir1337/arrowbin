@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 import { LogoMark } from "@/components/brand/LogoMark";
+import { PreferredSourceButton } from "@/components/preferred-source/PreferredSourceButton";
 import { HostingerBadge } from "@/components/ui/HostingerBadge";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { services } from "@/lib/services";
@@ -107,6 +108,7 @@ export function Footer() {
             <div className="mt-8">
               <HostingerBadge width={164} />
             </div>
+            <PreferredSourceButton className="mt-3" />
           </div>
         </div>
 

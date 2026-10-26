@@ -4,6 +4,7 @@ import { ArticleHero } from "@/components/blog/ArticleHero";
 import { AuthorCard } from "@/components/blog/AuthorCard";
 import { PostCard } from "@/components/blog/BlogIndex";
 import { PostBody } from "@/components/blog/PostBody";
+import { PreferredSource } from "@/components/blog/PreferredSource";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { ShareLinks } from "@/components/blog/ShareLinks";
 import { Toc } from "@/components/blog/Toc";
@@ -227,6 +228,8 @@ export default async function BlogPostPage({
               <p className="label text-ink-2">Share</p>
               <ShareLinks url={shareUrl} title={post.title} />
             </div>
+
+            <PreferredSource />
 
             <AuthorCard />
           </div>

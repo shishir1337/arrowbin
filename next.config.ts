@@ -24,15 +24,22 @@ const GA_HOSTS = [
 
 const CLARITY_HOSTS = "https://*.clarity.ms https://c.bing.com";
 
+// Google's "Add to preferred sources" button
+// (developers.google.com/search/docs/appearance/preferred-sources): its script and
+// a hidden frame come from news.google.com, the "G" logo it draws from gstatic.com.
+const PREFERRED_SOURCE_HOST = "https://news.google.com";
+const PREFERRED_SOURCE_LOGO_HOST = "https://www.gstatic.com";
+
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com https://static.cloudflareinsights.com ${CLARITY_HOSTS}`,
+  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com https://static.cloudflareinsights.com ${CLARITY_HOSTS} ${PREFERRED_SOURCE_HOST}`,
   "style-src 'self' 'unsafe-inline'",
   // GA4 endpoints per Google's CSP guide (developers.google.com/tag-platform/security/guides/csp):
   // besides google-analytics.com, gtag also sends hits to www.google.com/g/collect
   // (and a country domain such as google.com.bd), which the old list blocked.
-  `img-src 'self' data: blob: ${GA_HOSTS} ${CLARITY_HOSTS}`,
+  `img-src 'self' data: blob: ${GA_HOSTS} ${CLARITY_HOSTS} ${PREFERRED_SOURCE_LOGO_HOST}`,
   "font-src 'self' data:",
+  `frame-src 'self' ${PREFERRED_SOURCE_HOST}`,
   `connect-src 'self' ${GA_HOSTS} https://cloudflareinsights.com ${CLARITY_HOSTS}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",

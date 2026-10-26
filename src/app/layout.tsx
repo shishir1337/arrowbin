@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Cursor } from "@/components/motion/Cursor";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { PreferredSourceScript } from "@/components/preferred-source/PreferredSourceScript";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { feedAlternate, ogLocale, xHandle } from "@/lib/metadata";
 import {
@@ -195,6 +196,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <PreferredSourceScript />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
         {clarityId ? <MicrosoftClarity clarityId={clarityId} /> : null}
         <CookieConsent />
