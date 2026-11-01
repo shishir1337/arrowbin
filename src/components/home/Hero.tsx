@@ -128,11 +128,30 @@ export function Hero() {
           className="mx-auto mt-4 flex w-full max-w-[1600px] items-center justify-between gap-4 px-[var(--gutter)] text-ink-2"
         >
           <span className="label">Web · Mobile · SaaS · AI · Cloud</span>
-          <HeroScrollButton className="group relative grid h-20 w-20 shrink-0 cursor-pointer place-items-center rounded-full bg-ink text-white transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-105 max-sm:hidden">
+          {/* The spinning ring is a sibling of the button, not inside it: as
+              part of the button, its words counted as the button's visible
+              label, which then had to appear in its accessible name (axe
+              "label-content-name-mismatch"). It paints over the button and
+              ignores the pointer, so it looks and behaves as before. */}
+          <div className="group relative h-20 w-20 shrink-0 transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-105 max-sm:hidden">
+            <HeroScrollButton className="absolute inset-0 grid cursor-pointer place-items-center rounded-full bg-ink text-white">
+              <svg
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                className="h-4 w-4 text-sun transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-y-0.5"
+              >
+                <path
+                  d="M8 2v11M3 8.5 8 13.5 13 8.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                />
+              </svg>
+            </HeroScrollButton>
             <svg
               viewBox="0 0 100 100"
               aria-hidden="true"
-              className="spin-slow absolute inset-0 h-full w-full"
+              className="spin-slow pointer-events-none absolute inset-0 h-full w-full"
             >
               <defs>
                 <path
@@ -151,19 +170,7 @@ export function Hero() {
                 </textPath>
               </text>
             </svg>
-            <svg
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-              className="h-4 w-4 text-sun transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-y-0.5"
-            >
-              <path
-                d="M8 2v11M3 8.5 8 13.5 13 8.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-              />
-            </svg>
-          </HeroScrollButton>
+          </div>
           <span className="label max-sm:hidden">© Arrowbin · Worldwide</span>
         </div>
       </div>

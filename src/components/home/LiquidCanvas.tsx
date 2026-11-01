@@ -79,12 +79,21 @@ export function LiquidCanvas({ className = "" }: { className?: string }) {
   useIdleEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
+    // No GPU (a blocklisted driver, a VM, a headless server such as
+    // PageSpeed Insights): the browser would draw this full-screen shader in
+    // software on the CPU, every frame, and the page would stutter. Those
+    // visitors keep the CSS gradient behind the canvas instead.
+    // `failIfMajorPerformanceCaveat` refuses a context Chrome has fallen back to
+    // software for; the renderer name catches software renderers chosen
+    // outright (SwiftShader, llvmpipe, Microsoft Basic Render Driver).
     const gl = canvas.getContext("webgl", {
       antialias: false,
       premultipliedAlpha: false,
       powerPreference: "high-performance",
+      failIfMajorPerformanceCaveat: true,
     });
-    if (!gl) {
+    if (!gl || softwareRenderer(gl)) {
+      gl?.getExtension("WEBGL_lose_context")?.loseContext();
       canvas.style.display = "none";
       return;
     }
@@ -145,6 +154,15 @@ export function LiquidCanvas({ className = "" }: { className?: string }) {
       className={`opacity-0 transition-opacity duration-700 ${className}`}
     />
   );
+}
+
+/** True when WebGL runs on a CPU rasteriser rather than a GPU. */
+function softwareRenderer(gl: WebGLRenderingContext) {
+  const info = gl.getExtension("WEBGL_debug_renderer_info");
+  const name = String(
+    gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER) ?? "",
+  );
+  return /swiftshader|llvmpipe|softpipe|software|basic render/i.test(name);
 }
 
 /** Starts the render loop for a linked program; returns its teardown. */
