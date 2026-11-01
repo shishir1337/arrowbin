@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
+import { OnSiteHost } from "@/components/analytics/OnSiteHost";
 import { Footer } from "@/components/layout/Footer";
 import { ManifestLink } from "@/components/layout/ManifestLink";
 import { Navbar } from "@/components/layout/Navbar";
@@ -22,7 +23,8 @@ import "./globals.css";
 
 // Production GA4 id, with the property hard-coded as a fallback so prod analytics
 // works without extra env config. Only loaded in production builds (never in local
-// dev), so it doesn't fire during development or tests.
+// dev), and only on arrowbin.com itself (OnSiteHost), so neither development nor
+// a local `next start` test run sends hits.
 const gaId =
   process.env.NODE_ENV === "production"
     ? process.env.NEXT_PUBLIC_GA_ID || "G-ZZ3NJCZVMZ"
@@ -199,8 +201,12 @@ export default function RootLayout({
         <Footer />
         <PreferredSourceScript />
         <ManifestLink />
-        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
-        {clarityId ? <MicrosoftClarity clarityId={clarityId} /> : null}
+        {/* Only on arrowbin.com: local production builds must not send test
+            runs to the live GA and Clarity projects (see OnSiteHost). */}
+        <OnSiteHost>
+          {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+          {clarityId ? <MicrosoftClarity clarityId={clarityId} /> : null}
+        </OnSiteHost>
         <CookieConsent />
       </body>
     </html>
