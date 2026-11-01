@@ -4,7 +4,7 @@ One folder per week. Open the week's `PLAN.md` for the day-by-day list and how t
 
 | Week | Dates | Meta challenge | Status |
 |---|---|---|---|
-| `week-01_2026-10-19` | 19–25 Oct | 5 posts, 5 reels, 5 stories, 5 group posts | Posts 1–3 scheduled. Posts 13–14, stories, group posts and reel 1 ready to schedule; reels 2–5 in progress. |
+| `week-01_2026-10-19` | 19–25 Oct | 5 posts, 5 reels, 5 stories, 5 group posts | Posts 1–3 scheduled. Posts 13–14, stories, group posts and reel 1 ready to schedule; reels 2–5 in progress. Post 15 (Hostinger partner) ready to post Sun 25 Oct. |
 | `week-02_2026-10-26` | 26 Oct–1 Nov | Not shown yet | Posts 4–6 scheduled |
 | `week-03_2026-11-02` | 2–8 Nov | Not shown yet | Posts 7–9 scheduled |
 | `week-04_2026-11-09` | 9–15 Nov | Not shown yet | Posts 10–12 scheduled. Post 12 must not go out before 13 Nov. |

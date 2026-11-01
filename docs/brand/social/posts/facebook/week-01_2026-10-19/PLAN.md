@@ -12,6 +12,7 @@ Post 1 was scheduled for Monday at 8 PM, so the new items start on Tuesday. All 
 | Thu 22 Oct | `post-14-developer-pay` (**new, schedule it**) | reel 3: ChatGPT shopping (coming) | `story-03-developer-pay` | `group-03-developer-pay` |
 | Fri 23 Oct | `post-03-hiring-red-flags` (scheduled) | reel 4: courier API for BD stores (coming) | `story-04-red-flag-1` | `group-04-hiring-red-flags` |
 | Sat 24 Oct | | reel 5: cheap MVP quotes (coming) | `story-05-what-we-build` | `group-05-meet-arrowbin` |
+| Sun 25 Oct | `post-15-hostinger-partner` (**new, post now**) | | | |
 
 That makes 5 posts (counting Monday's), 5 reels, 5 stories and 5 group posts. If Meta's counter didn't include Monday's post, tell Claude and we'll make a spare post for Saturday.
 
@@ -26,6 +27,14 @@ The post, story and group post each day share one topic from one blog article:
 | Thu 22 Oct | Developer pay by country | /blog/developer-salaries-by-country |
 | Fri 23 Oct | Red flags when hiring a dev company | /blog/how-to-choose-a-software-development-company |
 | Sat 24 Oct | Who we are | / |
+| Sun 25 Oct | Hostinger partnership (an announcement, not a blog topic) | /services/cloud-devops-hosting |
+
+**Post 15 (Hostinger partner):**
+
+- In the first line, delete "Hostinger", type `@Hostinger` and pick Hostinger's official page from the list, so the post tags them.
+- Keep the commission line: the ARROWBIN code and the site's Hostinger link earn Arrowbin a commission, and the site says so too.
+- The image is 1080×1350 (4:5), taller than the other posts, so it takes more space in the feed. Upload it as it is; Facebook shows 4:5 in full.
+- The image uses Hostinger's partner badge exactly as supplied, alone on a white card. Don't crop it, recolour it or put it beside the Arrowbin logo.
 
 ## How to post (Meta Business Suite)
 
