@@ -58,6 +58,7 @@ Start here. **Latest (15 Oct 2026): `13-sprint-2026-10-15/MORNING-BRIEF.md` (wha
 | `14-audit-2026-10-15/` | **Re-audit after the sprint: local build 84/100 (live 63 until deploy).** 9 specialist findings, screenshots, action plan | `FULL-AUDIT-REPORT.md`, `ACTION-PLAN.md` |
 | `15-next-wave/` | **Prepared, not built:** draft copy for a WordPress to Next.js migration service page and a vibe-code cleanup page (needs F8), briefs for a Bangladesh app-cost post and a fixed-price vs T&M post (needs F4) | `README.md` |
 | `17-gsc-2026-10-20/` | **Search Console check after the deploy:** impressions up about 50x, Bangladesh top 10 vs US page 5, 7 service pages not crawled yet, why not the Indexing API, the traffic plan | `GSC-CHECK.md` |
+| `20-perf-2026-11-01/` | **PageSpeed back to 100:** why the live site fell to desktop 73 and Best Practices 77 (Clarity cookies, WebGL drawn in software on PageSpeed's GPU-less servers, load-time tasks, a Chrome first-paint stall), the 4 fixes, results for all 39 pages, and tools that measure like PageSpeed | `README.md`, `tools/lhfull.py` |
 
 ## Data sources and limits (read before quoting numbers)
 - **Real data:**
