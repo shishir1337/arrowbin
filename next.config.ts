@@ -5,9 +5,11 @@ const isDev = process.env.NODE_ENV === "development";
 /**
  * Content-Security-Policy. Inline scripts (the pre-paint theme script, JSON-LD, and
  * GA bootstrap) require 'unsafe-inline'; the GA/GTM hosts are allowlisted so analytics
- * works when NEXT_PUBLIC_GA_ID is set. Cloudflare Web Analytics is allowlisted too:
- * Cloudflare injects its beacon into every page at the edge, and it reports back to
- * cloudflareinsights.com. Microsoft Clarity's hosts are allowlisted per its CSP guide
+ * works when NEXT_PUBLIC_GA_ID is set. Cloudflare Web Analytics was turned off on
+ * 1 Nov 2026 (Cloudflare > Web Analytics > arrowbin.com > Disable), so its hosts were
+ * removed; if it is ever switched back on, add https://static.cloudflareinsights.com
+ * to script-src and https://cloudflareinsights.com to connect-src, or Cloudflare's
+ * beacon will be blocked. Microsoft Clarity's hosts are allowlisted per its CSP guide
  * (learn.microsoft.com/clarity/setup-and-installation/clarity-csp). 'unsafe-eval' is
  * added in development only (React's dev tooling needs it; production never does).
  * Everything else is same-origin.
@@ -32,7 +34,7 @@ const PREFERRED_SOURCE_LOGO_HOST = "https://www.gstatic.com";
 
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com https://static.cloudflareinsights.com ${CLARITY_HOSTS} ${PREFERRED_SOURCE_HOST}`,
+  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com ${CLARITY_HOSTS} ${PREFERRED_SOURCE_HOST}`,
   "style-src 'self' 'unsafe-inline'",
   // GA4 endpoints per Google's CSP guide (developers.google.com/tag-platform/security/guides/csp):
   // besides google-analytics.com, gtag also sends hits to www.google.com/g/collect
@@ -40,7 +42,7 @@ const csp = [
   `img-src 'self' data: blob: ${GA_HOSTS} ${CLARITY_HOSTS} ${PREFERRED_SOURCE_LOGO_HOST}`,
   "font-src 'self' data:",
   `frame-src 'self' ${PREFERRED_SOURCE_HOST}`,
-  `connect-src 'self' ${GA_HOSTS} https://cloudflareinsights.com ${CLARITY_HOSTS}`,
+  `connect-src 'self' ${GA_HOSTS} ${CLARITY_HOSTS}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -65,9 +67,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  // Note: `experimental.inlineCss` was removed. With the site's full stylesheet it
-  // embedded the CSS three times per page (a <style> tag plus twice in the RSC
-  // payload), ~300 KB raw on the homepage. A normal cached CSS file is far lighter.
+  // Not `experimental.inlineCss`. It removes the stylesheets from PageSpeed's
+  // "Network dependency tree" (an unscored insight), but Next.js also copies the
+  // CSS twice into the RSC payload: the homepage HTML went from 307 KB to
+  // 775 KB raw (38 KB to 63 KB brotli). Measured 1 Nov 2026 with
+  // docs/seo/20-perf-2026-11-01/tools/lhfull.py --psi: mobile fell from 100 to
+  // 99 on most pages and from 99 to 93 on the homepage (later FCP, more TBT).
   poweredByHeader: false,
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

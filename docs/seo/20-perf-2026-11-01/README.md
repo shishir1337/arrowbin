@@ -125,3 +125,29 @@ Here it hit about 1 mobile run in 4 on blog posts and the mobile app service pag
 - `tools/lhfull.py`: all four categories plus every failing audit; `--psi` emulates PageSpeed's hardware.
 - `tools/stall.py`: observed first paint per run, to spot the stall.
 - `tools/delayproxy.py`: a local proxy with live-like delays (the stall needs them to reproduce).
+
+## Follow-up after the deploy (1 Nov 2026, evening)
+
+**Live PageSpeed** (Performance / Accessibility / Best Practices / SEO):
+
+| Page | Mobile | Desktop |
+|---|---|---|
+| Home | 97 / 100 / 100 / 100 | 98 / 100 / 100 / 100 |
+| `/services/custom-software-development` | 97 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+
+**"Network dependency tree".** This insight has weight 0 and does not affect the score. It fails whenever any chain of two or more critical requests exists, so a page with a linked stylesheet always fails it. Its longest chain was Cloudflare Web Analytics: Cloudflare injected `beacon.min.js` at the edge, which then posted to `/cdn-cgi/rum` (1,554 ms).
+- **Cloudflare Web Analytics disabled** (Cloudflare > Web Analytics > arrowbin.com > Disable), at the founder's request. GA4 and Clarity cover visits. Its hosts are removed from the CSP; `next.config.ts` notes what to add back if it is switched on again.
+- **Manifest link added after load.** `/manifest.webmanifest` is now a route handler with the same content, and `ManifestLink` adds `<link rel="manifest">` after the load event. The app/manifest.ts convention put it in the `<head>`, where Chrome fetched it at Medium priority, which counts as critical.
+- **Not done: inlining the CSS** (`experimental.inlineCss`, with the Bangla font embedded as a data URL). That made the insight pass on every page tested. But Next.js copies the CSS twice more into the RSC payload: the homepage HTML went from 307 KB to 775 KB raw, and from 38 KB to 63 KB brotli. Under `lhfull.py --psi`:
+  - mobile fell from 100 to 99 on most pages, 100 to 96 on the custom software page and 99 to 93 on the homepage;
+  - desktop dipped from 100 to 99 on several pages.
+
+  The insight now lists only the two stylesheets, plus the 3 KB Bangla font on pages that show "গ তে গয়না".
+
+**Why mobile is 97, not 100: a Chrome first-paint frame throttle.**
+- In PageSpeed's headless Chrome, the page finishes loading by about 0.6 s but first paints at 1.3 or 2.3 s, so Speed Index is about 4.5 s.
+- After navigation, Chrome draws empty frames while the first frame waits for the stylesheet and for preloaded fonts (Chrome briefly holds rendering for font preloads). Then it drops to one frame per second.
+- It reproduces locally through `tools/delayproxy.py 0.15 0.10`: the homepage stalled in 5 of 5 runs and /privacy in 2 of 3.
+- Ruled out as the cause: the Cloudflare beacon and JavaScript (it stalled with every script removed).
+- Inline CSS with no font preloads removed the stall: first paint at about 0.24 s in 16 of 16 runs. But the fonts then swap in after first paint, which raised TBT (homepage 112 to 444 ms) and gave desktop CLS of about 0.06 on /about and /blog. Net it was worse, so it was not shipped.
+- Untested lead: the `local(Arial)` fallback `@font-face` rules in the small CSS chunk.

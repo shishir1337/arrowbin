@@ -5,6 +5,7 @@ import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { Footer } from "@/components/layout/Footer";
+import { ManifestLink } from "@/components/layout/ManifestLink";
 import { Navbar } from "@/components/layout/Navbar";
 import { Cursor } from "@/components/motion/Cursor";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
@@ -197,6 +198,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <PreferredSourceScript />
+        <ManifestLink />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
         {clarityId ? <MicrosoftClarity clarityId={clarityId} /> : null}
         <CookieConsent />
