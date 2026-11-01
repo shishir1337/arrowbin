@@ -19,6 +19,7 @@ const HOVER = [
 export function FooterWordmark() {
   const ref = useRef<HTMLDivElement>(null);
 
+  // At the foot of every page: sets up as the visitor nears it (see useGsapIdle).
   useGsapIdle(({ gsap }) => {
     const el = ref.current;
     if (!el || reducedMotion()) return;
@@ -54,7 +55,7 @@ export function FooterWordmark() {
       });
     }, el);
     return () => ctx.revert();
-  });
+  }, ref);
 
   return (
     <div

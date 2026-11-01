@@ -25,15 +25,29 @@ export function Cursor() {
     if (!enabled) return;
     let dead = false;
     let off: undefined | (() => void);
-    loadGsap().then(({ gsap }) => {
-      if (dead) return;
-      off = setup(gsap);
+    // The cursor is parked off-screen until the pointer first moves, so GSAP
+    // and the setup wait for that move instead of running during the page
+    // load (they were a long main-thread task on slower machines). The first
+    // move is replayed, so the cursor glides in exactly as before.
+    const start = (first: PointerEvent) => {
+      loadGsap().then(({ gsap }) => {
+        if (dead) return;
+        off = setup(gsap, first);
+      });
+    };
+    window.addEventListener("pointermove", start, {
+      once: true,
+      passive: true,
     });
     return () => {
       dead = true;
+      window.removeEventListener("pointermove", start);
       off?.();
     };
-    function setup(gsap: Awaited<ReturnType<typeof loadGsap>>["gsap"]) {
+    function setup(
+      gsap: Awaited<ReturnType<typeof loadGsap>>["gsap"],
+      first: PointerEvent,
+    ) {
       if (!enabled || !dot.current || !ring.current) return;
       const d = dot.current;
       const r = ring.current;
@@ -71,6 +85,8 @@ export function Cursor() {
       const enter = () => gsap.to([d, r], { opacity: 1, duration: 0.2 });
 
       window.addEventListener("pointermove", move, { passive: true });
+      move(first);
+      over(first);
       document.addEventListener("pointerover", over);
       document.documentElement.addEventListener("pointerleave", leave);
       document.documentElement.addEventListener("pointerenter", enter);

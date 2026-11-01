@@ -9,6 +9,7 @@ import { useGsapIdle } from "@/lib/useIdleEffect";
 export function BentoMotion() {
   const anchor = useRef<HTMLSpanElement>(null);
 
+  // Below the pinned services section: sets up as the visitor nears it (see useGsapIdle).
   useGsapIdle(({ gsap }) => {
     const el = anchor.current?.closest("section");
     if (!el || reducedMotion()) return;
@@ -84,7 +85,7 @@ export function BentoMotion() {
       ctx.revert();
       for (const off of offs) off();
     };
-  });
+  }, anchor);
 
   return <span ref={anchor} hidden />;
 }

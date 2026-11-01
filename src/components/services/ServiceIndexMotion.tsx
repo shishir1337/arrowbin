@@ -8,6 +8,8 @@ import { useGsapIdle } from "@/lib/useIdleEffect";
 export function ServiceIndexMotion() {
   const anchor = useRef<HTMLSpanElement>(null);
 
+  // Sets up as the visitor nears the index (see useGsapIdle); /services has
+  // no pinned section.
   useGsapIdle(({ gsap }) => {
     const el = anchor.current?.closest("section");
     if (!el || reducedMotion()) return;
@@ -23,7 +25,7 @@ export function ServiceIndexMotion() {
       }
     }, el);
     return () => ctx.revert();
-  });
+  }, anchor);
 
   return <span ref={anchor} hidden />;
 }

@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { finePointer, type GsapKit, loadGsap, reducedMotion } from "@/lib/gsap";
-import { whenIdle } from "@/lib/useIdleEffect";
+import { NEAR_MARGIN, whenIdle } from "@/lib/useIdleEffect";
 
 /**
  * One light motion layer for inner pages. Drop it once in a page; it scans
@@ -93,7 +93,27 @@ export function InnerMotion() {
         // already-tilted (and hover-lifted) box and make the tilt jitter.
         let r: DOMRect | null = null;
         let sy = 0;
+        // Add the tilt's transform transition to the element's own
+        // transitions instead of replacing them, so hover lifts (translate,
+        // scale, rotate, shadow) on the same element stay smooth. Read on the
+        // first hover, not during hydration: getComputedStyle there forced a
+        // full style recalculation into the hydration task.
+        let prepared = false;
+        const prepare = () => {
+          if (prepared) return;
+          prepared = true;
+          const cs = getComputedStyle(el);
+          const props = cs.transitionProperty.split(",").map((s) => s.trim());
+          if (!props.includes("transform") && !props.includes("all")) {
+            const own =
+              cs.transitionProperty === "none" || cs.transitionDuration === "0s"
+                ? ""
+                : `${cs.transition}, `;
+            el.style.transition = `${own}transform 0.6s var(--ease-out-expo)`;
+          }
+        };
         const enter = () => {
+          prepare();
           r = el.getBoundingClientRect();
           sy = window.scrollY;
         };
@@ -112,18 +132,6 @@ export function InnerMotion() {
           r = null;
           el.style.transform = "";
         };
-        // Add the tilt's transform transition to the element's own
-        // transitions instead of replacing them, so hover lifts (translate,
-        // scale, rotate, shadow) on the same element stay smooth.
-        const cs = getComputedStyle(el);
-        const props = cs.transitionProperty.split(",").map((s) => s.trim());
-        if (!props.includes("transform") && !props.includes("all")) {
-          const own =
-            cs.transitionProperty === "none" || cs.transitionDuration === "0s"
-              ? ""
-              : `${cs.transition}, `;
-          el.style.transition = `${own}transform 0.6s var(--ease-out-expo)`;
-        }
         el.addEventListener("pointerenter", enter);
         el.addEventListener("pointermove", move);
         el.addEventListener("pointerleave", leave);
@@ -165,9 +173,9 @@ export function InnerMotion() {
       }
       const lineOf = glyphs.map((g) => Number(g.dataset.line));
       const state = glyphs.map(() => 100);
-      const base = Number(
-        getComputedStyle(kin).fontVariationSettings.match(/[\d.]+/)?.[0] ?? 100,
-      );
+      // The title's own width axis value, read on the first pointer move (a
+      // getComputedStyle during hydration forced a full style recalculation).
+      let base = 0;
       let centers: { x: number; y: number }[] = [];
       let px = -9999;
       let py = -9999;
@@ -221,6 +229,10 @@ export function InnerMotion() {
       const start = () => {
         if (running) return;
         running = true;
+        base ||= Number(
+          getComputedStyle(kin).fontVariationSettings.match(/[\d.]+/)?.[0] ??
+            100,
+        );
         measure();
         raf = requestAnimationFrame(tick);
       };
@@ -264,70 +276,116 @@ export function InnerMotion() {
       },
       { timeout: 1500 },
     );
-    const setupGsap = ({ gsap, ScrollTrigger }: GsapKit) => {
+    // Two idle tasks instead of one. Splitting a heading and then creating its
+    // ScrollTrigger (which measures the page) forced a fresh layout for every
+    // heading, so the whole setup was one long task (17 ms on a fast desktop,
+    // several times that on a phone). Now step 1 does every read and then only
+    // DOM writes; step 2 runs after the browser has laid the split words out,
+    // so the triggers' measurements find a clean layout.
+    const setupGsap = (kit: GsapKit) => {
       if (dead) return;
-      const ctx = gsap.context(() => {
-        // Heading word reveal (below the fold only, so nothing flashes).
-        // All positions are read before any heading is split: reading
-        // between the DOM writes forced a fresh layout per heading.
-        const sections = Array.from(main.querySelectorAll("section"));
-        const below = Array.from(
-          main.querySelectorAll<HTMLElement>("section h2.display"),
-        ).filter((h) => {
-          const sec = h.closest("section");
-          if (!sec || sections.indexOf(sec) === 0) return false;
-          return h.getBoundingClientRect().top >= window.innerHeight;
-        });
-        for (const h of below) {
-          if (h.dataset.split) continue;
-          h.dataset.split = "1";
-          h.normalize();
-          const words: HTMLElement[] = [];
-          const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
-          const texts: Text[] = [];
-          while (walker.nextNode()) texts.push(walker.currentNode as Text);
-          for (const t of texts) {
-            const frag = document.createDocumentFragment();
-            for (const part of t.data.split(/(\s+)/)) {
-              if (!part) continue;
-              if (/^\s+$/.test(part)) {
-                frag.append(part);
-                continue;
-              }
-              const outer = document.createElement("span");
-              outer.className =
-                "inline-block overflow-y-clip pb-[0.06em] align-top";
-              const inner = document.createElement("span");
-              inner.className = "inline-block";
-              inner.textContent = part;
-              outer.append(inner);
-              words.push(inner);
-              frag.append(outer);
+      // Heading word reveal (below the fold only, so nothing flashes).
+      // All positions are read before any heading is split.
+      const sections = Array.from(main.querySelectorAll("section"));
+      const below = Array.from(
+        main.querySelectorAll<HTMLElement>("section h2.display"),
+      ).filter((h) => {
+        const sec = h.closest("section");
+        if (!sec || sections.indexOf(sec) === 0) return false;
+        return h.getBoundingClientRect().top >= window.innerHeight;
+      });
+      const split: { h: HTMLElement; words: HTMLElement[] }[] = [];
+      for (const h of below) {
+        if (h.dataset.split) continue;
+        h.dataset.split = "1";
+        h.normalize();
+        const words: HTMLElement[] = [];
+        const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+        const texts: Text[] = [];
+        while (walker.nextNode()) texts.push(walker.currentNode as Text);
+        for (const t of texts) {
+          const frag = document.createDocumentFragment();
+          for (const part of t.data.split(/(\s+)/)) {
+            if (!part) continue;
+            if (/^\s+$/.test(part)) {
+              frag.append(part);
+              continue;
             }
-            t.replaceWith(frag);
+            const outer = document.createElement("span");
+            outer.className =
+              "inline-block overflow-y-clip pb-[0.06em] align-top";
+            const inner = document.createElement("span");
+            inner.className = "inline-block";
+            inner.textContent = part;
+            outer.append(inner);
+            words.push(inner);
+            frag.append(outer);
           }
-          gsap.from(words, {
-            yPercent: 110,
-            duration: 1,
-            stagger: 0.06,
-            ease: "expo.out",
-            scrollTrigger: { trigger: h, start: "top 88%", once: true },
-          });
+          t.replaceWith(frag);
         }
-        // Scroll-scrubbed rails.
-        for (const r of main.querySelectorAll<HTMLElement>("[data-rail]")) {
-          ScrollTrigger.create({
-            trigger: r.closest("section") ?? r,
-            start: "top 70%",
-            end: "bottom 60%",
-            scrub: 0.4,
-            onUpdate: (self) => {
-              r.style.setProperty("--p", self.progress.toFixed(3));
-            },
-          });
-        }
-      }, main);
-      offs.push(() => ctx.revert());
+        split.push({ h, words });
+      }
+      offs.push(whenIdle(() => setupTriggers(kit, split), 600));
+    };
+    const setupTriggers = (
+      { gsap, ScrollTrigger }: GsapKit,
+      split: { h: HTMLElement; words: HTMLElement[] }[],
+    ) => {
+      if (dead) return;
+      // Each trigger is created when its section comes within two screen
+      // heights of the viewport (see NEAR_MARGIN), not all at once: every
+      // ScrollTrigger measures the page as it is created, and together they
+      // made one long task during the page load. These pages have no pinned
+      // section, so creation order doesn't change any measurement.
+      const ctx = gsap.context(() => {}, main);
+      const pending: [Element, () => void][] = [];
+      for (const { h, words } of split) {
+        pending.push([
+          h,
+          () =>
+            gsap.from(words, {
+              yPercent: 110,
+              duration: 1,
+              stagger: 0.06,
+              ease: "expo.out",
+              scrollTrigger: { trigger: h, start: "top 88%", once: true },
+            }),
+        ]);
+      }
+      // Scroll-scrubbed rails.
+      for (const r of main.querySelectorAll<HTMLElement>("[data-rail]")) {
+        const trigger = r.closest("section") ?? r;
+        pending.push([
+          trigger,
+          () =>
+            ScrollTrigger.create({
+              trigger,
+              start: "top 70%",
+              end: "bottom 60%",
+              scrub: 0.4,
+              onUpdate: (self) => {
+                r.style.setProperty("--p", self.progress.toFixed(3));
+              },
+            }),
+        ]);
+      }
+      const near = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            near.unobserve(e.target);
+            for (const [t, make] of pending) {
+              if (t === e.target) ctx.add(make);
+            }
+          }
+        },
+        { rootMargin: NEAR_MARGIN },
+      );
+      for (const [t] of pending) near.observe(t);
+      offs.push(() => {
+        near.disconnect();
+        ctx.revert();
+      });
     };
 
     return () => {

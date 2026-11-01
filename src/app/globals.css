@@ -388,6 +388,9 @@ body::after {
   z-index: 100;
   border-radius: 9999px;
   will-change: transform;
+  /* Parked off-screen until the pointer first moves; GSAP's inline transform
+     takes over from then on (Cursor.tsx sets it up on that first move). */
+  transform: translate(-100px, -100px);
 }
 /* Hidden (not faded) while a label shows, so GSAP's opacity tweens on
  * enter/leave can't bring it back on top of the label. */

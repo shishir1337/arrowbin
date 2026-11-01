@@ -12,6 +12,8 @@ import { useGsapIdle } from "@/lib/useIdleEffect";
 export function SectionReveal() {
   const anchor = useRef<HTMLSpanElement>(null);
 
+  // Used below the fold on pages with no pinned section, so each section
+  // sets up as the visitor nears it (see useGsapIdle).
   useGsapIdle(({ gsap }) => {
     const el = anchor.current?.closest("section");
     if (!el || reducedMotion()) return;
@@ -27,7 +29,7 @@ export function SectionReveal() {
       });
     }, el);
     return () => ctx.revert();
-  });
+  }, anchor);
 
   return <span ref={anchor} hidden />;
 }

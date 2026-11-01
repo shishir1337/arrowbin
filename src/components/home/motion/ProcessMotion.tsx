@@ -9,6 +9,7 @@ import { useGsapIdle } from "@/lib/useIdleEffect";
 export function ProcessMotion() {
   const anchor = useRef<HTMLSpanElement>(null);
 
+  // Below the pinned services section: sets up as the visitor nears it (see useGsapIdle).
   useGsapIdle(({ gsap, ScrollTrigger }) => {
     const el = anchor.current?.closest("section");
     const rider = {
@@ -65,7 +66,7 @@ export function ProcessMotion() {
       }
     }, el);
     return () => ctx.revert();
-  });
+  }, anchor);
 
   return <span ref={anchor} hidden />;
 }
