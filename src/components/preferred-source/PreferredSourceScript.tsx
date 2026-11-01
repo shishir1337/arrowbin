@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { AfterIdle } from "@/components/analytics/AfterIdle";
+import { AfterInteraction } from "@/components/analytics/AfterInteraction";
 import {
   PREFERRED_SOURCE_FAILED,
   PREFERRED_SOURCE_SCRIPT,
@@ -13,9 +13,12 @@ function fail() {
 }
 
 /**
- * Google's preferred sources library (~40 KB gzipped), loaded once for every
- * PreferredSourceButton on the page. Like the analytics scripts, it waits for the
- * load event and an idle moment (see AfterIdle), so it stays out of the LCP window.
+ * Google's preferred sources library (~40 KB gzipped, then ~180 KB more from
+ * gstatic.com and a news.google.com frame), loaded once for every
+ * PreferredSourceButton on the page. It waits for the load event and the
+ * visitor's first interaction (see AfterInteraction): both buttons sit far below
+ * the fold (the end of each post and the footer), so they are always drawn before
+ * anyone scrolls to them, and the frame's cookie issues never touch the page load.
  * Its hosts are allowlisted in the CSP (next.config.ts).
  *
  * When the script is blocked (Brave Shields, tracker blockers), or a blocker swaps
@@ -24,7 +27,7 @@ function fail() {
  */
 export function PreferredSourceScript() {
   return (
-    <AfterIdle>
+    <AfterInteraction>
       <Script
         src={PREFERRED_SOURCE_SCRIPT}
         strategy="afterInteractive"
@@ -37,6 +40,6 @@ export function PreferredSourceScript() {
         }}
         onError={fail}
       />
-    </AfterIdle>
+    </AfterInteraction>
   );
 }

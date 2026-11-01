@@ -92,9 +92,11 @@ export async function needsConsent(): Promise<boolean> {
   let ask: boolean;
   try {
     const res = await fetch("/cdn-cgi/trace", { cache: "no-store" });
-    const country = res.ok
-      ? (await res.text()).match(/^loc=([A-Z]{2})$/m)?.[1]
-      : undefined;
+    // Read the body even on an error status: an unread body keeps the request
+    // open, and an open request stops Lighthouse from ever seeing the network
+    // go quiet (its trace then runs to the 45 s limit).
+    const body = await res.text();
+    const country = res.ok ? body.match(/^loc=([A-Z]{2})$/m)?.[1] : undefined;
     ask = country ? CONSENT_REGIONS.includes(country) : europeanTimeZone();
   } catch {
     ask = europeanTimeZone();
