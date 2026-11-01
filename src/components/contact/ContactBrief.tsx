@@ -225,6 +225,8 @@ export function ContactBrief({
   return (
     <section
       id="brief"
+      // Below the first screen on phones (see FirstFrame).
+      data-ff=""
       className="relative scroll-mt-24 bg-white py-20 sm:py-28"
     >
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">

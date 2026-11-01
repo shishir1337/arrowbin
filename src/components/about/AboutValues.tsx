@@ -321,7 +321,8 @@ export function AboutValues({ label }: { label: string }) {
   };
 
   return (
-    <section className="relative py-20 sm:py-28">
+    // data-ff: below the first screen on phones (see FirstFrame).
+    <section data-ff="" className="relative py-20 sm:py-28">
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>

@@ -191,6 +191,9 @@ export function Navbar() {
         aria-label="Menu"
         inert={!open}
         aria-hidden={!open}
+        // Closed during the first frame, so its contents skip layout there
+        // (see FirstFrame).
+        data-ff-hide=""
         // Circular reveal that grows out of the Menu button (and closes back
         // into it); `inert` keeps the closed menu out of focus and the a11y tree.
         // Opening: visible at once (so focus can move in); closing: stays visible

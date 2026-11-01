@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { WideImagePreload } from "@/components/ui/WideImagePreload";
 import { reducedMotion } from "@/lib/gsap";
-import { preloadWideImage } from "@/lib/preloadWideImage";
 
 type Shot = { name: string; image: string; blur?: string };
 
@@ -27,9 +27,6 @@ const SLOTS = [
 export function WorkDeck({ shots }: { shots: Shot[] }) {
   const [front, setFront] = useState(0);
   const n = shots.length;
-  // The front card is the LCP element on desktop; on phones the deck sits
-  // under the headline, so it is preloaded for wide screens only.
-  if (shots[0]) preloadWideImage(shots[0].image, SIZES);
 
   useEffect(() => {
     if (reducedMotion() || n < 2) return;
@@ -48,6 +45,11 @@ export function WorkDeck({ shots }: { shots: Shot[] }) {
       aria-hidden="true"
       className="relative mx-auto aspect-[16/11] w-[84%] max-w-[560px] sm:w-full"
     >
+      {/* The front card is the LCP element on desktop; on phones the deck
+          sits under the headline, so it is preloaded for wide screens only. */}
+      {shots[0] ? (
+        <WideImagePreload src={shots[0].image} sizes={SIZES} />
+      ) : null}
       {shots.map((s, i) => {
         const depth = (i - front + n) % n;
         const slot = SLOTS[Math.min(depth, SLOTS.length - 1)];

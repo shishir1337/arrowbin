@@ -136,7 +136,8 @@ export function WorkExplorer({
   }, [view]);
 
   return (
-    <section className="relative bg-white py-20 sm:py-28">
+    // data-ff: below the first screen on phones (see FirstFrame).
+    <section data-ff="" className="relative bg-white py-20 sm:py-28">
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>

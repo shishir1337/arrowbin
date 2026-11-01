@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { SectionReveal } from "@/components/motion/SectionReveal";
 import { Crumbs } from "@/components/ui/Crumbs";
+import { WideImagePreload } from "@/components/ui/WideImagePreload";
 import { isMockupCover, type Post } from "@/lib/blog";
 import { getBlurDataURL } from "@/lib/blur";
 
@@ -60,26 +61,42 @@ async function Cover({
   post,
   sizes,
   priority = false,
+  wide = false,
 }: {
   post: Post;
   sizes: string;
   /** Above the fold: load eagerly with high priority. */
   priority?: boolean;
+  /**
+   * The LCP element on wide screens only: preloaded there (see
+   * WideImagePreload), while phones, where it starts below the fold, don't
+   * fetch it ahead of the page's CSS and scripts.
+   */
+  wide?: boolean;
 }) {
   if (!post.image || post.image.pending) return null;
   const svg = post.image.src.endsWith(".svg");
   const blur = svg ? undefined : await getBlurDataURL(post.image.src);
+  const preloadWide = wide && !svg;
   return (
-    <Image
-      src={post.image.src}
-      alt={post.image.alt}
-      fill
-      sizes={sizes}
-      priority={priority}
-      unoptimized={svg}
-      className="object-cover"
-      {...(blur ? { placeholder: "blur" as const, blurDataURL: blur } : {})}
-    />
+    <>
+      {preloadWide ? (
+        <WideImagePreload src={post.image.src} sizes={sizes} />
+      ) : null}
+      <Image
+        src={post.image.src}
+        alt={post.image.alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        unoptimized={svg}
+        {...(preloadWide
+          ? { loading: "eager" as const, fetchPriority: "low" as const }
+          : {})}
+        className="object-cover"
+        {...(blur ? { placeholder: "blur" as const, blurDataURL: blur } : {})}
+      />
+    </>
   );
 }
 
@@ -257,10 +274,15 @@ export function BlogList({ posts, label }: { posts: Post[]; label: string }) {
                 // A UI mockup is shown whole, as a 16:9 screen inside the card.
                 <div className="flex items-center px-5 pb-5 sm:px-8 sm:pb-8 lg:col-span-5 lg:p-10">
                   <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[1.25rem] bg-frost shadow-[0_30px_60px_-30px_rgba(14,11,36,0.55)]">
-                    {/* Not preloaded: the featured title, not this image, is the
-                        LCP on desktop, and on phones the card starts below the
-                        fold, so a preload only queued ahead of the CSS and JS. */}
-                    <Cover post={lead} sizes="(min-width: 1024px) 36vw, 85vw" />
+                    {/* On wide screens this mockup is the LCP element (it is
+                        the biggest thing in the first screen), so it is
+                        preloaded there; on phones the card starts below the
+                        fold, so it isn't fetched ahead of the CSS and JS. */}
+                    <Cover
+                      post={lead}
+                      sizes="(min-width: 1024px) 36vw, 85vw"
+                      wide
+                    />
                   </div>
                 </div>
               ) : (
@@ -277,7 +299,8 @@ export function BlogList({ posts, label }: { posts: Post[]; label: string }) {
 
         {/* The rest */}
         {rest.length > 0 && (
-          <ul className="mt-6 grid gap-6 md:grid-cols-2">
+          // data-ff-kids: below the first screen on phones (see FirstFrame).
+          <ul data-ff-kids="" className="mt-6 grid gap-6 md:grid-cols-2">
             {rest.map((p, i) => {
               return (
                 // Stagger by column only, so cards far down a long list don't

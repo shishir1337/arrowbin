@@ -221,7 +221,8 @@ export function LegalPage({
               </nav>
             </details>
 
-            <div className="grid gap-14">
+            {/* data-ff-kids: below the first screen on phones (see FirstFrame) */}
+            <div data-ff-kids="" className="grid gap-14">
               {sections.map((s, i) => (
                 <section
                   key={s.id}

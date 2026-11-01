@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Magnetic } from "@/components/home/Magnetic";
 import { Crumbs } from "@/components/ui/Crumbs";
-import { preloadWideImage } from "@/lib/preloadWideImage";
+import { WideImagePreload } from "@/components/ui/WideImagePreload";
 import { author } from "@/lib/site";
 
 const PORTRAIT_SIZES = "(min-width: 1024px) 420px, 82vw";
@@ -24,11 +24,11 @@ export function AboutHero({
   crumbs: { name: string; path: string }[];
   blur?: string;
 }) {
-  // The portrait is the LCP element on desktop; on phones it sits under the
-  // headline, so it is preloaded for wide screens only.
-  preloadWideImage(author.image, PORTRAIT_SIZES);
   return (
     <section className="relative isolate overflow-hidden pb-16 pt-10 sm:pb-24 sm:pt-14">
+      {/* The portrait is the LCP element on desktop; on phones it sits under
+          the headline, so it is preloaded for wide screens only. */}
+      <WideImagePreload src={author.image} sizes={PORTRAIT_SIZES} />
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
         <Crumbs items={crumbs} />
         <div className="mt-10 grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
