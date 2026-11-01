@@ -21,10 +21,16 @@
  * `data-ff-kids` on a container whose children are. On /privacy and /terms the
  * whole policy is in the third child of <main>, so the rule above never applied
  * there and they still stalled to 2.4 s on the live site; /contact's brief form,
- * /about's values, the /work list and the /blog post list are marked the same
- * way. Measured tops at 360x780, 390x844 and 412x823: all start below 900 px.
+ * /about's values and the /work list are marked the same way. Measured tops at
+ * 360x780, 390x844 and 412x823: all start below 900 px.
  * `data-ff-hide` marks something never visible in the first frame (the closed
  * mobile menu, laid out though hidden): its contents skip layout there too.
+ *
+ * Check the LCP element before marking more: when the rule turns off, Chrome
+ * reports content painted for the first time then (even below the fold) as an
+ * LCP candidate. That's harmless for text, which has nothing to load, but
+ * the /blog post list, marked too at first, made the lead post's cover image
+ * the LCP on phones (Lighthouse LCP 1.2 s to 3.5 s), so it is not marked.
  *
  * Guards: phones only (the desktop first frame is not affected); only with JS
  * on (the `js` class from the root layout); skipped on loads that restore a

@@ -69,8 +69,8 @@ async function Cover({
   priority?: boolean;
   /**
    * The LCP element on wide screens only: preloaded there (see
-   * WideImagePreload), while phones, where it starts below the fold, don't
-   * fetch it ahead of the page's CSS and scripts.
+   * WideImagePreload). The <img> itself keeps the default lazy loading, so
+   * phones, where it starts below the fold, load it exactly as before.
    */
   wide?: boolean;
 }) {
@@ -90,9 +90,6 @@ async function Cover({
         sizes={sizes}
         priority={priority}
         unoptimized={svg}
-        {...(preloadWide
-          ? { loading: "eager" as const, fetchPriority: "low" as const }
-          : {})}
         className="object-cover"
         {...(blur ? { placeholder: "blur" as const, blurDataURL: blur } : {})}
       />
@@ -230,7 +227,7 @@ export function BlogList({ posts, label }: { posts: Post[]; label: string }) {
   const leadCover = hasCover(lead);
   return (
     <section className="relative pb-20 sm:pb-28">
-      <SectionReveal />
+      <SectionReveal eager />
       <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
         <SectionLabel index={label} title="Latest" />
 
@@ -299,8 +296,7 @@ export function BlogList({ posts, label }: { posts: Post[]; label: string }) {
 
         {/* The rest */}
         {rest.length > 0 && (
-          // data-ff-kids: below the first screen on phones (see FirstFrame).
-          <ul data-ff-kids="" className="mt-6 grid gap-6 md:grid-cols-2">
+          <ul className="mt-6 grid gap-6 md:grid-cols-2">
             {rest.map((p, i) => {
               return (
                 // Stagger by column only, so cards far down a long list don't
