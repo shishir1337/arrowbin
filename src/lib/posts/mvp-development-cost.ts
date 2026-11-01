@@ -5,22 +5,28 @@ const DIR = "/blog/mvp-development-cost";
 
 export const post: Post = {
   slug: "mvp-development-cost",
-  title: "MVP Development Cost in 2026: How to Work Out Your Budget",
+  title: "MVP Development Cost in 2026: $5K–$120K, Broken Down",
   description:
-    "What an MVP costs in 2026 and why: the formula behind the number, what to cut, what it costs to run, and when a prototype is the smarter first step.",
+    "An MVP costs $5K–$30K lean or $40K–$120K polished in 2026. Costs by product type, the formula behind the number, what to cut and what it costs to run.",
   keywords: [
     "mvp development cost",
     "how much does an mvp cost",
+    "how much should i spend on an mvp",
+    "mvp budget",
     "cost to build an mvp for a startup",
+    "mvp cost by product type",
     "saas mvp cost",
     "mvp cost breakdown",
+    "reduce mvp development cost",
     "no-code mvp vs custom mvp",
     "mobile app mvp cost",
   ],
   date: "2026-10-15",
   dateLabel: "October 15, 2026",
+  updated: "2026-10-29",
+  updatedLabel: "October 29, 2026",
   author: "Md. Shishir Ahmed",
-  readingTime: "12 min read",
+  readingTime: "13 min read",
   category: "Product",
   excerpt:
     "An MVP budget is build weeks times team times rate. Launch and running costs go on top. We show the sums with our published ranges so you can test your own number.",
@@ -46,6 +52,7 @@ export const post: Post = {
       type: "p",
       text: "A lean MVP that does one workflow well usually costs $5,000–$30,000, and a polished, launch-ready MVP or app for most businesses lands at $40,000–$120,000. Both are Arrowbin estimates, and they're the same ranges you'll find in our [full custom software cost guide](/blog/how-much-does-custom-software-development-cost), which also covers bigger platforms and enterprise systems.",
     },
+    { type: "h3", text: "MVP cost by product type" },
     {
       type: "table",
       headers: [
@@ -62,10 +69,10 @@ export const post: Post = {
           "Booking tool, internal dashboard, single-flow app",
         ],
         [
-          "Polished, launch-ready MVP or app",
-          "10–20 weeks",
-          "$40,000–$120,000",
-          "Customer portal, two-sided app, multi-tenant B2B product",
+          "AI automation MVP",
+          "2–3 weeks to a prototype, then 3–6 more for production",
+          "From about $10,000–$15,000, including a year of running costs",
+          "One automation on one job, such as support triage or invoice processing",
         ],
         [
           "Worked example: SaaS MVP",
@@ -73,7 +80,29 @@ export const post: Post = {
           "About $60,000",
           "Accounts and a dashboard, with billing and a couple of integrations",
         ],
+        [
+          "Custom online store",
+          "8–12 weeks headless, 12 or more fully custom",
+          "$30,000–$90,000",
+          "A store whose checkout, pricing or payment flow doesn't fit Shopify",
+        ],
+        [
+          "Polished, launch-ready MVP or app",
+          "10–20 weeks",
+          "$40,000–$120,000",
+          "Customer portal, two-sided marketplace, multi-tenant B2B product",
+        ],
+        [
+          "Full SaaS platform, past the MVP",
+          "5–9 months",
+          "$80,000–$200,000",
+          "Multi-tenant product with subscription billing, later SSO and audit logs",
+        ],
       ],
+    },
+    {
+      type: "p",
+      text: "Each row is an estimate we already publish elsewhere: the AI row in our guide to [AI agent costs](/blog/ai-agent-cost-small-business), the store row in [Shopify vs custom ecommerce](/blog/shopify-vs-custom-ecommerce) and the full platform in our SaaS cost guide, linked below. The last row is there for scale. It's where a SaaS MVP heads once it has paying customers, not where it starts.",
     },
     {
       type: "p",
@@ -82,6 +111,20 @@ export const post: Post = {
     {
       type: "p",
       text: "The rest of this guide is about working out which band you're in, and how to move down one without building something nobody can use.",
+    },
+
+    { type: "h2", text: "How much should you spend on an MVP?" },
+    {
+      type: "p",
+      text: "Spend the least that tests the assumption most likely to sink the product, and keep money back for after launch. Pick the cheapest row above that still covers your core workflow end to end. Then, before you sign anything, set aside two more lines: roughly 15–20% of the build cost for the first year of running it (Arrowbin estimate), and a separate budget for version two.",
+    },
+    {
+      type: "p",
+      text: "On the $60,000 SaaS example, that's $60,000 to build plus $9,000–$12,000 for year one, before any new features. If that total is more than you can raise or afford to lose, cut scope before you push for a lower rate. The formula in the next section shows what each week of scope is worth.",
+    },
+    {
+      type: "p",
+      text: "The reserve matters because startups usually run out of money after the MVP ships, not during the build. Running out of capital is the most common reason in the CB Insights research on shut-down startups quoted further down. If you can't cover the build and that first-year reserve, a no-code or AI-built prototype is the honest first step. The section on no-code below covers when it's enough.",
     },
 
     { type: "h2", text: "How do you work out an MVP budget yourself?" },
@@ -220,7 +263,7 @@ export const post: Post = {
 
     {
       type: "h2",
-      text: "What can you cut from an MVP without making it useless?",
+      text: "How do you reduce MVP development cost without making it useless?",
     },
     {
       type: "p",
@@ -474,6 +517,8 @@ export const post: Post = {
   ],
   takeaways: [
     "By Arrowbin's estimate, a lean MVP costs $5,000–$30,000 in 2026 and a polished, launch-ready MVP or app costs $40,000–$120,000.",
+    "Product type sets the starting band: about $10,000–$15,000 for a first AI automation, about $60,000 for a SaaS MVP and $30,000–$90,000 for a custom store (Arrowbin estimates).",
+    "Spend the least that tests your riskiest assumption, and keep 15–20% of the build cost back for year one plus a version-two budget.",
     "MVP budget = build weeks × team size × weekly rate, plus launch costs and year-one running costs. The build term is almost all of it.",
     "On a $60,000, 14-week SaaS MVP, each week of scope is worth about $4,300, so cutting scope is the most direct way to cut cost.",
     "About half of an MVP budget is development. The rest pays for discovery and design up front, then QA and project management during the build.",
