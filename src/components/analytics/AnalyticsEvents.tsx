@@ -1,33 +1,24 @@
 "use client";
 
-import { useReportWebVitals } from "next/web-vitals";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { AfterIdle } from "./AfterIdle";
 import { enableTracking, track } from "./track";
 
-type ReportWebVitalsCallback = Parameters<typeof useReportWebVitals>[0];
-
-const VITALS = new Set(["CLS", "INP", "LCP", "FCP", "TTFB"]);
-
 /**
- * Core Web Vitals from real visits, sent to GA4 as one event per metric (the
- * GA4 pattern from the web-vitals README). `value` uses the delta so repeat
- * reports for the same page load sum correctly; CLS is scaled by 1000 to keep
- * it an integer. Defined at module level so the reference never changes
- * (Next's docs: a new callback re-reports metrics already sent).
+ * Core Web Vitals reporting, in its own chunk: the web-vitals library (9 KB)
+ * stays out of the code every page loads first. It starts at idle after the
+ * load event (see AfterIdle) and still reports every metric of the visit: the
+ * browser keeps the paint, layout-shift and input timings it needs until then.
  */
-const reportWebVital: ReportWebVitalsCallback = (metric) => {
-  if (!VITALS.has(metric.name)) return;
-  track(metric.name, {
-    value: Math.round(
-      metric.name === "CLS" ? metric.delta * 1000 : metric.delta,
-    ),
-    metric_id: metric.id,
-    metric_value: metric.value,
-    metric_delta: metric.delta,
-    metric_rating: metric.rating,
-    non_interaction: true,
-  });
-};
+const WebVitals = lazy(() =>
+  import("./WebVitals").then(
+    (m) => ({ default: m.WebVitals }),
+    // A failed download (say, a deploy replaced the chunk while the tab was
+    // open) only loses this visit's metrics; it must never reach the page's
+    // error boundary.
+    () => ({ default: () => null }),
+  ),
+);
 
 /** Which part of the page a link sits in, so CTAs can be compared. */
 function placement(el: Element): string {
@@ -93,13 +84,13 @@ function onLinkClick(event: MouseEvent) {
 }
 
 /**
- * Client-side GA4 instrumentation: web vitals plus lead-action clicks.
+ * Client-side GA4 instrumentation: lead-action clicks plus web vitals.
  * Rendered only by GoogleAnalytics, so it is active only when GA is configured.
  * Renders nothing and leaves gtag's loading strategy untouched.
  */
 export function AnalyticsEvents() {
-  // Declared before useReportWebVitals so tracking is enabled before any
-  // metric callback can run (effects run in declaration order).
+  // Runs before WebVitals mounts, so tracking is enabled before any metric
+  // callback can run.
   useEffect(() => {
     enableTracking();
     document.addEventListener("click", onLinkClick, true);
@@ -110,7 +101,13 @@ export function AnalyticsEvents() {
     };
   }, []);
 
-  useReportWebVitals(reportWebVital);
-
-  return null;
+  // Client-only (AfterIdle renders nothing on the server), so this boundary
+  // never streams anything into the page HTML.
+  return (
+    <AfterIdle>
+      <Suspense fallback={null}>
+        <WebVitals />
+      </Suspense>
+    </AfterIdle>
+  );
 }

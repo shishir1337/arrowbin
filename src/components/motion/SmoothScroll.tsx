@@ -3,7 +3,7 @@
 import type Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { loadGsap } from "@/lib/gsap";
+import { requestedGsap, whenGsapLoaded } from "@/lib/gsap";
 import { useIdleEffect } from "@/lib/useIdleEffect";
 
 declare global {
@@ -13,27 +13,19 @@ declare global {
 }
 
 /**
- * Lenis smooth scrolling (mouse/trackpad devices) driven by GSAP's ticker so
- * ScrollTrigger scrubs stay in lock-step with the eased scroll position. Touch
- * devices and reduced-motion users keep native scrolling. Lenis and GSAP are
- * both fetched in idle time, so neither is on the critical path.
+ * Lenis smooth scrolling (mouse/trackpad devices). Touch devices and
+ * reduced-motion users keep native scrolling. Lenis is fetched in idle time, so
+ * it is not on the critical path.
+ *
+ * Lenis runs on its own animation frame loop until GSAP is on the page (the
+ * home page loads it for its sections, any page for the magnetic buttons once
+ * the visitor starts using it). From then on GSAP's ticker drives Lenis, so
+ * ScrollTrigger scrubs stay in lock-step with the eased scroll position.
+ * Loading GSAP here just for that would put it on every page, including the
+ * many that never animate with it.
  */
 export function SmoothScroll() {
   const pathname = usePathname();
-
-  // Web fonts change text metrics (the display face especially), so re-measure
-  // every trigger once they have loaded.
-  useIdleEffect(() => {
-    let dead = false;
-    loadGsap().then(({ ScrollTrigger }) =>
-      document.fonts?.ready.then(() => {
-        if (!dead) ScrollTrigger.refresh();
-      }),
-    );
-    return () => {
-      dead = true;
-    };
-  });
 
   useIdleEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -43,26 +35,37 @@ export function SmoothScroll() {
       return;
     let dead = false;
     let off: undefined | (() => void);
-    Promise.all([import("lenis"), loadGsap()]).then(
-      ([{ default: LenisCtor }, { gsap, ScrollTrigger }]) => {
-        if (dead) return;
-        const lenis = new LenisCtor({
-          lerp: 0.1,
-          wheelMultiplier: 1,
-          anchors: { offset: -80 },
-        });
-        window.__lenis = lenis;
+    import("lenis").then(({ default: LenisCtor }) => {
+      if (dead) return;
+      const lenis = new LenisCtor({
+        lerp: 0.1,
+        wheelMultiplier: 1,
+        anchors: { offset: -80 },
+      });
+      window.__lenis = lenis;
+      // performance.now() in both loops, so the hand-over keeps one time base.
+      let raf = 0;
+      const loop = (time: number) => {
+        lenis.raf(time);
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+      let stop = () => cancelAnimationFrame(raf);
+      const cancel = whenGsapLoaded(({ gsap, ScrollTrigger }) => {
+        stop();
         lenis.on("scroll", ScrollTrigger.update);
-        const tick = (time: number) => lenis.raf(time * 1000);
+        const tick = () => lenis.raf(performance.now());
         gsap.ticker.add(tick);
         gsap.ticker.lagSmoothing(0);
-        off = () => {
-          gsap.ticker.remove(tick);
-          lenis.destroy();
-          window.__lenis = undefined;
-        };
-      },
-    );
+        stop = () => gsap.ticker.remove(tick);
+      });
+      off = () => {
+        cancel();
+        stop();
+        lenis.destroy();
+        window.__lenis = undefined;
+      };
+    });
     return () => {
       dead = true;
       off?.();
@@ -91,8 +94,14 @@ export function SmoothScroll() {
     } else {
       window.__lenis?.scrollTo(0, { immediate: true });
     }
+    // Only where GSAP is already on the page: without it there is nothing to
+    // re-measure, and triggers created later measure the new page themselves.
     const id = window.setTimeout(
-      () => loadGsap().then(({ ScrollTrigger }) => ScrollTrigger.refresh()),
+      () =>
+        requestedGsap()?.then(
+          ({ ScrollTrigger }) => ScrollTrigger.refresh(),
+          () => {},
+        ),
       120,
     );
     return () => window.clearTimeout(id);

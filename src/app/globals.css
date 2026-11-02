@@ -1,28 +1,11 @@
 /* Scan only src/ for class names. Without source(), Tailwind also scans docs/,
  * reports and root files, which slowed dev compiles and added unused classes. */
 @import "tailwindcss" source("../");
-/* Legacy components that nothing imports any more (checked 15 Oct 2026). Not
- * scanned, so their utility classes stay out of the stylesheet. If one of them
- * is ever imported again, delete its line here. */
-@source not "../components/sections";
-@source not "../components/motion/CountUp.tsx";
-@source not "../components/motion/CursorGlow.tsx";
-@source not "../components/motion/CursorGlowMount.tsx";
-@source not "../components/motion/Magnetic.tsx";
-@source not "../components/motion/Reveal.tsx";
-@source not "../components/motion/SpotlightCard.tsx";
-@source not "../components/motion/StaggerGroup.tsx";
-@source not "../components/motion/gsap.ts";
-@source not "../components/motion/useGsapReveal.ts";
-@source not "../components/motion/useTilt.ts";
-@source not "../components/ui/Breadcrumbs.tsx";
-@source not "../components/ui/Button.tsx";
-@source not "../components/ui/Container.tsx";
-@source not "../components/ui/Eyebrow.tsx";
-@source not "../components/ui/SectionHeading.tsx";
-/* Placeholder gradients in lib/portfolio.ts (`gradient` field) that no
- * component renders any more. */
-@source not inline("from-slate-500 to-stone-700 from-orange-500 to-red-600 from-indigo-500 to-fuchsia-500 from-amber-500 to-orange-600 from-rose-500 to-pink-600 from-yellow-500 to-amber-600 from-red-500 to-rose-600 from-cyan-500 to-blue-600");
+/* Words that only appear in comments and blog text ("container", "inline",
+ * "content-baseline", "shadow/halo"), not as class names. Tailwind would
+ * otherwise generate rules for them. Delete a word here if it is ever used
+ * as a class. */
+@source not inline("container inline content-baseline shadow/halo");
 
 /*
  * Arrowbin "Hyperchrome" design system (Tailwind v4 @theme).
@@ -118,7 +101,8 @@
   src:
     local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"),
     local("LiberationMono"), local("Cousine"), local("Droid Sans Mono"),
-    local("DroidSansMono"), local("Noto Sans Mono"), local("NotoSansMono-Regular");
+    local("DroidSansMono"), local("Noto Sans Mono"),
+    local("NotoSansMono-Regular");
   font-weight: 100 549;
   size-adjust: 99.99%;
   ascent-override: 100.51%;
@@ -189,7 +173,6 @@
   --color-brand-fg: #ffffff;
   --brand-rgb: 59 43 255;
 
-
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   /* Symmetric ease for hover in/out (menu flips, colour swaps). */
   --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
@@ -237,7 +220,6 @@
   /* Any bare `transition-*` utility gets a calm default instead of 150ms. */
   --default-transition-duration: 350ms;
   --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-
 }
 
 /* In the base layer so Tailwind border-colour utilities can override it. */
@@ -317,7 +299,6 @@ html.lenis body {
     color: transparent;
     -webkit-text-stroke: 1.5px currentColor;
   }
-
 }
 
 /* Fine film grain over everything: keeps the flat colour fields tactile. */
@@ -388,11 +369,11 @@ body::after {
   z-index: 100;
   border-radius: 9999px;
   will-change: transform;
-  /* Parked off-screen until the pointer first moves; GSAP's inline transform
-     takes over from then on (Cursor.tsx sets it up on that first move). */
+  /* Parked off-screen until the pointer first moves; Cursor.tsx's inline
+     transform takes over from then on (it sets up on that first move). */
   transform: translate(-100px, -100px);
 }
-/* Hidden (not faded) while a label shows, so GSAP's opacity tweens on
+/* Hidden (not faded) while a label shows, so the opacity fades on
  * enter/leave can't bring it back on top of the label. */
 .cursor-dot[data-hidden="1"] {
   visibility: hidden;
@@ -948,6 +929,17 @@ body::after {
 }
 .im [data-inview].is-in .iv-grow {
   scale: 1 1;
+}
+
+/* Heading word rise (words split by InnerMotion; the delay per word is set
+   inline): each word waits below its clip line, then rises in when the
+   heading gets .wr-in at 88% of the viewport height. */
+.im .wr-word {
+  transform: translateY(110%);
+  transition: transform 1s var(--ease-out-expo);
+}
+.im .wr-in .wr-word {
+  transform: none;
 }
 
 /* Scroll-scrubbed rail fill (--p set by InnerMotion). */

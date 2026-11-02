@@ -2,8 +2,9 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { finePointer, type GsapKit, loadGsap, reducedMotion } from "@/lib/gsap";
-import { NEAR_MARGIN, whenIdle } from "@/lib/useIdleEffect";
+import { finePointer, reducedMotion } from "@/lib/gsap";
+import { scrubWithScroll, whenReached } from "@/lib/motion";
+import { whenIdle } from "@/lib/useIdleEffect";
 
 /**
  * One light motion layer for inner pages. Drop it once in a page; it scans
@@ -19,6 +20,8 @@ import { NEAR_MARGIN, whenIdle } from "@/lib/useIdleEffect";
  *   keeps its total width, so nothing ever overflows.
  *
  * Everything is skipped for reduced motion; content is complete without JS.
+ * No animation library: CSS transitions, IntersectionObserver and one scroll
+ * listener, so pages that only use this layer never download GSAP.
  */
 export function InnerMotion() {
   const pathname = usePathname();
@@ -255,37 +258,20 @@ export function InnerMotion() {
       });
     }
 
-    // ── GSAP-driven bits (loaded in idle time) ──────────────────────────
-    const idle =
-      (
-        window as Window & {
-          requestIdleCallback?: (
-            cb: () => void,
-            o?: { timeout: number },
-          ) => number;
-        }
-      ).requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 200));
-    idle(
-      () => {
-        loadGsap().then((kit) => {
-          if (dead) return;
-          // Own idle task: GSAP's arrival also resumes other waiting setups in
-          // the same microtask flush, which made one long task.
-          offs.push(whenIdle(() => setupGsap(kit), 600));
-        });
-      },
-      { timeout: 1500 },
-    );
-    // Two idle tasks instead of one. Splitting a heading and then creating its
-    // ScrollTrigger (which measures the page) forced a fresh layout for every
-    // heading, so the whole setup was one long task (17 ms on a fast desktop,
-    // several times that on a phone). Now step 1 does every read and then only
-    // DOM writes; step 2 runs after the browser has laid the split words out,
-    // so the triggers' measurements find a clean layout.
-    const setupGsap = (kit: GsapKit) => {
+    // ── heading word rise and scroll rails ──────────────────────────────
+    // CSS transitions plus one scroll listener, no GSAP: inner pages load no
+    // animation library at all. Same motion as the GSAP version this replaced
+    // (gsap.from yPercent 110, 1 s expo.out, 0.06 s stagger, once at "top 88%";
+    // rails scrubbed from "top 70%" to "bottom 60%" with scrub 0.4).
+    //
+    // Two idle tasks, as before: splitting a heading and then measuring the
+    // page forced a fresh layout for every heading. Step 1 does every read and
+    // then only DOM writes; step 2 runs after the browser has laid the split
+    // words out.
+    const splitHeadings = () => {
       if (dead) return;
-      // Heading word reveal (below the fold only, so nothing flashes).
-      // All positions are read before any heading is split.
+      // Heading word reveal (below the fold only, so nothing flashes). All
+      // positions are read before any heading is split.
       const sections = Array.from(main.querySelectorAll("section"));
       const below = Array.from(
         main.querySelectorAll<HTMLElement>("section h2.display"),
@@ -294,12 +280,12 @@ export function InnerMotion() {
         if (!sec || sections.indexOf(sec) === 0) return false;
         return h.getBoundingClientRect().top >= window.innerHeight;
       });
-      const split: { h: HTMLElement; words: HTMLElement[] }[] = [];
+      const split: HTMLElement[] = [];
       for (const h of below) {
         if (h.dataset.split) continue;
         h.dataset.split = "1";
         h.normalize();
-        const words: HTMLElement[] = [];
+        let word = 0;
         const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
         const texts: Text[] = [];
         while (walker.nextNode()) texts.push(walker.currentNode as Text);
@@ -314,79 +300,39 @@ export function InnerMotion() {
             const outer = document.createElement("span");
             outer.className =
               "inline-block overflow-y-clip pb-[0.06em] align-top";
+            // .wr-word (globals.css) waits below the clip line until the
+            // heading gets .wr-in.
             const inner = document.createElement("span");
-            inner.className = "inline-block";
+            inner.className = "wr-word inline-block";
+            inner.style.transitionDelay = `${(word++ * 0.06).toFixed(2)}s`;
             inner.textContent = part;
             outer.append(inner);
-            words.push(inner);
             frag.append(outer);
           }
           t.replaceWith(frag);
         }
-        split.push({ h, words });
+        split.push(h);
       }
-      offs.push(whenIdle(() => setupTriggers(kit, split), 600));
+      offs.push(whenIdle(() => watchScroll(split), 600));
     };
-    const setupTriggers = (
-      { gsap, ScrollTrigger }: GsapKit,
-      split: { h: HTMLElement; words: HTMLElement[] }[],
-    ) => {
+    const watchScroll = (split: HTMLElement[]) => {
       if (dead) return;
-      // Each trigger is created when its section comes within two screen
-      // heights of the viewport (see NEAR_MARGIN), not all at once: every
-      // ScrollTrigger measures the page as it is created, and together they
-      // made one long task during the page load. These pages have no pinned
-      // section, so creation order doesn't change any measurement.
-      const ctx = gsap.context(() => {}, main);
-      const pending: [Element, () => void][] = [];
-      for (const { h, words } of split) {
-        pending.push([
-          h,
-          () =>
-            gsap.from(words, {
-              yPercent: 110,
-              duration: 1,
-              stagger: 0.06,
-              ease: "expo.out",
-              scrollTrigger: { trigger: h, start: "top 88%", once: true },
-            }),
-        ]);
+      for (const h of split) {
+        offs.push(whenReached(h, 0.88, () => h.classList.add("wr-in")));
       }
-      // Scroll-scrubbed rails.
       for (const r of main.querySelectorAll<HTMLElement>("[data-rail]")) {
-        const trigger = r.closest("section") ?? r;
-        pending.push([
-          trigger,
-          () =>
-            ScrollTrigger.create({
-              trigger,
-              start: "top 70%",
-              end: "bottom 60%",
-              scrub: 0.4,
-              onUpdate: (self) => {
-                r.style.setProperty("--p", self.progress.toFixed(3));
-              },
-            }),
-        ]);
+        // ScrollTrigger's "top 70%" to "bottom 60%", with scrub: 0.4.
+        offs.push(
+          scrubWithScroll(
+            r.closest("section") ?? r,
+            (b, vh) => (vh * 0.7 - b.top) / (b.height + vh * 0.1),
+            0.12,
+            (p) => r.style.setProperty("--p", p.toFixed(3)),
+          ),
+        );
       }
-      const near = new IntersectionObserver(
-        (entries) => {
-          for (const e of entries) {
-            if (!e.isIntersecting) continue;
-            near.unobserve(e.target);
-            for (const [t, make] of pending) {
-              if (t === e.target) ctx.add(make);
-            }
-          }
-        },
-        { rootMargin: NEAR_MARGIN },
-      );
-      for (const [t] of pending) near.observe(t);
-      offs.push(() => {
-        near.disconnect();
-        ctx.revert();
-      });
     };
+    offs.push(whenIdle(splitHeadings, 1500));
 
     return () => {
       dead = true;

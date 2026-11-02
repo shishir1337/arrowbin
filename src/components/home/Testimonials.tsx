@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import { type Gsap, loadGsap, reducedMotion } from "@/lib/gsap";
 import { testimonials } from "@/lib/testimonials";
-import { useIdleEffect } from "@/lib/useIdleEffect";
+import { NEAR_MARGIN, useIdleEffect } from "@/lib/useIdleEffect";
 import { SectionLabel } from "./SectionLabel";
 
 const CARD_TONES = ["bg-white", "bg-sun", "bg-lilac", "bg-white"];
@@ -253,10 +253,12 @@ export function Testimonials() {
   }, [bindDrag, cards, layout]);
   prevRef.current = prev;
 
-  // Idle: load GSAP, put it in charge of every card's pose, then lazy-load
-  // Draggable (only this section needs it) and attach it to the top card.
+  // Idle: load GSAP and put it in charge of every card's pose. Draggable (only
+  // this section needs it, 29 KB) loads once the deck comes within two screen
+  // heights of the viewport, then attaches to the top card.
   useIdleEffect(() => {
     let cancelled = false;
+    let near: IntersectionObserver | undefined;
     const els = cards();
     ensureGsap().then(() => {
       if (cancelled) return;
@@ -265,15 +267,31 @@ export function Testimonials() {
           gsap.set(els[idx], { ...pose(idx, depth), zIndex: N - depth });
       });
       if (reducedMotion()) return;
-      import("gsap/Draggable").then(({ Draggable }) => {
-        if (cancelled) return;
-        gsap.registerPlugin(Draggable);
-        DraggableRef.current = Draggable as unknown as DraggableStatic;
-        bindDrag();
-      });
+      const attach = () =>
+        import("gsap/Draggable").then(({ Draggable }) => {
+          if (cancelled) return;
+          gsap.registerPlugin(Draggable);
+          DraggableRef.current = Draggable as unknown as DraggableStatic;
+          bindDrag();
+        });
+      const section = deck.current?.closest("section");
+      if (!section) {
+        attach();
+        return;
+      }
+      near = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((e) => e.isIntersecting)) return;
+          near?.disconnect();
+          attach();
+        },
+        { rootMargin: NEAR_MARGIN },
+      );
+      near.observe(section);
     });
     return () => {
       cancelled = true;
+      near?.disconnect();
       drag.current?.kill();
       if (gsapReady) gsap.killTweensOf(els);
     };

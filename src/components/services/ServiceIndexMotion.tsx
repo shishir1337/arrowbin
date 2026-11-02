@@ -1,31 +1,44 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { reducedMotion } from "@/lib/gsap";
-import { useGsapIdle } from "@/lib/useIdleEffect";
+import { riseInWhenReached } from "@/lib/motion";
+import { NEAR_MARGIN, whenIdle } from "@/lib/useIdleEffect";
 
-/** Scroll reveal for the service index rows (GSAP loaded in idle time). */
+/**
+ * Scroll reveal for the service index rows: each row rises in once at 92% of
+ * the screen. Same motion as the GSAP version this replaced (gsap.from y 36,
+ * opacity 0, 0.9 s expo.out), done with the Web Animations API, so /services
+ * loads no animation library. Sets up as the visitor nears the index.
+ */
 export function ServiceIndexMotion() {
   const anchor = useRef<HTMLSpanElement>(null);
 
-  // Sets up as the visitor nears the index (see useGsapIdle); /services has
-  // no pinned section.
-  useGsapIdle(({ gsap }) => {
+  useEffect(() => {
     const el = anchor.current?.closest("section");
     if (!el || reducedMotion()) return;
-    const ctx = gsap.context(() => {
-      for (const row of gsap.utils.toArray<HTMLElement>(".svi-row", el)) {
-        // The row moves as one unit, so its parts can never overlap mid-reveal.
-        gsap.from(row, {
-          y: 36,
-          opacity: 0,
-          duration: 0.9,
-          scrollTrigger: { trigger: row, start: "top 92%", once: true },
-        });
+    const offs: (() => void)[] = [];
+    const setup = () => {
+      for (const row of el.querySelectorAll<HTMLElement>(".svi-row")) {
+        // The row moves as one unit, so its parts can never overlap
+        // mid-reveal.
+        offs.push(riseInWhenReached(row, { y: 36, ms: 900, line: 0.92 }));
       }
-    }, el);
-    return () => ctx.revert();
-  }, anchor);
+    };
+    const near = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        near.disconnect();
+        offs.push(whenIdle(setup, 600));
+      },
+      { rootMargin: NEAR_MARGIN },
+    );
+    near.observe(el);
+    offs.push(() => near.disconnect());
+    return () => {
+      for (const off of offs) off();
+    };
+  }, []);
 
   return <span ref={anchor} hidden />;
 }
