@@ -10,6 +10,10 @@
  * made before they load still applies.
  */
 
+import { siteUrl } from "@/lib/site";
+
+const SITE_HOST = new URL(siteUrl).hostname;
+
 /**
  * EEA (the EU plus Iceland, Liechtenstein and Norway), the EU's outermost
  * regions that have their own country codes, the UK and Switzerland.
@@ -80,7 +84,7 @@ function europeanTimeZone() {
 /**
  * Whether this visitor should be asked. The country comes from Cloudflare's
  * /cdn-cgi/trace (answered at the edge, a few hundred bytes), checked once per
- * browser session.
+ * browser session. Off the live host, the time zone decides.
  */
 export async function needsConsent(): Promise<boolean> {
   try {
@@ -89,17 +93,21 @@ export async function needsConsent(): Promise<boolean> {
   } catch {
     // No session storage: check every time.
   }
-  let ask: boolean;
-  try {
-    const res = await fetch("/cdn-cgi/trace", { cache: "no-store" });
-    // Read the body even on an error status: an unread body keeps the request
-    // open, and an open request stops Lighthouse from ever seeing the network
-    // go quiet (its trace then runs to the 45 s limit).
-    const body = await res.text();
-    const country = res.ok ? body.match(/^loc=([A-Z]{2})$/m)?.[1] : undefined;
-    ask = country ? CONSENT_REGIONS.includes(country) : europeanTimeZone();
-  } catch {
-    ask = europeanTimeZone();
+  let ask = europeanTimeZone();
+  // Only Cloudflare, in front of the live site, answers the trace. Anywhere
+  // else (dev, local builds) it would be a 404 in the console: time zone only.
+  if (location.hostname === SITE_HOST) {
+    try {
+      const res = await fetch("/cdn-cgi/trace", { cache: "no-store" });
+      // Read the body even on an error status: an unread body keeps the request
+      // open, and an open request stops Lighthouse from ever seeing the network
+      // go quiet (its trace then runs to the 45 s limit).
+      const body = await res.text();
+      const country = res.ok ? body.match(/^loc=([A-Z]{2})$/m)?.[1] : undefined;
+      if (country) ask = CONSENT_REGIONS.includes(country);
+    } catch {
+      // Keep the time-zone answer.
+    }
   }
   try {
     sessionStorage.setItem(REGION_KEY, ask ? "1" : "0");

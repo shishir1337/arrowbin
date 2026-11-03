@@ -17,15 +17,23 @@ export function BentoMotion() {
     const offs: (() => void)[] = [];
     if (finePointer()) {
       for (const tile of el.querySelectorAll<HTMLElement>(".bento-tile")) {
-        const rx = gsap.quickTo(tile, "rotateX", {
+        // GSAP's own names: quickTo can't retarget the rotateX/rotateY aliases
+        // (it warns "not eligible for reset" on every move and never tilts).
+        const rx = gsap.quickTo(tile, "rotationX", {
           duration: 0.6,
           ease: "power3",
         });
-        const ry = gsap.quickTo(tile, "rotateY", {
+        const ry = gsap.quickTo(tile, "rotationY", {
           duration: 0.6,
           ease: "power3",
         });
+        let deep = false;
         const move = (e: PointerEvent) => {
+          // Depth on first hover only, so untouched tiles stay flat 2D layers.
+          if (!deep) {
+            deep = true;
+            gsap.set(tile, { transformPerspective: 1000 });
+          }
           const r = tile.getBoundingClientRect();
           ry(((e.clientX - r.left) / r.width - 0.5) * 8);
           rx(-((e.clientY - r.top) / r.height - 0.5) * 8);
