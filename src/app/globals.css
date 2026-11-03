@@ -525,6 +525,19 @@ body::after {
 }
 
 /* ── Service art micro-motion ───────────────────────────────────────── */
+/* Off screen (ArtSvg): SVG shapes animate on the main thread, so hidden loops
+ * would still cost a full frame 60 times a second. Every animated shape has
+ * an sa- class. Important, because each .sa-* rule below resets the play
+ * state through the `animation` shorthand. */
+svg[data-off] [class^="sa-"] {
+  /* biome-ignore lint/complexity/noImportantStyles: must beat the shorthands. */
+  animation-play-state: paused !important;
+}
+/* Other loops Chrome keeps on the main thread, paused off screen
+ * (OffscreenLoop). */
+[data-loop][data-off] {
+  animation-play-state: paused;
+}
 /* Paused by default; runs for the panel in focus (.is-live) or on hover. */
 .svc-art * {
   animation-play-state: paused;

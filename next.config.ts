@@ -74,6 +74,13 @@ const nextConfig: NextConfig = {
   // docs/seo/20-perf-2026-11-01/tools/lhfull.py --psi: mobile fell from 100 to
   // 99 on most pages and from 99 to 93 on the homepage (later FCP, more TBT).
   poweredByHeader: false,
+  turbopack: {
+    resolveAlias: {
+      // Next's browser polyfills, minus the ones every browser Next supports
+      // already has (PageSpeed's "Legacy JavaScript"). See the file.
+      "../build/polyfills/polyfill-module": "./src/lib/next-polyfills.ts",
+    },
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

@@ -113,7 +113,13 @@ export function Hero() {
                 <Chars text={LINE_2A} />
               </span>{" "}
               <span className="hero-char hero-pill relative inline-flex h-[0.7em] w-[1.35em] shrink-0 items-center overflow-hidden rounded-full bg-sun">
-                <LogoMark className="hero-arrow absolute h-[0.5em] w-[0.5em] rotate-90 text-ultra" />
+                {/* The loop and the rotation sit on a <span>: on the <svg>
+                    itself (individual `rotate`/`translate` properties on an
+                    SVG element) Chrome ran it on the main thread, a full
+                    frame 60 times a second. */}
+                <span className="hero-arrow absolute h-[0.5em] w-[0.5em] rotate-90 text-ultra">
+                  <LogoMark className="h-full w-full" />
+                </span>
               </span>{" "}
               <span className="text-ultra">
                 <Chars text={LINE_2B} />
@@ -148,28 +154,32 @@ export function Hero() {
                 />
               </svg>
             </HeroScrollButton>
-            <svg
-              viewBox="0 0 100 100"
-              aria-hidden="true"
-              className="spin-slow pointer-events-none absolute inset-0 h-full w-full"
-            >
-              <defs>
-                <path
-                  id="hero-circle"
-                  d="M50 50m-37 0a37 37 0 1 1 74 0a37 37 0 1 1-74 0"
-                />
-              </defs>
-              <text className="fill-white font-mono text-[8.5px] uppercase">
-                {/* textLength = circle circumference (2π·37), so the ring closes evenly */}
-                <textPath
-                  href="#hero-circle"
-                  textLength="230"
-                  lengthAdjust="spacing"
-                >
-                  Scroll · Explore · Scroll · Explore ·
-                </textPath>
-              </text>
-            </svg>
+            {/* The spin sits on a <span>, not the <svg>: Chrome turned the
+                SVG's rotation into a layout every frame on the main thread. */}
+            <span className="spin-slow pointer-events-none absolute inset-0">
+              <svg
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+                className="h-full w-full"
+              >
+                <defs>
+                  <path
+                    id="hero-circle"
+                    d="M50 50m-37 0a37 37 0 1 1 74 0a37 37 0 1 1-74 0"
+                  />
+                </defs>
+                <text className="fill-white font-mono text-[8.5px] uppercase">
+                  {/* textLength = circle circumference (2π·37), so the ring closes evenly */}
+                  <textPath
+                    href="#hero-circle"
+                    textLength="230"
+                    lengthAdjust="spacing"
+                  >
+                    Scroll · Explore · Scroll · Explore ·
+                  </textPath>
+                </text>
+              </svg>
+            </span>
           </div>
           <span className="label max-sm:hidden">© Arrowbin · Worldwide</span>
         </div>

@@ -3,8 +3,9 @@
  * click or pointer move. Lighthouse and PageSpeed Insights never send any of
  * them, so work gated on this stays out of lab page loads.
  *
- * Used by AfterInteraction (third-party scripts) and Magnetic (GSAP for the
- * button pull). Client only: the listeners are added when this module first
+ * Used by AfterInteraction (third-party scripts), Magnetic (GSAP for the
+ * button pull) and the home page's scroll motion (whenEngaged in
+ * useIdleEffect). Client only: the listeners are added when this module first
  * loads in the browser.
  *
  * Not `scroll`: the page fires it by itself during load (scroll restoration and

@@ -3,15 +3,16 @@
 import { useCallback, useRef, useState } from "react";
 import { type Gsap, loadGsap, reducedMotion } from "@/lib/gsap";
 import { testimonials } from "@/lib/testimonials";
-import { NEAR_MARGIN, useIdleEffect } from "@/lib/useIdleEffect";
+import { NEAR_MARGIN, useIdleEffect, whenEngaged } from "@/lib/useIdleEffect";
 import { SectionLabel } from "./SectionLabel";
 
 const CARD_TONES = ["bg-white", "bg-sun", "bg-lilac", "bg-white"];
 const ROT = [-4, 3, -2, 5];
 const N = testimonials.length;
 
-// GSAP is fetched lazily (idle time, or on the first click if that comes
-// sooner). Until then the server-rendered inline poses show the deck as-is.
+// GSAP is fetched lazily (as the visitor nears the deck, or on the first click
+// if that comes sooner). Until then the server-rendered inline poses show the
+// deck as-is.
 let gsap = null as unknown as Gsap;
 let gsapReady = false;
 const ensureGsap = () =>
@@ -253,37 +254,41 @@ export function Testimonials() {
   }, [bindDrag, cards, layout]);
   prevRef.current = prev;
 
-  // Idle: load GSAP and put it in charge of every card's pose. Draggable (only
-  // this section needs it, 29 KB) loads once the deck comes within two screen
-  // heights of the viewport, then attaches to the top card.
+  // Once the visitor is using the page (whenEngaged) and the deck comes within
+  // two screen heights of the viewport: load GSAP, put it in charge of every
+  // card's pose, and attach Draggable (only this section needs it, 29 KB) to
+  // the top card. Until then the server-rendered poses show the deck as-is,
+  // and a button press loads GSAP on the spot (ensureGsap above).
   useIdleEffect(() => {
     let cancelled = false;
     let near: IntersectionObserver | undefined;
     const els = cards();
-    ensureGsap().then(() => {
-      if (cancelled) return;
-      order.current.forEach((idx, depth) => {
-        if (els[idx])
-          gsap.set(els[idx], { ...pose(idx, depth), zIndex: N - depth });
-      });
-      if (reducedMotion()) return;
-      const attach = () =>
+    const takeOver = () =>
+      ensureGsap().then(() => {
+        if (cancelled) return;
+        order.current.forEach((idx, depth) => {
+          if (els[idx])
+            gsap.set(els[idx], { ...pose(idx, depth), zIndex: N - depth });
+        });
+        if (reducedMotion()) return;
         import("gsap/Draggable").then(({ Draggable }) => {
           if (cancelled) return;
           gsap.registerPlugin(Draggable);
           DraggableRef.current = Draggable as unknown as DraggableStatic;
           bindDrag();
         });
+      });
+    const offEngaged = whenEngaged(() => {
       const section = deck.current?.closest("section");
       if (!section) {
-        attach();
+        takeOver();
         return;
       }
       near = new IntersectionObserver(
         (entries) => {
           if (!entries.some((e) => e.isIntersecting)) return;
           near?.disconnect();
-          attach();
+          takeOver();
         },
         { rootMargin: NEAR_MARGIN },
       );
@@ -291,6 +296,7 @@ export function Testimonials() {
     });
     return () => {
       cancelled = true;
+      offEngaged();
       near?.disconnect();
       drag.current?.kill();
       if (gsapReady) gsap.killTweensOf(els);

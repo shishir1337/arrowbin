@@ -17,10 +17,11 @@ declare global {
  * reduced-motion users keep native scrolling. Lenis is fetched in idle time, so
  * it is not on the critical path.
  *
- * Lenis runs on its own animation frame loop until GSAP is on the page (the
- * home page loads it for its sections, any page for the magnetic buttons once
- * the visitor starts using it). From then on GSAP's ticker drives Lenis, so
- * ScrollTrigger scrubs stay in lock-step with the eased scroll position.
+ * While a smooth scroll is moving, Lenis runs on its own animation frames until
+ * GSAP is on the page (the home page loads it for its sections, any page for
+ * the magnetic buttons once the visitor starts using it). From then on GSAP's
+ * ticker drives Lenis, so ScrollTrigger scrubs stay in lock-step with the
+ * eased scroll position. Between scrolls there is no frame loop at all.
  * Loading GSAP here just for that would put it on every page, including the
  * many that never animate with it.
  */
@@ -43,25 +44,62 @@ export function SmoothScroll() {
         anchors: { offset: -80 },
       });
       window.__lenis = lenis;
-      // performance.now() in both loops, so the hand-over keeps one time base.
+
+      // Lenis needs frames only while it eases a scroll. An endless frame loop
+      // makes Chrome build a main-thread frame 60 times a second on an idle
+      // page, and every one restyles each running CSS animation (marquees,
+      // the CTA ring), which the compositor would otherwise run for free. So
+      // frames start when a smooth scroll starts (wheel, keys and anchor links
+      // all go through lenis.scrollTo) and stop on the frame it settles.
+      let running = false;
+      let resumed = false;
+      // One eased frame; returns whether the scroll is still moving.
+      const frame = (time: number) => {
+        if (resumed) {
+          // Lenis steps from its previous frame's time. After a pause that gap
+          // would be one huge step (a jump), so count it as a single frame.
+          lenis.time = time - 1000 / 60;
+          resumed = false;
+        }
+        lenis.raf(time);
+        return lenis.isScrolling === "smooth";
+      };
       let raf = 0;
       const loop = (time: number) => {
-        lenis.raf(time);
+        if (frame(time)) raf = requestAnimationFrame(loop);
+        else running = false;
+      };
+      let begin = () => {
         raf = requestAnimationFrame(loop);
       };
-      raf = requestAnimationFrame(loop);
-      let stop = () => cancelAnimationFrame(raf);
+      let end = () => cancelAnimationFrame(raf);
+      const scrollTo = lenis.scrollTo.bind(lenis);
+      lenis.scrollTo = (...args: Parameters<typeof scrollTo>) => {
+        scrollTo(...args);
+        if (running || lenis.isScrolling !== "smooth") return;
+        running = true;
+        resumed = true;
+        begin();
+      };
+
       const cancel = whenGsapLoaded(({ gsap, ScrollTrigger }) => {
-        stop();
+        end();
         lenis.on("scroll", ScrollTrigger.update);
-        const tick = () => lenis.raf(performance.now());
-        gsap.ticker.add(tick);
         gsap.ticker.lagSmoothing(0);
-        stop = () => gsap.ticker.remove(tick);
+        // performance.now() is the clock of rAF timestamps too, so a scroll
+        // in progress carries on without a step.
+        const tick = () => {
+          if (frame(performance.now())) return;
+          gsap.ticker.remove(tick);
+          running = false;
+        };
+        begin = () => gsap.ticker.add(tick);
+        end = () => gsap.ticker.remove(tick);
+        if (running) begin();
       });
       off = () => {
         cancel();
-        stop();
+        end();
         lenis.destroy();
         window.__lenis = undefined;
       };

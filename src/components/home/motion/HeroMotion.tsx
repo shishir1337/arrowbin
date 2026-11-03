@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { finePointer, loadGsap, reducedMotion } from "@/lib/gsap";
+import { whenEngaged, whenIdle } from "@/lib/useIdleEffect";
 
 /**
  * Hero motion (the hero itself is server-rendered): intro reveal and the
@@ -156,50 +157,47 @@ export function HeroMotion() {
     }
 
     // Scroll: headline drifts, blob zooms out as the tapes arrive. GSAP is
-    // fetched in idle time for this, well after the intro has started.
+    // fetched for this in idle time once the visitor starts using the page
+    // (whenEngaged); until they scroll, the hero sits at scroll 0, the pose
+    // these scrubs start from anyway.
     let st: undefined | { revert: () => void };
     let dead = false;
-    const idle = (
-      window as Window & {
-        requestIdleCallback?: (
-          cb: () => void,
-          o?: { timeout: number },
-        ) => number;
-      }
-    ).requestIdleCallback;
-    const later = (cb: () => void) =>
-      idle ? idle(cb, { timeout: 1500 }) : window.setTimeout(cb, 200);
-    later(() =>
-      loadGsap().then(({ gsap }) => {
-        if (dead) return;
-        st = gsap.context(() => {
-          gsap.to(".hero-title", {
-            yPercent: -18,
-            ease: "none",
-            scrollTrigger: {
-              trigger: el,
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-            },
-          });
-          gsap.to(".hero-canvas", {
-            scale: 1.15,
-            opacity: 0.4,
-            ease: "none",
-            scrollTrigger: {
-              trigger: el,
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-            },
-          });
-        }, el);
-      }),
-    );
+    let cancelIdle: undefined | (() => void);
+    const offEngaged = whenEngaged(() => {
+      cancelIdle = whenIdle(() => {
+        loadGsap().then(({ gsap }) => {
+          if (dead) return;
+          st = gsap.context(() => {
+            gsap.to(".hero-title", {
+              yPercent: -18,
+              ease: "none",
+              scrollTrigger: {
+                trigger: el,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+              },
+            });
+            gsap.to(".hero-canvas", {
+              scale: 1.15,
+              opacity: 0.4,
+              ease: "none",
+              scrollTrigger: {
+                trigger: el,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+              },
+            });
+          }, el);
+        });
+      }, 1500);
+    });
 
     return () => {
       dead = true;
+      offEngaged();
+      cancelIdle?.();
       st?.revert();
       io.disconnect();
       cancelAnimationFrame(raf);

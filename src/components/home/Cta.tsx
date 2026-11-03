@@ -1,3 +1,4 @@
+import { OffscreenLoop } from "@/components/motion/OffscreenLoop";
 import { site } from "@/lib/site";
 import { ArrowField } from "./ArrowField";
 import { Magnetic } from "./Magnetic";
@@ -43,7 +44,7 @@ export function Cta({
               rel="noopener noreferrer"
               className="group relative grid h-44 w-44 place-items-center rounded-full bg-sun text-ink shadow-[0_30px_80px_-20px_rgba(255,210,63,0.8)] transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-110 sm:h-52 sm:w-52"
             >
-              <span className="absolute inset-0 rounded-full border-2 border-sun [animation:sa-ring_2.4s_ease-out_infinite]" />
+              <OffscreenLoop className="absolute inset-0 rounded-full border-2 border-sun [animation:sa-ring_2.4s_ease-out_infinite]" />
               <span className="font-display text-xl font-black uppercase leading-none tracking-tight sm:text-2xl">
                 Book a
                 <br />

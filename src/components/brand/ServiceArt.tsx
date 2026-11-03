@@ -1,29 +1,12 @@
+import { ArtSvg as Svg } from "./ArtSvg";
+
 /**
  * One geometric, gently animated illustration per service (200×200 box). Colours
  * come from props so each art piece sits on its panel's colour band. Motion is
- * pure CSS (`.sa-*` in globals.css) and switches off under reduced motion.
+ * pure CSS (`.sa-*` in globals.css), switches off under reduced motion, and
+ * pauses while the piece is off screen (see ArtSvg).
  */
 type Props = { slug: string; fg: string; accent: string; className?: string };
-
-function Svg({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <svg
-      viewBox="0 0 200 200"
-      className={className}
-      aria-hidden="true"
-      focusable="false"
-      fill="none"
-    >
-      {children}
-    </svg>
-  );
-}
 
 export function ServiceArt({ slug, fg, accent, className = "" }: Props) {
   const common = { className };

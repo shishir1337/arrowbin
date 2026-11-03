@@ -12,9 +12,14 @@
  * after the hero onward, and the footer, use `content-visibility: auto`, so the
  * browser skips their layout and paint. They are always below the fold on a
  * phone at that point (they start at least one full screen down), so nothing
- * visible changes. Right after that first frame the class `cv-off` turns the
- * rule off and the page lays out exactly as before, long before any scroll
- * animation measures it.
+ * visible changes. After that first frame they are laid out in document order,
+ * one per animation frame (an inline `content-visibility: visible` each), so
+ * the rest of the page costs a dozen short tasks instead of one long layout
+ * (about 100 ms on a fast desktop CPU for the homepage, which Lighthouse's
+ * phone simulation counted as blocking time). Then the class `cv-off` turns
+ * the rule off, the inline styles are removed, and the page is laid out
+ * exactly as before. GSAP waits for `cv-off` before it measures anything
+ * (lib/gsap.ts); desktops skip the stagger and get `cv-off` straight away.
  *
  * Pages whose long content sits inside an earlier child opt in by hand
  * (1 Nov 2026): `data-ff` on an element below the first phone screen, or
@@ -37,10 +42,19 @@
  * scroll position or jump to a #hash, where below-fold content can be on screen.
  */
 const OFF = "html.js:not(.cv-off)";
-const CSS = `@media (max-width:767px){${OFF} main>*:nth-child(n+4),${OFF} body>footer,${OFF} [data-ff],${OFF} [data-ff-kids]>*{content-visibility:auto;contain-intrinsic-size:auto 1000px}${OFF} [data-ff-hide]{content-visibility:hidden}}`;
+const PHONE = "(max-width:767px)";
+const SKIPPED = "main>*:nth-child(n+4),body>footer,[data-ff],[data-ff-kids]>*";
+const CSS = `@media ${PHONE}{${SKIPPED.split(",")
+  .map((s) => `${OFF} ${s}`)
+  .join(
+    ",",
+  )}{content-visibility:auto;contain-intrinsic-size:auto 1000px}${OFF} [data-ff-hide]{content-visibility:hidden}}`;
 
-const SCRIPT =
-  '(function(){var d=document.documentElement,n=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];function off(){d.classList.add("cv-off")}if(location.hash||(n&&n.type!=="navigate"))off();else requestAnimationFrame(function(){setTimeout(off,0)})})();';
+// At most this many frames: long pages (the legal texts mark every paragraph)
+// lay out a few elements per frame instead of one.
+const MAX_FRAMES = 12;
+
+const SCRIPT = `(function(){var d=document.documentElement,n=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];function off(){d.classList.add("cv-off")}if(location.hash||(n&&n.type!=="navigate"))return off();requestAnimationFrame(function(){setTimeout(function(){if(!matchMedia("${PHONE}").matches)return off();var q=[].slice.call(document.querySelectorAll("${SKIPPED}")),per=Math.ceil(q.length/${MAX_FRAMES})||1,i=0;(function next(){if(i<q.length){for(var k=0;k<per&&i<q.length;k++)q[i++].style.contentVisibility="visible";requestAnimationFrame(next)}else{off();q.forEach(function(e){e.style.removeProperty("content-visibility")})}})()},0)})})();`;
 
 export function FirstFrame() {
   return (
