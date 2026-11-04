@@ -1,8 +1,11 @@
-import { postModified, sortedPosts } from "@/lib/blog";
+import { allPosts } from "@/lib/articles";
+import { postModified } from "@/lib/blog";
 import { site, siteUrl } from "@/lib/site";
 
-// Statically generated at build time; regenerated on each deploy.
+// Generated at build time, then refreshed by the RankYak webhook when an
+// article arrives (revalidatePath); the hourly revalidation is a safety net.
 export const dynamic = "force-static";
+export const revalidate = 3600;
 
 function escapeXml(value: string) {
   return value
@@ -13,7 +16,8 @@ function escapeXml(value: string) {
     .replace(/'/g, "&apos;");
 }
 
-export function GET() {
+export async function GET() {
+  const sortedPosts = await allPosts();
   // RSS 2.0 has no per-item "updated" field, so each item's last change goes in
   // the Dublin Core terms extension (dcterms:modified, a W3C date).
   const items = sortedPosts

@@ -1430,3 +1430,190 @@ svg[data-off] [class^="sa-"] {
     animation: none;
   }
 }
+
+/* ── RankYak article body ──────────────────────────────────────────────── */
+/* RankYak sends each article body as plain HTML (RankYakArticle.tsx renders
+   it as is). These rules give those bare tags the look PostBody.tsx gives the
+   posts written in the code: same type scale, spacing, bullets, tables and
+   quotes. */
+.rk-body {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+@media (min-width: 40rem) {
+  .rk-body {
+    font-size: 1.125rem;
+  }
+}
+.rk-body > * + * {
+  margin-top: 1.5rem;
+}
+.rk-body p,
+.rk-body li {
+  color: var(--ink-2);
+}
+.rk-body h2 {
+  scroll-margin-top: 7rem;
+  padding-top: 2.5rem;
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.rk-body h3,
+.rk-body h4 {
+  scroll-margin-top: 7rem;
+  padding-top: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.rk-body h4 {
+  font-size: 1.0625rem;
+}
+.rk-body a {
+  font-weight: 600;
+  color: var(--ultra);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: color 0.35s;
+}
+.rk-body a:hover {
+  color: var(--ink);
+}
+.rk-body strong,
+.rk-body b {
+  font-weight: 700;
+  color: var(--ink);
+}
+.rk-body ul {
+  list-style: none;
+  padding-left: 0.25rem;
+}
+.rk-body ul > li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.rk-body ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  rotate: 45deg;
+  background: var(--plasma);
+}
+.rk-body ol {
+  list-style: decimal inside;
+  margin-left: 0.25rem;
+}
+.rk-body ol > li::marker {
+  font-weight: 700;
+  color: var(--ultra);
+}
+.rk-body li + li {
+  margin-top: 0.625rem;
+}
+.rk-body li > ul,
+.rk-body li > ol {
+  margin-top: 0.625rem;
+}
+.rk-body blockquote {
+  margin-block: 2rem;
+  border-radius: 1.5rem;
+  background: var(--plasma);
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.375;
+  color: var(--ink);
+}
+.rk-body blockquote p {
+  color: inherit;
+}
+.rk-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+}
+.rk-body figure {
+  margin-block: 2rem;
+}
+.rk-body figcaption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+/* The frame hugs the table, and a table wider than the column scrolls inside
+   it instead of the whole page. */
+.rk-body table {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: 2rem;
+  border-collapse: collapse;
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: left;
+}
+.rk-body th {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.875rem 1rem;
+  vertical-align: bottom;
+  min-width: 6.5rem;
+}
+.rk-body td {
+  border-top: 1px solid var(--line);
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+  color: var(--ink-2);
+}
+.rk-body code {
+  border-radius: 0.375rem;
+  background: rgba(14, 11, 36, 0.06);
+  padding: 0.125rem 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.rk-body pre {
+  overflow-x: auto;
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.rk-body pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+.rk-body hr {
+  margin-block: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+.rk-body iframe,
+.rk-body video {
+  max-width: 100%;
+  border-radius: 1.5rem;
+}

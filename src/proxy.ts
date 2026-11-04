@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { type NextRequest, NextResponse } from "next/server";
+import { isMissingArticle } from "@/lib/articles";
+import { postSlugs } from "@/lib/blog";
 
 /**
  * Two jobs:
@@ -30,7 +32,16 @@ import { type NextRequest, NextResponse } from "next/server";
  *    "non-blocking" there, so its simulated first paint comes earlier and any
  *    long task right after it counts as blocking time. That is why FirstFrame
  *    lays the rest of a phone page out in short steps.
+ *
+ * 3. A /blog/<slug> that is neither a post in src/lib/posts nor a live RankYak
+ *    article is rewritten to a path with no route, so Next answers with the
+ *    site's own 404 page (status 404, full layout). Left to the page, a
+ *    notFound() during an on-demand render returns Next's bare error document
+ *    instead (`<html id="__next_error__">`: no lang, no styles, empty body
+ *    until JavaScript draws it).
  */
+const OWN_POSTS = new Set(postSlugs);
+const BLOG_POST = /^\/blog\/([^/]+)$/;
 const SPAM_HOME_PARAMS = [
   "channel",
   "_bd_prev_page",
@@ -80,7 +91,7 @@ function cssPreloadLink(): string | null {
   return cssLink;
 }
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
   if (
     pathname === "/" &&
@@ -97,7 +108,11 @@ export function proxy(request: NextRequest) {
       },
     });
   }
-  const response = NextResponse.next();
+  const post = BLOG_POST.exec(pathname)?.[1];
+  const response =
+    post && !OWN_POSTS.has(post) && (await isMissingArticle(post))
+      ? NextResponse.rewrite(new URL("/_blog-post-not-found", request.url))
+      : NextResponse.next();
   // Page loads only. Client-side navigations and prefetches are fetch()es
   // (Sec-Fetch-Dest "empty"; Next hides its own RSC markers from the proxy),
   // and the stylesheets are already on the page by then. Clients that send no

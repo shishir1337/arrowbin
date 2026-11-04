@@ -5,6 +5,7 @@ import { AuthorCard } from "@/components/blog/AuthorCard";
 import { PostCard } from "@/components/blog/BlogIndex";
 import { PostBody } from "@/components/blog/PostBody";
 import { PreferredSource } from "@/components/blog/PreferredSource";
+import { RankYakArticle } from "@/components/blog/RankYakArticle";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { ShareLinks } from "@/components/blog/ShareLinks";
 import { Toc } from "@/components/blog/Toc";
@@ -13,6 +14,13 @@ import { Faq } from "@/components/home/Faq";
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
+import {
+  type Article,
+  allPosts,
+  articleDescription,
+  getArticle,
+  listArticles,
+} from "@/lib/articles";
 import {
   getPost,
   type Post,
@@ -27,11 +35,60 @@ import { pageAlternates, site } from "@/lib/site";
 
 type Params = { slug: string };
 
-/** Only slugs from `generateStaticParams` exist; any other returns a real 404. */
-export const dynamicParams = false;
+/**
+ * The posts in src/lib/posts and the RankYak articles present at build time
+ * are prerendered. An article that arrives later renders on its first visit
+ * and is cached from then on (the webhook marks its page stale on every
+ * update). A slug that is neither answers a real 404.
+ */
+export const dynamicParams = true;
 
-export function generateStaticParams(): Params[] {
-  return posts.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams(): Promise<Params[]> {
+  const own = new Set(posts.map((p) => p.slug));
+  const articles = (await listArticles()).filter((a) => !own.has(a.slug));
+  return [...posts, ...articles].map((p) => ({ slug: p.slug }));
+}
+
+/** Title, description, canonical URL and share image of a RankYak article. */
+function articleMetadata(article: Article): Metadata {
+  const path = `/blog/${article.slug}`;
+  const title = article.metaTitle ?? article.title;
+  const description = articleDescription(article);
+  const images = [
+    article.headerImageUrl
+      ? { url: article.headerImageUrl, alt: article.title }
+      : {
+          url: `${path}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${article.title}: a guide from the Arrowbin blog`,
+        },
+  ];
+  const publishedTime = article.publishedAt.toISOString();
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { ...pageAlternates(path), types: feedAlternate },
+    openGraph: {
+      type: "article",
+      siteName: site.name,
+      locale: ogLocale,
+      url: path,
+      title,
+      description,
+      publishedTime,
+      modifiedTime: article.updatedAt?.toISOString() ?? publishedTime,
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: xHandle,
+      creator: xHandle,
+      title,
+      description,
+      images,
+    },
+  };
 }
 
 /** Approximate article word count from the structured body, for BlogPosting schema. */
@@ -56,7 +113,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
-  if (!post) return {};
+  if (!post) {
+    const article = await getArticle(slug);
+    return article ? articleMetadata(article) : {};
+  }
   const path = `/blog/${post.slug}`;
   const image = {
     url: `${path}/opengraph-image`,
@@ -103,7 +163,14 @@ export default async function BlogPostPage({
 }) {
   const { slug } = await params;
   const post = getPost(slug);
-  if (!post) notFound();
+  if (!post) {
+    const article = await getArticle(slug);
+    if (!article) notFound();
+    const more = (await allPosts())
+      .filter((p) => p.slug !== article.slug)
+      .slice(0, 3);
+    return <RankYakArticle article={article} more={more} />;
+  }
 
   const crumbs = [
     { name: "Home", path: "/" },

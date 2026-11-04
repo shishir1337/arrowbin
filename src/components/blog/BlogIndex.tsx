@@ -76,8 +76,11 @@ async function Cover({
 }) {
   if (!post.image || post.image.pending) return null;
   const svg = post.image.src.endsWith(".svg");
-  const blur = svg ? undefined : await getBlurDataURL(post.image.src);
-  const preloadWide = wide && !svg;
+  // A RankYak article's header image lives on another host: shown as is, from
+  // that host, with no optimizer, blur or preload.
+  const remote = /^https?:\/\//.test(post.image.src);
+  const blur = svg || remote ? undefined : await getBlurDataURL(post.image.src);
+  const preloadWide = wide && !svg && !remote;
   return (
     <>
       {preloadWide ? (
@@ -89,7 +92,7 @@ async function Cover({
         fill
         sizes={sizes}
         priority={priority}
-        unoptimized={svg}
+        unoptimized={svg || remote}
         className="object-cover"
         {...(blur ? { placeholder: "blur" as const, blurDataURL: blur } : {})}
       />

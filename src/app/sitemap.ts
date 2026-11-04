@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { postModified, posts } from "@/lib/blog";
+import { allPosts } from "@/lib/articles";
+import { postModified } from "@/lib/blog";
 import { caseStudies } from "@/lib/case-studies";
 import { services } from "@/lib/services";
 import { siteUrl } from "@/lib/site";
@@ -12,8 +13,13 @@ import { siteUrl } from "@/lib/site";
 // which rewrote service intros, titles and shared copy).
 const STATIC_BASELINE = "2026-10-15";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Includes the RankYak articles: the webhook refreshes it when one arrives;
+// the hourly revalidation is only a safety net.
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticUpdated = new Date(STATIC_BASELINE);
+  const posts = await allPosts();
 
   const staticPaths = [
     "/",

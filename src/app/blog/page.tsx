@@ -3,7 +3,7 @@ import { BlogAnswers, BlogHero, BlogList } from "@/components/blog/BlogIndex";
 import { Cta } from "@/components/home/Cta";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { sortedPosts } from "@/lib/blog";
+import { allPosts } from "@/lib/articles";
 import { pageShare } from "@/lib/metadata";
 import { breadcrumbSchema, collectionPageSchema } from "@/lib/schema";
 
@@ -21,12 +21,17 @@ export const metadata: Metadata = {
   }),
 };
 
+// Prerendered, and refreshed by the RankYak webhook (revalidatePath) whenever
+// an article arrives; the hourly revalidation is only a safety net.
+export const revalidate = 3600;
+
 const crumbs = [
   { name: "Home", path: "/" },
   { name: "Blog", path: "/blog" },
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await allPosts();
   return (
     <>
       <JsonLd
@@ -37,14 +42,14 @@ export default function BlogPage() {
             description:
               "Practical guides and insights on software development, cost, MVPs, SaaS, AI and choosing the right development partner.",
             path: "/blog",
-            items: sortedPosts,
+            items: posts,
           }),
         ]}
       />
       <InnerMotion />
-      <BlogHero crumbs={crumbs} posts={sortedPosts} />
-      <BlogList posts={sortedPosts} label="01" />
-      <BlogAnswers posts={sortedPosts} label="02" />
+      <BlogHero crumbs={crumbs} posts={posts} />
+      <BlogList posts={posts} label="01" />
+      <BlogAnswers posts={posts} label="02" />
       {/* Rendered directly, not inside <Suspense>: a boundary here made the
           prerendered HTML stream the closing CTA as a hidden block after </main>. */}
       <Cta index="03" />

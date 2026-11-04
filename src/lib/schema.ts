@@ -393,11 +393,15 @@ export function blogPostingSchema(opts: {
   slug: string;
   datePublished: string;
   dateModified?: string;
-  author: string;
+  /** A person's byline. Omitted for an article published as the company
+   * (the RankYak articles): the author is then the Organization. */
+  author?: string;
   category?: string;
   hasTldr?: boolean;
   keywords?: string[];
   wordCount?: number;
+  /** Absolute URL of the article's own image; defaults to its generated card. */
+  image?: string;
 }) {
   const url = `${siteUrl}/blog/${opts.slug}`;
   return {
@@ -409,12 +413,14 @@ export function blogPostingSchema(opts: {
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     isPartOf: { "@id": `${siteUrl}/blog#collection` },
-    image: {
-      "@type": "ImageObject",
-      url: `${siteUrl}/blog/${opts.slug}/opengraph-image`,
-      width: 1200,
-      height: 630,
-    },
+    image: opts.image
+      ? { "@type": "ImageObject", url: opts.image }
+      : {
+          "@type": "ImageObject",
+          url: `${siteUrl}/blog/${opts.slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+        },
     inLanguage: "en",
     ...(opts.keywords?.length ? { keywords: opts.keywords.join(", ") } : {}),
     ...(opts.wordCount ? { wordCount: opts.wordCount } : {}),
@@ -432,9 +438,11 @@ export function blogPostingSchema(opts: {
     // No email here: that is published on /about only. Any other byline gets a
     // plain Person so it never merges into the founder's @id.
     author:
-      opts.author === author.name
-        ? founderNode()
-        : { "@type": "Person", name: opts.author },
+      opts.author === undefined
+        ? { "@id": ORG_ID }
+        : opts.author === author.name
+          ? founderNode()
+          : { "@type": "Person", name: opts.author },
     publisher: { "@id": ORG_ID },
     copyrightYear: Number(opts.datePublished.slice(0, 4)),
     copyrightHolder: { "@id": ORG_ID },
