@@ -32,6 +32,12 @@ const CLARITY_HOSTS = "https://*.clarity.ms https://c.bing.com";
 // www.gstatic.com, which img-src's https: covers.
 const PREFERRED_SOURCE_HOST = "https://news.google.com";
 
+// YouTube videos RankYak embeds in its articles. src/lib/article-html.ts moves
+// them to the privacy-enhanced youtube-nocookie.com player; www.youtube.com
+// stays allowed for an embed in a form that rewrite doesn't catch.
+const YOUTUBE_HOSTS =
+  "https://www.youtube-nocookie.com https://www.youtube.com";
+
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}https://www.googletagmanager.com ${CLARITY_HOSTS} ${PREFERRED_SOURCE_HOST}`,
@@ -44,7 +50,7 @@ const csp = [
   // now fall under it too.)
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  `frame-src 'self' ${PREFERRED_SOURCE_HOST}`,
+  `frame-src 'self' ${PREFERRED_SOURCE_HOST} ${YOUTUBE_HOSTS}`,
   `connect-src 'self' ${GA_HOSTS} ${CLARITY_HOSTS}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",

@@ -3,11 +3,13 @@ import { PostCard } from "@/components/blog/BlogIndex";
 import { PreferredSource } from "@/components/blog/PreferredSource";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { ShareLinks } from "@/components/blog/ShareLinks";
+import { Toc } from "@/components/blog/Toc";
 import { Cta } from "@/components/home/Cta";
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { InnerMotion } from "@/components/motion/InnerMotion";
 import { Crumbs } from "@/components/ui/Crumbs";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { prepareArticleHtml } from "@/lib/article-html";
 import {
   type Article,
   articleAsPost,
@@ -20,9 +22,11 @@ import { site } from "@/lib/site";
 
 /**
  * A RankYak article: the title as the H1, the header image, then the article
- * body exactly as RankYak sent it (its HTML holds no title of its own), styled
- * by `.rk-body` in globals.css to match the other posts. Then share links,
- * more posts and the closing call to action.
+ * body as RankYak sent it (its HTML holds no title of its own), styled by
+ * `.rk-body` in globals.css to match the other posts. Its H2s get anchor ids
+ * for the "On this page" contents (sticky on the right on desktop, a
+ * fold-out list on phones), laid out like the posts in src/lib/posts. Then
+ * share links, more posts and the closing call to action.
  */
 export function RankYakArticle({
   article,
@@ -40,6 +44,8 @@ export function RankYakArticle({
     { name: article.title, path },
   ];
   const label = (n: number) => String(n).padStart(2, "0");
+  const body = prepareArticleHtml(article.html);
+  const toc = body.toc;
 
   return (
     <>
@@ -113,18 +119,66 @@ export function RankYakArticle({
       </header>
 
       <article id="article-root" className="relative bg-white py-14 sm:py-20">
-        <div className="mx-auto w-full max-w-[1600px] px-[var(--gutter)]">
-          <div className="mx-auto max-w-[52rem]">
+        <div className="mx-auto grid w-full max-w-[1600px] gap-12 px-[var(--gutter)] lg:grid-cols-12 lg:gap-8">
+          {/* Main column */}
+          <div className="min-w-0 lg:col-span-8 xl:col-span-7 xl:col-start-2">
+            {/* Table of contents: collapsible on phones and tablets */}
+            {toc.length > 2 ? (
+              <details className="group mb-10 rounded-[1.5rem] bg-frost p-5 lg:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                  On this page
+                  <span
+                    aria-hidden="true"
+                    className="grid h-8 w-8 place-items-center rounded-full bg-white transition-transform duration-500 group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <nav aria-label="Table of contents" className="mt-3">
+                  <ol className="grid gap-1 text-sm">
+                    {toc.map((item, i) => (
+                      <li key={item.id}>
+                        <a
+                          href={`#${item.id}`}
+                          className="flex gap-3 rounded-lg py-1.5 text-ink-2 transition-colors hover:text-ultra"
+                        >
+                          <span className="font-mono text-xs leading-6">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span>{item.text}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              </details>
+            ) : null}
+
             <div
               className="rk-body"
               // biome-ignore lint/security/noDangerouslySetInnerHtml: the article body from RankYak, rendered as sent; only the authenticated webhook writes it.
-              dangerouslySetInnerHTML={{ __html: article.html }}
+              dangerouslySetInnerHTML={{ __html: body.html }}
             />
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <p className="label text-ink-2">Share</p>
               <ShareLinks url={`${site.url}${path}`} title={article.title} />
             </div>
             <PreferredSource />
+          </div>
+
+          {/* Sidebar (desktop) */}
+          <div className="hidden lg:col-span-4 lg:block xl:col-span-3">
+            <div className="sticky top-28">
+              {toc.length > 2 ? (
+                <nav
+                  aria-label="Table of contents"
+                  className="rounded-[1.5rem] bg-frost p-5"
+                >
+                  <p className="label text-ink-2">On this page</p>
+                  <Toc items={toc} />
+                </nav>
+              ) : null}
+            </div>
           </div>
         </div>
       </article>

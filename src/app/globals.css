@@ -1612,8 +1612,15 @@ svg[data-off] [class^="sa-"] {
   margin-block: 2.5rem;
   border-top: 1px solid var(--line);
 }
+/* Embedded videos (RankYak adds YouTube players) fill the column at 16:9
+   whatever width/height attributes they carry. */
 .rk-body iframe,
 .rk-body video {
-  max-width: 100%;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
   border-radius: 1.5rem;
+  background: var(--frost);
 }
