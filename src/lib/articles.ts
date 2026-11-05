@@ -1,5 +1,12 @@
 import "server-only";
 import { cache } from "react";
+import {
+  type OwnImages,
+  ownImages,
+  ownImageUrl,
+  rankYakImageUrls,
+  withOwnImages,
+} from "./article-images";
 import { type Post, sortedPosts } from "./blog";
 import { db, hasDatabase } from "./db";
 import { site } from "./site";
@@ -37,6 +44,7 @@ export type ArticleSummary = {
   excerpt: string | null;
   metaTitle: string | null;
   metaDescription: string | null;
+  /** On this site (/blog/images/...) once copied, else RankYak's URL. */
   headerImageUrl: string | null;
   /** `published_at`, or the publish date or arrival time when RankYak sent none. */
   publishedAt: Date;
@@ -70,14 +78,14 @@ type SummaryRow = {
   words: number;
 };
 
-function toSummary(row: SummaryRow): ArticleSummary {
+function toSummary(row: SummaryRow, images: OwnImages): ArticleSummary {
   return {
     slug: row.slug,
     title: row.title,
     excerpt: row.excerpt,
     metaTitle: row.meta_title,
     metaDescription: row.meta_description,
-    headerImageUrl: row.header_image_url,
+    headerImageUrl: ownImageUrl(row.header_image_url, images),
     publishedAt: row.published_at,
     updatedAt: row.updated_at,
     words: Number(row.words),
@@ -109,7 +117,10 @@ export async function listArticles(): Promise<ArticleSummary[]> {
       `SELECT ${SUMMARY_COLUMNS} FROM articles WHERE ${LISTED}
        ORDER BY published_at DESC NULLS LAST, received_at DESC`,
     );
-    return rows.map(toSummary);
+    const images = await ownImages(
+      rankYakImageUrls(...rows.map((r) => r.header_image_url)),
+    );
+    return rows.map((row) => toSummary(row, images));
   } catch (error) {
     return readFailed(error, []);
   }
@@ -130,7 +141,14 @@ export const getArticle = cache(async function getArticle(
       [slug],
     );
     const row = rows[0];
-    return row ? { ...toSummary(row), html: row.html ?? "" } : undefined;
+    if (!row) return undefined;
+    const images = await ownImages(
+      rankYakImageUrls(row.header_image_url, row.html),
+    );
+    return {
+      ...toSummary(row, images),
+      html: withOwnImages(row.html ?? "", images),
+    };
   } catch (error) {
     return readFailed(error, undefined);
   }

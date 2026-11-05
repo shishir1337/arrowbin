@@ -1,5 +1,6 @@
 import { createHash, timingSafeEqual } from "node:crypto";
 import { revalidatePath } from "next/cache";
+import { ownImages, rankYakImageUrls } from "@/lib/article-images";
 import {
   type ArticleStatus,
   forgetLiveSlugs,
@@ -189,6 +190,17 @@ export async function POST(request: Request) {
       status as ArticleStatus,
     );
 
+    // Only a live article has a public URL. For a draft or an archived one,
+    // RankYak falls back to the blog URL set on its side.
+    const live = status === "published" && article.archived_at === null;
+
+    // Copy its images to this site now, so its pages show them from
+    // arrowbin.com from their first render. (A failed copy is logged and
+    // retried when a page that shows the image renders.)
+    if (live) {
+      await ownImages(rankYakImageUrls(article.header_image_url, article.html));
+    }
+
     // Pages are prerendered and cached: mark every page that shows the
     // article as stale, so the next visit renders it fresh.
     const paths = ["/blog", `/blog/${article.slug}`];
@@ -200,9 +212,6 @@ export async function POST(request: Request) {
     for (const path of paths) revalidatePath(path);
     await purgeEdgeCache(paths);
 
-    // Only a live article has a public URL. For a draft or an archived one,
-    // RankYak falls back to the blog URL set on its side.
-    const live = status === "published" && article.archived_at === null;
     return json(live ? { url: `${SITE_URL}/blog/${article.slug}` } : {});
   } catch (error) {
     console.error("[rankyak-webhook]", error);

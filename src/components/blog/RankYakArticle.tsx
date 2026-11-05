@@ -46,6 +46,10 @@ export function RankYakArticle({
   const label = (n: number) => String(n).padStart(2, "0");
   const body = prepareArticleHtml(article.html);
   const toc = body.toc;
+  // Copied to this site (a /blog/images path) unless the copy failed; then
+  // RankYak's own URL, shown as is.
+  const headerImage = article.headerImageUrl;
+  const remoteHeader = headerImage ? /^https?:\/\//.test(headerImage) : false;
 
   return (
     <>
@@ -60,7 +64,9 @@ export function RankYakArticle({
             dateModified: post.updated ?? post.date,
             category: post.category,
             wordCount: article.words || undefined,
-            image: article.headerImageUrl ?? undefined,
+            image: headerImage
+              ? new URL(headerImage, site.url).toString()
+              : undefined,
           }),
         ]}
       />
@@ -100,16 +106,16 @@ export function RankYakArticle({
               ) : null}
             </p>
           </div>
-          {article.headerImageUrl ? (
+          {headerImage ? (
             // Shown whole (contained), never cropped: its size isn't known
             // ahead, and the fixed frame keeps the layout from shifting.
             <div className="svh-fade relative mt-12 aspect-[16/9] overflow-hidden rounded-[2rem] bg-frost">
               <Image
-                src={article.headerImageUrl}
+                src={headerImage}
                 alt={article.title}
                 fill
                 priority
-                unoptimized
+                unoptimized={remoteHeader}
                 sizes="(min-width: 1600px) 1500px, 94vw"
                 className="object-contain"
               />

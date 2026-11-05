@@ -76,8 +76,10 @@ async function Cover({
 }) {
   if (!post.image || post.image.pending) return null;
   const svg = post.image.src.endsWith(".svg");
-  // A RankYak article's header image lives on another host: shown as is, from
-  // that host, with no optimizer, blur or preload.
+  // A RankYak article's header image is copied to /blog/images and goes
+  // through the optimizer (with no blur: there is none generated for it).
+  // Until it is copied it stays on RankYak's host: shown as is, from that
+  // host, with no optimizer, blur or preload.
   const remote = /^https?:\/\//.test(post.image.src);
   const blur = svg || remote ? undefined : await getBlurDataURL(post.image.src);
   const preloadWide = wide && !svg && !remote;
